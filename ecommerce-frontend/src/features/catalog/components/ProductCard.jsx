@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/Image';
 import { Rating } from '@/components/ui/Rating';
@@ -9,6 +8,7 @@ import { primaryImage, textureImage } from '@/lib/productImage';
 import { useCart } from '@/features/cart';
 import { useT } from '@/features/i18n';
 import { WishlistToggle } from '@/features/wishlist';
+import { setActiveTexture, useIsTextureActive } from '../activeTexture';
 
 /**
  * Every packshot sits inset on the same warm stone ground. Multiply blending
@@ -17,9 +17,6 @@ import { WishlistToggle } from '@/features/wishlist';
  */
 const PACKSHOT = 'p-[11%] mix-blend-multiply';
 
-/** How long the texture stays up after the finger lifts. */
-const TEXTURE_LINGER_MS = 1500;
-
 const GRID_SIZES = '(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw';
 
 // A compact pill beside the price, as on Olaplex's grid, at every width.
@@ -27,10 +24,10 @@ const PILL =
   'relative z-10 inline-flex h-8 shrink-0 items-center justify-center rounded-full border border-content px-3.5 sm:h-9 sm:px-4 text-[0.625rem] sm:text-[0.6875rem] font-semibold tracking-[0.12em] uppercase transition-colors hover:bg-content hover:text-content-inverse disabled:pointer-events-none disabled:opacity-40';
 
 /**
- * Catalog tile: packshot on stone, and on hover the formula's texture fades
- * in so a shopper sees what the cream, gel or oil actually looks like. On
- * touch screens the same swap happens while a finger rests on the tile, so
- * dragging through the grid flashes each formula, as on Olaplex.
+ * Catalog tile: packshot on stone, and when the pointer or a finger reaches
+ * the tile the formula's texture cross-fades in, so a shopper sees what the
+ * cream, gel or oil actually looks like. The texture stays until the shopper
+ * moves onto another tile, which then takes it over (see activeTexture.js).
  * Products with a size or colour axis send the shopper to the detail page to
  * choose, rather than guessing a variant on their behalf.
  *
@@ -52,27 +49,15 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
   // The texture shot if there is one, else a second, genuinely different photo.
   const hoverImage =
     textureImage(product) ?? product.images.find((name) => name !== cardImage) ?? null;
-  const [isTouched, setIsTouched] = useState(false);
-  const lingerRef = useRef(null);
-  useEffect(() => () => window.clearTimeout(lingerRef.current), []);
-  const release = () => {
-    window.clearTimeout(lingerRef.current);
-    lingerRef.current = window.setTimeout(() => setIsTouched(false), TEXTURE_LINGER_MS);
-  };
-  const touchHandlers = hoverImage
-    ? {
-        onTouchStart: () => {
-          window.clearTimeout(lingerRef.current);
-          setIsTouched(true);
-        },
-        onTouchEnd: release,
-        onTouchCancel: release,
-      }
+  const isTextureShown = useIsTextureActive(product.id) && Boolean(hoverImage);
+  const showTexture = () => setActiveTexture(product.id);
+  const pointerHandlers = hoverImage
+    ? { onMouseEnter: showTexture, onTouchStart: showTexture, onFocus: showTexture }
     : {};
 
   return (
     <article
-      {...touchHandlers}
+      {...pointerHandlers}
       className={cn(
         'group bg-surface-sunken relative flex h-full flex-col [-webkit-touch-callout:none]',
         isFlush ? 'p-4 sm:p-6' : 'rounded-card p-4 sm:p-5',
@@ -112,8 +97,8 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
           isTransparent
           imgClassName={cn(
             PACKSHOT,
-            'ease-out-soft transition duration-700',
-            hoverImage && (isTouched ? 'opacity-0' : 'group-hover:opacity-0'),
+            'ease-out-soft transition-opacity duration-500',
+            isTextureShown && 'opacity-0',
           )}
         />
         {hoverImage && (
@@ -121,7 +106,7 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
           <span
             className={cn(
               'ease-out-soft absolute inset-0 transition-opacity duration-500',
-              isTouched ? 'opacity-100' : 'opacity-0 group-hover:opacity-100',
+              isTextureShown ? 'opacity-100' : 'opacity-0',
             )}
           >
             <Image
