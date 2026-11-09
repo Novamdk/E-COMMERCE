@@ -54,7 +54,7 @@ const ORIGIN = (
   process.env.SITE_URL ||
   (process.env.VERCEL_PROJECT_PRODUCTION_URL &&
     `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
-  'https://ecommerce-sk.vercel.app'
+  'https://e-commerce-sk.vercel.app'
 ).replace(/\/$/, '');
 
 const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
