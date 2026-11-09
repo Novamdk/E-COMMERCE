@@ -157,7 +157,7 @@ export function Footer() {
         </div>
 
         <div className="border-content-inverse/15 mt-16 flex flex-col gap-6 border-t pt-8 sm:flex-row sm:items-end sm:justify-between">
-          <BrandMark size="sm" />
+          <BrandMark size="sm" isInverse />
           <div className="text-content-inverse/50 space-y-1 text-xs sm:text-right">
             <p>© {new Date().getFullYear()} SK Envision. All rights reserved.</p>
             <p>Demo storefront — no real orders are placed and no payments are processed.</p>

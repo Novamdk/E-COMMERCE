@@ -70,7 +70,7 @@ export function ProductCard({ product, isPriority = false }) {
 
         <div className="pointer-events-none absolute inset-x-3 top-3 flex items-start justify-between gap-2">
           <span className="flex flex-wrap gap-1.5">
-            {product.isBestSeller && <Badge variant="light">Bestseller</Badge>}
+            {product.isBestSeller && <Badge variant="gold">Bestseller</Badge>}
             {saving > 0 && <Badge variant="sale">Save {saving}%</Badge>}
             {isOutOfStock && <Badge variant="neutral">Sold out</Badge>}
           </span>

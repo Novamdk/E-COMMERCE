@@ -1,35 +1,38 @@
 import { Link } from 'react-router-dom';
+import { Image } from '@/components/ui/Image';
 import { ROUTES } from '@/lib/constants';
 import { cn } from '@/lib/cn';
 
 const SIZES = {
-  sm: 'text-lg tracking-[0.3em]',
-  md: 'text-xl tracking-[0.32em] lg:text-2xl',
-  lg: 'text-3xl tracking-[0.34em]',
+  sm: 'w-16',
+  md: 'w-16 lg:w-[5.5rem]',
+  lg: 'w-28',
 };
 
 /**
- * Typographic wordmark that doubles as the home link: the brand name in the
- * display serif, set in widely tracked capitals. Colour is inherited, so it
- * works on light and dark surfaces alike.
+ * The SK Envision monogram logo, doubling as the home link. The artwork is
+ * black on transparent; `isInverse` flips it to white for dark surfaces such
+ * as the footer.
  *
- * The negative right margin cancels the trailing letter-space so the mark
- * centres optically, not just mathematically.
- *
- * @param {{ size?: 'sm'|'md'|'lg', className?: string }} props
+ * @param {{ size?: 'sm'|'md'|'lg', isInverse?: boolean, className?: string }} props
  */
-export function BrandMark({ size = 'md', className }) {
+export function BrandMark({ size = 'md', isInverse = false, className }) {
   return (
     <Link
       to={ROUTES.HOME}
-      className={cn(
-        'font-display -mr-[0.3em] inline-block leading-none whitespace-nowrap uppercase',
-        SIZES[size] ?? SIZES.md,
-        className,
-      )}
+      className={cn('inline-block shrink-0', SIZES[size] ?? SIZES.md, className)}
       aria-label="SK Envision — home"
     >
-      SK Envision
+      <Image
+        name="brand-mark"
+        alt=""
+        sizes="7rem"
+        ratio="aspect-[400/319]"
+        fit="contain"
+        priority
+        isTransparent
+        imgClassName={cn(isInverse && 'invert')}
+      />
     </Link>
   );
 }

@@ -32,7 +32,7 @@ export function Hero({ hero }) {
 
       <Container width="wide" className="flex h-[34rem] items-center sm:h-[38rem] lg:h-[44rem]">
         <div className="text-content-inverse max-w-lg">
-          <p className="text-[0.6875rem] font-semibold tracking-[0.2em] uppercase opacity-80">
+          <p className="text-gold-300 text-[0.6875rem] font-semibold tracking-[0.2em] uppercase">
             {hero.eyebrow}
           </p>
           <h1 className="font-display text-display sm:text-display-lg mt-5">{hero.heading}</h1>

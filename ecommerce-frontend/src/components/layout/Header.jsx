@@ -61,7 +61,7 @@ export function Header() {
 
       <header className="border-border bg-surface/90 sticky top-0 z-40 border-b backdrop-blur-lg">
         <Container width="wide">
-          <div className="grid h-16 grid-cols-[1fr_auto_1fr] items-center gap-4 lg:h-20">
+          <div className="grid h-[4.5rem] grid-cols-[1fr_auto_1fr] items-center gap-4 lg:h-24">
             <div className="flex items-center">
               <button
                 type="button"

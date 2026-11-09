@@ -36,7 +36,18 @@
   --color-ink-800: oklch(0.263 0.007 85);
   --color-ink-900: oklch(0.184 0.006 85);
 
-  /* Terracotta -- sale, urgency, the single warm accent. */
+  /* Champagne gold -- the highlight colour, taken from the gold foil on the
+     SK packaging. Used sparingly: eyebrows, stars, bestseller tags, the
+     winning slice of the wheel. */
+  --color-gold-50: oklch(0.975 0.018 85);
+  --color-gold-100: oklch(0.94 0.04 85);
+  --color-gold-300: oklch(0.84 0.085 82);
+  --color-gold-400: oklch(0.77 0.11 80);
+  --color-gold-500: oklch(0.7 0.12 78);
+  --color-gold-600: oklch(0.6 0.11 74);
+  --color-gold-700: oklch(0.5 0.09 70);
+
+  /* Terracotta -- sale, urgency. */
   --color-accent-50: oklch(0.969 0.017 50);
   --color-accent-100: oklch(0.932 0.04 48);
   --color-accent-400: oklch(0.724 0.124 42);

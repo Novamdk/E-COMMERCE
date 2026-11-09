@@ -72,11 +72,14 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
             const [lx, ly] = pointAt(middle, LABEL_RADIUS);
             return (
               <g key={`${label}-${start}`}>
-                <path d={slicePath(start, start + SLICE)} fill={FILLS[index % 2]} />
+                <path
+                  d={slicePath(start, start + SLICE)}
+                  fill={index === SPIN_WHEEL.WIN_INDEX ? 'var(--color-gold-400)' : FILLS[index % 2]}
+                />
                 <text
                   x={lx}
                   y={ly}
-                  fill={INKS[index % 2]}
+                  fill={index === SPIN_WHEEL.WIN_INDEX ? 'var(--color-brand-900)' : INKS[index % 2]}
                   fontSize="18"
                   fontWeight="600"
                   textAnchor="middle"

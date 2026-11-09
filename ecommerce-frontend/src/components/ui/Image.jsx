@@ -20,6 +20,7 @@ const FITS = {
  * @param {boolean} [props.priority] eager-load above-the-fold images
  * @param {'cover'|'contain'} [props.fit]
  * @param {string} [props.ratio] Tailwind aspect class, e.g. "aspect-square"
+ * @param {boolean} [props.isTransparent] no backdrop or shimmer, for artwork with an alpha channel such as the logo
  */
 export function Image({
   name,
@@ -30,6 +31,7 @@ export function Image({
   ratio,
   className,
   imgClassName,
+  isTransparent = false,
 }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const { src, srcSet, width, height } = getImage(name);
@@ -47,8 +49,17 @@ export function Image({
   }
 
   return (
-    <div className={cn('bg-surface-sunken relative overflow-hidden', ratio, className)}>
-      {!isLoaded && <div className="bg-ink-200/60 absolute inset-0 animate-pulse" />}
+    <div
+      className={cn(
+        'relative overflow-hidden',
+        !isTransparent && 'bg-surface-sunken',
+        ratio,
+        className,
+      )}
+    >
+      {!isLoaded && !isTransparent && (
+        <div className="bg-ink-200/60 absolute inset-0 animate-pulse" />
+      )}
       <img
         src={src}
         srcSet={srcSet}

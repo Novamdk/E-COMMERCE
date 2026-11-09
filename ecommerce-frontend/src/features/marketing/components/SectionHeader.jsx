@@ -20,7 +20,7 @@ export function SectionHeader({ id, title, eyebrow, link, isInverse = false, cla
         <p
           className={cn(
             'mb-3 text-[0.6875rem] font-semibold tracking-[0.18em] uppercase',
-            isInverse ? 'text-content-inverse/60' : 'text-content-muted',
+            isInverse ? 'text-gold-300' : 'text-gold-600',
           )}
         >
           {eyebrow}
