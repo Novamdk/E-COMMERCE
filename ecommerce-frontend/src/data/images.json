@@ -723,5 +723,14 @@
     "widths": [
       96
     ]
+  },
+  "welcome-gift": {
+    "width": 1120,
+    "height": 1400,
+    "aspect": 0.8,
+    "widths": [
+      600,
+      1120
+    ]
   }
 }

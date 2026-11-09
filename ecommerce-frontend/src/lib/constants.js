@@ -53,8 +53,8 @@ export const SPIN_WHEEL = {
   PROMO_CODE: 'WELCOME25',
   /** First visit only, and not until the shopper has had a look around. */
   OPEN_DELAY_MS: 8000,
-  SPIN_DURATION_S: 4.2,
-  FULL_TURNS: 6,
+  SPIN_DURATION_S: 5.5,
+  FULL_TURNS: 5,
 };
 
 /* ------------------------------ contact ----------------------------- */

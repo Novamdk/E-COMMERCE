@@ -193,6 +193,14 @@ const EDITORIAL = [
 ];
 for (const e of EDITORIAL) manifest.push({ name: e.name, url: UPLOADS + e.file, kind: e.kind });
 
+/* Art produced for the redesign, committed under scripts/source-images. */
+const LOCAL_ART = [
+  // Argan shampoo + hair mask on a stone plinth with a gold ribbon: the
+  // welcome-offer popup image. Generated from the real SK packshots.
+  { name: 'welcome-gift', file: 'scripts/source-images/welcome-gift.jpg', kind: 'editorial' },
+];
+for (const e of LOCAL_ART) manifest.push(e);
+
 /* ---------------- products.json ---------------- */
 const products = rawProducts
   .filter((p) => OVERRIDES[p.id])

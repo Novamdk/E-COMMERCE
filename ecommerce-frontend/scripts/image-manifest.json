@@ -106,17 +106,17 @@
   },
   {
     "name": "retinal-eye-lift-1",
-    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/眼霜3.jpg",
+    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/\u773c\u971c3.jpg",
     "kind": "product"
   },
   {
     "name": "retinal-eye-lift-2",
-    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/眼霜4.jpg",
+    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/\u773c\u971c4.jpg",
     "kind": "product"
   },
   {
     "name": "retinal-eye-lift-3",
-    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/眼霜5-e1784886069428.jpg",
+    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/\u773c\u971c5-e1784886069428.jpg",
     "kind": "product"
   },
   {
@@ -126,12 +126,12 @@
   },
   {
     "name": "retinal-eye-lift-5",
-    "url": "https://skenvisiontime.com/wp-content/uploads/2026/07/眼霜1-removebg-preview-e1784802115150.png",
+    "url": "https://skenvisiontime.com/wp-content/uploads/2026/07/\u773c\u971c1-removebg-preview-e1784802115150.png",
     "kind": "product"
   },
   {
     "name": "retinal-eye-lift-6",
-    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/眼霜6.jpg",
+    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/\u773c\u971c6.jpg",
     "kind": "product"
   },
   {
@@ -393,5 +393,10 @@
     "name": "avatar-4",
     "url": "https://skenvisiontime.com/wp-content/uploads/2023/01/testimonial-09-free-img.jpg",
     "kind": "avatar"
+  },
+  {
+    "name": "welcome-gift",
+    "file": "scripts/source-images/welcome-gift.jpg",
+    "kind": "editorial"
   }
 ]

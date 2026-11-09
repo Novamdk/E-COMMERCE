@@ -24,7 +24,7 @@ export function Testimonials({ testimonials }) {
               <figure className="flex h-full flex-col items-center text-center">
                 <Rating value={testimonial.rating} size="sm" />
 
-                <blockquote className="font-display mt-5 max-w-sm flex-1 text-xl leading-snug sm:text-2xl">
+                <blockquote className="font-display mt-5 font-medium max-w-sm flex-1 text-xl leading-snug sm:text-2xl">
                   “{testimonial.quote}”
                 </blockquote>
 
