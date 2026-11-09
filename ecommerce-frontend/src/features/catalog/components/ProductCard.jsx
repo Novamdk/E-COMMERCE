@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/Image';
 import { Rating } from '@/components/ui/Rating';
@@ -16,6 +16,9 @@ import { WishlistToggle } from '@/features/wishlist';
  * a mixed set of supplier images read as one consistent family.
  */
 const PACKSHOT = 'p-[11%] mix-blend-multiply';
+
+/** How long the texture stays up after the finger lifts. */
+const TEXTURE_LINGER_MS = 1500;
 
 const GRID_SIZES = '(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw';
 
@@ -50,11 +53,20 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
   const hoverImage =
     textureImage(product) ?? product.images.find((name) => name !== cardImage) ?? null;
   const [isTouched, setIsTouched] = useState(false);
+  const lingerRef = useRef(null);
+  useEffect(() => () => window.clearTimeout(lingerRef.current), []);
+  const release = () => {
+    window.clearTimeout(lingerRef.current);
+    lingerRef.current = window.setTimeout(() => setIsTouched(false), TEXTURE_LINGER_MS);
+  };
   const touchHandlers = hoverImage
     ? {
-        onTouchStart: () => setIsTouched(true),
-        onTouchEnd: () => setIsTouched(false),
-        onTouchCancel: () => setIsTouched(false),
+        onTouchStart: () => {
+          window.clearTimeout(lingerRef.current);
+          setIsTouched(true);
+        },
+        onTouchEnd: release,
+        onTouchCancel: release,
       }
     : {};
 
