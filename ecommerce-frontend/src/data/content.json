@@ -1,0 +1,98 @@
+{
+  "brand": {
+    "name": "SK Envision",
+    "tagline": "Natural hair & body care",
+    "email": "Skenvisiontime@yahoo.com"
+  },
+  "hero": {
+    "eyebrow": "Natural ingredients only",
+    "heading": "Clean beauty that actually works",
+    "body": "Premium natural hair and body care, formulated with naturally derived ingredients that nourish, protect and revitalise — without unnecessary harsh chemicals."
+  },
+  "about": {
+    "heading": "About SK Envision",
+    "paragraphs": [
+      "At SK Envision, we are passionate about creating premium natural hair and body care products that inspire confidence and support healthy beauty. We carefully select high-quality, naturally derived ingredients to develop formulas that nourish, protect, and revitalize your skin and hair without unnecessary harsh chemicals.",
+      "Our commitment goes beyond beauty. We believe in clean, sustainable, and ethical skincare by using cruelty-free practices and environmentally responsible packaging whenever possible. Every product is designed to deliver effective results while being gentle enough for everyday use."
+    ]
+  },
+  "ingredients": {
+    "heading": "Natural ingredients only",
+    "body": "Our products are crafted with carefully selected natural ingredients that nourish, protect, and restore your skin and hair. Rich in botanical extracts, vitamins, and essential nutrients, each formula is designed to deliver gentle yet effective results without harsh chemicals.",
+    "body2": "We believe in clean beauty that supports healthy skin, stronger hair, and everyday confidence while respecting nature."
+  },
+  "testimonials": [
+    {
+      "id": "t1",
+      "quote": "Amazing shampoo and conditioner. I tried it for the first time with my hair and it really works — makes my hair soft and shiny, with my curls defined.",
+      "name": "Danielle R.",
+      "meta": "Argan Oil Shampoo & Conditioner Duo",
+      "avatar": "avatar-1",
+      "rating": 5
+    },
+    {
+      "id": "t2",
+      "quote": "I love this stuff. It is part of my routine every time I style my hair. I have thick, frizzy hair that soaks up product, but a little goes a long way — the first bottle lasted me five months.",
+      "name": "Maya T.",
+      "meta": "Organic Hair Regrowth Serum",
+      "avatar": "avatar-2",
+      "rating": 5
+    },
+    {
+      "id": "t3",
+      "quote": "Moroccan argan oil hair mask for dry damaged hair — nourishing, hydrating and a must-have. My hair feels completely different after two uses.",
+      "name": "Priya S.",
+      "meta": "Protein Repair Hair Mask",
+      "avatar": "avatar-3",
+      "rating": 5
+    },
+    {
+      "id": "t4",
+      "quote": "The dark spot cream is the only thing that has visibly evened out my skin tone. Six weeks in and the difference around my cheeks is obvious.",
+      "name": "Alicia M.",
+      "meta": "Dark Spot Collagen Cream",
+      "avatar": "avatar-4",
+      "rating": 5
+    }
+  ],
+  "faq": [
+    {
+      "q": "Are your products really all natural?",
+      "a": "Every formula is built on naturally derived ingredients — botanical extracts, vitamins and essential nutrients. We leave out the harsh chemicals that strip hair and irritate skin."
+    },
+    {
+      "q": "Do you test on animals?",
+      "a": "No. We follow cruelty-free practices across the whole range and use environmentally responsible packaging wherever it is available to us."
+    },
+    {
+      "q": "How long until I see results?",
+      "a": "It depends on the product. The eyelash serum is formulated for visible growth in about four weeks; hair masks and conditioners usually show a difference after two or three washes."
+    },
+    {
+      "q": "What is your return policy?",
+      "a": "Unopened products can be returned within 30 days of delivery for a full refund. If a product arrives damaged, contact us and we will replace it."
+    },
+    {
+      "q": "Do you ship internationally?",
+      "a": "Yes. Domestic orders over $75 ship free. International rates are calculated at checkout based on destination and weight."
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Naturally derived",
+      "body": "Botanical extracts, vitamins and essential nutrients — no harsh chemicals."
+    },
+    {
+      "title": "Cruelty-free",
+      "body": "Never tested on animals, with responsible packaging wherever possible."
+    },
+    {
+      "title": "Free shipping over $75",
+      "body": "Flat $6.90 shipping below that, calculated at checkout."
+    },
+    {
+      "title": "30-day returns",
+      "body": "Unopened products refunded in full within 30 days of delivery."
+    }
+  ]
+}

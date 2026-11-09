@@ -1,0 +1,18 @@
+node_modules
+dist
+dist-ssr
+.cache
+*.local
+.DS_Store
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
+.vite
+.vercel
+
+# NOTE: public/img is deliberately NOT ignored. Those 172 AVIFs are the site's
+# product imagery and `pnpm run images` is not part of the build, so Vercel
+# serves exactly what is committed here. The 62 MB of source originals it
+# downloads live in .cache/ and are ignored above.

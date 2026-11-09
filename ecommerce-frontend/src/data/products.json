@@ -1,0 +1,452 @@
+[
+  {
+    "id": "5091",
+    "slug": "dark-spot-beauty-package",
+    "title": "Dark Spot Beauty Package",
+    "subtitle": "Our best seller",
+    "description": "",
+    "excerpt": "",
+    "price": 14900,
+    "compareAtPrice": 26900,
+    "category": "dark-spot",
+    "categories": [
+      "dark-spot",
+      "eye-cream-anti-aging-organic",
+      "face-lifting-collagen-cream",
+      "packages"
+    ],
+    "images": [
+      "dark-spot-beauty-package-0",
+      "dark-spot-beauty-package-1",
+      "dark-spot-beauty-package-2",
+      "dark-spot-beauty-package-3"
+    ],
+    "rating": 5,
+    "reviewCount": 1033,
+    "stock": 10,
+    "variants": {
+      "sizes": [],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": true
+  },
+  {
+    "id": "4824",
+    "slug": "hair-care-package",
+    "title": "Hair Care Package Deal",
+    "subtitle": "Complete 3-step routine",
+    "description": "Get the ultimate hair care combo designed to nourish, protect, and restore your hair.\n\nSubscribe today and enjoy an additional 15% OFF on all products.\n\nThis is a limited-time offer. Grab yours before it’s gone!",
+    "excerpt": "Complete hair care solution with premium products.\n\nLimited-time deal – Save big today!",
+    "price": 12900,
+    "compareAtPrice": 22900,
+    "category": "color-shampoo-hair",
+    "categories": [
+      "color-shampoo-hair",
+      "hair-mask",
+      "hair-serum",
+      "packages"
+    ],
+    "images": [
+      "hair-care-package-0",
+      "hair-care-package-1",
+      "hair-care-package-2",
+      "hair-care-package-3"
+    ],
+    "rating": 4.5,
+    "reviewCount": 948,
+    "stock": 26,
+    "variants": {
+      "sizes": [],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": true
+  },
+  {
+    "id": "2628",
+    "slug": "argan-shampoo-conditioner",
+    "title": "Argan Oil Shampoo & Conditioner Duo",
+    "subtitle": "For silky smooth hair",
+    "description": "Elevate your haircare routine with our Shampoo & Conditioner for Silky Smooth, the perfect duo for all hair types. Infused with the nourishing benefits of natural argan oil, this powerful combination works together to cleanse, condition, and rejuvenate your hair, leaving it incredibly soft, smooth, and radiant.\n\nStart your journey to healthier hair with our shampoo, designed to gently cleanse while delivering essential nutrients to each strand. The natural argan oil in our formula deeply penetrates the hair, providing moisture and shine that lasts. Say goodbye to frizz and dullness, and hello to vibrant, silky hair that feels as good as it looks.\n\nFollow up with our conditioner, a rich, hydrating treatment that locks in moisture and enhances the effects of the shampoo. This conditioner detangles effortlessly, making your hair more manageable and easy to style. Whether your hair is curly, straight, or somewhere in between, this duo adapts to your unique texture, bringing out its natural beauty.\n\nExperience the luxury of silky smooth hair every day. Treat yourself to our Shampoo & Conditioner for Silky Smooth, and enjoy the benefits of natural argan oil in every wash. Your hair will be softer, shinier, and more beautiful than ever before. Don’t wait—transform your hair today!",
+    "excerpt": "Elevate your haircare routine with our Shampoo & Conditioner for Silky Smooth, the perfect duo for all hair types. Infused with the nourishing benefits of natur",
+    "price": 3995,
+    "compareAtPrice": 6995,
+    "category": "color-shampoo-hair",
+    "categories": [
+      "color-shampoo-hair",
+      "hair-mask",
+      "hair-serum"
+    ],
+    "images": [
+      "argan-shampoo-conditioner-0",
+      "argan-shampoo-conditioner-1",
+      "argan-shampoo-conditioner-2",
+      "argan-shampoo-conditioner-3",
+      "argan-shampoo-conditioner-4"
+    ],
+    "rating": 5,
+    "reviewCount": 895,
+    "stock": 11,
+    "variants": {
+      "sizes": [
+        "8 oz duo",
+        "17 oz duo"
+      ],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": false
+  },
+  {
+    "id": "2621",
+    "slug": "argan-shampoo",
+    "title": "Argan Oil Shampoo",
+    "subtitle": "All hair types",
+    "description": "SK Envision’s Shampoo & Conditioner for Silky Smooth Hair, suitable for all hair types. Enriched with natural Argan Oil, this luxurious haircare duo is your secret to achieving irresistibly smooth, shiny locks that radiate with health and vitality.\n\nOur gentle yet effective Shampoo cleanses the hair and scalp, removing impurities and buildup while infusing strands with nourishing Argan Oil. Say goodbye to dullness and hello to hair that feels soft, silky, and full of life after every wash.\n\nBut the benefits don’t stop there – our nourishing Conditioner works to hydrate and detangle, leaving hair more manageable and easier to style. Experience the transformative power of Argan Oil as it seals in moisture, smooths frizz, and enhances shine for salon-worthy results at home.\n\nIndulge in the luxurious aroma and velvety texture of SK Envision’s Shampoo & Conditioner for Silky Smooth Hair. Treat yourself to the ultimate pampering experience and unlock the secret to beautiful, healthy hair that looks and feels its best every day.\n\nTransform your haircare routine with SK Envision’s Shampoo & Conditioner for Silky Smooth Hair, and discover the difference that natural Argan Oil can make for your locks. Say hello to hair that’s silky, smooth, and simply stunning.",
+    "excerpt": "SK Envision’s Shampoo & Conditioner for Silky Smooth Hair, suitable for all hair types. Enriched with natural Argan Oil, this luxurious haircare duo is your sec",
+    "price": 2195,
+    "compareAtPrice": 3495,
+    "category": "color-shampoo-hair",
+    "categories": [
+      "color-shampoo-hair",
+      "hair-mask",
+      "hair-serum"
+    ],
+    "images": [
+      "argan-shampoo-0",
+      "argan-shampoo-conditioner-3",
+      "argan-shampoo-conditioner-2",
+      "argan-shampoo-conditioner-1",
+      "argan-shampoo-conditioner-4",
+      "argan-shampoo-1"
+    ],
+    "rating": 4.1,
+    "reviewCount": 988,
+    "stock": 14,
+    "variants": {
+      "sizes": [
+        "8 oz",
+        "17 oz"
+      ],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": false
+  },
+  {
+    "id": "2547",
+    "slug": "lash-growth-serum",
+    "title": "Collagen Eyelash Growth Serum",
+    "subtitle": "Lashes & brows in 4 weeks",
+    "description": "EYE LASHES SERUM LENGTHEN AND STRENGTHEN your eyelashes and brows to achieve alluring eyes naturally. Our nourishing eyelash growth serum promotes new eyelash growth and fortifies existing hairs for bold, dramatic looking eyes in as little as 4 weeks. This advanced formula eye lash growing serum provides a magical boost to thin, sparse and brittle lashes.",
+    "excerpt": "EYE LASHES SERUM LENGTHEN AND STRENGTHEN your eyelashes and brows to achieve alluring eyes naturally. Our nourishing eyelash growth serum promotes new eyelash g",
+    "price": 3895,
+    "compareAtPrice": 8995,
+    "category": "eye-lashes-growth-serum",
+    "categories": [
+      "eye-lashes-growth-serum"
+    ],
+    "images": [
+      "lash-growth-serum-0",
+      "lash-growth-serum-1",
+      "lash-growth-serum-2",
+      "lash-growth-serum-3",
+      "lash-growth-serum-4"
+    ],
+    "rating": 5,
+    "reviewCount": 953,
+    "stock": 20,
+    "variants": {
+      "sizes": [],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": true
+  },
+  {
+    "id": "2394",
+    "slug": "retinal-eye-lift",
+    "title": "Retinal ReSculpt Eye Lift Treatment",
+    "subtitle": "Encapsulated vitamin A",
+    "description": "Elevate your skincare routine with the Murad Retinal ReSculpt Eye Lift Treatment from SK Envision. Infused with potent encapsulated Vitamin A, this advanced anti-aging eye cream is your solution to sagging skin and tired eyes.\n\nExperience the power of science and nature combined as this luxurious formula lifts and tightens, restoring youthful contours to your delicate eye area. Say goodbye to fine lines and wrinkles as they are visibly diminished, replaced by smooth, rejuvenated skin.\n\nBut the benefits don’t end there. SK Envision’s Retinal ReSculpt Eye Lift Treatment goes beyond anti-aging, delivering deep hydration to nourish and revitalize your skin. Feel refreshed and radiant as your eyes regain their natural luminosity.\n\nDon’t let aging hold you back. Embrace the confidence that comes with youthful, vibrant eyes. Try SK Envision’s Murad Retinal ReSculpt Eye Lift Treatment today and see the difference for yourself.",
+    "excerpt": "Elevate your skincare routine with the Murad Retinal ReSculpt Eye Lift Treatment from SK Envision. Infused with potent encapsulated Vitamin A, this advanced ant",
+    "price": 4895,
+    "compareAtPrice": 8995,
+    "category": "dark-spot",
+    "categories": [
+      "dark-spot",
+      "eye-cream-anti-aging-organic",
+      "face-lifting-collagen-cream"
+    ],
+    "images": [
+      "retinal-eye-lift-0",
+      "retinal-eye-lift-1",
+      "retinal-eye-lift-2",
+      "retinal-eye-lift-3",
+      "retinal-eye-lift-4",
+      "retinal-eye-lift-5",
+      "retinal-eye-lift-6"
+    ],
+    "rating": 5,
+    "reviewCount": 732,
+    "stock": 18,
+    "variants": {
+      "sizes": [],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": false
+  },
+  {
+    "id": "1958",
+    "slug": "dark-spot-collagen-cream",
+    "title": "Dark Spot Collagen Cream",
+    "subtitle": "Evens tone & fades spots",
+    "description": "SK Envision’s Dark Spot Collagen Cream, your secret weapon against uneven skin tone and lackluster complexion. Formulated with precision and care, this potent cream targets dark spots while boosting collagen production for a radiant, youthful glow.\n\nHarnessing the power of advanced ingredients, our Dark Spot Collagen Cream penetrates deep into the skin, effectively fading discoloration and hyperpigmentation. Say goodbye to stubborn dark spots as they gradually lighten, revealing a more even, luminous complexion.\n\nBut that’s not all – our unique formula is enriched with collagen-boosting agents, working to restore elasticity and firmness to your skin. Watch as fine lines and wrinkles diminish, replaced by plump, smooth skin that exudes vitality.\n\nExperience the luxury of SK Envision’s Dark Spot Collagen Cream as it revitalizes and rejuvenates your complexion, leaving you with a renewed sense of confidence. Embrace your skin’s natural beauty and radiance with every application.\n\nDon’t let dark spots dull your sparkle. Transform your skin with SK Envision’s Dark Spot Collagen Cream and unveil a brighter, more youthful-looking complexion today.",
+    "excerpt": "SK Envision’s Dark Spot Collagen Cream, your secret weapon against uneven skin tone and lackluster complexion. Formulated with precision and care, this potent c",
+    "price": 4895,
+    "compareAtPrice": 8995,
+    "category": "dark-spot",
+    "categories": [
+      "dark-spot",
+      "eye-cream-anti-aging-organic",
+      "face-lifting-collagen-cream"
+    ],
+    "images": [
+      "dark-spot-collagen-cream-0",
+      "dark-spot-collagen-cream-1",
+      "dark-spot-collagen-cream-2",
+      "dark-spot-collagen-cream-3",
+      "dark-spot-collagen-cream-4",
+      "dark-spot-collagen-cream-5",
+      "dark-spot-collagen-cream-6"
+    ],
+    "rating": 5,
+    "reviewCount": 1140,
+    "stock": 20,
+    "variants": {
+      "sizes": [],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": false
+  },
+  {
+    "id": "1773",
+    "slug": "color-dye-shampoo",
+    "title": "Magic Hair Dye Color Shampoo",
+    "subtitle": "Salon colour at home",
+    "description": "SK Envision’s Magic Hair Dye Colors Shampoo, the ultimate solution for vibrant, salon-quality hair color in the comfort of your own home. Say goodbye to dull, lackluster locks and hello to dazzling, head-turning hues with every wash.\n\nFormulated with a blend of nourishing ingredients and advanced color technology, our Magic Hair Dye Colors Shampoo effortlessly revitalizes your hair while depositing rich, long-lasting color. Whether you’re craving a bold new look or simply want to enhance your natural shade, this shampoo has you covered.\n\nExperience the magic as your hair transforms before your eyes, becoming smoother, shinier, and more vibrant with each use. Say farewell to fading color and hello to locks that radiate brilliance and vitality.\n\nBut the benefits don’t stop there. SK Envision’s Magic Hair Dye Colors Shampoo is gentle enough for daily use and suitable for all hair types. Infused with conditioning agents, it nourishes and strengthens your strands, leaving them soft, manageable, and full of life.\n\nIndulge in the luxury of salon-quality hair color at home with SK Envision’s Magic Hair Dye Colors Shampoo. Embrace your individuality and express yourself with confidence, knowing that your hair looks and feels its best every day.\n\nTransform your haircare routine and unlock a world of endless color possibilities with SK Envision’s Magic Hair Dye Colors Shampoo. Say hello to vibrant, show-stopping hair that captivates and enchants wherever you go.",
+    "excerpt": "SK Envision’s Magic Hair Dye Colors Shampoo, the ultimate solution for vibrant, salon-quality hair color in the comfort of your own home. Say goodbye to dull, l",
+    "price": 3995,
+    "compareAtPrice": 7995,
+    "category": "color-shampoo-hair",
+    "categories": [
+      "color-shampoo-hair",
+      "hair-mask",
+      "hair-serum"
+    ],
+    "images": [
+      "color-dye-shampoo-0",
+      "color-dye-shampoo-1",
+      "color-dye-shampoo-2",
+      "color-dye-shampoo-3",
+      "color-dye-shampoo-4",
+      "color-dye-shampoo-5",
+      "color-dye-shampoo-0",
+      "color-dye-shampoo-6",
+      "color-dye-shampoo-7"
+    ],
+    "rating": 5,
+    "reviewCount": 910,
+    "stock": 24,
+    "variants": {
+      "sizes": [],
+      "colors": [
+        "Chest Nut Brown",
+        "Black",
+        "Blond",
+        "Red Wine",
+        "Dark Brown Coffee 25"
+      ]
+    },
+    "tags": [],
+    "isBestSeller": false
+  },
+  {
+    "id": "1550",
+    "slug": "collagen-anti-aging-cream",
+    "title": "Collagen Anti-Aging Wrinkle Cream",
+    "subtitle": "Firms & smooths",
+    "description": "SK Envision’s Collagen Cream Anti-Aging Wrinkle Solution, your key to youthful, radiant skin at any age. Infused with the power of collagen, this advanced formula targets signs of aging, leaving your complexion smoother, firmer, and more youthful-looking than ever before.\n\nExperience the transformative effects as our Collagen Cream deeply hydrates and nourishes your skin, reducing the appearance of fine lines and wrinkles. Watch as years seem to fade away, replaced by a renewed, rejuvenated complexion that glows with vitality.\n\nBut that’s not all – our innovative formula also works to improve skin elasticity and firmness, restoring a youthful contour to your face. Say goodbye to sagging skin and hello to a lifted, more defined appearance that exudes confidence and radiance.\n\nSK Envision’s Collagen Cream is more than just an anti-aging treatment – it’s a daily indulgence for your skin, providing the nourishment and care it deserves. Pamper yourself with luxurious hydration and watch as your skin becomes smoother, softer, and more luminous with each use.\n\nDon’t let the passage of time dictate your beauty. Embrace the power of collagen and unlock a younger-looking complexion with SK Envision’s Collagen Cream Anti-Aging Wrinkle Solution. Transform your skincare routine and reveal the best version of yourself every day.",
+    "excerpt": "SK Envision’s Collagen Cream Anti-Aging Wrinkle Solution, your key to youthful, radiant skin at any age. Infused with the power of collagen, this advanced formu",
+    "price": 4895,
+    "compareAtPrice": 8995,
+    "category": "dark-spot",
+    "categories": [
+      "dark-spot",
+      "eye-cream-anti-aging-organic",
+      "face-lifting-collagen-cream"
+    ],
+    "images": [
+      "collagen-anti-aging-cream-0",
+      "collagen-anti-aging-cream-1",
+      "collagen-anti-aging-cream-2",
+      "collagen-anti-aging-cream-3",
+      "collagen-anti-aging-cream-4",
+      "collagen-anti-aging-cream-5",
+      "collagen-anti-aging-cream-6"
+    ],
+    "rating": 5,
+    "reviewCount": 994,
+    "stock": 5,
+    "variants": {
+      "sizes": [],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": false
+  },
+  {
+    "id": "29",
+    "slug": "hair-regrowth-serum",
+    "title": "Organic Hair Regrowth Serum",
+    "subtitle": "Root-to-tip density",
+    "description": "SK Envision’s Hair Serum for Regrowth of Hair, a revolutionary solution crafted from organic and natural ingredients to nourish and rejuvenate your hair from root to tip. Say goodbye to thinning, lifeless locks and hello to a fuller, healthier mane with our potent serum.\n\nFormulated with a blend of botanical extracts and essential oils, our Hair Serum penetrates deep into the scalp, stimulating hair follicles and promoting new growth. Watch as sparse areas fill in and hair becomes thicker, stronger, and more resilient with each application.\n\nBut the benefits don’t end there – our unique formula is free from harsh chemicals and artificial additives, ensuring gentle yet effective care for your hair and scalp. Say farewell to dryness, breakage, and damage as your locks are enveloped in natural hydration and protection.\n\nExperience the luxury of SK Envision’s Hair Serum as it transforms your haircare routine into a rejuvenating ritual. Infused with the power of nature, it leaves your hair soft, silky, and visibly healthier, with a radiant shine that commands attention.\n\nIndulge in the beauty of organic and natural ingredients with SK Envision’s Hair Serum for Regrowth of Hair. Unlock the secret to thicker, fuller hair and embrace the confidence that comes with a revitalized mane.",
+    "excerpt": "SK Envision’s Hair Serum for Regrowth of Hair, a revolutionary solution crafted from organic and natural ingredients to nourish and rejuvenate your hair from ro",
+    "price": 3895,
+    "compareAtPrice": 6995,
+    "category": "color-shampoo-hair",
+    "categories": [
+      "color-shampoo-hair",
+      "hair-mask",
+      "hair-serum"
+    ],
+    "images": [
+      "hair-regrowth-serum-0",
+      "hair-regrowth-serum-1",
+      "hair-regrowth-serum-2",
+      "hair-regrowth-serum-3",
+      "hair-regrowth-serum-4",
+      "hair-regrowth-serum-5"
+    ],
+    "rating": 5,
+    "reviewCount": 821,
+    "stock": 20,
+    "variants": {
+      "sizes": [
+        "2 oz",
+        "4 oz"
+      ],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": false
+  },
+  {
+    "id": "28",
+    "slug": "repair-hair-mask",
+    "title": "Protein Repair Hair Mask",
+    "subtitle": "Dry & damaged hair",
+    "description": "SK Envision’s Hair Mask for Dry, Damaged Hair and Growth, the ultimate solution for restoring and revitalizing your locks to their former glory. Infused with nourishing proteins and growth-boosting ingredients, this luxurious hair treatment is your ticket to stronger, healthier hair for all hair types.\n\nSay goodbye to dryness, frizz, and breakage as our Hair Mask deeply hydrates and repairs damaged strands from within. Watch as split ends are smoothed, and hair becomes more manageable, with a silky-smooth texture that shines with vitality.\n\nBut the benefits don’t stop there – our innovative formula also promotes hair growth, stimulating the scalp and encouraging the development of new, healthy hair follicles. Say hello to a fuller, thicker mane that exudes confidence and radiance with every strand.\n\nSK Envision’s Hair Mask is more than just a treatment – it’s a nourishing experience that transforms your haircare routine into a rejuvenating ritual. Infused with the power of proteins and essential nutrients, it leaves your hair feeling soft, strong, and visibly rejuvenated.\n\nIndulge in the luxury of SK Envision’s Hair Mask for Dry, Damaged Hair and Growth, and unlock the secret to beautiful, healthy hair that shines from root to tip. Transform your locks and embrace the confidence that comes with a revitalized mane.",
+    "excerpt": "SK Envision’s Hair Mask for Dry, Damaged Hair and Growth, the ultimate solution for restoring and revitalizing your locks to their former glory. Infused with no",
+    "price": 3695,
+    "compareAtPrice": 6995,
+    "category": "color-shampoo-hair",
+    "categories": [
+      "color-shampoo-hair",
+      "hair-mask",
+      "hair-serum"
+    ],
+    "images": [
+      "repair-hair-mask-0",
+      "repair-hair-mask-1",
+      "repair-hair-mask-2",
+      "repair-hair-mask-3",
+      "repair-hair-mask-4",
+      "repair-hair-mask-5",
+      "repair-hair-mask-6"
+    ],
+    "rating": 5,
+    "reviewCount": 932,
+    "stock": 10,
+    "variants": {
+      "sizes": [
+        "8 oz",
+        "16 oz"
+      ],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": false
+  },
+  {
+    "id": "27",
+    "slug": "foot-peel-mask",
+    "title": "Foot Peel Mask",
+    "subtitle": "With moisturizing gel",
+    "description": "SK Envision’s Foot Peel Mask for Dry, Cracked Feet with Moisturizing Gel, the ultimate solution for soft, smooth, and revitalized feet. Say goodbye to rough, calloused skin and hello to baby-soft feet with our luxurious foot peel mask.\n\nCrafted with care, our Foot Peel Mask is infused with a potent blend of natural exfoliants and moisturizing agents to gently slough away dry, dead skin cells while replenishing moisture for maximum hydration. Watch as rough patches disappear, revealing softer, smoother skin with every use.\n\nBut the benefits don’t end there – our innovative formula also features a moisturizing gel that deeply nourishes and soothes tired, achy feet, leaving them feeling refreshed and revitalized. Say farewell to dryness and discomfort as your feet are enveloped in luxurious hydration.\n\nIndulge in the ultimate pampering experience with SK Envision’s Foot Peel Mask. Simply apply, relax, and let the mask work its magic, revealing beautiful, rejuvenated feet that are ready to step out with confidence.\n\nTransform your foot care routine with SK Envision’s Foot Peel Mask for Dry, Cracked Feet with Moisturizing Gel. Say hello to smoother, softer feet and embrace the confidence that comes with healthy, beautiful skin from head to toe.",
+    "excerpt": "SK Envision’s Foot Peel Mask for Dry, Cracked Feet with Moisturizing Gel, the ultimate solution for soft, smooth, and revitalized feet. Say goodbye to rough, ca",
+    "price": 1995,
+    "compareAtPrice": null,
+    "category": "foot-peel-mask",
+    "categories": [
+      "foot-peel-mask"
+    ],
+    "images": [
+      "foot-peel-mask-0",
+      "foot-peel-mask-0",
+      "foot-peel-mask-1",
+      "foot-peel-mask-2",
+      "foot-peel-mask-3",
+      "foot-peel-mask-4",
+      "foot-peel-mask-5"
+    ],
+    "rating": 5,
+    "reviewCount": 783,
+    "stock": 4,
+    "variants": {
+      "sizes": [],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": false
+  },
+  {
+    "id": "26",
+    "slug": "argan-conditioner",
+    "title": "Argan Oil Conditioner",
+    "subtitle": "Detangles & hydrates",
+    "description": "Unlock the secret to irresistibly smooth and shiny hair with our Conditioner for Silky Smooth, designed for all hair types. This luxurious conditioner, enriched with natural argan oil, nourishes your hair deeply, leaving it soft, manageable, and full of life. Imagine the feeling of running your hands through silky, smooth hair that shines with health.\n\nArgan oil is renowned for its hydrating properties, making it the perfect solution for taming frizz and enhancing your hair’s natural texture. Whether your hair is curly, straight, or somewhere in between, this conditioner works wonders, bringing out the best in your hair’s natural beauty.\n\nOur Conditioner for Silky Smooth doesn’t just detangle and soften; it revitalizes. Each use strengthens your hair from the inside out, restoring its natural elasticity and shine. No more dry, brittle strands—just smooth, touchable hair that looks and feels amazing.\n\nGive your hair the love it deserves. Try our Conditioner for Silky Smooth today and see the difference natural argan oil can make. Your hair will be softer, shinier, and more beautiful than ever before.",
+    "excerpt": "Unlock the secret to irresistibly smooth and shiny hair with our Conditioner for Silky Smooth, designed for all hair types. This luxurious conditioner, enriched",
+    "price": 2195,
+    "compareAtPrice": 3495,
+    "category": "color-shampoo-hair",
+    "categories": [
+      "color-shampoo-hair",
+      "hair-mask",
+      "hair-serum"
+    ],
+    "images": [
+      "argan-conditioner-0",
+      "argan-shampoo-conditioner-3",
+      "argan-shampoo-conditioner-2",
+      "argan-shampoo-conditioner-1",
+      "argan-shampoo-conditioner-4",
+      "argan-conditioner-1"
+    ],
+    "rating": 5,
+    "reviewCount": 712,
+    "stock": 23,
+    "variants": {
+      "sizes": [
+        "8 oz",
+        "17 oz"
+      ],
+      "colors": []
+    },
+    "tags": [],
+    "isBestSeller": false
+  }
+]

@@ -1,0 +1,727 @@
+{
+  "dark-spot-beauty-package-0": {
+    "width": 1200,
+    "height": 800,
+    "aspect": 1.5,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "dark-spot-beauty-package-1": {
+    "width": 1200,
+    "height": 881,
+    "aspect": 1.3619,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "dark-spot-beauty-package-2": {
+    "width": 1200,
+    "height": 800,
+    "aspect": 1.5,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "dark-spot-beauty-package-3": {
+    "width": 1200,
+    "height": 800,
+    "aspect": 1.5,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "hair-care-package-0": {
+    "width": 1200,
+    "height": 800,
+    "aspect": 1.5,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "hair-care-package-1": {
+    "width": 400,
+    "height": 400,
+    "aspect": 1,
+    "widths": [
+      400
+    ]
+  },
+  "hair-care-package-2": {
+    "width": 247,
+    "height": 296,
+    "aspect": 0.8345,
+    "widths": [
+      247
+    ]
+  },
+  "hair-care-package-3": {
+    "width": 247,
+    "height": 296,
+    "aspect": 0.8345,
+    "widths": [
+      247
+    ]
+  },
+  "argan-shampoo-conditioner-0": {
+    "width": 400,
+    "height": 400,
+    "aspect": 1,
+    "widths": [
+      400
+    ]
+  },
+  "argan-shampoo-conditioner-1": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "argan-shampoo-conditioner-2": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "argan-shampoo-conditioner-3": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "argan-shampoo-conditioner-4": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "argan-shampoo-0": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "argan-shampoo-1": {
+    "width": 1200,
+    "height": 1043,
+    "aspect": 1.1503,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "lash-growth-serum-0": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "lash-growth-serum-1": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "lash-growth-serum-2": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "lash-growth-serum-3": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "lash-growth-serum-4": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "retinal-eye-lift-0": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "retinal-eye-lift-1": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "retinal-eye-lift-2": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "retinal-eye-lift-3": {
+    "width": 1200,
+    "height": 1138,
+    "aspect": 1.0541,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "retinal-eye-lift-4": {
+    "width": 1200,
+    "height": 1698,
+    "aspect": 0.7069,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "retinal-eye-lift-5": {
+    "width": 400,
+    "height": 480,
+    "aspect": 0.8333,
+    "widths": [
+      400
+    ]
+  },
+  "retinal-eye-lift-6": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "dark-spot-collagen-cream-0": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "dark-spot-collagen-cream-1": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "dark-spot-collagen-cream-2": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "dark-spot-collagen-cream-3": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "dark-spot-collagen-cream-4": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "dark-spot-collagen-cream-5": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "dark-spot-collagen-cream-6": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "color-dye-shampoo-0": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "color-dye-shampoo-1": {
+    "width": 400,
+    "height": 506,
+    "aspect": 0.7906,
+    "widths": [
+      400
+    ]
+  },
+  "color-dye-shampoo-2": {
+    "width": 1200,
+    "height": 1283,
+    "aspect": 0.9351,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "color-dye-shampoo-3": {
+    "width": 800,
+    "height": 825,
+    "aspect": 0.9693,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "color-dye-shampoo-4": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "color-dye-shampoo-5": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "color-dye-shampoo-6": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "color-dye-shampoo-7": {
+    "width": 362,
+    "height": 336,
+    "aspect": 1.0774,
+    "widths": [
+      362
+    ]
+  },
+  "collagen-anti-aging-cream-0": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "collagen-anti-aging-cream-1": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "collagen-anti-aging-cream-2": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "collagen-anti-aging-cream-3": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "collagen-anti-aging-cream-4": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "collagen-anti-aging-cream-5": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "collagen-anti-aging-cream-6": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "hair-regrowth-serum-0": {
+    "width": 1200,
+    "height": 1299,
+    "aspect": 0.9241,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "hair-regrowth-serum-1": {
+    "width": 400,
+    "height": 400,
+    "aspect": 1,
+    "widths": [
+      400
+    ]
+  },
+  "hair-regrowth-serum-2": {
+    "width": 400,
+    "height": 389,
+    "aspect": 1.0289,
+    "widths": [
+      400
+    ]
+  },
+  "hair-regrowth-serum-3": {
+    "width": 400,
+    "height": 434,
+    "aspect": 0.9219,
+    "widths": [
+      400
+    ]
+  },
+  "hair-regrowth-serum-4": {
+    "width": 400,
+    "height": 400,
+    "aspect": 1,
+    "widths": [
+      400
+    ]
+  },
+  "hair-regrowth-serum-5": {
+    "width": 400,
+    "height": 407,
+    "aspect": 0.9828,
+    "widths": [
+      400
+    ]
+  },
+  "repair-hair-mask-0": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "repair-hair-mask-1": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "repair-hair-mask-2": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "repair-hair-mask-3": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "repair-hair-mask-4": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "repair-hair-mask-5": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "repair-hair-mask-6": {
+    "width": 400,
+    "height": 400,
+    "aspect": 1,
+    "widths": [
+      400
+    ]
+  },
+  "foot-peel-mask-0": {
+    "width": 400,
+    "height": 400,
+    "aspect": 1,
+    "widths": [
+      400
+    ]
+  },
+  "foot-peel-mask-1": {
+    "width": 400,
+    "height": 400,
+    "aspect": 1,
+    "widths": [
+      400
+    ]
+  },
+  "foot-peel-mask-2": {
+    "width": 1200,
+    "height": 1200,
+    "aspect": 1,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "foot-peel-mask-3": {
+    "width": 400,
+    "height": 400,
+    "aspect": 1,
+    "widths": [
+      400
+    ]
+  },
+  "foot-peel-mask-4": {
+    "width": 400,
+    "height": 400,
+    "aspect": 1,
+    "widths": [
+      400
+    ]
+  },
+  "foot-peel-mask-5": {
+    "width": 400,
+    "height": 400,
+    "aspect": 1,
+    "widths": [
+      400
+    ]
+  },
+  "argan-conditioner-0": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "argan-conditioner-1": {
+    "width": 1200,
+    "height": 1043,
+    "aspect": 1.1503,
+    "widths": [
+      400,
+      800,
+      1200
+    ]
+  },
+  "hero-portrait": {
+    "width": 1280,
+    "height": 854,
+    "aspect": 1.4995,
+    "widths": [
+      768,
+      1280
+    ]
+  },
+  "brand-mark": {
+    "width": 400,
+    "height": 319,
+    "aspect": 1.2531,
+    "widths": [
+      200,
+      400
+    ]
+  },
+  "ingredients-botanical": {
+    "width": 600,
+    "height": 497,
+    "aspect": 1.2062,
+    "widths": [
+      600
+    ]
+  },
+  "shelf-shampoo": {
+    "width": 240,
+    "height": 466,
+    "aspect": 0.515,
+    "widths": [
+      240
+    ]
+  },
+  "shelf-mask": {
+    "width": 350,
+    "height": 390,
+    "aspect": 0.8974,
+    "widths": [
+      350
+    ]
+  },
+  "avatar-1": {
+    "width": 96,
+    "height": 96,
+    "aspect": 1,
+    "widths": [
+      96
+    ]
+  },
+  "avatar-2": {
+    "width": 96,
+    "height": 96,
+    "aspect": 1,
+    "widths": [
+      96
+    ]
+  },
+  "avatar-3": {
+    "width": 96,
+    "height": 96,
+    "aspect": 1,
+    "widths": [
+      96
+    ]
+  },
+  "avatar-4": {
+    "width": 96,
+    "height": 96,
+    "aspect": 1,
+    "widths": [
+      96
+    ]
+  }
+}
