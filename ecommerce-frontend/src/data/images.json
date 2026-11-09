@@ -743,6 +743,15 @@
       1920
     ]
   },
+  "about-hero": {
+    "width": 1280,
+    "height": 716,
+    "aspect": 1.7872,
+    "widths": [
+      768,
+      1280
+    ]
+  },
   "routine-hair": {
     "width": 860,
     "height": 792,

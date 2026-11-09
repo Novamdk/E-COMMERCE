@@ -1,87 +1,53 @@
-import { useEffect, useState } from 'react';
-import { AnimatePresence, m } from 'framer-motion';
-import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
-import { ANNOUNCEMENT_INTERVAL_MS, ANNOUNCEMENTS } from '@/lib/constants';
-import { EASE_IN_SOFT, EASE_OUT_SOFT } from '@/lib/motion';
+import { ANNOUNCEMENTS } from '@/lib/constants';
 import { LanguageSelect, useT } from '@/features/i18n';
-import { Container } from './Container';
 
-const MESSAGE_MOTION = {
-  initial: { opacity: 0, y: 8 },
-  animate: { opacity: 1, y: 0, transition: { duration: 0.4, ease: EASE_OUT_SOFT } },
-  exit: { opacity: 0, y: -8, transition: { duration: 0.2, ease: EASE_IN_SOFT } },
-};
-
-const ARROW_CLASS =
-  'grid size-8 shrink-0 place-items-center text-content-inverse/70 transition-colors hover:text-content-inverse';
+/** Copies of the message list laid end to end, so the loop has no visible seam. */
+const REPEATS = 4;
 
 /**
- * Slim rotating promo bar above the header. Pauses while hovered or focused
- * so a shopper can read a message without it sliding away, and the arrows
- * give keyboard and touch users the same control.
+ * Slim promo ticker above the header: the announcements scroll sideways in a
+ * continuous loop (pure CSS, see .animate-marquee) and stop while hovered so
+ * a shopper can read one. Reduced-motion users get a still bar, and screen
+ * readers get the messages once, as a plain list. From lg up the language
+ * picker sits at the far right.
  */
 export function AnnouncementBar() {
   const { t } = useT();
-  const [index, setIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const count = ANNOUNCEMENTS.length;
-
-  useEffect(() => {
-    if (isPaused || count < 2) return undefined;
-    const id = window.setInterval(() => setIndex((i) => (i + 1) % count), ANNOUNCEMENT_INTERVAL_MS);
-    return () => window.clearInterval(id);
-  }, [isPaused, count]);
-
-  const step = (delta) => setIndex((i) => (i + delta + count) % count);
+  const messages = ANNOUNCEMENTS.map((item) => t(item.key, item.values));
 
   return (
     <section
       aria-label={t('announcements.label')}
-      aria-roledescription="carousel"
-      className="bg-surface-inverse text-content-inverse"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={() => setIsPaused(false)}
+      className="bg-surface-inverse text-content-inverse flex h-9 items-center"
     >
-      <Container width="wide" className="relative h-9">
-        {/* Arrows hug the message; from lg up the language picker sits at the far right. */}
-        <div className="mx-auto flex h-full max-w-2xl items-center justify-between gap-2">
-          <button
-            type="button"
-            onClick={() => step(-1)}
-            aria-label={t('announcements.previous')}
-            className={ARROW_CLASS}
-          >
-            <FiChevronLeft aria-hidden="true" className="size-3.5" />
-          </button>
+      <ul className="sr-only">
+        {messages.map((message) => (
+          <li key={message}>{message}</li>
+        ))}
+      </ul>
 
-          <div className="relative h-full flex-1 overflow-hidden">
-            <AnimatePresence mode="wait" initial={false}>
-              <m.p
-                key={index}
-                {...MESSAGE_MOTION}
-                className="absolute inset-0 grid place-items-center truncate text-center text-[0.6875rem] font-medium tracking-[0.1em] uppercase sm:tracking-[0.14em]"
+      <div
+        className="group flex h-full min-w-0 flex-1 items-center overflow-hidden"
+        aria-hidden="true"
+      >
+        <div className="animate-marquee flex w-max shrink-0 items-center group-hover:[animation-play-state:paused]">
+          {Array.from({ length: REPEATS }, (_, copy) =>
+            messages.map((message) => (
+              <span
+                key={`${copy}-${message}`}
+                className="flex items-center text-[0.6875rem] font-medium tracking-[0.14em] whitespace-nowrap uppercase"
               >
-                {t(ANNOUNCEMENTS[index].key, ANNOUNCEMENTS[index].values)}
-              </m.p>
-            </AnimatePresence>
-          </div>
-
-          <button
-            type="button"
-            onClick={() => step(1)}
-            aria-label={t('announcements.next')}
-            className={ARROW_CLASS}
-          >
-            <FiChevronRight aria-hidden="true" className="size-3.5" />
-          </button>
+                <span className="px-8">{message}</span>
+                <span className="text-gold-400">✦</span>
+              </span>
+            )),
+          )}
         </div>
+      </div>
 
-        <div className="absolute inset-y-0 right-8 hidden items-center lg:flex">
-          <LanguageSelect tone="inverse" />
-        </div>
-      </Container>
+      <div className="bg-surface-inverse hidden h-full shrink-0 items-center pr-8 pl-4 lg:flex">
+        <LanguageSelect tone="inverse" />
+      </div>
     </section>
   );
 }

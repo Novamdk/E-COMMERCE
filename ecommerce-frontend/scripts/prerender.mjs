@@ -54,7 +54,7 @@ const ORIGIN = (
   process.env.SITE_URL ||
   (process.env.VERCEL_PROJECT_PRODUCTION_URL &&
     `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
-  'https://e-commerce-nova-eb44.vercel.app'
+  'https://ecommerce-sk.vercel.app'
 ).replace(/\/$/, '');
 
 const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
@@ -112,7 +112,7 @@ const nav = `<nav><a href="/">Home</a> · <a href="/shop">Shop all</a> · <a hre
   .map((slug) => `<a href="/collections/${slug}">${esc(t(COLLECTIONS[slug].title))}</a>`)
   .join(
     ' · ',
-  )} · <a href="/quiz/hair">Hair quiz</a> · <a href="/quiz/gift">Gift finder</a> · <a href="/journal">Journal</a> · <a href="/about">About</a> · <a href="/contact">Contact</a></nav>`;
+  )} · <a href="/quiz/hair">Hair quiz</a> · <a href="/quiz/gift">Gift finder</a> · <a href="/journal">Blog</a> · <a href="/about">About</a> · <a href="/contact">Contact</a></nav>`;
 
 /* ------------------------------- pages ------------------------------- */
 

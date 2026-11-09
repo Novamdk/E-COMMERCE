@@ -22,8 +22,8 @@ const ICON_LINK =
   'text-content hover:bg-ink-100 relative grid size-10 place-items-center rounded-full transition-colors';
 
 /**
- * The Shop menu, by product type, by concern, and what is trending. Labels
- * are translation keys; collections are curated (see COLLECTIONS), concerns
+ * The Shop menu, by product type, by hair goal, and what is trending. Labels
+ * are translation keys; collections are curated (see COLLECTIONS), hair goals
  * reuse the catalog's own categories.
  */
 const SHOP_COLUMNS = [
@@ -40,14 +40,13 @@ const SHOP_COLUMNS = [
     ],
   },
   {
-    heading: 'nav.byConcern',
+    heading: 'nav.byHairGoal',
     links: [
-      { to: categoryPath('hair-mask'), label: 'nav.concernDry' },
-      { to: categoryPath('hair-serum'), label: 'nav.concernThinning' },
-      { to: categoryPath('color-shampoo-hair'), label: 'nav.concernColour' },
-      { to: categoryPath('dark-spot'), label: 'nav.concernSpots' },
-      { to: categoryPath('face-lifting-collagen-cream'), label: 'nav.concernLines' },
-      { to: categoryPath('eye-lashes-growth-serum'), label: 'nav.concernLashes' },
+      { to: categoryPath('hair-mask'), label: 'nav.goalRepair' },
+      { to: categoryPath('hair-serum'), label: 'nav.goalFuller' },
+      { to: collectionPath('shampoo-conditioner'), label: 'nav.goalShine' },
+      { to: categoryPath('color-shampoo-hair'), label: 'nav.goalColour' },
+      { to: categoryPath('eye-lashes-growth-serum'), label: 'nav.goalLashes' },
     ],
   },
   {
@@ -67,12 +66,13 @@ const QUIZ_LINKS = [
   { to: quizPath('gift'), label: 'nav.giftFinder' },
 ];
 
-/** Plain links in the bar. `wideOnly` links hide below xl, where the bar runs out of room. */
-const BAR_LINKS = [
-  { to: collectionPath('bestsellers'), label: 'collections.bestsellers' },
-  { to: ROUTES.JOURNAL, label: 'nav.journal', wideOnly: true },
-  { to: ROUTES.ABOUT, label: 'header.about', wideOnly: true },
+/** The Learn menu: the brand story and the blog. */
+const LEARN_LINKS = [
+  { to: ROUTES.ABOUT, label: 'nav.aboutUs' },
+  { to: ROUTES.JOURNAL, label: 'nav.blog' },
 ];
+
+const BESTSELLERS = { to: collectionPath('bestsellers'), label: 'collections.bestsellers' };
 
 /**
  * NavLink matches on pathname only, so links that differ just by query string
@@ -89,8 +89,9 @@ const navLinkClass =
     );
 
 /**
- * Three-column header: navigation left, monogram centred, utilities right.
- * Below `lg` the navigation collapses into the drawer behind the menu button.
+ * Monogram at the left with the navigation beside it and utilities at the
+ * right, as on Olaplex. Below `lg` the navigation collapses into the drawer
+ * behind the menu button, which sits before the monogram.
  */
 export function Header() {
   const { t } = useT();
@@ -118,8 +119,8 @@ export function Header() {
 
       <header className="border-holiday-600/60 bg-surface/95 sticky top-0 z-40 border-b backdrop-blur-lg">
         <Container width="wide">
-          <div className="grid h-[4.5rem] grid-cols-[1fr_auto_1fr] items-center gap-4 lg:h-24">
-            <div className="flex items-center">
+          <div className="flex h-[4.5rem] items-center gap-3 lg:h-24 lg:gap-10 xl:gap-14">
+            <div className="flex items-center gap-1">
               <button
                 type="button"
                 onClick={() => setIsMobileNavOpen(true)}
@@ -128,49 +129,41 @@ export function Header() {
               >
                 <FiMenu aria-hidden="true" className="size-5" />
               </button>
-
-              <nav
-                aria-label={t('header.mainNav')}
-                className="hidden items-center gap-5 lg:flex xl:gap-7"
-              >
-                <Link to={ROUTES.GIFT_GUIDE} className={cn(NAV_TRIGGER, 'text-gold-shimmer')}>
-                  {t('nav.giftGuide')}
-                </Link>
-                <MegaMenu
-                  label={t('header.shop')}
-                  columns={translateColumns(SHOP_COLUMNS)}
-                  feature={{
-                    image: 'category-hair',
-                    title: t('nav.featureTitle'),
-                    cta: t('nav.featureCta'),
-                    to: ROUTES.GIFT_GUIDE,
-                  }}
-                  isWide
-                />
-                <NavLink to={BAR_LINKS[0].to} className={navLinkClass(BAR_LINKS[0].to)}>
-                  {t(BAR_LINKS[0].label)}
-                </NavLink>
-                <MegaMenu
-                  label={t('nav.quizzes')}
-                  columns={translateColumns([{ heading: 'nav.quizzes', links: QUIZ_LINKS }])}
-                />
-                {BAR_LINKS.slice(1).map((link) => (
-                  <NavLink
-                    key={link.to}
-                    to={link.to}
-                    className={(state) =>
-                      cn(navLinkClass(link.to)(state), link.wideOnly && 'hidden xl:inline-flex')
-                    }
-                  >
-                    {t(link.label)}
-                  </NavLink>
-                ))}
-              </nav>
+              <BrandMark />
             </div>
 
-            <BrandMark />
+            <nav
+              aria-label={t('header.mainNav')}
+              className="hidden items-center gap-5 lg:flex xl:gap-7"
+            >
+              <Link to={ROUTES.GIFT_GUIDE} className={cn(NAV_TRIGGER, 'text-gold-shimmer')}>
+                {t('nav.giftGuide')}
+              </Link>
+              <MegaMenu
+                label={t('header.shop')}
+                columns={translateColumns(SHOP_COLUMNS)}
+                feature={{
+                  image: 'category-hair',
+                  title: t('nav.featureTitle'),
+                  cta: t('nav.featureCta'),
+                  to: ROUTES.GIFT_GUIDE,
+                }}
+                isWide
+              />
+              <NavLink to={BESTSELLERS.to} className={navLinkClass(BESTSELLERS.to)}>
+                {t(BESTSELLERS.label)}
+              </NavLink>
+              <MegaMenu
+                label={t('nav.quizzes')}
+                columns={translateColumns([{ heading: 'nav.quizzes', links: QUIZ_LINKS }])}
+              />
+              <MegaMenu
+                label={t('nav.learn')}
+                columns={translateColumns([{ heading: 'nav.learn', links: LEARN_LINKS }])}
+              />
+            </nav>
 
-            <div className="-mr-2 flex items-center justify-end gap-0.5">
+            <div className="-mr-2 ml-auto flex items-center justify-end gap-0.5">
               <Link to={ROUTES.SHOP} aria-label={t('header.search')} className={ICON_LINK}>
                 <FiSearch aria-hidden="true" className="size-[1.1875rem]" />
               </Link>
@@ -214,8 +207,8 @@ export function Header() {
           ...SHOP_COLUMNS[0].links.slice(1, 6),
           { to: quizPath('hair'), label: 'nav.hairQuiz' },
           { to: quizPath('gift'), label: 'nav.giftFinder' },
-          { to: ROUTES.JOURNAL, label: 'nav.journal' },
-          { to: ROUTES.ABOUT, label: 'header.about' },
+          { to: ROUTES.ABOUT, label: 'nav.aboutUs' },
+          { to: ROUTES.JOURNAL, label: 'nav.blog' },
           { to: ROUTES.CONTACT, label: 'header.contact' },
         ]}
       />

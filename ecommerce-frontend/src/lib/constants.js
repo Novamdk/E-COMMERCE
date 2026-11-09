@@ -114,8 +114,6 @@ export const ANNOUNCEMENTS = [
   { key: 'announcements.promo', values: { code: PROMO_CODES.SKGLOW10.code } },
   { key: 'announcements.natural' },
 ];
-/** How long each announcement stays up before the next one slides in. */
-export const ANNOUNCEMENT_INTERVAL_MS = 5000;
 
 /* ---------------------------- collections --------------------------- */
 /**

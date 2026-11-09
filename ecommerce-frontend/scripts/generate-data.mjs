@@ -201,6 +201,7 @@ for (const e of EDITORIAL) manifest.push({ name: e.name, url: UPLOADS + e.file, 
 const LOCAL_ART = Object.entries({
   'welcome-gift': 'editorial', // popup: shampoo + mask with a gold ribbon
   'holiday-hero': 'hero', // shampoo bursting through gold gift wrap
+  'about-hero': 'hero', // argan nuts, cream and oil on travertine (About page)
   'routine-hair': 'editorial',
   'gift-flatlay': 'editorial',
   'gift-bestsellers': 'editorial',
