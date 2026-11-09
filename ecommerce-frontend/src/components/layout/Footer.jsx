@@ -17,6 +17,7 @@ const HELP_LINKS = [
 
 const COMPANY_LINKS = [
   { to: ROUTES.ABOUT, label: 'footer.story' },
+  { to: ROUTES.STORES, label: 'nav.findStore' },
   { to: ROUTES.WISHLIST, label: 'footer.wishlist' },
   { to: ROUTES.SIGN_IN, label: 'footer.signIn' },
 ];

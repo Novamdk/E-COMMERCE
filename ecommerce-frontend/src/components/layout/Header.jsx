@@ -70,6 +70,7 @@ const QUIZ_LINKS = [
 const LEARN_LINKS = [
   { to: ROUTES.ABOUT, label: 'nav.aboutUs' },
   { to: ROUTES.JOURNAL, label: 'nav.blog' },
+  { to: ROUTES.STORES, label: 'nav.findStore' },
 ];
 
 /** Pill row under the header on phones, like Olaplex's. */

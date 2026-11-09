@@ -124,6 +124,7 @@ export const en = {
     loadError: 'This product could not load',
     notFound: 'That product does not exist',
     notFoundBody: 'The link may be out of date, or the product may have been renamed.',
+    inStores: 'Also on salon and boutique shelves.',
   },
   home: {
     loadError: 'The homepage could not load',
@@ -250,6 +251,7 @@ export const en = {
     shopByProduct: 'Shop by product',
     shopByHairGoal: 'Shop by hair goal',
     offers: 'Offers',
+    findStore: 'Find a store',
   },
   collections: {
     bestsellers: 'Bestsellers',
@@ -414,6 +416,8 @@ export const en = {
     shop: 'Shop every SK Envision product: argan oil shampoo and conditioner, hair masks, regrowth serum, dark spot and collagen creams, eyelash serum and gift sets.',
     about:
       'SK Envision makes premium natural hair and skin care with naturally derived ingredients, cruelty-free and without harsh chemicals.',
+    stores:
+      'Find SK Envision hair and skin care at salons, boutiques and spas across Orange County, San Diego and Los Angeles.',
   },
   aboutPage: {
     eyebrow: 'Our story',
@@ -458,5 +462,50 @@ export const en = {
     ctaTitle: 'Find your routine',
     ctaBody: "Answer four quick questions and we'll match you with the right products.",
     ctaQuiz: 'Take the hair quiz',
+  },
+  stores: {
+    eyebrow: 'Stockists',
+    title: 'Find us in stores',
+    intro:
+      'SK Envision is carried by salons, boutiques and spas across Southern California, from Los Angeles to San Diego. Find one near you.',
+    sampleNote:
+      'Sample locations shown to preview the layout. Our full list of stockists is coming soon.',
+    regionsLabel: 'Filter by region',
+    allRegions: 'All regions',
+    searchLabel: 'Search by city, zip or store name',
+    searchPlaceholder: 'City, zip or store name',
+    viewLabel: 'Show stores as',
+    listView: 'List',
+    mapView: 'Map',
+    showing: 'Showing {count} of {total}',
+    directions: 'Directions',
+    website: 'Website',
+    noneTitle: 'No stores match that search',
+    noneBody: 'Try a nearby city or zip code, or browse every region.',
+    clear: 'Show all stores',
+    loadError: 'We could not load our stores',
+    mapLabel: 'Map of Southern California with {count} stores',
+    ocean: 'Pacific Ocean',
+    zoomCluster: 'Zoom in to {count} stores',
+    zoomIn: 'Zoom in',
+    zoomOut: 'Zoom out',
+    showAll: 'Show the whole map',
+    band: 'Carried in salons and boutiques across Southern California.',
+    partnerEyebrow: 'For salons and boutiques',
+    partnerTitle: 'Carry SK Envision',
+    partnerBody:
+      'We partner with salons, spas and boutiques across California. Tell us about your space and we will be in touch.',
+    partnerCta: 'Become a stockist',
+    find: 'Find a store',
+    regions: {
+      oc: 'Orange County',
+      sd: 'San Diego',
+      la: 'Los Angeles',
+    },
+    types: {
+      salon: 'Salon',
+      boutique: 'Boutique',
+      spa: 'Spa',
+    },
   },
 };

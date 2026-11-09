@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { FiCheck, FiChevronDown, FiTruck } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
+import { FiCheck, FiChevronDown, FiMapPin, FiTruck } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
 import { QuantityStepper } from '@/components/ui/QuantityStepper';
 import { Rating } from '@/components/ui/Rating';
-import { FREE_SHIPPING_THRESHOLD, LOW_STOCK_THRESHOLD } from '@/lib/constants';
+import { FREE_SHIPPING_THRESHOLD, LOW_STOCK_THRESHOLD, ROUTES } from '@/lib/constants';
 import { discountPercent, formatCurrency } from '@/lib/formatCurrency';
 import { useCart } from '@/features/cart';
 import { useT } from '@/features/i18n';
@@ -125,6 +126,15 @@ export function ProductPurchasePanel({ product }) {
           {t('announcements.freeShipping', {
             amount: formatCurrency(FREE_SHIPPING_THRESHOLD, { compact: true }),
           })}
+        </p>
+        <p className="flex items-center gap-2">
+          <FiMapPin aria-hidden="true" className="size-4 shrink-0" />
+          <span>
+            {t('product.inStores')}{' '}
+            <Link to={ROUTES.STORES} className="text-content underline underline-offset-2">
+              {t('stores.find')}
+            </Link>
+          </span>
         </p>
         {isLowStock && (
           <p aria-live="polite" className="text-holiday-600 font-semibold">

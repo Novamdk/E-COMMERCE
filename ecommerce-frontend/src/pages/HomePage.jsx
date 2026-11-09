@@ -25,6 +25,7 @@ import {
 } from '@/lib/constants';
 import { discountPercent, formatCurrency } from '@/lib/formatCurrency';
 import { useT } from '@/features/i18n';
+import { StoresBand } from '@/features/stores';
 import { JournalSection } from '@/features/journal';
 import { QuizTeaser } from '@/features/quiz';
 
@@ -114,6 +115,7 @@ export default function HomePage() {
       <ShopByCategory />
       <JournalSection />
       <Testimonials testimonials={site.testimonials} />
+      <StoresBand />
       <BenefitsStrip benefits={site.benefits} />
     </>
   );

@@ -121,6 +121,7 @@ export const fr = {
     loadError: 'Impossible de charger ce produit',
     notFound: 'Ce produit n’existe pas',
     notFoundBody: 'Le lien est peut-être périmé ou le produit a changé de nom.',
+    inStores: 'Aussi en salons et boutiques.',
   },
   home: {
     loadError: 'La page d’accueil n’a pas pu se charger',
@@ -249,6 +250,7 @@ export const fr = {
     shopByProduct: 'Acheter par produit',
     shopByHairGoal: 'Acheter par objectif cheveux',
     offers: 'Offres',
+    findStore: 'Trouver une boutique',
   },
   collections: {
     bestsellers: 'Best-sellers',
@@ -414,6 +416,8 @@ export const fr = {
     shop: 'Tous les produits SK Envision : shampooing et après-shampooing à l’huile d’argan, masques, sérum de repousse, crèmes anti-taches et au collagène, sérum pour cils et coffrets.',
     about:
       'SK Envision crée des soins naturels haut de gamme pour les cheveux et la peau, d’origine naturelle, non testés sur les animaux et sans produits chimiques agressifs.',
+    stores:
+      'Trouvez les soins SK Envision dans les salons, boutiques et spas d’Orange County, San Diego et Los Angeles.',
   },
   aboutPage: {
     eyebrow: 'Notre histoire',
@@ -458,5 +462,50 @@ export const fr = {
     ctaTitle: 'Trouvez votre routine',
     ctaBody: 'Répondez à quatre questions rapides et nous vous proposerons les bons produits.',
     ctaQuiz: 'Faire le quiz cheveux',
+  },
+  stores: {
+    eyebrow: 'Points de vente',
+    title: 'Nous trouver en boutique',
+    intro:
+      'SK Envision est distribué par des salons, boutiques et spas dans tout le sud de la Californie, de Los Angeles à San Diego. Trouvez-en un près de chez vous.',
+    sampleNote:
+      'Adresses d’exemple pour présenter la mise en page. La liste complète de nos revendeurs arrive bientôt.',
+    regionsLabel: 'Filtrer par région',
+    allRegions: 'Toutes les régions',
+    searchLabel: 'Rechercher par ville, code postal ou nom',
+    searchPlaceholder: 'Ville, code postal ou nom',
+    viewLabel: 'Afficher les boutiques en',
+    listView: 'Liste',
+    mapView: 'Carte',
+    showing: '{count} sur {total}',
+    directions: 'Itinéraire',
+    website: 'Site web',
+    noneTitle: 'Aucune boutique ne correspond',
+    noneBody: 'Essayez une ville ou un code postal voisin, ou parcourez toutes les régions.',
+    clear: 'Voir toutes les boutiques',
+    loadError: 'Impossible de charger nos boutiques',
+    mapLabel: 'Carte du sud de la Californie avec {count} boutiques',
+    ocean: 'Océan Pacifique',
+    zoomCluster: 'Zoomer sur {count} boutiques',
+    zoomIn: 'Zoom avant',
+    zoomOut: 'Zoom arrière',
+    showAll: 'Voir toute la carte',
+    band: 'Disponible en salons et boutiques dans tout le sud de la Californie.',
+    partnerEyebrow: 'Pour les salons et boutiques',
+    partnerTitle: 'Distribuez SK Envision',
+    partnerBody:
+      'Nous collaborons avec des salons, spas et boutiques dans toute la Californie. Parlez-nous de votre espace et nous vous recontacterons.',
+    partnerCta: 'Devenir revendeur',
+    find: 'Trouver une boutique',
+    regions: {
+      oc: 'Orange County',
+      sd: 'San Diego',
+      la: 'Los Angeles',
+    },
+    types: {
+      salon: 'Salon',
+      boutique: 'Boutique',
+      spa: 'Spa',
+    },
   },
 };

@@ -121,6 +121,7 @@ export const vi = {
     loadError: 'Không tải được sản phẩm này',
     notFound: 'Sản phẩm không tồn tại',
     notFoundBody: 'Liên kết có thể đã cũ hoặc sản phẩm đã đổi tên.',
+    inStores: 'Có bán tại salon và cửa hàng.',
   },
   home: {
     loadError: 'Không tải được trang chủ',
@@ -248,6 +249,7 @@ export const vi = {
     shopByProduct: 'Mua theo sản phẩm',
     shopByHairGoal: 'Mua theo mục tiêu tóc',
     offers: 'Ưu đãi',
+    findStore: 'Tìm cửa hàng',
   },
   collections: {
     bestsellers: 'Bán chạy',
@@ -411,6 +413,8 @@ export const vi = {
     shop: 'Tất cả sản phẩm SK Envision: dầu gội và dầu xả dầu argan, mặt nạ tóc, serum mọc tóc, kem trị đốm nâu và collagen, serum dưỡng mi và bộ quà.',
     about:
       'SK Envision tạo ra sản phẩm chăm sóc tóc và da tự nhiên cao cấp, thành phần nguồn gốc tự nhiên, không thử nghiệm trên động vật và không hóa chất mạnh.',
+    stores:
+      'Tìm SK Envision tại các salon, cửa hàng và spa ở Orange County, San Diego và Los Angeles.',
   },
   aboutPage: {
     eyebrow: 'Câu chuyện của chúng tôi',
@@ -455,5 +459,50 @@ export const vi = {
     ctaTitle: 'Tìm quy trình của bạn',
     ctaBody: 'Trả lời bốn câu hỏi nhanh để chúng tôi gợi ý sản phẩm phù hợp.',
     ctaQuiz: 'Làm trắc nghiệm tóc',
+  },
+  stores: {
+    eyebrow: 'Điểm bán',
+    title: 'Tìm chúng tôi tại cửa hàng',
+    intro:
+      'SK Envision có mặt tại các salon, cửa hàng và spa khắp Nam California, từ Los Angeles đến San Diego. Tìm nơi gần bạn.',
+    sampleNote:
+      'Địa điểm mẫu để xem trước bố cục. Danh sách đầy đủ các điểm bán sẽ sớm được cập nhật.',
+    regionsLabel: 'Lọc theo khu vực',
+    allRegions: 'Tất cả khu vực',
+    searchLabel: 'Tìm theo thành phố, mã bưu điện hoặc tên cửa hàng',
+    searchPlaceholder: 'Thành phố, mã bưu điện hoặc tên',
+    viewLabel: 'Xem cửa hàng dạng',
+    listView: 'Danh sách',
+    mapView: 'Bản đồ',
+    showing: '{count} / {total}',
+    directions: 'Chỉ đường',
+    website: 'Trang web',
+    noneTitle: 'Không có cửa hàng phù hợp',
+    noneBody: 'Hãy thử thành phố hoặc mã bưu điện gần đó, hoặc xem tất cả khu vực.',
+    clear: 'Xem tất cả cửa hàng',
+    loadError: 'Không thể tải danh sách cửa hàng',
+    mapLabel: 'Bản đồ Nam California với {count} cửa hàng',
+    ocean: 'Thái Bình Dương',
+    zoomCluster: 'Phóng to {count} cửa hàng',
+    zoomIn: 'Phóng to',
+    zoomOut: 'Thu nhỏ',
+    showAll: 'Xem toàn bộ bản đồ',
+    band: 'Có mặt tại các salon và cửa hàng khắp Nam California.',
+    partnerEyebrow: 'Dành cho salon và cửa hàng',
+    partnerTitle: 'Phân phối SK Envision',
+    partnerBody:
+      'Chúng tôi hợp tác với salon, spa và cửa hàng khắp California. Hãy cho chúng tôi biết về không gian của bạn, chúng tôi sẽ liên hệ.',
+    partnerCta: 'Trở thành đại lý',
+    find: 'Tìm cửa hàng',
+    regions: {
+      oc: 'Orange County',
+      sd: 'San Diego',
+      la: 'Los Angeles',
+    },
+    types: {
+      salon: 'Salon',
+      boutique: 'Cửa hàng',
+      spa: 'Spa',
+    },
   },
 };

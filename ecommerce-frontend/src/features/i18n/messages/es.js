@@ -122,6 +122,7 @@ export const es = {
     notFound: 'Ese producto no existe',
     notFoundBody:
       'Puede que el enlace esté desactualizado o que el producto haya cambiado de nombre.',
+    inStores: 'También en salones y boutiques.',
   },
   home: {
     loadError: 'No se ha podido cargar la página de inicio',
@@ -250,6 +251,7 @@ export const es = {
     shopByProduct: 'Comprar por producto',
     shopByHairGoal: 'Comprar por objetivo capilar',
     offers: 'Ofertas',
+    findStore: 'Buscar una tienda',
   },
   collections: {
     bestsellers: 'Más vendidos',
@@ -414,6 +416,8 @@ export const es = {
     shop: 'Todos los productos SK Envision: champú y acondicionador de aceite de argán, mascarillas, sérum de crecimiento, cremas antimanchas y de colágeno, sérum de pestañas y sets de regalo.',
     about:
       'SK Envision crea cuidado natural premium para el pelo y la piel, con ingredientes de origen natural, sin crueldad animal y sin químicos agresivos.',
+    stores:
+      'Encuentra SK Envision en salones, boutiques y spas de Orange County, San Diego y Los Ángeles.',
   },
   aboutPage: {
     eyebrow: 'Nuestra historia',
@@ -458,5 +462,50 @@ export const es = {
     ctaTitle: 'Encuentra tu rutina',
     ctaBody: 'Responde cuatro preguntas rápidas y te recomendaremos los productos ideales.',
     ctaQuiz: 'Hacer el test capilar',
+  },
+  stores: {
+    eyebrow: 'Puntos de venta',
+    title: 'Encuéntranos en tiendas',
+    intro:
+      'SK Envision está en salones, boutiques y spas de todo el sur de California, de Los Ángeles a San Diego. Encuentra uno cerca de ti.',
+    sampleNote:
+      'Ubicaciones de ejemplo para mostrar el diseño. Pronto publicaremos la lista completa de tiendas.',
+    regionsLabel: 'Filtrar por región',
+    allRegions: 'Todas las regiones',
+    searchLabel: 'Buscar por ciudad, código postal o tienda',
+    searchPlaceholder: 'Ciudad, código postal o tienda',
+    viewLabel: 'Ver tiendas como',
+    listView: 'Lista',
+    mapView: 'Mapa',
+    showing: '{count} de {total}',
+    directions: 'Cómo llegar',
+    website: 'Sitio web',
+    noneTitle: 'Ninguna tienda coincide',
+    noneBody: 'Prueba con una ciudad o código postal cercano, o mira todas las regiones.',
+    clear: 'Ver todas las tiendas',
+    loadError: 'No pudimos cargar las tiendas',
+    mapLabel: 'Mapa del sur de California con {count} tiendas',
+    ocean: 'Océano Pacífico',
+    zoomCluster: 'Acercar a {count} tiendas',
+    zoomIn: 'Acercar',
+    zoomOut: 'Alejar',
+    showAll: 'Ver todo el mapa',
+    band: 'En salones y boutiques de todo el sur de California.',
+    partnerEyebrow: 'Para salones y boutiques',
+    partnerTitle: 'Vende SK Envision',
+    partnerBody:
+      'Trabajamos con salones, spas y boutiques en toda California. Cuéntanos sobre tu espacio y te contactaremos.',
+    partnerCta: 'Ser distribuidor',
+    find: 'Buscar una tienda',
+    regions: {
+      oc: 'Orange County',
+      sd: 'San Diego',
+      la: 'Los Ángeles',
+    },
+    types: {
+      salon: 'Salón',
+      boutique: 'Boutique',
+      spa: 'Spa',
+    },
   },
 };

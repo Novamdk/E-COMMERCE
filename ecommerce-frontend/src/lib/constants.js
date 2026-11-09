@@ -24,6 +24,7 @@ export const ROUTES = {
   GIFT_GUIDE: '/gift-guide',
   JOURNAL: '/journal',
   JOURNAL_POST: '/journal/:slug',
+  STORES: '/stores',
   NOT_FOUND: '*',
 };
 
@@ -184,6 +185,17 @@ export const QUERY_KEYS = {
   SORT: 'sort',
   PAGE: 'page',
 };
+
+/* ------------------------------ stores ------------------------------ */
+/**
+ * Regions the stockist list is grouped by, in display order. `id` matches a
+ * store's `region` in src/data/stores.json.
+ */
+export const STORE_REGIONS = [
+  { id: 'oc', label: 'stores.regions.oc' },
+  { id: 'sd', label: 'stores.regions.sd' },
+  { id: 'la', label: 'stores.regions.la' },
+];
 
 /* --------------------------- persistence --------------------------- */
 export const STORAGE_KEYS = {
