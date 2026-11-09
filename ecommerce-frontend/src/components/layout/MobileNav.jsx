@@ -87,7 +87,12 @@ export function MobileNav({ isOpen, onClose, items }) {
       title={t('mobileNav.title')}
       titleId={TITLE_ID}
       side="left"
-      heading={<BrandMark size="sm" onClick={onClose} />}
+      heading={
+        <>
+          <BrandMark size="sm" onClick={onClose} />
+          <LanguageSelect />
+        </>
+      }
       headerClassName="border-holiday-600/60 py-3"
       panelClassName="h-full w-full max-w-[30rem]"
     >
@@ -141,7 +146,6 @@ export function MobileNav({ isOpen, onClose, items }) {
         </Link>
 
         <div className="space-y-4 px-6 pt-8 pb-10">
-          <LanguageSelect />
           {isAuthenticated ? (
             <div className="space-y-3">
               <p className="text-content-subtle truncate text-xs">{user.email}</p>

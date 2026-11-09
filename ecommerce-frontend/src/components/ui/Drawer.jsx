@@ -69,7 +69,7 @@ export function Drawer({
         )}
       >
         {heading ? (
-          <div>
+          <div className="flex min-w-0 flex-1 items-center justify-between gap-4">
             <h2 id={titleId} className="sr-only">
               {title}
             </h2>
