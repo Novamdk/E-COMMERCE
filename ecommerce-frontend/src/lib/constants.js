@@ -57,6 +57,27 @@ export const SPIN_WHEEL = {
   FULL_TURNS: 6,
 };
 
+/* ------------------------------ contact ----------------------------- */
+/** Business contact details, as listed on skenvisiontime.com's footer. */
+export const CONTACT = {
+  ADDRESS_LINES: ['16027 Brookhurst St, Suite I-618', 'Fountain Valley, CA 92708'],
+  PHONE: '949-434-1415',
+  PHONE_HREF: 'tel:+19494341415',
+  EMAIL: 'Skenvisiontimes@gmail.com',
+};
+
+/** Official social profiles. `id` picks the icon in the footer. */
+export const SOCIAL_LINKS = [
+  { id: 'facebook', label: 'Facebook', href: 'https://www.facebook.com/skenvision' },
+  { id: 'instagram', label: 'Instagram', href: 'https://www.instagram.com/skenvision/' },
+  { id: 'tiktok', label: 'TikTok', href: 'https://www.tiktok.com/@skenvisiontime' },
+  {
+    id: 'pinterest',
+    label: 'Pinterest',
+    href: 'https://www.pinterest.com/skenvision_revitalize/',
+  },
+];
+
 /* --------------------------- announcements -------------------------- */
 /**
  * Messages that rotate in the bar above the header. Built from the rates

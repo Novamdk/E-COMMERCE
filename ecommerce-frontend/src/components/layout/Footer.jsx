@@ -1,14 +1,16 @@
 import { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiCheck, FiMail } from 'react-icons/fi';
+import { FiCheck, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
+import { SiFacebook, SiInstagram, SiPinterest, SiTiktok } from 'react-icons/si';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { useAsync } from '@/hooks/useAsync';
-import { categoryPath, ROUTES } from '@/lib/constants';
+import { categoryPath, CONTACT, ROUTES, SOCIAL_LINKS } from '@/lib/constants';
 import { email as validateEmail } from '@/lib/validators';
 import { getCategories } from '@/services/productService';
 import { BrandMark } from './BrandMark';
 import { Container } from './Container';
+import { PaymentMethods } from './PaymentMethods';
 
 const HELP_LINKS = [
   { to: ROUTES.CONTACT, label: 'Contact us' },
@@ -21,6 +23,13 @@ const COMPANY_LINKS = [
   { to: ROUTES.WISHLIST, label: 'Wishlist' },
   { to: ROUTES.SIGN_IN, label: 'Sign in' },
 ];
+
+const SOCIAL_ICONS = {
+  facebook: SiFacebook,
+  instagram: SiInstagram,
+  tiktok: SiTiktok,
+  pinterest: SiPinterest,
+};
 
 const COLUMN_HEADING =
   'mb-5 text-[0.6875rem] font-semibold tracking-[0.16em] text-content-inverse uppercase';
@@ -98,6 +107,25 @@ export function Footer() {
               Join the list for 10% off your first order.
             </p>
             <NewsletterForm />
+
+            <ul aria-label="SK Envision on social media" className="flex gap-2 pt-2">
+              {SOCIAL_LINKS.map((social) => {
+                const Icon = SOCIAL_ICONS[social.id];
+                return (
+                  <li key={social.id}>
+                    <a
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`SK Envision on ${social.label} (opens in a new tab)`}
+                      className="border-content-inverse/25 text-content-inverse/80 hover:border-gold-400 hover:text-gold-300 grid size-10 place-items-center rounded-full border transition-colors"
+                    >
+                      <Icon aria-hidden="true" className="size-4" />
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
 
           <nav aria-labelledby="footer-shop">
@@ -132,12 +160,31 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <a href="mailto:Skenvisiontime@yahoo.com" className={COLUMN_LINK}>
-                  Skenvisiontime@yahoo.com
-                </a>
-              </li>
             </ul>
+
+            <address className="mt-8 space-y-3 not-italic">
+              <p className={`${COLUMN_LINK} flex gap-2.5`}>
+                <FiMapPin aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
+                <span>
+                  {CONTACT.ADDRESS_LINES.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </span>
+              </p>
+              <a href={CONTACT.PHONE_HREF} className={`${COLUMN_LINK} flex items-center gap-2.5`}>
+                <FiPhone aria-hidden="true" className="size-4 shrink-0" />
+                {CONTACT.PHONE}
+              </a>
+              <a
+                href={`mailto:${CONTACT.EMAIL}`}
+                className={`${COLUMN_LINK} flex items-center gap-2.5 break-all`}
+              >
+                <FiMail aria-hidden="true" className="size-4 shrink-0" />
+                {CONTACT.EMAIL}
+              </a>
+            </address>
           </nav>
 
           <nav aria-labelledby="footer-company">
@@ -156,9 +203,10 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="border-content-inverse/15 mt-16 flex flex-col gap-6 border-t pt-8 sm:flex-row sm:items-end sm:justify-between">
+        <div className="border-content-inverse/15 mt-16 grid gap-8 border-t pt-8 lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-12">
           <BrandMark size="sm" isInverse />
-          <div className="text-content-inverse/50 space-y-1 text-xs sm:text-right">
+          <PaymentMethods className="lg:justify-center" />
+          <div className="text-content-inverse/50 space-y-1 text-xs lg:text-right">
             <p>© {new Date().getFullYear()} SK Envision. All rights reserved.</p>
             <p>Demo storefront — no real orders are placed and no payments are processed.</p>
           </div>
