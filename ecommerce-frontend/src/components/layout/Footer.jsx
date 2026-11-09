@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
+import { FiMail, FiPhone } from 'react-icons/fi';
 import { SiFacebook, SiInstagram, SiPinterest, SiTiktok } from 'react-icons/si';
 import { collectionPath, COLLECTIONS, CONTACT, ROUTES, SOCIAL_LINKS } from '@/lib/constants';
 import { Image } from '@/components/ui/Image';
@@ -114,16 +114,6 @@ export function Footer() {
             </ul>
 
             <address className="mt-8 space-y-3 not-italic">
-              <p className={`${COLUMN_LINK} flex gap-2.5`}>
-                <FiMapPin aria-hidden="true" className="mt-0.5 size-4 shrink-0" />
-                <span>
-                  {CONTACT.ADDRESS_LINES.map((line) => (
-                    <span key={line} className="block">
-                      {line}
-                    </span>
-                  ))}
-                </span>
-              </p>
               <a href={CONTACT.PHONE_HREF} className={`${COLUMN_LINK} flex items-center gap-2.5`}>
                 <FiPhone aria-hidden="true" className="size-4 shrink-0" />
                 {CONTACT.PHONE}
