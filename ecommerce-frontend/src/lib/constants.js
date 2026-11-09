@@ -54,6 +54,13 @@ export const PROMO_CODES = {
   SKGLOW10: { code: 'SKGLOW10', type: 'percent', value: 10, label: '10% off your order' },
   WELCOME25: { code: 'WELCOME25', type: 'percent', value: 25, label: '25% off your first order' },
   // Unlocked by finishing a quiz and leaving an email.
+  // Gift with purchase: no money off, the GIFT_WITH_PURCHASE products ride along free.
+  SKGIFT: {
+    code: 'SKGIFT',
+    type: 'gift',
+    value: 0,
+    label: 'Free gift with orders over $100',
+  },
   QUIZ15: {
     code: 'QUIZ15',
     type: 'percent',
@@ -61,6 +68,17 @@ export const PROMO_CODES = {
     label: '15% off + free shipping',
     hasFreeShipping: true,
   },
+};
+
+/**
+ * Gift with purchase, shown as a progress bar in the cart. Once the bag
+ * reaches THRESHOLD (before discounts) and CODE is applied, PRODUCT_IDS are
+ * added to the order at no charge. Edit PRODUCT_IDS to change the gifts.
+ */
+export const GIFT_WITH_PURCHASE = {
+  CODE: 'SKGIFT',
+  THRESHOLD: 10000, // $100.00
+  PRODUCT_IDS: ['27'], // Foot Peel Mask
 };
 
 /** The code a finished quiz unlocks. */

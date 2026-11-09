@@ -1,5 +1,6 @@
 import {
   FREE_SHIPPING_THRESHOLD,
+  GIFT_WITH_PURCHASE,
   PROMO_CODES,
   SHIPPING_FLAT_RATE,
   SHIPPING_METHODS,
@@ -80,7 +81,8 @@ export function taxFor(taxableAmount) {
  * The single source of truth for an order's money breakdown.
  * @param {{ lines: PricedLine[], promoCode?: string|null, shippingMethodId?: string }} input
  * @returns {{subtotal:number, discount:number, shipping:number, tax:number, total:number,
- *            itemCount:number, freeShippingRemaining:number, promo:object|null}}
+ *            itemCount:number, freeShippingRemaining:number, promo:object|null,
+ *            giftRemaining:number, isGiftUnlocked:boolean}}
  */
 export function calculateTotals({ lines = [], promoCode = null, shippingMethodId = 'standard' }) {
   const subtotal = subtotalOf(lines);
@@ -102,5 +104,8 @@ export function calculateTotals({ lines = [], promoCode = null, shippingMethodId
       ? 0
       : Math.max(0, FREE_SHIPPING_THRESHOLD - afterDiscount),
     promo,
+    // Gift with purchase counts the bag before discounts, as Olaplex's does.
+    giftRemaining: Math.max(0, GIFT_WITH_PURCHASE.THRESHOLD - subtotal),
+    isGiftUnlocked: promo?.type === 'gift' && subtotal >= GIFT_WITH_PURCHASE.THRESHOLD,
   };
 }
