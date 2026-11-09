@@ -7,24 +7,23 @@ const RIM = 14;
 const RADIUS = CENTER - RIM;
 const LABEL_RADIUS = RADIUS * 0.66;
 const SLICE = 360 / SPIN_WHEEL.SEGMENTS.length;
-const BULBS = 16;
+const TICKS = 48;
 
 /**
- * One fill and one ink per segment, in wheel order. A warm jewel palette
- * (rose, amber, plum, teal, terracotta, sage, espresso) around the gold
- * winning slice, so the wheel reads as playful without leaving the brand.
- * These are artwork colours for this one illustration, not UI tokens.
+ * Two quiet tones, ivory and espresso, alternate around the wheel, and only
+ * the winning slice is gold. A restrained palette keeps the wheel feeling
+ * like part of the brand rather than a fairground game. These are artwork
+ * colours for this one illustration, not UI tokens.
  */
-const SEGMENT_COLOURS = [
-  { fill: 'oklch(0.6 0.15 12)', ink: 'white' },
-  { fill: 'oklch(0.82 0.13 78)', ink: 'var(--color-brand-900)' },
-  { fill: 'oklch(0.42 0.12 335)', ink: 'white' },
-  { fill: 'oklch(0.56 0.09 195)', ink: 'white' },
-  { fill: 'url(#spin-wheel-gold)', ink: 'var(--color-brand-900)' },
-  { fill: 'oklch(0.6 0.15 42)', ink: 'white' },
-  { fill: 'oklch(0.72 0.08 150)', ink: 'var(--color-brand-900)' },
-  { fill: 'var(--color-brand-700)', ink: 'var(--color-gold-300)' },
-];
+const IVORY = { fill: 'oklch(0.97 0.012 85)', ink: 'var(--color-brand-900)' };
+const ESPRESSO = { fill: 'var(--color-brand-900)', ink: 'var(--color-gold-300)' };
+const GOLD = { fill: 'url(#spin-wheel-gold)', ink: 'var(--color-brand-900)' };
+
+/** @param {number} index */
+function segmentColour(index) {
+  if (index === SPIN_WHEEL.WIN_INDEX) return GOLD;
+  return index % 2 === 0 ? IVORY : ESPRESSO;
+}
 
 /** @param {number} angleDeg clockwise from 12 o'clock */
 function pointAt(angleDeg, radius) {
@@ -104,15 +103,21 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
       <svg
         aria-hidden="true"
         viewBox="0 0 28 34"
-        className="absolute top-[-0.625rem] left-1/2 z-10 w-7 -translate-x-1/2 drop-shadow-md"
+        className="absolute top-[-0.625rem] left-1/2 z-10 w-6 -translate-x-1/2 drop-shadow-md"
       >
+        <defs>
+          <linearGradient id="spin-wheel-pointer" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="oklch(0.9 0.08 88)" />
+            <stop offset="1" stopColor="oklch(0.62 0.11 72)" />
+          </linearGradient>
+        </defs>
         <path
           d="M14 34 L2 10 A12 12 0 1 1 26 10 Z"
-          fill="var(--color-brand-900)"
-          stroke="var(--color-gold-400)"
-          strokeWidth="2"
+          fill="url(#spin-wheel-pointer)"
+          stroke="var(--color-brand-900)"
+          strokeWidth="1"
         />
-        <circle cx="14" cy="11" r="4" fill="var(--color-gold-400)" />
+        <circle cx="14" cy="11" r="3" fill="var(--color-brand-900)" />
       </svg>
 
       {/* Three stacked layers: a static gold rim, the turning disc, a static
@@ -126,11 +131,31 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
               <stop offset="1" stopColor="oklch(0.58 0.11 70)" />
             </linearGradient>
           </defs>
-          <circle cx={CENTER} cy={CENTER} r={CENTER - 1} fill="url(#spin-wheel-rim)" />
-          <circle cx={CENTER} cy={CENTER} r={RADIUS + 1} fill="var(--color-brand-900)" />
-          {Array.from({ length: BULBS }, (_, index) => {
-            const [bx, by] = pointAt((index * 360) / BULBS, CENTER - RIM / 2 - 0.5);
-            return <circle key={index} cx={bx} cy={by} r="2.6" fill="oklch(0.98 0.03 90)" />;
+          <circle cx={CENTER} cy={CENTER} r={CENTER - 1} fill="var(--color-brand-900)" />
+          <circle
+            cx={CENTER}
+            cy={CENTER}
+            r={CENTER - 1.5}
+            fill="none"
+            stroke="url(#spin-wheel-rim)"
+            strokeWidth="1.5"
+          />
+          {Array.from({ length: TICKS }, (_, index) => {
+            const angle = (index * 360) / TICKS;
+            const [x1, y1] = pointAt(angle, RADIUS + 3);
+            const [x2, y2] = pointAt(angle, CENTER - 4);
+            return (
+              <line
+                key={index}
+                x1={x1}
+                y1={y1}
+                x2={x2}
+                y2={y2}
+                stroke="var(--color-gold-400)"
+                strokeOpacity={index % 6 === 0 ? 0.9 : 0.35}
+                strokeWidth="1"
+              />
+            );
           })}
         </svg>
 
@@ -147,21 +172,23 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
               const start = index * SLICE;
               const middle = start + SLICE / 2;
               const [lx, ly] = pointAt(middle, LABEL_RADIUS);
-              const colour = SEGMENT_COLOURS[index % SEGMENT_COLOURS.length];
+              const colour = segmentColour(index);
               return (
                 <g key={`${label}-${start}`}>
                   <path
                     d={slicePath(start, start + SLICE)}
                     fill={colour.fill}
-                    stroke="oklch(1 0 0 / 0.55)"
-                    strokeWidth="1"
+                    stroke="var(--color-gold-400)"
+                    strokeOpacity="0.6"
+                    strokeWidth="0.75"
                   />
                   <text
                     x={lx}
                     y={ly}
                     fill={colour.ink}
-                    fontSize="21"
-                    fontWeight="800"
+                    fontSize="18"
+                    fontWeight="500"
+                    letterSpacing="0.04em"
                     textAnchor="middle"
                     dominantBaseline="central"
                     transform={`rotate(${middle} ${lx} ${ly})`}
@@ -176,14 +203,14 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
         </div>
 
         <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="absolute inset-0 block size-full">
-          <circle cx={CENTER} cy={CENTER} r="26" fill="url(#spin-wheel-rim)" />
-          <circle cx={CENTER} cy={CENTER} r="21" fill="var(--color-brand-900)" />
+          <circle cx={CENTER} cy={CENTER} r="25" fill="url(#spin-wheel-rim)" />
+          <circle cx={CENTER} cy={CENTER} r="23" fill="var(--color-brand-900)" />
           <text
             x={CENTER}
             y={CENTER}
             fill="var(--color-gold-300)"
-            fontSize="13"
-            fontWeight="800"
+            fontSize="12"
+            fontWeight="600"
             textAnchor="middle"
             dominantBaseline="central"
             style={{ fontFamily: 'var(--font-display)', letterSpacing: '0.04em' }}
