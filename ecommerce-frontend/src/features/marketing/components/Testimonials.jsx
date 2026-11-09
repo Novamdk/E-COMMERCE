@@ -19,7 +19,7 @@ export function Testimonials({ testimonials }) {
       <Container width="wide" className="py-20 lg:py-24">
         <h2
           id="testimonials-heading"
-          className="font-display mb-12 text-center text-[2.75rem] leading-none tracking-[-0.02em] sm:mb-14 sm:text-[4rem] lg:text-[5rem]"
+          className="font-display text-gold-shimmer mb-12 text-center text-[2.75rem] leading-none tracking-[-0.02em] sm:mb-14 sm:text-[4rem] lg:text-[5rem]"
         >
           {t('home.reviews.eyebrow')}
         </h2>
