@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom';
 import { FiMail, FiPhone } from 'react-icons/fi';
 import { SiFacebook, SiInstagram, SiPinterest, SiTiktok } from 'react-icons/si';
-import { collectionPath, COLLECTIONS, CONTACT, ROUTES, SOCIAL_LINKS } from '@/lib/constants';
+import {
+  collectionPath,
+  COLLECTIONS,
+  CONTACT,
+  ROUTES,
+  SHOW_STORE_FINDER,
+  SOCIAL_LINKS,
+} from '@/lib/constants';
 import { Image } from '@/components/ui/Image';
 import { LanguageSelect, useT } from '@/features/i18n';
 import { Container } from './Container';
@@ -17,7 +24,7 @@ const HELP_LINKS = [
 
 const COMPANY_LINKS = [
   { to: ROUTES.ABOUT, label: 'footer.story' },
-  { to: ROUTES.STORES, label: 'nav.findStore' },
+  ...(SHOW_STORE_FINDER ? [{ to: ROUTES.STORES, label: 'nav.findStore' }] : []),
   { to: ROUTES.WISHLIST, label: 'footer.wishlist' },
   { to: ROUTES.SIGN_IN, label: 'footer.signIn' },
 ];

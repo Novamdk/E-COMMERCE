@@ -20,6 +20,7 @@ import {
   CONTACT,
   FREE_SHIPPING_THRESHOLD,
   PROMO_CODES,
+  SHOW_STORE_FINDER,
   SOCIAL_LINKS,
   SPIN_WHEEL,
 } from '@/lib/constants';
@@ -115,7 +116,7 @@ export default function HomePage() {
       <ShopByCategory />
       <JournalSection />
       <Testimonials testimonials={site.testimonials} />
-      <StoresBand />
+      {SHOW_STORE_FINDER && <StoresBand />}
       <BenefitsStrip benefits={site.benefits} />
     </>
   );

@@ -28,6 +28,14 @@ export const ROUTES = {
   NOT_FOUND: '*',
 };
 
+/**
+ * The store finder (/stores) is built but hidden: the stockist list in
+ * src/data/stores.json is kept, and the team tracks it in a spreadsheet for
+ * now. Set to true to bring back the page, its menu links, the homepage band
+ * and the line on product pages.
+ */
+export const SHOW_STORE_FINDER = false;
+
 /** @param {string} slug @returns {string} */
 export const productPath = (slug) => `/shop/${slug}`;
 /** @param {string} orderId @returns {string} */

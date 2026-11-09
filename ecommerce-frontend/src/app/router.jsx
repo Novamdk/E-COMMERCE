@@ -2,7 +2,7 @@ import { lazy } from 'react';
 import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { RootLayout } from '@/components/layout/RootLayout';
 import { ProtectedRoute } from '@/features/auth';
-import { ROUTES } from '@/lib/constants';
+import { ROUTES, SHOW_STORE_FINDER } from '@/lib/constants';
 import { RouteError } from './RouteError';
 
 /**
@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
       { path: 'cart', element: <CartPage /> },
       { path: 'wishlist', element: <WishlistPage /> },
       { path: 'about', element: <AboutPage /> },
-      { path: 'stores', element: <StoresPage /> },
+      ...(SHOW_STORE_FINDER ? [{ path: 'stores', element: <StoresPage /> }] : []),
       { path: 'contact', element: <ContactPage /> },
       { path: 'sign-in', element: <SignInPage /> },
       { path: 'sign-up', element: <SignUpPage /> },

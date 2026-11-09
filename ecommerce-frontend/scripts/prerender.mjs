@@ -24,6 +24,7 @@ import {
   COLLECTIONS,
   CONTACT,
   FREE_SHIPPING_THRESHOLD,
+  SHOW_STORE_FINDER,
   SOCIAL_LINKS,
 } from '../src/lib/constants.js';
 import {
@@ -112,7 +113,7 @@ const nav = `<nav><a href="/">Home</a> · <a href="/shop">Shop all</a> · <a hre
   .map((slug) => `<a href="/collections/${slug}">${esc(t(COLLECTIONS[slug].title))}</a>`)
   .join(
     ' · ',
-  )} · <a href="/quiz/hair">Hair quiz</a> · <a href="/quiz/gift">Gift finder</a> · <a href="/journal">Blog</a> · <a href="/about">About</a> · <a href="/stores">Find a store</a> · <a href="/contact">Contact</a></nav>`;
+  )} · <a href="/quiz/hair">Hair quiz</a> · <a href="/quiz/gift">Gift finder</a> · <a href="/journal">Blog</a> · <a href="/about">About</a>${SHOW_STORE_FINDER ? ' · <a href="/stores">Find a store</a>' : ''} · <a href="/contact">Contact</a></nav>`;
 
 /* ------------------------------- pages ------------------------------- */
 
@@ -264,13 +265,14 @@ pages.push({
   )}.</p>`,
 });
 
-pages.push({
-  path: '/stores',
-  title: t('stores.title'),
-  description: t('seo.stores'),
-  priority: 0.5,
-  body: `<h1>${esc(t('stores.title'))}</h1><p>${esc(t('stores.intro'))}</p>`,
-});
+if (SHOW_STORE_FINDER)
+  pages.push({
+    path: '/stores',
+    title: t('stores.title'),
+    description: t('seo.stores'),
+    priority: 0.5,
+    body: `<h1>${esc(t('stores.title'))}</h1><p>${esc(t('stores.intro'))}</p>`,
+  });
 
 /* ------------------------------- write ------------------------------- */
 

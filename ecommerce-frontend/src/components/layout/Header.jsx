@@ -7,6 +7,7 @@ import {
   collectionPath,
   quizPath,
   ROUTES,
+  SHOW_STORE_FINDER,
   WELCOME_OFFER_PATH,
 } from '@/lib/constants';
 import { CartBadge } from '@/features/cart';
@@ -70,7 +71,7 @@ const QUIZ_LINKS = [
 const LEARN_LINKS = [
   { to: ROUTES.ABOUT, label: 'nav.aboutUs' },
   { to: ROUTES.JOURNAL, label: 'nav.blog' },
-  { to: ROUTES.STORES, label: 'nav.findStore' },
+  ...(SHOW_STORE_FINDER ? [{ to: ROUTES.STORES, label: 'nav.findStore' }] : []),
 ];
 
 /** Pill row under the header on phones, like Olaplex's. */
