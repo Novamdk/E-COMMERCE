@@ -31,9 +31,9 @@ export function Gallery({ images, title }) {
   const go = (delta) => setActiveIndex((index) => (index + delta + images.length) % images.length);
 
   return (
-    <div className="flex flex-col-reverse gap-2 lg:flex-row lg:gap-3">
+    <div className="flex min-w-0 flex-col-reverse gap-2 lg:flex-row lg:gap-3">
       {images.length > 1 && (
-        <div className="flex shrink-0 flex-col items-center gap-2 lg:w-20">
+        <div className="flex min-w-0 shrink-0 flex-col items-center gap-2 lg:w-20">
           <button
             type="button"
             onClick={() => go(-RAIL_STEP)}

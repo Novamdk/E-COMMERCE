@@ -1,9 +1,10 @@
 import { useCallback, useMemo } from 'react';
 import { useAsync } from '@/hooks/useAsync';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { organizationLd, websiteLd } from '@/lib/seo';
 import { getProducts, getSiteContent } from '@/services/productService';
 import {
   BenefitsStrip,
-  FaqSection,
   FeaturedProducts,
   Hero,
   HolidayPair,
@@ -15,7 +16,13 @@ import {
 import { RouteFallback } from '@/components/layout/RouteFallback';
 import { ErrorPanel } from '@/components/ui/ErrorPanel';
 import { Container } from '@/components/layout/Container';
-import { FREE_SHIPPING_THRESHOLD, PROMO_CODES, SPIN_WHEEL } from '@/lib/constants';
+import {
+  CONTACT,
+  FREE_SHIPPING_THRESHOLD,
+  PROMO_CODES,
+  SOCIAL_LINKS,
+  SPIN_WHEEL,
+} from '@/lib/constants';
 import { discountPercent, formatCurrency } from '@/lib/formatCurrency';
 import { useT } from '@/features/i18n';
 import { JournalSection } from '@/features/journal';
@@ -35,6 +42,19 @@ export default function HomePage() {
 
   const content = useAsync(fetchContent);
   const products = useAsync(fetchProducts);
+
+  const origin = typeof window === 'undefined' ? '' : window.location.origin;
+  usePageMeta({
+    path: '/',
+    jsonLd: [
+      organizationLd(origin, {
+        phone: CONTACT.PHONE,
+        email: CONTACT.EMAIL,
+        sameAs: SOCIAL_LINKS.map((link) => link.href),
+      }),
+      websiteLd(origin),
+    ],
+  });
 
   // Best sellers first, then the biggest absolute savings.
   const featured = useMemo(() => {
@@ -94,7 +114,6 @@ export default function HomePage() {
       <ShopByCategory />
       <JournalSection />
       <Testimonials testimonials={site.testimonials} />
-      <FaqSection faq={site.faq} />
       <BenefitsStrip benefits={site.benefits} />
     </>
   );

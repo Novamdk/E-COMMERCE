@@ -8,9 +8,11 @@ import { Skeleton } from '@/components/ui/Skeleton';
 import { Container } from '@/components/layout/Container';
 import { PageShell } from '@/components/layout/PageShell';
 import { useAsync } from '@/hooks/useAsync';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import { FREE_SHIPPING_THRESHOLD, PROMO_CODES, ROUTES, SPIN_WHEEL } from '@/lib/constants';
 import { discountPercent, formatCurrency } from '@/lib/formatCurrency';
-import { textureImage } from '@/lib/productImage';
+import { primaryImage, textureImage } from '@/lib/productImage';
+import { breadcrumbLd, productLd } from '@/lib/seo';
 import { getProductBySlug, getProducts } from '@/services/productService';
 import { Gallery, ProductPurchasePanel, RelatedProducts } from '@/features/catalog';
 import { useT } from '@/features/i18n';
@@ -48,6 +50,30 @@ export default function ProductDetailPage() {
   const fetchCatalog = useCallback(() => getProducts(language), [language]);
   const { data: product, loading, error, refetch } = useAsync(fetchProduct);
   const catalog = useAsync(fetchCatalog);
+
+  const origin = typeof window === 'undefined' ? '' : window.location.origin;
+  usePageMeta(
+    product
+      ? {
+          title: product.title,
+          description: product.description,
+          path: `/shop/${product.slug}`,
+          image: `/og/${product.slug}.jpg`,
+          type: 'product',
+          jsonLd: [
+            productLd(product, origin, `/img/${primaryImage(product)}-800.avif`),
+            breadcrumbLd(
+              [
+                { name: 'Home', path: '/' },
+                { name: 'Shop', path: '/shop' },
+                { name: product.title, path: `/shop/${product.slug}` },
+              ],
+              origin,
+            ),
+          ],
+        }
+      : { title: t('header.shop') },
+  );
 
   if (loading) {
     return (
@@ -95,7 +121,7 @@ export default function ProductDetailPage() {
   return (
     <>
       <Container width="wide" className="pt-6 pb-16 lg:pt-10 lg:pb-24">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-14">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-14">
           {/* Keyed by slug so navigating between products resets the selected
               image and the chosen variant, instead of carrying them over. */}
           <div className="lg:sticky lg:top-28 lg:self-start">

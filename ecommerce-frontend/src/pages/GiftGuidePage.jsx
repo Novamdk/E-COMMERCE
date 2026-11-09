@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/Button';
 import { Image } from '@/components/ui/Image';
 import { RouteFallback } from '@/components/layout/RouteFallback';
 import { useAsync } from '@/hooks/useAsync';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import { FREE_SHIPPING_THRESHOLD, quizPath } from '@/lib/constants';
 import { collectionProducts } from '@/lib/filterProducts';
 import { formatCurrency } from '@/lib/formatCurrency';
@@ -22,6 +23,12 @@ export default function GiftGuidePage() {
   const { t, language } = useT();
   const fetchProducts = useCallback(() => getProducts(language), [language]);
   const { data } = useAsync(fetchProducts);
+  usePageMeta({
+    title: t('nav.giftGuide'),
+    description: `${t('giftGuide.title')}. ${t('giftGuide.body')}`,
+    path: '/gift-guide',
+    image: '/og/gift-guide.jpg',
+  });
 
   const chapters = useMemo(() => {
     if (!data) return [];

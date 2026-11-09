@@ -578,5 +578,139 @@
         "Lascia in posa 1–2 minuti, poi risciacqua."
       ]
     }
+  },
+  "vi": {
+    "5091": {
+      "benefits": [
+        "Làm mờ đốm nâu cho làn da đều màu hơn",
+        "Săn chắc và mịn da với collagen",
+        "Trọn quy trình chăm sóc da trong một hộp quà"
+      ],
+      "howToUse": [
+        "Sáng và tối, thoa kem lên da sạch, khô và vuốt nhẹ theo hướng lên.",
+        "Vỗ nhẹ kem mắt quanh vùng mắt bằng ngón áp út."
+      ]
+    },
+    "4824": {
+      "benefits": [
+        "Quy trình 3 bước trọn vẹn: làm sạch, dưỡng, phục hồi",
+        "Dầu argan cho tóc mềm và bóng",
+        "Rẻ hơn mua lẻ từng sản phẩm"
+      ],
+      "howToUse": [
+        "Gội bằng dầu gội, thoa dầu xả từ thân đến ngọn tóc rồi xả sạch.",
+        "Mỗi tuần một lần, thay dầu xả bằng mặt nạ tóc và ủ 5–10 phút."
+      ]
+    },
+    "2628": {
+      "benefits": [
+        "Làm sạch dịu nhẹ, không làm khô tóc",
+        "Dầu argan giúp tóc mềm, mượt và bóng",
+        "Phù hợp mọi loại tóc"
+      ],
+      "howToUse": [
+        "Massage dầu gội lên tóc và da đầu ướt, sau đó xả sạch.",
+        "Thoa dầu xả từ thân đến ngọn, để 1–2 phút rồi xả."
+      ]
+    },
+    "2621": {
+      "benefits": [
+        "Loại bỏ cặn bẩn đồng thời nuôi dưỡng",
+        "Dầu argan cho tóc mềm mượt",
+        "Phù hợp mọi loại tóc"
+      ],
+      "howToUse": [
+        "Massage lên tóc và da đầu ướt đến khi tạo bọt.",
+        "Xả sạch và dùng tiếp dầu xả Argan Oil."
+      ]
+    },
+    "2547": {
+      "benefits": [
+        "Mi và lông mày trông dài, dày hơn",
+        "Làm chắc mi mảnh, dễ gãy",
+        "Thấy kết quả chỉ sau khoảng 4 tuần"
+      ],
+      "howToUse": [
+        "Mỗi tối, kẻ một đường dọc chân mi trên khi mắt sạch và khô, như kẻ eyeliner.",
+        "Thoa lên lông mày tương tự. Dùng hằng ngày để có kết quả tốt nhất."
+      ]
+    },
+    "2394": {
+      "benefits": [
+        "Vitamin A bao nang cho vùng da mắt mỏng manh",
+        "Nâng cơ và săn chắc thấy rõ",
+        "Làm mờ nếp nhăn nhỏ"
+      ],
+      "howToUse": [
+        "Buổi tối, vỗ nhẹ một lượng nhỏ quanh xương hốc mắt bằng ngón áp út.",
+        "Bắt đầu cách ngày, sau đó dùng mỗi tối. Ban ngày dùng kem chống nắng."
+      ]
+    },
+    "1958": {
+      "benefits": [
+        "Làm mờ đốm nâu và da không đều màu",
+        "Collagen cho làn da săn chắc, rạng rỡ",
+        "Thấm nhanh, không nhờn"
+      ],
+      "howToUse": [
+        "Thoa lên da sạch, khô vào sáng và tối.",
+        "Tập trung vào vùng da sạm và dùng kem chống nắng vào buổi sáng."
+      ]
+    },
+    "1773": {
+      "benefits": [
+        "Màu chuẩn salon tại nhà, ngay khi tắm",
+        "Phủ tóc bạc và làm mới màu phai",
+        "Vừa nhuộm vừa dưỡng"
+      ],
+      "howToUse": [
+        "Đeo găng tay, thoa lên tóc ẩm từ chân đến ngọn.",
+        "Để 10–15 phút rồi xả đến khi nước trong."
+      ]
+    },
+    "1550": {
+      "benefits": ["Giảm nếp nhăn và nếp nhăn nhỏ", "Cấp ẩm sâu", "Da mịn và săn chắc hơn"],
+      "howToUse": [
+        "Thoa lên mặt và cổ sạch vào sáng và tối.",
+        "Massage theo hướng lên đến khi thấm."
+      ]
+    },
+    "29": {
+      "benefits": [
+        "Thành phần hữu cơ và tự nhiên",
+        "Nuôi dưỡng da đầu cho tóc trông dày hơn",
+        "Mỏng nhẹ, không bết"
+      ],
+      "howToUse": [
+        "Nhỏ vài giọt lên da đầu sạch, khô, tập trung vào vùng tóc mỏng.",
+        "Massage bằng đầu ngón tay. Không cần xả. Dùng hằng ngày."
+      ]
+    },
+    "28": {
+      "benefits": [
+        "Cấp ẩm sâu cho tóc khô, hư tổn",
+        "Protein giúp giảm gãy rụng và chẻ ngọn",
+        "Tóc mềm, dễ chải"
+      ],
+      "howToUse": [
+        "Sau khi gội, thoa nhiều từ thân đến ngọn tóc.",
+        "Ủ 5–10 phút rồi xả. Dùng một đến hai lần mỗi tuần."
+      ]
+    },
+    "27": {
+      "benefits": [
+        "Nhẹ nhàng lột bỏ da khô, thô ráp",
+        "Gel dưỡng ẩm làm mềm gót chân",
+        "Đôi chân mềm mại ngay tại nhà"
+      ],
+      "howToUse": [
+        "Mang bao chân lên bàn chân sạch, khô trong 60 phút rồi rửa sạch.",
+        "Da bắt đầu bong sau 3–7 ngày. Không bóc da; kết thúc bằng gel dưỡng ẩm."
+      ]
+    },
+    "26": {
+      "benefits": ["Gỡ rối và giảm xơ", "Dầu argan cấp ẩm và tạo độ bóng", "Phù hợp mọi loại tóc"],
+      "howToUse": ["Sau khi gội, thoa từ thân đến ngọn tóc.", "Để 1–2 phút rồi xả."]
+    }
   }
 }

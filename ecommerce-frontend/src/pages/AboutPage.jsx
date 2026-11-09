@@ -6,13 +6,15 @@ import { Skeleton } from '@/components/ui/Skeleton';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { useAsync } from '@/hooks/useAsync';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import { ROUTES } from '@/lib/constants';
 import { getSiteContent } from '@/services/productService';
-import { FaqSection, IngredientsSection } from '@/features/marketing';
+import { IngredientsSection } from '@/features/marketing';
 import { useT } from '@/features/i18n';
 
 export default function AboutPage() {
-  const { language } = useT();
+  const { t, language } = useT();
+  usePageMeta({ title: t('header.about'), description: t('seo.about'), path: '/about' });
   const fetchContent = useCallback(() => getSiteContent(language), [language]);
   const { data, loading, error, refetch } = useAsync(fetchContent);
 
@@ -85,7 +87,6 @@ export default function AboutPage() {
       <div className="mt-20">
         <IngredientsSection ingredients={data.ingredients} />
       </div>
-      <FaqSection faq={data.faq} />
     </>
   );
 }

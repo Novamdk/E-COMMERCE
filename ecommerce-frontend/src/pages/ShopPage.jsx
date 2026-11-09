@@ -8,6 +8,7 @@ import { Pagination } from '@/components/ui/Pagination';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { useAsync } from '@/hooks/useAsync';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import { PAGE_SIZE, ROUTES } from '@/lib/constants';
 import { getCategories } from '@/services/productService';
 import {
@@ -28,7 +29,8 @@ export default function ShopPage() {
   const { filters, setFilters, setPage, clearFilters, activeCount } = useProductFilters();
   const { items, page, pageCount, total, loading, error, refetch } = useProducts();
 
-  const { language } = useT();
+  const { t, language } = useT();
+  usePageMeta({ title: t('seo.shopTitle'), description: t('seo.shop'), path: '/shop' });
   const fetchCategories = useCallback(() => getCategories(language), [language]);
   const { data: categories } = useAsync(fetchCategories);
 

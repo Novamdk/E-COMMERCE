@@ -109,6 +109,29 @@ export const POSTS = [
           },
         ],
       },
+      vi: {
+        title: 'Gợi ý quà lễ hội từ SK Envision',
+        excerpt:
+          'Năm món quà cho mọi người trong danh sách, từ người mê chăm sóc da đến người đã có tất cả.',
+        sections: [
+          {
+            heading: 'Cho người mê chăm sóc da',
+            body: 'Bộ làm đẹp trị đốm nâu gồm Kem collagen trị đốm nâu và các sản phẩm đi kèm trong một hộp. Đây là sản phẩm bán chạy nhất của chúng tôi và đã sẵn sàng để tặng.',
+          },
+          {
+            heading: 'Cho người yêu hàng mi',
+            body: 'Serum dưỡng mi collagen là món quà nhỏ với hiệu quả thấy rõ: mỗi tối một đường dọc chân mi, mi và lông mày trông dày hơn sau khoảng bốn tuần.',
+          },
+          {
+            heading: 'Cho mái tóc đẹp mỗi ngày',
+            body: 'Bộ chăm sóc tóc ưu đãi là quy trình ba bước với dầu argan: dầu gội, dầu xả và Mặt nạ phục hồi tóc protein để phục hồi mỗi tuần.',
+          },
+          {
+            heading: 'Gói trong sắc vàng',
+            body: 'Mọi đơn hàng đều được giao trong bao bì đặc trưng của chúng tôi. Bộ quà lễ hội là phiên bản giới hạn, hãy đặt sớm nếu bạn cần đúng ngày.',
+          },
+        ],
+      },
     },
   },
   {
@@ -207,6 +230,29 @@ export const POSTS = [
           {
             heading: 'Extra: cura delle radici',
             body: 'Per più densità, concludi con qualche goccia di Siero ricrescita bio massaggiato sul cuoio capelluto pulito.',
+          },
+        ],
+      },
+      vi: {
+        title: 'Quy trình chăm sóc tóc 3 bước với dầu argan',
+        excerpt:
+          'Cách xây dựng ngày gội đầu quanh dầu argan cho mái tóc mềm và bóng hơn, dù tóc bạn thuộc loại nào.',
+        sections: [
+          {
+            heading: 'Bước 1: Làm sạch',
+            body: 'Massage Dầu gội Argan Oil lên chân tóc ướt và để bọt chảy dọc thân tóc. Làm sạch mà không làm khô, nên tóc vẫn mềm.',
+          },
+          {
+            heading: 'Bước 2: Dưỡng',
+            body: 'Thoa Dầu xả Argan Oil từ thân đến ngọn, gỡ rối bằng ngón tay và xả sau một đến hai phút để tóc suôn và bóng.',
+          },
+          {
+            heading: 'Bước 3: Phục hồi, mỗi tuần một lần',
+            body: 'Mỗi tuần một lần, thay dầu xả bằng Mặt nạ phục hồi tóc protein và ủ năm đến mười phút. Tóc khô, nhuộm hoặc hay dùng nhiệt sẽ thấy khác biệt.',
+          },
+          {
+            heading: 'Thêm: chăm sóc chân tóc',
+            body: 'Nếu bạn muốn tóc dày hơn, kết thúc bằng vài giọt Serum mọc tóc hữu cơ trên da đầu sạch và massage bằng đầu ngón tay.',
           },
         ],
       },

@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { useAsync } from '@/hooks/useAsync';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import { RouteFallback } from '@/components/layout/RouteFallback';
 import { getProducts } from '@/services/productService';
 import { useT } from '@/features/i18n';
@@ -14,9 +15,14 @@ import NotFoundPage from './NotFoundPage';
 export default function QuizPage() {
   const { quizId } = useParams();
   const [searchParams] = useSearchParams();
-  const { language } = useT();
+  const { t, language } = useT();
   const fetchProducts = useCallback(() => getProducts(language), [language]);
   const { data } = useAsync(fetchProducts);
+  usePageMeta({
+    title: isQuiz(quizId) ? t(QUIZZES[quizId].title) : undefined,
+    description: t('quiz.teaser.body'),
+    path: `/quiz/${quizId}`,
+  });
 
   if (!isQuiz(quizId)) return <NotFoundPage />;
   if (!data) return <RouteFallback />;

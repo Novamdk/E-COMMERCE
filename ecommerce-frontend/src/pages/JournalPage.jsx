@@ -1,9 +1,11 @@
 import { Container } from '@/components/layout/Container';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import { useT } from '@/features/i18n';
 import { localizePost, PostCard, POSTS } from '@/features/journal';
 
 export default function JournalPage() {
   const { t, language } = useT();
+  usePageMeta({ title: t('journal.title'), path: '/journal' });
 
   return (
     <Container width="wide" className="py-12 lg:py-16">

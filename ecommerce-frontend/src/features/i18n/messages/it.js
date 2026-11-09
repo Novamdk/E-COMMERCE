@@ -385,4 +385,12 @@ export const it = {
     thanksEmail: 'Grazie, sei nella lista.',
     thanksPhone: 'Grazie, gli SMS stanno arrivando.',
   },
+  seo: {
+    collection:
+      'Acquista {name} di SK Envision: cura naturale di capelli e pelle con olio di argan, collagene ed estratti botanici. Spedizione gratuita negli USA da 75 $.',
+    shopTitle: 'Tutti i prodotti',
+    shop: 'Tutti i prodotti SK Envision: shampoo e balsamo all’olio di argan, maschere, siero ricrescita, creme anti-macchie e al collagene, siero ciglia e set regalo.',
+    about:
+      'SK Envision crea prodotti naturali di alta qualità per capelli e pelle, con ingredienti di origine naturale, cruelty-free e senza sostanze chimiche aggressive.',
+  },
 };

@@ -2,9 +2,10 @@ import { en } from './messages/en';
 import { es } from './messages/es';
 import { fr } from './messages/fr';
 import { it } from './messages/it';
+import { vi } from './messages/vi';
 
 /** Every dictionary mirrors the shape of `en`, which is the source of truth. */
-export const MESSAGES = { en, fr, es, it };
+export const MESSAGES = { en, fr, es, it, vi };
 
 /**
  * @param {object} dictionary

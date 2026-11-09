@@ -1,0 +1,137 @@
+{
+  "content": {
+    "brand": { "tagline": "Chăm sóc tóc và cơ thể tự nhiên" },
+    "hero": {
+      "eyebrow": "Chỉ thành phần tự nhiên",
+      "heading": "Làm đẹp sạch, hiệu quả thật sự",
+      "body": "Sản phẩm chăm sóc tóc và cơ thể tự nhiên cao cấp, với thành phần có nguồn gốc tự nhiên giúp nuôi dưỡng, bảo vệ và phục hồi, không chứa hóa chất mạnh không cần thiết."
+    },
+    "about": {
+      "heading": "Về SK Envision",
+      "paragraphs": [
+        "Tại SK Envision, chúng tôi đam mê tạo ra những sản phẩm chăm sóc tóc và cơ thể tự nhiên cao cấp, mang lại sự tự tin và vẻ đẹp khỏe mạnh. Chúng tôi chọn lọc kỹ các thành phần chất lượng cao có nguồn gốc tự nhiên để tạo ra công thức nuôi dưỡng, bảo vệ và phục hồi da và tóc mà không dùng hóa chất mạnh không cần thiết.",
+        "Cam kết của chúng tôi không chỉ dừng ở vẻ đẹp. Chúng tôi tin vào chăm sóc da sạch, bền vững và có đạo đức, không thử nghiệm trên động vật và dùng bao bì thân thiện với môi trường khi có thể. Mỗi sản phẩm được thiết kế để hiệu quả mà vẫn đủ dịu nhẹ để dùng hằng ngày."
+      ]
+    },
+    "ingredients": {
+      "heading": "Chỉ thành phần tự nhiên",
+      "body": "Sản phẩm của chúng tôi được làm từ những thành phần tự nhiên chọn lọc, giúp nuôi dưỡng, bảo vệ và phục hồi da và tóc. Giàu chiết xuất thực vật, vitamin và dưỡng chất thiết yếu, mỗi công thức mang lại hiệu quả dịu nhẹ mà không có hóa chất mạnh.",
+      "body2": "Chúng tôi tin vào làm đẹp sạch, giúp da khỏe, tóc chắc và tự tin mỗi ngày, đồng thời tôn trọng thiên nhiên."
+    },
+    "testimonials": [
+      {
+        "quote": "Dầu gội và dầu xả tuyệt vời. Lần đầu dùng mà thấy hiệu quả thật — tóc mềm, bóng và lọn xoăn rõ nét.",
+        "name": "Khách hàng đã xác minh",
+        "meta": "Bộ dầu gội & dầu xả Argan Oil"
+      },
+      {
+        "quote": "Tôi rất thích sản phẩm này, nó có trong quy trình mỗi lần tạo kiểu tóc. Tóc tôi dày và xơ, rất hút sản phẩm, nhưng chỉ cần một chút là đủ — chai đầu tiên dùng được năm tháng.",
+        "name": "Khách hàng đã xác minh",
+        "meta": "Serum mọc tóc hữu cơ"
+      },
+      {
+        "quote": "Mặt nạ tóc dầu argan cho tóc khô hư tổn — nuôi dưỡng, cấp ẩm, không thể thiếu. Tóc tôi khác hẳn chỉ sau hai lần dùng.",
+        "name": "Khách hàng đã xác minh",
+        "meta": "Mặt nạ phục hồi tóc protein"
+      },
+      {
+        "quote": "Kem trị đốm nâu là thứ duy nhất làm da tôi đều màu thấy rõ. Sau sáu tuần, vùng má khác biệt rõ rệt.",
+        "name": "Khách hàng đã xác minh",
+        "meta": "Kem collagen trị đốm nâu"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Sản phẩm có thật sự hoàn toàn tự nhiên không?",
+        "a": "Mọi công thức đều dựa trên thành phần có nguồn gốc tự nhiên — chiết xuất thực vật, vitamin và dưỡng chất thiết yếu. Chúng tôi loại bỏ các hóa chất mạnh gây khô tóc và kích ứng da."
+      },
+      {
+        "q": "Các bạn có thử nghiệm trên động vật không?",
+        "a": "Không. Toàn bộ sản phẩm không thử nghiệm trên động vật và chúng tôi dùng bao bì thân thiện với môi trường khi có thể."
+      },
+      {
+        "q": "Bao lâu thì thấy kết quả?",
+        "a": "Tùy sản phẩm. Serum dưỡng mi cho kết quả thấy rõ sau khoảng bốn tuần; mặt nạ và dầu xả thường thấy khác biệt sau hai, ba lần gội."
+      },
+      {
+        "q": "Chính sách đổi trả thế nào?",
+        "a": "Sản phẩm chưa mở có thể trả lại trong 30 ngày kể từ khi nhận để được hoàn tiền đầy đủ. Nếu sản phẩm bị hỏng khi giao, hãy liên hệ để chúng tôi đổi mới."
+      },
+      {
+        "q": "Có giao hàng quốc tế không?",
+        "a": "Có. Đơn nội địa trên 75 $ được miễn phí vận chuyển. Phí quốc tế được tính khi thanh toán theo điểm đến và khối lượng."
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Nguồn gốc tự nhiên",
+        "body": "Chiết xuất thực vật, vitamin và dưỡng chất thiết yếu — không hóa chất mạnh."
+      },
+      {
+        "title": "Không thử nghiệm trên động vật",
+        "body": "Không bao giờ thử nghiệm trên động vật, bao bì có trách nhiệm khi có thể."
+      },
+      {
+        "title": "Miễn phí vận chuyển từ 75 $",
+        "body": "Dưới mức đó phí cố định 6,90 $, tính khi thanh toán."
+      },
+      {
+        "title": "Đổi trả trong 30 ngày",
+        "body": "Hoàn tiền đầy đủ cho sản phẩm chưa mở trong 30 ngày kể từ khi nhận."
+      }
+    ]
+  },
+  "categories": {
+    "color-shampoo-hair": {
+      "name": "Dầu gội màu",
+      "description": "Lên màu đậm chuẩn salon ngay khi tắm."
+    },
+    "dark-spot": {
+      "name": "Trị đốm nâu",
+      "description": "Công thức làm sáng giúp mờ thâm và đều màu da."
+    },
+    "eye-cream-anti-aging-organic": {
+      "name": "Kem mắt chống lão hóa hữu cơ",
+      "description": "Chăm sóc chuyên biệt cho nếp nhăn và đôi mắt mệt mỏi."
+    },
+    "eye-lashes-growth-serum": {
+      "name": "Serum dưỡng mi",
+      "description": "Serum cho mi và lông mày dày, dài hơn."
+    },
+    "face-lifting-collagen-cream": {
+      "name": "Kem collagen nâng cơ mặt",
+      "description": "Kem collagen giúp săn chắc, nâng cơ và mịn da."
+    },
+    "foot-peel-mask": {
+      "name": "Mặt nạ lột da chân",
+      "description": "Tẩy da chết cho gót nứt nẻ và da chai."
+    },
+    "hair-mask": {
+      "name": "Mặt nạ tóc",
+      "description": "Dưỡng protein chuyên sâu cho tóc khô, hư tổn do hóa chất."
+    },
+    "hair-serum": {
+      "name": "Serum tóc",
+      "description": "Serum chăm sóc da đầu giúp tóc dày từ chân."
+    },
+    "packages": {
+      "name": "Bộ sản phẩm",
+      "description": "Trọn quy trình với giá thấp hơn mua lẻ."
+    }
+  },
+  "products": {
+    "5091": { "title": "Bộ làm đẹp trị đốm nâu", "subtitle": "Sản phẩm bán chạy nhất" },
+    "4824": { "title": "Bộ chăm sóc tóc ưu đãi", "subtitle": "Quy trình 3 bước trọn vẹn" },
+    "2628": { "title": "Bộ dầu gội & dầu xả Argan Oil", "subtitle": "Cho mái tóc suôn mượt" },
+    "2621": { "title": "Dầu gội Argan Oil", "subtitle": "Mọi loại tóc" },
+    "2547": { "title": "Serum dưỡng mi collagen", "subtitle": "Mi & lông mày sau 4 tuần" },
+    "2394": { "title": "Kem nâng cơ mắt Retinal ReSculpt", "subtitle": "Vitamin A bao nang" },
+    "1958": { "title": "Kem collagen trị đốm nâu", "subtitle": "Đều màu da & mờ đốm" },
+    "1773": { "title": "Dầu gội nhuộm màu Magic", "subtitle": "Màu chuẩn salon tại nhà" },
+    "1550": { "title": "Kem collagen chống nhăn", "subtitle": "Săn chắc & mịn da" },
+    "29": { "title": "Serum mọc tóc hữu cơ", "subtitle": "Dày tóc từ gốc đến ngọn" },
+    "28": { "title": "Mặt nạ phục hồi tóc protein", "subtitle": "Tóc khô & hư tổn" },
+    "27": { "title": "Mặt nạ lột da chân", "subtitle": "Kèm gel dưỡng ẩm" },
+    "26": { "title": "Dầu xả Argan Oil", "subtitle": "Gỡ rối & cấp ẩm" }
+  }
+}

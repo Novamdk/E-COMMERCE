@@ -5,6 +5,7 @@ import detailsData from '@/data/product-details.json';
 import frData from '@/data/i18n/fr.json';
 import esData from '@/data/i18n/es.json';
 import itData from '@/data/i18n/it.json';
+import viData from '@/data/i18n/vi.json';
 import { MOCK_FAILURE_RATE, MOCK_LATENCY_MS, RELATED_PRODUCT_COUNT } from '@/lib/constants';
 import { relatedTo } from '@/lib/filterProducts';
 
@@ -21,7 +22,7 @@ import { relatedTo } from '@/lib/filterProducts';
  * so a translation can never change what a shopper pays. English is the base
  * data itself. A real API would take the language as a request parameter.
  */
-const TRANSLATIONS = { fr: frData, es: esData, it: itData };
+const TRANSLATIONS = { fr: frData, es: esData, it: itData, vi: viData };
 
 /** @param {object[]} products @param {string} [language] */
 function localizeProducts(products, language) {

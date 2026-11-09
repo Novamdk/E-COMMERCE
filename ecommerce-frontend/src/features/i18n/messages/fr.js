@@ -386,4 +386,12 @@ export const fr = {
     thanksEmail: 'Merci, vous êtes inscrit(e).',
     thanksPhone: 'Merci, les SMS arrivent bientôt.',
   },
+  seo: {
+    collection:
+      'Achetez {name} chez SK Envision : soins naturels des cheveux et de la peau à l’huile d’argan, au collagène et aux extraits botaniques. Livraison offerte aux États-Unis dès 75 $.',
+    shopTitle: 'Tous les produits',
+    shop: 'Tous les produits SK Envision : shampooing et après-shampooing à l’huile d’argan, masques, sérum de repousse, crèmes anti-taches et au collagène, sérum pour cils et coffrets.',
+    about:
+      'SK Envision crée des soins naturels haut de gamme pour les cheveux et la peau, d’origine naturelle, non testés sur les animaux et sans produits chimiques agressifs.',
+  },
 };

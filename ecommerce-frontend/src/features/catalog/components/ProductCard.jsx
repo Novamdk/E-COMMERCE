@@ -18,8 +18,9 @@ const PACKSHOT = 'p-[11%] mix-blend-multiply';
 
 const GRID_SIZES = '(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw';
 
+// Full width under the price on phones, a compact pill beside it from sm up.
 const PILL =
-  'relative z-10 inline-flex h-9 shrink-0 items-center rounded-full border border-content px-4 text-[0.6875rem] font-semibold tracking-[0.12em] uppercase transition-colors hover:bg-content hover:text-content-inverse disabled:pointer-events-none disabled:opacity-40';
+  'relative z-10 inline-flex h-9 w-full shrink-0 items-center justify-center rounded-full border border-content px-4 sm:w-auto text-[0.6875rem] font-semibold tracking-[0.12em] uppercase transition-colors hover:bg-content hover:text-content-inverse disabled:pointer-events-none disabled:opacity-40';
 
 /**
  * Catalog tile: packshot on stone, and on hover the formula's texture fades
@@ -126,7 +127,7 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
           </span>
         )}
 
-        <div className="mt-auto flex items-end justify-between gap-3 pt-3">
+        <div className="mt-auto flex flex-col gap-2.5 pt-3 sm:flex-row sm:items-end sm:justify-between sm:gap-3">
           <p className="flex flex-wrap items-baseline gap-x-2">
             <span className="text-[0.9375rem] font-semibold">{formatCurrency(product.price)}</span>
             {product.compareAtPrice && (

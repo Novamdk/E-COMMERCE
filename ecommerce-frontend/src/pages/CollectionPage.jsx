@@ -1,6 +1,8 @@
 import { useCallback, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useAsync } from '@/hooks/useAsync';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { itemListLd } from '@/lib/seo';
 import { Dropdown } from '@/components/ui/Dropdown';
 import { ErrorPanel } from '@/components/ui/ErrorPanel';
 import { Container } from '@/components/layout/Container';
@@ -39,6 +41,14 @@ export default function CollectionPage() {
   }, [data, slug, sort]);
 
   const collection = COLLECTIONS[slug];
+  usePageMeta({
+    title: collection ? t(collection.title) : undefined,
+    description: collection ? t('seo.collection', { name: t(collection.title) }) : undefined,
+    path: `/collections/${slug}`,
+    jsonLd: products?.length
+      ? itemListLd(products, typeof window === 'undefined' ? '' : window.location.origin)
+      : undefined,
+  });
   if (!collection || products === null) return <NotFoundPage />;
 
   const sortOptions = SORT_OPTIONS.map((option) => ({

@@ -2,6 +2,8 @@ import { useCallback } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { FiChevronLeft } from 'react-icons/fi';
 import { useAsync } from '@/hooks/useAsync';
+import { usePageMeta } from '@/hooks/usePageMeta';
+import { articleLd } from '@/lib/seo';
 import { Image } from '@/components/ui/Image';
 import { Container } from '@/components/layout/Container';
 import { ROUTES } from '@/lib/constants';
@@ -18,6 +20,23 @@ export default function JournalPostPage() {
   const { data } = useAsync(fetchProducts);
 
   const found = findPost(slug);
+  const localized = found ? localizePost(found, language) : null;
+  usePageMeta(
+    localized
+      ? {
+          title: localized.title,
+          description: localized.excerpt,
+          path: `/journal/${slug}`,
+          image: `/og/${localized.image}.jpg`,
+          type: 'article',
+          jsonLd: articleLd(
+            localized,
+            typeof window === 'undefined' ? '' : window.location.origin,
+            `/img/${localized.image}-1200.avif`,
+          ),
+        }
+      : {},
+  );
   if (!found) return <NotFoundPage />;
 
   const post = localizePost(found, language);

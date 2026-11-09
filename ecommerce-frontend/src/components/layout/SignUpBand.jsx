@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FiCheck, FiChevronRight } from 'react-icons/fi';
-import { Image } from '@/components/ui/Image';
 import { email as validateEmail, phone as validatePhone } from '@/lib/validators';
 import { useT } from '@/features/i18n';
 
@@ -76,30 +75,15 @@ function PillForm({ id, type, label, cta, validate, errorText, thanks }) {
 }
 
 /**
- * "Sign up for SK Envision updates": the monogram in a white disc on the
- * left, consent copy and separate email and text sign-ups on the right.
+ * "Sign up for SK Envision updates": consent copy and separate email and
+ * text sign-ups. The footer below already carries the monogram.
  * Placeholder until a mailing and SMS service is connected.
  */
 export function SignUpBand() {
   const { t } = useT();
 
   return (
-    <section
-      aria-labelledby="signup-heading"
-      className="border-content-inverse/15 grid items-center gap-10 border-b pb-14 md:grid-cols-[auto_1fr] md:gap-14"
-    >
-      <div className="grid size-40 place-items-center rounded-full bg-white lg:size-52">
-        <Image
-          name="brand-mark"
-          alt=""
-          sizes="8rem"
-          ratio="aspect-[400/319]"
-          fit="contain"
-          isTransparent
-          className="w-24 lg:w-32"
-        />
-      </div>
-
+    <section aria-labelledby="signup-heading" className="border-content-inverse/15 border-b pb-14">
       <div className="max-w-2xl">
         <h2 id="signup-heading" className="font-display text-display-sm sm:text-display">
           {t('signup.title')}
