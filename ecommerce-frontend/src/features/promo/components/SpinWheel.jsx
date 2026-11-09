@@ -11,7 +11,7 @@ const TICKS = 48;
 
 /**
  * A soft, feminine palette drawn from the brand's holiday colours: blush,
- * wine, nude, mauve and rose, with one espresso slice for depth and gold
+ * wine, nude, mauve, rose and peach, with gold
  * reserved for the winning slice. Muted tones keep it premium rather than
  * fairground. These are artwork colours for this one illustration, not UI
  * tokens.
@@ -26,7 +26,7 @@ const SEGMENT_COLOURS = [
   { fill: 'url(#spin-wheel-gold)', ink: DARK_INK }, // gold, the winning slice
   { fill: 'oklch(0.68 0.1 18)', ink: LIGHT_INK }, // rose
   { fill: 'oklch(0.95 0.02 40)', ink: DARK_INK }, // shell
-  { fill: 'var(--color-brand-900)', ink: 'var(--color-gold-300)' }, // espresso
+  { fill: 'oklch(0.74 0.08 40)', ink: DARK_INK }, // dusty peach
 ];
 
 /** @param {number} angleDeg clockwise from 12 o'clock */
