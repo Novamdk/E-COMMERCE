@@ -76,7 +76,7 @@ function PillForm({ id, type, label, cta, validate, errorText, thanks }) {
 
 /**
  * "Sign up for SK Envision updates": consent copy and separate email and
- * text sign-ups. The footer below already carries the monogram.
+ * text sign-ups. The footer below carries the monogram.
  * Placeholder until a mailing and SMS service is connected.
  */
 export function SignUpBand() {

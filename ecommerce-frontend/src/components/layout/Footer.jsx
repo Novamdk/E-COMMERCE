@@ -2,8 +2,8 @@ import { Link } from 'react-router-dom';
 import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 import { SiFacebook, SiInstagram, SiPinterest, SiTiktok } from 'react-icons/si';
 import { collectionPath, COLLECTIONS, CONTACT, ROUTES, SOCIAL_LINKS } from '@/lib/constants';
+import { Image } from '@/components/ui/Image';
 import { LanguageSelect, useT } from '@/features/i18n';
-import { BrandMark } from './BrandMark';
 import { Container } from './Container';
 import { PaymentMethods } from './PaymentMethods';
 import { SignUpBand } from './SignUpBand';
@@ -42,7 +42,21 @@ export function Footer() {
 
         <div className="mt-14 grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:gap-16">
           <div className="max-w-sm space-y-6">
-            <BrandMark size="lg" isInverse />
+            <Link
+              to={ROUTES.HOME}
+              aria-label="SK Envision — home"
+              className="grid size-32 place-items-center rounded-full bg-white transition-opacity hover:opacity-90 sm:size-40"
+            >
+              <Image
+                name="brand-mark"
+                alt=""
+                sizes="8rem"
+                ratio="aspect-[400/319]"
+                fit="contain"
+                isTransparent
+                className="w-20 sm:w-24"
+              />
+            </Link>
 
             <ul aria-label={t('footer.social')} className="flex gap-2 pt-2">
               {SOCIAL_LINKS.map((social) => {
