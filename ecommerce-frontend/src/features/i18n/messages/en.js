@@ -467,7 +467,7 @@ export const en = {
     eyebrow: 'Stockists',
     title: 'Find us in stores',
     intro:
-      'SK Envision is carried by salons, boutiques and spas across Southern California, from Los Angeles to San Diego. Find one near you.',
+      'SK Envision is carried by markets, pharmacies, herb shops and beauty stores across Southern California, from Los Angeles to San Diego. Find one near you.',
     sampleNote:
       'Sample locations shown to preview the layout. Our full list of stockists is coming soon.',
     regionsLabel: 'Filter by region',
@@ -490,7 +490,7 @@ export const en = {
     zoomIn: 'Zoom in',
     zoomOut: 'Zoom out',
     showAll: 'Show the whole map',
-    band: 'Carried in salons and boutiques across Southern California.',
+    band: 'Carried in markets, pharmacies and beauty shops across Southern California.',
     partnerEyebrow: 'For salons and boutiques',
     partnerTitle: 'Carry SK Envision',
     partnerBody:
@@ -503,9 +503,11 @@ export const en = {
       la: 'Los Angeles',
     },
     types: {
-      salon: 'Salon',
-      boutique: 'Boutique',
-      spa: 'Spa',
+      market: 'Market',
+      pharmacy: 'Pharmacy',
+      herbs: 'Herbs & ginseng',
+      beauty: 'Beauty',
+      shop: 'Shop',
     },
   },
 };

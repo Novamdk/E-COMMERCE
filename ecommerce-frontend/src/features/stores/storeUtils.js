@@ -5,8 +5,8 @@ export const MAP_WIDTH = map.width;
 export const MAP_HEIGHT = map.height;
 
 /** Largest zoom a region or cluster may fly to. */
-const MAX_ZOOM = 5;
-/** Breathing room around a fitted group of pins, in map units. */
+const MAX_ZOOM = 16;
+/** Breathing room around a fitted group of pins, in on-screen map units. */
 const FIT_PADDING = 48;
 
 /**
@@ -69,11 +69,21 @@ export function fitView(points) {
   if (points.length === 0) return { k: 1, x: 0, y: 0 };
   const xs = points.map(([x]) => x);
   const ys = points.map(([, y]) => y);
-  const minX = Math.min(...xs) - FIT_PADDING;
-  const maxX = Math.max(...xs) + FIT_PADDING;
-  const minY = Math.min(...ys) - FIT_PADDING;
-  const maxY = Math.max(...ys) + FIT_PADDING;
-  const k = Math.max(1, Math.min(MAX_ZOOM, MAP_WIDTH / (maxX - minX), MAP_HEIGHT / (maxY - minY)));
+  const minX = Math.min(...xs);
+  const maxX = Math.max(...xs);
+  const minY = Math.min(...ys);
+  const maxY = Math.max(...ys);
+  // Padding stays the same on screen at any zoom, so it comes off the frame.
+  const spanX = Math.max(maxX - minX, 1e-6);
+  const spanY = Math.max(maxY - minY, 1e-6);
+  const k = Math.max(
+    1,
+    Math.min(
+      MAX_ZOOM,
+      (MAP_WIDTH - 2 * FIT_PADDING) / spanX,
+      (MAP_HEIGHT - 2 * FIT_PADDING) / spanY,
+    ),
+  );
   const centreX = (minX + maxX) / 2;
   const centreY = (minY + maxY) / 2;
   return clampView({ k, x: MAP_WIDTH / 2 - centreX * k, y: MAP_HEIGHT / 2 - centreY * k });

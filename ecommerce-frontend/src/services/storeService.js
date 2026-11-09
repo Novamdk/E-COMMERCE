@@ -27,7 +27,7 @@ function request(payload) {
  * @typedef {object} Store
  * @property {string} id
  * @property {string} name
- * @property {'salon'|'boutique'|'spa'} type
+ * @property {'market'|'pharmacy'|'herbs'|'beauty'|'shop'} type
  * @property {'oc'|'sd'|'la'} region
  * @property {string} address street line
  * @property {string} city

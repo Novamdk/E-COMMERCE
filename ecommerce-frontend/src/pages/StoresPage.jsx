@@ -25,7 +25,7 @@ const pill = (isActive) =>
   );
 
 /**
- * Store finder: the salons, boutiques and spas that carry the range, as a
+ * Store finder: the markets, pharmacies and shops that carry the range, as a
  * list grouped by region beside a drawn map of Southern California. Region
  * pills and a city or zip search narrow both at once. On phones the list
  * comes first and the map is one tap away.

@@ -466,7 +466,7 @@ export const it = {
     eyebrow: 'Rivenditori',
     title: 'Trovaci nei negozi',
     intro:
-      'SK Envision è disponibile in saloni, boutique e spa in tutta la California del Sud, da Los Angeles a San Diego. Trovane uno vicino a te.',
+      'SK Envision è disponibile in market, farmacie, erboristerie e negozi di bellezza della California del Sud, da Los Angeles a San Diego. Trova il più vicino.',
     sampleNote:
       'Indirizzi di esempio per mostrare il layout. L’elenco completo dei rivenditori arriverà presto.',
     regionsLabel: 'Filtra per zona',
@@ -489,7 +489,7 @@ export const it = {
     zoomIn: 'Ingrandisci',
     zoomOut: 'Riduci',
     showAll: 'Mostra tutta la mappa',
-    band: 'Disponibile in saloni e boutique in tutta la California del Sud.',
+    band: 'Disponibile in market, farmacie e negozi di bellezza in tutta la California del Sud.',
     partnerEyebrow: 'Per saloni e boutique',
     partnerTitle: 'Vendi SK Envision',
     partnerBody:
@@ -502,9 +502,11 @@ export const it = {
       la: 'Los Angeles',
     },
     types: {
-      salon: 'Salone',
-      boutique: 'Boutique',
-      spa: 'Spa',
+      market: 'Market',
+      pharmacy: 'Farmacia',
+      herbs: 'Erboristeria',
+      beauty: 'Bellezza',
+      shop: 'Negozio',
     },
   },
 };

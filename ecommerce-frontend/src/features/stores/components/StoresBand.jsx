@@ -5,8 +5,8 @@ import { ROUTES } from '@/lib/constants';
 import { useT } from '@/features/i18n';
 
 /**
- * One quiet line on the homepage saying the range is also on salon and
- * boutique shelves, with a link to the store finder. Deliberately small: it
+ * One quiet line on the homepage saying the range is also on shop
+ * shelves around Southern California, with a link to the store finder. Deliberately small: it
  * is a trust signal, not a section.
  */
 export function StoresBand() {

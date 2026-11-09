@@ -64,6 +64,21 @@ export function StoreMap({ stores, selectedId, onSelect, view, onViewChange, cla
   );
   const selected = pins.find((pin) => pin.id === selectedId) ?? null;
 
+  // Stores on the same block stay grouped even fully zoomed in; tapping such
+  // a group lists them instead of zooming.
+  // The list closes by itself once the map moves or a store is chosen.
+  const [openState, setOpenState] = useState(null);
+  const openClusterId =
+    openState && openState.view === view && openState.selectedId === selectedId
+      ? openState.id
+      : null;
+  const openCluster = clusters.find((cluster) => cluster.id === openClusterId) ?? null;
+  const openGroup = (cluster) => {
+    const next = fitView(cluster.items.map((item) => item.point));
+    if (next.k > view.k * 1.05) onViewChange(next);
+    else setOpenState({ id: cluster.id, view, selectedId });
+  };
+
   /** Map units to on-screen position, as a share of the frame. */
   const toScreen = ([x, y]) => [view.x + x * view.k, view.y + y * view.k];
   const percent = ([x, y]) => ({
@@ -147,7 +162,8 @@ export function StoreMap({ stores, selectedId, onSelect, view, onViewChange, cla
               <li key={cluster.id} className={cn('absolute', GLIDE)} style={position}>
                 <button
                   type="button"
-                  onClick={() => onViewChange(fitView(cluster.items.map((item) => item.point)))}
+                  onClick={() => openGroup(cluster)}
+                  aria-expanded={cluster.id === openClusterId}
                   aria-label={t('stores.zoomCluster', { count: cluster.items.length })}
                   className="bg-holiday-700 text-content-inverse ring-gold-300 grid size-8 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full text-xs font-semibold shadow-md ring-2 transition-transform hover:scale-110 sm:size-9"
                 >
@@ -184,6 +200,29 @@ export function StoreMap({ stores, selectedId, onSelect, view, onViewChange, cla
           );
         })}
       </ul>
+
+      {/* Stores too close to separate, listed above their group. */}
+      {openCluster && (
+        <div
+          className="pointer-events-none absolute z-20"
+          style={percent(toScreen(openCluster.point))}
+        >
+          <ul className="bg-surface-raised shadow-lifted pointer-events-auto absolute bottom-7 left-1/2 max-h-64 w-60 -translate-x-1/2 overflow-y-auto py-2 text-left">
+            {openCluster.items.map((item) => (
+              <li key={item.id}>
+                <button
+                  type="button"
+                  onClick={() => onSelect(item.id)}
+                  className="hover:bg-surface-sunken block w-full px-4 py-2 text-left"
+                >
+                  <span className="block text-sm leading-snug font-medium">{item.store.name}</span>
+                  <span className="text-content-muted block text-xs">{item.store.address}</span>
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       {/* The chosen store, pinned above its marker. */}
       {selected && (

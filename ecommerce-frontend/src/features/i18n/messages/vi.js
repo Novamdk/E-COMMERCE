@@ -464,7 +464,7 @@ export const vi = {
     eyebrow: 'Điểm bán',
     title: 'Tìm chúng tôi tại cửa hàng',
     intro:
-      'SK Envision có mặt tại các salon, cửa hàng và spa khắp Nam California, từ Los Angeles đến San Diego. Tìm nơi gần bạn.',
+      'SK Envision có mặt tại các siêu thị, nhà thuốc, tiệm thuốc bắc và cửa hàng mỹ phẩm khắp Nam California, từ Los Angeles đến San Diego. Tìm cửa hàng gần bạn.',
     sampleNote:
       'Địa điểm mẫu để xem trước bố cục. Danh sách đầy đủ các điểm bán sẽ sớm được cập nhật.',
     regionsLabel: 'Lọc theo khu vực',
@@ -487,7 +487,7 @@ export const vi = {
     zoomIn: 'Phóng to',
     zoomOut: 'Thu nhỏ',
     showAll: 'Xem toàn bộ bản đồ',
-    band: 'Có mặt tại các salon và cửa hàng khắp Nam California.',
+    band: 'Có mặt tại các siêu thị, nhà thuốc và cửa hàng mỹ phẩm khắp Nam California.',
     partnerEyebrow: 'Dành cho salon và cửa hàng',
     partnerTitle: 'Phân phối SK Envision',
     partnerBody:
@@ -500,9 +500,11 @@ export const vi = {
       la: 'Los Angeles',
     },
     types: {
-      salon: 'Salon',
-      boutique: 'Cửa hàng',
-      spa: 'Spa',
+      market: 'Siêu thị',
+      pharmacy: 'Nhà thuốc',
+      herbs: 'Thuốc bắc & sâm',
+      beauty: 'Mỹ phẩm',
+      shop: 'Cửa hàng',
     },
   },
 };
