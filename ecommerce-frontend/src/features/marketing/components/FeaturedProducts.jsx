@@ -1,9 +1,8 @@
-import { Link } from 'react-router-dom';
-import { FiArrowUpRight } from 'react-icons/fi';
 import { Container } from '@/components/layout/Container';
 import { ErrorPanel } from '@/components/ui/ErrorPanel';
-import { ProductGrid } from '@/features/catalog';
+import { ProductCarousel } from '@/features/catalog';
 import { ROUTES } from '@/lib/constants';
+import { SectionHeader } from './SectionHeader';
 
 /**
  * @param {object} props
@@ -14,30 +13,23 @@ import { ROUTES } from '@/lib/constants';
  */
 export function FeaturedProducts({ products, isLoading, error, onRetry }) {
   return (
-    <Container as="section" aria-labelledby="bestsellers-heading" className="py-20">
-      <div className="mb-10 flex flex-wrap items-end justify-between gap-4">
-        <div className="max-w-xl">
-          <h2 id="bestsellers-heading" className="font-display text-display-sm sm:text-display">
-            Our best sellers
-          </h2>
-          <p className="text-content-muted mt-3">
-            The formulas customers come back for, and the bundles that cost less than buying the
-            pieces separately.
-          </p>
-        </div>
-        <Link
-          to={ROUTES.SHOP}
-          className="text-brand-700 hover:text-brand-800 inline-flex items-center gap-1.5 text-sm font-medium transition-colors"
-        >
-          Shop everything
-          <FiArrowUpRight aria-hidden="true" className="size-4" />
-        </Link>
-      </div>
+    <Container
+      as="section"
+      width="wide"
+      aria-labelledby="bestsellers-heading"
+      className="py-20 lg:py-24"
+    >
+      <SectionHeader
+        id="bestsellers-heading"
+        eyebrow="Most loved"
+        title="Bestsellers"
+        link={{ to: ROUTES.SHOP, label: 'Shop all' }}
+      />
 
       {error ? (
-        <ErrorPanel title="Best sellers could not load" error={error} onRetry={onRetry} />
+        <ErrorPanel title="Bestsellers could not load" error={error} onRetry={onRetry} />
       ) : (
-        <ProductGrid products={products} isLoading={isLoading} skeletonCount={4} columns={4} />
+        <ProductCarousel products={products} isLoading={isLoading} label="Bestsellers" />
       )}
     </Container>
   );

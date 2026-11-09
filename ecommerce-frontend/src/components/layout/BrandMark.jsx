@@ -2,29 +2,34 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '@/lib/constants';
 import { cn } from '@/lib/cn';
 
+const SIZES = {
+  sm: 'text-lg tracking-[0.3em]',
+  md: 'text-xl tracking-[0.32em] lg:text-2xl',
+  lg: 'text-3xl tracking-[0.34em]',
+};
+
 /**
- * Wordmark that doubles as the home link.
- * @param {{ size?: 'sm'|'md', className?: string }} props
+ * Typographic wordmark that doubles as the home link: the brand name in the
+ * display serif, set in widely tracked capitals. Colour is inherited, so it
+ * works on light and dark surfaces alike.
+ *
+ * The negative right margin cancels the trailing letter-space so the mark
+ * centres optically, not just mathematically.
+ *
+ * @param {{ size?: 'sm'|'md'|'lg', className?: string }} props
  */
 export function BrandMark({ size = 'md', className }) {
   return (
     <Link
       to={ROUTES.HOME}
-      className={cn('group inline-flex items-baseline gap-1.5', className)}
+      className={cn(
+        'font-display -mr-[0.3em] inline-block leading-none whitespace-nowrap uppercase',
+        SIZES[size] ?? SIZES.md,
+        className,
+      )}
       aria-label="SK Envision — home"
     >
-      <span
-        className={cn(
-          'font-display leading-none tracking-tight',
-          size === 'sm' ? 'text-xl' : 'text-[1.625rem]',
-        )}
-      >
-        SK Envision
-      </span>
-      <span
-        aria-hidden="true"
-        className="bg-brand-500 group-hover:bg-accent-500 mb-0.5 size-1.5 rounded-full transition-colors"
-      />
+      SK Envision
     </Link>
   );
 }

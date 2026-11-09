@@ -3,6 +3,7 @@ import { Skeleton } from '@/components/ui/Skeleton';
 import { formatCurrency } from '@/lib/formatCurrency';
 import { lineTotal } from '@/lib/calculateTotals';
 import { CartSummary } from '@/features/cart';
+import { primaryImage } from '@/lib/productImage';
 
 /**
  * Sticky order recap shown beside every checkout step.
@@ -37,7 +38,7 @@ export function OrderTotalsAside({ lines, totals, isLoading }) {
             {lines.map((line) => (
               <li key={line.id} className="flex items-center gap-3">
                 <Image
-                  name={line.product.images[0]}
+                  name={primaryImage(line.product)}
                   alt=""
                   sizes="3rem"
                   ratio="aspect-square"

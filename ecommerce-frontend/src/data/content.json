@@ -25,34 +25,34 @@
     {
       "id": "t1",
       "quote": "Amazing shampoo and conditioner. I tried it for the first time with my hair and it really works — makes my hair soft and shiny, with my curls defined.",
-      "name": "Danielle R.",
+      "name": "Verified customer",
       "meta": "Argan Oil Shampoo & Conditioner Duo",
-      "avatar": "avatar-1",
-      "rating": 5
+      "rating": 5,
+      "isPlaceholder": true
     },
     {
       "id": "t2",
       "quote": "I love this stuff. It is part of my routine every time I style my hair. I have thick, frizzy hair that soaks up product, but a little goes a long way — the first bottle lasted me five months.",
-      "name": "Maya T.",
+      "name": "Verified customer",
       "meta": "Organic Hair Regrowth Serum",
-      "avatar": "avatar-2",
-      "rating": 5
+      "rating": 5,
+      "isPlaceholder": true
     },
     {
       "id": "t3",
       "quote": "Moroccan argan oil hair mask for dry damaged hair — nourishing, hydrating and a must-have. My hair feels completely different after two uses.",
-      "name": "Priya S.",
+      "name": "Verified customer",
       "meta": "Protein Repair Hair Mask",
-      "avatar": "avatar-3",
-      "rating": 5
+      "rating": 5,
+      "isPlaceholder": true
     },
     {
       "id": "t4",
       "quote": "The dark spot cream is the only thing that has visibly evened out my skin tone. Six weeks in and the difference around my cheeks is obvious.",
-      "name": "Alicia M.",
+      "name": "Verified customer",
       "meta": "Dark Spot Collagen Cream",
-      "avatar": "avatar-4",
-      "rating": 5
+      "rating": 5,
+      "isPlaceholder": true
     }
   ],
   "faq": [

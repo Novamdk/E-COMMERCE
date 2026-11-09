@@ -38,7 +38,37 @@ export const TAX_RATE = 0.0825; // 8.25%
 
 export const PROMO_CODES = {
   SKGLOW10: { code: 'SKGLOW10', type: 'percent', value: 10, label: '10% off your order' },
+  WELCOME25: { code: 'WELCOME25', type: 'percent', value: 25, label: '25% off your first order' },
 };
+
+/* ---------------------------- spin wheel ---------------------------- */
+/**
+ * Welcome-offer wheel. The segments are what the wheel shows; every spin
+ * lands on WIN_INDEX, so every shopper gets the same offer and the code the
+ * popup applies always matches where the wheel stops.
+ */
+export const SPIN_WHEEL = {
+  SEGMENTS: ['5%', '10%', '15%', '20%', '25%', '10%', '15%', '20%'],
+  WIN_INDEX: 4,
+  PROMO_CODE: 'WELCOME25',
+  /** First visit only, and not until the shopper has had a look around. */
+  OPEN_DELAY_MS: 8000,
+  SPIN_DURATION_S: 4.2,
+  FULL_TURNS: 6,
+};
+
+/* --------------------------- announcements -------------------------- */
+/**
+ * Messages that rotate in the bar above the header. Built from the rates
+ * above so the bar can never advertise a threshold checkout does not honour.
+ */
+export const ANNOUNCEMENTS = [
+  `Free shipping on orders over $${FREE_SHIPPING_THRESHOLD / 100}`,
+  `10% off with code ${PROMO_CODES.SKGLOW10.code}`,
+  'Naturally derived · Cruelty-free',
+];
+/** How long each announcement stays up before the next one slides in. */
+export const ANNOUNCEMENT_INTERVAL_MS = 5000;
 
 /* ----------------------------- catalog ----------------------------- */
 export const PAGE_SIZE = 9;
@@ -76,6 +106,7 @@ export const STORAGE_KEYS = {
   SESSION: 'skenvision.session.v1',
   ORDERS: 'skenvision.orders.v1',
   CHECKOUT: 'skenvision.checkout.v1',
+  SPIN_WHEEL: 'skenvision.spinWheel.v1',
 };
 
 /* ------------------------------ misc ------------------------------- */

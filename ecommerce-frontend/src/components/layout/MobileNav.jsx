@@ -20,7 +20,7 @@ export function MobileNav({ isOpen, onClose, categories, primaryLinks }) {
   const { isAuthenticated, user, signOut } = useAuth();
 
   return (
-    <Drawer isOpen={isOpen} onClose={onClose} title="Menu" titleId={TITLE_ID} side="right">
+    <Drawer isOpen={isOpen} onClose={onClose} title="Menu" titleId={TITLE_ID} side="left">
       <nav aria-label="Mobile" className="px-2 py-3">
         <Link to={ROUTES.SHOP} onClick={onClose} className={`${LINK} font-medium`}>
           Shop all products

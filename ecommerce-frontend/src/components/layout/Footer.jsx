@@ -10,15 +10,21 @@ import { getCategories } from '@/services/productService';
 import { BrandMark } from './BrandMark';
 import { Container } from './Container';
 
-const COMPANY_LINKS = [
-  { to: ROUTES.ABOUT, label: 'About us' },
-  { to: ROUTES.CONTACT, label: 'Contact' },
-  { to: ROUTES.SHOP, label: 'All products' },
+const HELP_LINKS = [
+  { to: ROUTES.CONTACT, label: 'Contact us' },
   { to: ROUTES.ORDERS, label: 'Order history' },
+  { to: ROUTES.CART, label: 'Your bag' },
 ];
 
-const COLUMN_HEADING = 'mb-4 text-xs font-semibold tracking-[0.08em] text-content uppercase';
-const COLUMN_LINK = 'text-sm text-content-muted transition-colors hover:text-content';
+const COMPANY_LINKS = [
+  { to: ROUTES.ABOUT, label: 'Our story' },
+  { to: ROUTES.WISHLIST, label: 'Wishlist' },
+  { to: ROUTES.SIGN_IN, label: 'Sign in' },
+];
+
+const COLUMN_HEADING =
+  'mb-5 text-[0.6875rem] font-semibold tracking-[0.16em] text-content-inverse uppercase';
+const COLUMN_LINK = 'text-sm text-content-inverse/65 transition-colors hover:text-content-inverse';
 
 /** Newsletter capture. Validates locally; there is no list to post to. */
 function NewsletterForm() {
@@ -62,13 +68,15 @@ function NewsletterForm() {
           aria-describedby="newsletter-feedback"
           className="flex-1"
         />
-        <Button type="submit">Get 10% off</Button>
+        <Button type="submit" variant="inverse">
+          Sign up
+        </Button>
       </div>
       <p
         id="newsletter-feedback"
         aria-live="polite"
         className={
-          state.status === 'error' ? 'text-danger-600 text-xs' : 'text-content-subtle text-xs'
+          state.status === 'error' ? 'text-danger-500 text-xs' : 'text-content-inverse/50 text-xs'
         }
       >
         {state.status === 'error' ? state.message : 'Occasional updates. Unsubscribe anytime.'}
@@ -82,24 +90,27 @@ export function Footer() {
   const { data: categories } = useAsync(fetchCategories);
 
   return (
-    <footer className="border-border bg-surface-sunken mt-24 border-t">
-      <Container className="py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-16">
-          <div className="max-w-sm space-y-5">
-            <BrandMark />
-            <p className="text-content-muted text-sm leading-relaxed">
-              Premium natural hair and body care. Naturally derived ingredients, cruelty-free
-              practices, and formulas gentle enough for everyday use.
+    <footer className="bg-surface-inverse text-content-inverse mt-24">
+      <Container width="wide" className="py-16 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:gap-16">
+          <div className="max-w-sm space-y-6">
+            <p className="font-display text-display-sm leading-tight">
+              Join the list for 10% off your first order.
             </p>
             <NewsletterForm />
           </div>
 
           <nav aria-labelledby="footer-shop">
             <h2 id="footer-shop" className={COLUMN_HEADING}>
-              Collections
+              Shop
             </h2>
-            <ul className="space-y-2.5">
-              {(categories ?? []).slice(0, 7).map((category) => (
+            <ul className="space-y-3">
+              <li>
+                <Link to={ROUTES.SHOP} className={COLUMN_LINK}>
+                  Shop all
+                </Link>
+              </li>
+              {(categories ?? []).slice(0, 6).map((category) => (
                 <li key={category.slug}>
                   <Link to={categoryPath(category.slug)} className={COLUMN_LINK}>
                     {category.name}
@@ -109,12 +120,12 @@ export function Footer() {
             </ul>
           </nav>
 
-          <nav aria-labelledby="footer-company">
-            <h2 id="footer-company" className={COLUMN_HEADING}>
-              Company
+          <nav aria-labelledby="footer-help">
+            <h2 id="footer-help" className={COLUMN_HEADING}>
+              Help
             </h2>
-            <ul className="space-y-2.5">
-              {COMPANY_LINKS.map((link) => (
+            <ul className="space-y-3">
+              {HELP_LINKS.map((link) => (
                 <li key={link.to}>
                   <Link to={link.to} className={COLUMN_LINK}>
                     {link.label}
@@ -128,14 +139,29 @@ export function Footer() {
               </li>
             </ul>
           </nav>
+
+          <nav aria-labelledby="footer-company">
+            <h2 id="footer-company" className={COLUMN_HEADING}>
+              SK Envision
+            </h2>
+            <ul className="space-y-3">
+              {COMPANY_LINKS.map((link) => (
+                <li key={link.to}>
+                  <Link to={link.to} className={COLUMN_LINK}>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
-        <div className="border-border text-content-subtle mt-14 flex flex-col gap-3 border-t pt-7 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} SK Envision. All rights reserved.</p>
-          <p>
-            A portfolio rebuild of skenvisiontime.com — no real orders are placed and no payments
-            are processed.
-          </p>
+        <div className="border-content-inverse/15 mt-16 flex flex-col gap-6 border-t pt-8 sm:flex-row sm:items-end sm:justify-between">
+          <BrandMark size="sm" />
+          <div className="text-content-inverse/50 space-y-1 text-xs sm:text-right">
+            <p>© {new Date().getFullYear()} SK Envision. All rights reserved.</p>
+            <p>Demo storefront — no real orders are placed and no payments are processed.</p>
+          </div>
         </div>
       </Container>
     </footer>

@@ -13,8 +13,9 @@ import { useOnClickOutside } from '@/hooks/useOnClickOutside';
  *
  * @param {object} props
  * @param {object[]} props.categories
+ * @param {string} [props.label] trigger text
  */
-export function CategoryMenu({ categories }) {
+export function CategoryMenu({ categories, label = 'Shop' }) {
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef(null);
   const triggerRef = useRef(null);
@@ -36,15 +37,15 @@ export function CategoryMenu({ categories }) {
         onClick={() => setIsOpen((open) => !open)}
         aria-expanded={isOpen}
         aria-haspopup="true"
-        className="text-content-muted hover:text-content inline-flex items-center gap-1 py-2 text-sm transition-colors"
+        className="text-content hover:text-content-muted inline-flex items-center gap-1 py-2 text-[0.6875rem] font-semibold tracking-[0.14em] uppercase transition-colors"
       >
-        Collections
+        {label}
         <m.span
           aria-hidden="true"
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.26, ease: EASE_OUT_SOFT }}
         >
-          <FiChevronDown className="size-4" />
+          <FiChevronDown className="size-3.5" />
         </m.span>
       </button>
 
@@ -56,7 +57,7 @@ export function CategoryMenu({ categories }) {
             animate="animate"
             exit="exit"
             style={{ transformOrigin: 'top left' }}
-            className="rounded-panel border-border bg-surface-raised shadow-lifted absolute top-full left-0 z-40 mt-3 grid w-[22rem] gap-0.5 border p-2"
+            className="rounded-panel border-border bg-surface-raised shadow-lifted absolute top-full left-0 z-40 mt-5 grid w-[22rem] gap-0.5 border p-2"
           >
             {categories.map((category) => (
               <m.li key={category.slug} variants={MENU_ITEM_MOTION}>

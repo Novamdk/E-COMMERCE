@@ -4,6 +4,7 @@ import { Image } from '@/components/ui/Image';
 import { SHIPPING_METHODS } from '@/lib/constants';
 import { formatCurrency } from '@/lib/formatCurrency';
 import { lineTotal } from '@/lib/calculateTotals';
+import { primaryImage } from '@/lib/productImage';
 
 const CARD = 'rounded-card border border-border bg-surface-raised p-5';
 
@@ -101,7 +102,7 @@ export function ReviewStep({
           {lines.map((line) => (
             <li key={line.id} className="flex items-center gap-3 py-3">
               <Image
-                name={line.product.images[0]}
+                name={primaryImage(line.product)}
                 alt=""
                 sizes="3.5rem"
                 ratio="aspect-square"

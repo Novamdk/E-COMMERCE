@@ -1,50 +1,49 @@
-import { Image } from '@/components/ui/Image';
+import { Badge } from '@/components/ui/Badge';
 import { Rating } from '@/components/ui/Rating';
 import { Container } from '@/components/layout/Container';
+import { SectionHeader } from './SectionHeader';
 
 /**
+ * Three-up review row: stars, a short serif quote, and who said it. Reviews
+ * flagged `isPlaceholder` carry a visible tag so sample copy cannot pass as a
+ * real customer's words once the site is live.
+ *
  * @param {object} props
- * @param {{id:string, quote:string, name:string, meta:string, avatar:string, rating:number}[]} props.testimonials
+ * @param {{id:string, quote:string, name:string, meta:string, rating:number,
+ *          isPlaceholder?: boolean}[]} props.testimonials
  */
 export function Testimonials({ testimonials }) {
   return (
-    <Container as="section" aria-labelledby="testimonials-heading" className="py-20">
-      <div className="mb-10 max-w-xl">
-        <h2 id="testimonials-heading" className="font-display text-display-sm sm:text-display">
-          What our customers say
-        </h2>
-        <p className="text-content-muted mt-3">
-          Nine thousand reviews across the range. Here are four of them.
-        </p>
-      </div>
+    <section aria-labelledby="testimonials-heading" className="bg-surface-sunken">
+      <Container width="wide" className="py-20 lg:py-24">
+        <SectionHeader id="testimonials-heading" eyebrow="Reviews" title="In their words" />
 
-      <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {testimonials.map((testimonial) => (
-          <li key={testimonial.id}>
-            <figure className="rounded-card border-border bg-surface-raised flex h-full flex-col gap-4 border p-6">
-              <Rating value={testimonial.rating} size="sm" />
+        <ul className="grid gap-12 md:grid-cols-3 md:gap-10">
+          {testimonials.slice(0, 3).map((testimonial) => (
+            <li key={testimonial.id}>
+              <figure className="flex h-full flex-col items-center text-center">
+                <Rating value={testimonial.rating} size="sm" />
 
-              <blockquote className="text-content-muted flex-1 text-sm leading-relaxed">
-                {testimonial.quote}
-              </blockquote>
+                <blockquote className="font-display mt-5 max-w-sm flex-1 text-xl leading-snug sm:text-2xl">
+                  “{testimonial.quote}”
+                </blockquote>
 
-              <figcaption className="border-border flex items-center gap-3 border-t pt-4">
-                <Image
-                  name={testimonial.avatar}
-                  alt=""
-                  sizes="2.5rem"
-                  ratio="aspect-square"
-                  className="w-10 shrink-0 rounded-full"
-                />
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-medium">{testimonial.name}</p>
-                  <p className="text-content-subtle truncate text-xs">{testimonial.meta}</p>
-                </div>
-              </figcaption>
-            </figure>
-          </li>
-        ))}
-      </ul>
-    </Container>
+                <figcaption className="mt-6 space-y-1">
+                  <p className="text-[0.6875rem] font-semibold tracking-[0.16em] uppercase">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-content-muted text-xs">{testimonial.meta}</p>
+                  {testimonial.isPlaceholder && (
+                    <Badge variant="neutral" className="mt-2">
+                      Sample review
+                    </Badge>
+                  )}
+                </figcaption>
+              </figure>
+            </li>
+          ))}
+        </ul>
+      </Container>
+    </section>
   );
 }

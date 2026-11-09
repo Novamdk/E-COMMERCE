@@ -7,6 +7,7 @@ const VARIANTS = {
   success: 'bg-success-50 text-success-600',
   danger: 'bg-danger-50 text-danger-600',
   inverse: 'bg-surface-inverse text-content-inverse',
+  light: 'bg-surface-raised text-content',
 };
 
 const SIZES = {
@@ -16,14 +17,14 @@ const SIZES = {
 
 /**
  * @param {object} props
- * @param {'neutral'|'brand'|'sale'|'success'|'danger'|'inverse'} [props.variant]
+ * @param {'neutral'|'brand'|'sale'|'success'|'danger'|'inverse'|'light'} [props.variant]
  * @param {'sm'|'md'} [props.size]
  */
 export function Badge({ variant = 'neutral', size = 'sm', className, children, ...rest }) {
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-1 rounded-full font-semibold tracking-wide uppercase',
+        'rounded-field inline-flex items-center gap-1 font-semibold tracking-[0.1em] uppercase',
         VARIANTS[variant] ?? VARIANTS.neutral,
         SIZES[size] ?? SIZES.sm,
         className,

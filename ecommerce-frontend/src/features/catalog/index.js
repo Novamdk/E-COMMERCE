@@ -5,6 +5,7 @@
 export { ProductCard } from './components/ProductCard';
 export { ProductCardSkeleton } from './components/ProductCardSkeleton';
 export { ProductGrid } from './components/ProductGrid';
+export { ProductCarousel } from './components/ProductCarousel';
 export { Filters } from './components/Filters';
 export { SortSelect } from './components/SortSelect';
 export { SearchField } from './components/SearchField';

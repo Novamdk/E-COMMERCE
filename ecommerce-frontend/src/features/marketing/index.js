@@ -5,3 +5,5 @@ export { FeaturedProducts } from './components/FeaturedProducts';
 export { IngredientsSection } from './components/IngredientsSection';
 export { Testimonials } from './components/Testimonials';
 export { FaqSection } from './components/FaqSection';
+export { PromoPair } from './components/PromoPair';
+export { ShopTheLook } from './components/ShopTheLook';

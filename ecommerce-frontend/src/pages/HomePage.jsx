@@ -8,13 +8,15 @@ import {
   FeaturedProducts,
   Hero,
   IngredientsSection,
+  PromoPair,
+  ShopTheLook,
   Testimonials,
 } from '@/features/marketing';
 import { RouteFallback } from '@/components/layout/RouteFallback';
 import { ErrorPanel } from '@/components/ui/ErrorPanel';
 import { Container } from '@/components/layout/Container';
 
-const FEATURED_COUNT = 4;
+const FEATURED_COUNT = 8;
 
 export default function HomePage() {
   const fetchContent = useCallback(() => getSiteContent(), []);
@@ -37,6 +39,9 @@ export default function HomePage() {
       .slice(0, FEATURED_COUNT);
   }, [products.data]);
 
+  // Bundles get their own editorial tiles. A two-item filter is too cheap to memoise.
+  const sets = (products.data ?? []).filter((product) => product.categories.includes('packages'));
+
   if (content.loading) return <RouteFallback />;
 
   if (content.error || !content.data) {
@@ -56,7 +61,6 @@ export default function HomePage() {
   return (
     <>
       <Hero hero={site.hero} />
-      <BenefitsStrip benefits={site.benefits} />
 
       <FeaturedProducts
         products={featured}
@@ -65,11 +69,15 @@ export default function HomePage() {
         onRetry={products.refetch}
       />
 
+      <PromoPair products={sets} isLoading={products.loading} />
+
       <CategoryTiles categories={categories.data ?? []} isLoading={categories.loading} />
 
       <IngredientsSection ingredients={site.ingredients} />
+      <ShopTheLook products={products.data ?? []} />
       <Testimonials testimonials={site.testimonials} />
       <FaqSection faq={site.faq} />
+      <BenefitsStrip benefits={site.benefits} />
     </>
   );
 }
