@@ -129,3 +129,17 @@ export function collectionProducts(products, slug) {
   });
   return sortProducts(matched, DEFAULT_SORT);
 }
+
+/**
+ * The curated collection a product is shown under on its own page: the first
+ * id-picked collection that lists it, else the sets, else bestsellers.
+ * @param {object} product
+ * @returns {string} a COLLECTIONS slug
+ */
+export function collectionOf(product) {
+  const byId = Object.entries(COLLECTIONS).find(([, collection]) =>
+    collection.match.ids?.includes(product.id),
+  );
+  if (byId) return byId[0];
+  return product.categories.includes('packages') ? 'holiday-sets' : 'bestsellers';
+}

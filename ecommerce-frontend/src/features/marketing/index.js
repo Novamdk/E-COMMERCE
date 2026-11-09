@@ -9,3 +9,4 @@ export { SectionHeader } from './components/SectionHeader';
 export { OfferMarquee } from './components/OfferMarquee';
 export { HolidayPair } from './components/HolidayPair';
 export { ShopByCategory } from './components/ShopByCategory';
+export { GiftGuideRow } from './components/GiftGuideRow';

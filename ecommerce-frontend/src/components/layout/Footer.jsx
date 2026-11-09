@@ -1,17 +1,12 @@
-import { useCallback, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FiCheck, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
+import { FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 import { SiFacebook, SiInstagram, SiPinterest, SiTiktok } from 'react-icons/si';
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
-import { useAsync } from '@/hooks/useAsync';
-import { categoryPath, CONTACT, ROUTES, SOCIAL_LINKS } from '@/lib/constants';
-import { email as validateEmail } from '@/lib/validators';
-import { getCategories } from '@/services/productService';
+import { collectionPath, COLLECTIONS, CONTACT, ROUTES, SOCIAL_LINKS } from '@/lib/constants';
 import { LanguageSelect, useT } from '@/features/i18n';
 import { BrandMark } from './BrandMark';
 import { Container } from './Container';
 import { PaymentMethods } from './PaymentMethods';
+import { SignUpBand } from './SignUpBand';
 
 /** Labels are translation keys. */
 const HELP_LINKS = [
@@ -37,78 +32,17 @@ const COLUMN_HEADING =
   'mb-5 text-[0.6875rem] font-semibold tracking-[0.16em] text-content-inverse uppercase';
 const COLUMN_LINK = 'text-sm text-content-inverse/65 transition-colors hover:text-content-inverse';
 
-/** Newsletter capture. Validates locally; there is no list to post to. */
-function NewsletterForm() {
-  const { t } = useT();
-  const [value, setValue] = useState('');
-  const [state, setState] = useState({ status: 'idle', message: '' });
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const error = validateEmail(value);
-    if (error) {
-      setState({ status: 'error', message: error });
-      return;
-    }
-    setState({ status: 'done', message: t('footer.thanks') });
-    setValue('');
-  };
-
-  if (state.status === 'done') {
-    return (
-      <p className="rounded-field bg-success-50 text-success-600 flex items-center gap-2 px-3.5 py-3 text-sm">
-        <FiCheck aria-hidden="true" className="size-4 shrink-0" />
-        {state.message}
-      </p>
-    );
-  }
-
-  return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-2">
-      <label htmlFor="newsletter-email" className="sr-only">
-        {t('footer.emailLabel')}
-      </label>
-      <div className="flex flex-col gap-2 sm:flex-row">
-        <Input
-          id="newsletter-email"
-          type="email"
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
-          placeholder={t('footer.emailPlaceholder')}
-          prefix={<FiMail className="size-4" />}
-          hasError={state.status === 'error'}
-          aria-describedby="newsletter-feedback"
-          className="flex-1"
-        />
-        <Button type="submit" variant="inverse">
-          {t('footer.signUp')}
-        </Button>
-      </div>
-      <p
-        id="newsletter-feedback"
-        aria-live="polite"
-        className={
-          state.status === 'error' ? 'text-danger-500 text-xs' : 'text-content-inverse/50 text-xs'
-        }
-      >
-        {state.status === 'error' ? state.message : t('footer.finePrint')}
-      </p>
-    </form>
-  );
-}
-
 export function Footer() {
-  const { t, language } = useT();
-  const fetchCategories = useCallback(() => getCategories(language), [language]);
-  const { data: categories } = useAsync(fetchCategories);
+  const { t } = useT();
 
   return (
     <footer className="bg-surface-inverse text-content-inverse mt-24">
       <Container width="wide" className="py-16 lg:py-20">
-        <div className="grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:gap-16">
+        <SignUpBand />
+
+        <div className="mt-14 grid gap-12 lg:grid-cols-[1.3fr_1fr_1fr_1fr] lg:gap-16">
           <div className="max-w-sm space-y-6">
-            <p className="font-display text-display-sm leading-tight">{t('footer.joinHeading')}</p>
-            <NewsletterForm />
+            <BrandMark size="lg" isInverse />
 
             <ul aria-label={t('footer.social')} className="flex gap-2 pt-2">
               {SOCIAL_LINKS.map((social) => {
@@ -140,10 +74,10 @@ export function Footer() {
                   {t('footer.shopAll')}
                 </Link>
               </li>
-              {(categories ?? []).slice(0, 6).map((category) => (
-                <li key={category.slug}>
-                  <Link to={categoryPath(category.slug)} className={COLUMN_LINK}>
-                    {category.name}
+              {Object.entries(COLLECTIONS).map(([slug, collection]) => (
+                <li key={slug}>
+                  <Link to={collectionPath(slug)} className={COLUMN_LINK}>
+                    {t(collection.title)}
                   </Link>
                 </li>
               ))}
@@ -205,9 +139,8 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="border-content-inverse/15 mt-16 grid gap-8 border-t pt-8 lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-12">
-          <BrandMark size="sm" isInverse />
-          <PaymentMethods className="lg:justify-center" />
+        <div className="border-content-inverse/15 mt-16 grid gap-8 border-t pt-8 lg:grid-cols-[1fr_auto] lg:items-center lg:gap-12">
+          <PaymentMethods />
           <div className="text-content-inverse/50 space-y-3 text-xs lg:text-right">
             <LanguageSelect tone="inverse" />
             <p>{t('footer.rights', { year: new Date().getFullYear() })}</p>

@@ -21,6 +21,7 @@ export const ROUTES = {
   CONTACT: '/contact',
   COLLECTION: '/collections/:slug',
   QUIZ: '/quiz/:quizId',
+  GIFT_GUIDE: '/gift-guide',
   JOURNAL: '/journal',
   JOURNAL_POST: '/journal/:slug',
   NOT_FOUND: '*',

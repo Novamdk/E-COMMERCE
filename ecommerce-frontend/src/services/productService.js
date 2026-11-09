@@ -1,6 +1,7 @@
 import productsData from '@/data/products.json';
 import categoriesData from '@/data/categories.json';
 import contentData from '@/data/content.json';
+import detailsData from '@/data/product-details.json';
 import frData from '@/data/i18n/fr.json';
 import esData from '@/data/i18n/es.json';
 import itData from '@/data/i18n/it.json';
@@ -106,7 +107,9 @@ export async function getProductBySlug(slug, language) {
   const products = await request(localizeProducts(productsData, language));
   const product = products.find((p) => p.slug === slug);
   if (!product) throw new ServiceError(`No product found for "${slug}".`, 404);
-  return product;
+  // The product page also shows key benefits and how-to-use steps.
+  const details = detailsData[language]?.[product.id] ?? detailsData.en[product.id];
+  return { ...product, benefits: details?.benefits ?? [], howToUse: details?.howToUse ?? [] };
 }
 
 /**

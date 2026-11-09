@@ -54,7 +54,7 @@ const SHOP_COLUMNS = [
     heading: 'nav.trending',
     links: [
       { to: collectionPath('bestsellers'), label: 'collections.bestsellers' },
-      { to: collectionPath('holiday-sets'), label: 'nav.giftGuide', badge: 'nav.new' },
+      { to: ROUTES.GIFT_GUIDE, label: 'nav.giftGuide', badge: 'nav.new' },
       { to: quizPath('hair'), label: 'nav.hairQuiz' },
       { to: quizPath('gift'), label: 'nav.giftFinder' },
       { to: WELCOME_OFFER_PATH, label: 'nav.offer' },
@@ -133,10 +133,7 @@ export function Header() {
                 aria-label={t('header.mainNav')}
                 className="hidden items-center gap-5 lg:flex xl:gap-7"
               >
-                <Link
-                  to={collectionPath('holiday-sets')}
-                  className={cn(NAV_TRIGGER, 'text-gold-shimmer')}
-                >
+                <Link to={ROUTES.GIFT_GUIDE} className={cn(NAV_TRIGGER, 'text-gold-shimmer')}>
                   {t('nav.giftGuide')}
                 </Link>
                 <MegaMenu
@@ -146,7 +143,7 @@ export function Header() {
                     image: 'category-hair',
                     title: t('nav.featureTitle'),
                     cta: t('nav.featureCta'),
-                    to: collectionPath('holiday-sets'),
+                    to: ROUTES.GIFT_GUIDE,
                   }}
                   isWide
                 />
@@ -212,7 +209,7 @@ export function Header() {
         isOpen={isMobileNavOpen}
         onClose={() => setIsMobileNavOpen(false)}
         primaryLinks={[
-          { to: collectionPath('holiday-sets'), label: 'nav.giftGuide', isHoliday: true },
+          { to: ROUTES.GIFT_GUIDE, label: 'nav.giftGuide', isHoliday: true },
           { to: collectionPath('bestsellers'), label: 'collections.bestsellers' },
           ...SHOP_COLUMNS[0].links.slice(1, 6),
           { to: quizPath('hair'), label: 'nav.hairQuiz' },

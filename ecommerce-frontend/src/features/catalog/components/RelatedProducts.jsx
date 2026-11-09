@@ -9,7 +9,7 @@ import { useT } from '@/features/i18n';
  * @param {string} props.slug the product to find neighbours for
  */
 export function RelatedProducts({ slug }) {
-  const { language } = useT();
+  const { t, language } = useT();
   const fetchRelated = useCallback(() => getRelatedProducts(slug, language), [slug, language]);
   const { data, loading, error } = useAsync(fetchRelated);
 
@@ -21,7 +21,7 @@ export function RelatedProducts({ slug }) {
   return (
     <section aria-labelledby="related-heading" className="border-border border-t pt-12">
       <h2 id="related-heading" className="font-display text-display-sm mb-8">
-        You may also like
+        {t('product.related')}
       </h2>
       <ProductGrid products={data ?? []} isLoading={loading} skeletonCount={4} columns={4} />
     </section>

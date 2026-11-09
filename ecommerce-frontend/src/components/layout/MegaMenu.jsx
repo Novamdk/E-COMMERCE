@@ -16,7 +16,7 @@ const PANEL_MOTION = {
 };
 
 export const NAV_TRIGGER =
-  'inline-flex items-center gap-1 py-2 text-[0.6875rem] font-semibold tracking-[0.14em] uppercase transition-colors';
+  'inline-flex items-center gap-1 py-2 text-[0.6875rem] font-semibold tracking-[0.14em] whitespace-nowrap uppercase transition-colors';
 
 /**
  * Header menu that opens on hover (and on click or Enter for keyboard and

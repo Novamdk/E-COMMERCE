@@ -23,6 +23,7 @@ const CheckoutLayout = lazy(() => import('@/pages/CheckoutLayout'));
 const OrdersPage = lazy(() => import('@/pages/OrdersPage'));
 const OrderConfirmationPage = lazy(() => import('@/pages/OrderConfirmationPage'));
 const CollectionPage = lazy(() => import('@/pages/CollectionPage'));
+const GiftGuidePage = lazy(() => import('@/pages/GiftGuidePage'));
 const QuizPage = lazy(() => import('@/pages/QuizPage'));
 const JournalPage = lazy(() => import('@/pages/JournalPage'));
 const JournalPostPage = lazy(() => import('@/pages/JournalPostPage'));
@@ -38,6 +39,7 @@ export const router = createBrowserRouter([
       { path: 'shop', element: <ShopPage /> },
       { path: 'shop/:slug', element: <ProductDetailPage /> },
       { path: 'collections/:slug', element: <CollectionPage /> },
+      { path: 'gift-guide', element: <GiftGuidePage /> },
       { path: 'quiz/:quizId', element: <QuizPage /> },
       { path: 'journal', element: <JournalPage /> },
       { path: 'journal/:slug', element: <JournalPostPage /> },
