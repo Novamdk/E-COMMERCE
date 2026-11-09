@@ -31,8 +31,9 @@ export const en = {
   mobileNav: {
     title: 'Menu',
     nav: 'Mobile',
-    collections: 'Collections',
     account: 'Account',
+    promoTitle: 'Find your routine',
+    promoCta: 'Take the hair quiz',
   },
   account: {
     signIn: 'Sign in',
@@ -228,6 +229,9 @@ export const en = {
     learn: 'Learn',
     aboutUs: 'About us',
     blog: 'Blog',
+    shopByProduct: 'Shop by product',
+    shopByHairGoal: 'Shop by hair goal',
+    offers: 'Offers',
   },
   collections: {
     bestsellers: 'Bestsellers',

@@ -14,12 +14,13 @@ const SIZES = {
  * black on transparent; `isInverse` flips it to white for dark surfaces such
  * as the footer.
  *
- * @param {{ size?: 'sm'|'md'|'lg', isInverse?: boolean, className?: string }} props
+ * @param {{ size?: 'sm'|'md'|'lg', isInverse?: boolean, className?: string, onClick?: () => void }} props
  */
-export function BrandMark({ size = 'md', isInverse = false, className }) {
+export function BrandMark({ size = 'md', isInverse = false, className, onClick }) {
   return (
     <Link
       to={ROUTES.HOME}
+      onClick={onClick}
       className={cn('inline-block shrink-0', SIZES[size] ?? SIZES.md, className)}
       aria-label="SK Envision — home"
     >

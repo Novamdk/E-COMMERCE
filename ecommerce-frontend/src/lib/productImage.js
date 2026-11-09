@@ -60,7 +60,7 @@ const PACKSHOTS = {
  */
 const TEXTURES = {
   'dark-spot-beauty-package': 'texture-cream',
-  'hair-care-package': 'texture-mask',
+  'hair-care-package': 'texture-nude',
   'argan-shampoo-conditioner': 'texture-shampoo',
   'argan-shampoo': 'texture-shampoo',
   'argan-conditioner': 'texture-conditioner',
@@ -70,7 +70,7 @@ const TEXTURES = {
   'collagen-anti-aging-cream': 'texture-cream',
   'color-dye-shampoo': 'texture-color',
   'hair-regrowth-serum': 'texture-serum',
-  'repair-hair-mask': 'texture-mask',
+  'repair-hair-mask': 'texture-nude',
   'foot-peel-mask': 'texture-aqua',
 };
 

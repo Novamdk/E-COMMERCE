@@ -28,8 +28,9 @@ export const es = {
   mobileNav: {
     title: 'Menú',
     nav: 'Móvil',
-    collections: 'Colecciones',
     account: 'Cuenta',
+    promoTitle: 'Encuentra tu rutina',
+    promoCta: 'Hacer el test capilar',
   },
   account: {
     signIn: 'Iniciar sesión',
@@ -228,6 +229,9 @@ export const es = {
     learn: 'Descubre',
     aboutUs: 'Nosotros',
     blog: 'Blog',
+    shopByProduct: 'Comprar por producto',
+    shopByHairGoal: 'Comprar por objetivo capilar',
+    offers: 'Ofertas',
   },
   collections: {
     bestsellers: 'Más vendidos',

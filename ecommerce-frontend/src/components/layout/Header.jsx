@@ -98,15 +98,10 @@ export function Header() {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const { count: wishlistCount } = useWishlist();
 
+  const translateLinks = (links) =>
+    links.map((link) => ({ ...link, label: t(link.label), badge: link.badge && t(link.badge) }));
   const translateColumns = (columns) =>
-    columns.map((column) => ({
-      heading: t(column.heading),
-      links: column.links.map((link) => ({
-        ...link,
-        label: t(link.label),
-        badge: link.badge && t(link.badge),
-      })),
-    }));
+    columns.map((column) => ({ heading: t(column.heading), links: translateLinks(column.links) }));
 
   return (
     <>
@@ -201,15 +196,22 @@ export function Header() {
       <MobileNav
         isOpen={isMobileNavOpen}
         onClose={() => setIsMobileNavOpen(false)}
-        primaryLinks={[
-          { to: ROUTES.GIFT_GUIDE, label: 'nav.giftGuide', isHoliday: true },
-          { to: collectionPath('bestsellers'), label: 'collections.bestsellers' },
-          ...SHOP_COLUMNS[0].links.slice(1, 6),
-          { to: quizPath('hair'), label: 'nav.hairQuiz' },
-          { to: quizPath('gift'), label: 'nav.giftFinder' },
-          { to: ROUTES.ABOUT, label: 'nav.aboutUs' },
-          { to: ROUTES.JOURNAL, label: 'nav.blog' },
-          { to: ROUTES.CONTACT, label: 'header.contact' },
+        items={[
+          { to: ROUTES.SHOP, label: t('nav.shopAll') },
+          { to: ROUTES.GIFT_GUIDE, label: t('nav.giftGuide'), isHoliday: true },
+          { label: t('nav.shopByProduct'), links: translateLinks(SHOP_COLUMNS[0].links.slice(1)) },
+          { label: t('nav.shopByHairGoal'), links: translateLinks(SHOP_COLUMNS[1].links) },
+          { label: t('nav.trending'), links: translateLinks(SHOP_COLUMNS[2].links) },
+          { to: BESTSELLERS.to, label: t(BESTSELLERS.label) },
+          { label: t('nav.quizzes'), links: translateLinks(QUIZ_LINKS) },
+          { to: WELCOME_OFFER_PATH, label: t('nav.offers') },
+          {
+            label: t('nav.learn'),
+            links: translateLinks([
+              ...LEARN_LINKS,
+              { to: ROUTES.CONTACT, label: 'header.contact' },
+            ]),
+          },
         ]}
       />
     </>

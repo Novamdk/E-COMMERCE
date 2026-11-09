@@ -28,8 +28,9 @@ export const fr = {
   mobileNav: {
     title: 'Menu',
     nav: 'Mobile',
-    collections: 'Collections',
     account: 'Compte',
+    promoTitle: 'Trouvez votre routine',
+    promoCta: 'Faire le quiz cheveux',
   },
   account: {
     signIn: 'Se connecter',
@@ -227,6 +228,9 @@ export const fr = {
     learn: 'Découvrir',
     aboutUs: 'À propos',
     blog: 'Blog',
+    shopByProduct: 'Acheter par produit',
+    shopByHairGoal: 'Acheter par objectif cheveux',
+    offers: 'Offres',
   },
   collections: {
     bestsellers: 'Best-sellers',

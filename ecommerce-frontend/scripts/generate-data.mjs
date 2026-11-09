@@ -217,7 +217,7 @@ const LOCAL_ART = Object.entries({
   'hair-straight': 'avatar',
   'texture-shampoo': 'product', // hover swatches on product cards
   'texture-conditioner': 'product',
-  'texture-mask': 'product',
+  'texture-nude': 'product',
   'texture-serum': 'product',
   'texture-cream': 'product',
   'texture-gel': 'product',

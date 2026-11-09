@@ -28,8 +28,9 @@ export const vi = {
   mobileNav: {
     title: 'Menu',
     nav: 'Di động',
-    collections: 'Bộ sưu tập',
     account: 'Tài khoản',
+    promoTitle: 'Tìm quy trình của bạn',
+    promoCta: 'Làm trắc nghiệm tóc',
   },
   account: {
     signIn: 'Đăng nhập',
@@ -226,6 +227,9 @@ export const vi = {
     learn: 'Tìm hiểu',
     aboutUs: 'Về chúng tôi',
     blog: 'Blog',
+    shopByProduct: 'Mua theo sản phẩm',
+    shopByHairGoal: 'Mua theo mục tiêu tóc',
+    offers: 'Ưu đãi',
   },
   collections: {
     bestsellers: 'Bán chạy',

@@ -17,7 +17,7 @@ const EYEBROW = 'text-[0.6875rem] font-semibold tracking-[0.2em] uppercase';
 const INGREDIENTS = [
   { id: 'argan', image: 'texture-shampoo' },
   { id: 'collagen', image: 'texture-cream' },
-  { id: 'protein', image: 'texture-mask' },
+  { id: 'protein', image: 'texture-nude' },
   { id: 'botanicals', image: 'texture-serum' },
 ];
 
