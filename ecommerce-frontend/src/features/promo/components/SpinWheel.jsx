@@ -10,20 +10,24 @@ const SLICE = 360 / SPIN_WHEEL.SEGMENTS.length;
 const TICKS = 48;
 
 /**
- * Two quiet tones, ivory and espresso, alternate around the wheel, and only
- * the winning slice is gold. A restrained palette keeps the wheel feeling
- * like part of the brand rather than a fairground game. These are artwork
- * colours for this one illustration, not UI tokens.
+ * A soft, feminine palette drawn from the brand's holiday colours: blush,
+ * wine, nude, mauve and rose, with one espresso slice for depth and gold
+ * reserved for the winning slice. Muted tones keep it premium rather than
+ * fairground. These are artwork colours for this one illustration, not UI
+ * tokens.
  */
-const IVORY = { fill: 'oklch(0.97 0.012 85)', ink: 'var(--color-brand-900)' };
-const ESPRESSO = { fill: 'var(--color-brand-900)', ink: 'var(--color-gold-300)' };
-const GOLD = { fill: 'url(#spin-wheel-gold)', ink: 'var(--color-brand-900)' };
-
-/** @param {number} index */
-function segmentColour(index) {
-  if (index === SPIN_WHEEL.WIN_INDEX) return GOLD;
-  return index % 2 === 0 ? IVORY : ESPRESSO;
-}
+const DARK_INK = 'var(--color-brand-900)';
+const LIGHT_INK = 'oklch(0.98 0.01 20)';
+const SEGMENT_COLOURS = [
+  { fill: 'oklch(0.9 0.04 15)', ink: DARK_INK }, // blush
+  { fill: 'oklch(0.42 0.12 12)', ink: LIGHT_INK }, // wine
+  { fill: 'oklch(0.84 0.045 55)', ink: DARK_INK }, // nude
+  { fill: 'oklch(0.6 0.07 350)', ink: LIGHT_INK }, // mauve
+  { fill: 'url(#spin-wheel-gold)', ink: DARK_INK }, // gold, the winning slice
+  { fill: 'oklch(0.68 0.1 18)', ink: LIGHT_INK }, // rose
+  { fill: 'oklch(0.95 0.02 40)', ink: DARK_INK }, // shell
+  { fill: 'var(--color-brand-900)', ink: 'var(--color-gold-300)' }, // espresso
+];
 
 /** @param {number} angleDeg clockwise from 12 o'clock */
 function pointAt(angleDeg, radius) {
@@ -131,7 +135,7 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
               <stop offset="1" stopColor="oklch(0.58 0.11 70)" />
             </linearGradient>
           </defs>
-          <circle cx={CENTER} cy={CENTER} r={CENTER - 1} fill="var(--color-brand-900)" />
+          <circle cx={CENTER} cy={CENTER} r={CENTER - 1} fill="oklch(0.34 0.09 12)" />
           <circle
             cx={CENTER}
             cy={CENTER}
@@ -172,15 +176,14 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
               const start = index * SLICE;
               const middle = start + SLICE / 2;
               const [lx, ly] = pointAt(middle, LABEL_RADIUS);
-              const colour = segmentColour(index);
+              const colour = SEGMENT_COLOURS[index % SEGMENT_COLOURS.length];
               return (
                 <g key={`${label}-${start}`}>
                   <path
                     d={slicePath(start, start + SLICE)}
                     fill={colour.fill}
-                    stroke="var(--color-gold-400)"
-                    strokeOpacity="0.6"
-                    strokeWidth="0.75"
+                    stroke="oklch(1 0 0 / 0.7)"
+                    strokeWidth="1"
                   />
                   <text
                     x={lx}
