@@ -1,6 +1,7 @@
 import { FaCcAmazonPay } from 'react-icons/fa6';
 import { SiApplepay, SiGooglepay, SiPaypal, SiStripe, SiVisa } from 'react-icons/si';
 import { cn } from '@/lib/cn';
+import { useT } from '@/features/i18n';
 
 /** Two overlapping discs: the Mastercard and Maestro marks share this shape. */
 function InterlockingCircles({ left, right, overlap }) {
@@ -54,8 +55,9 @@ const METHODS = [
  * @param {{ className?: string }} props
  */
 export function PaymentMethods({ className }) {
+  const { t } = useT();
   return (
-    <ul aria-label="Accepted payment methods" className={cn('flex flex-wrap gap-2', className)}>
+    <ul aria-label={t('footer.payments')} className={cn('flex flex-wrap gap-2', className)}>
       {METHODS.map((method) => (
         <li
           key={method.id}

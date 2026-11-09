@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { FiCheck, FiX } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
 import { Image } from '@/components/ui/Image';
@@ -11,6 +11,7 @@ import { EASE_IN_SOFT, EASE_OUT_SOFT } from '@/lib/motion';
 import { PROMO_CODES, ROUTES, SPIN_WHEEL, STORAGE_KEYS } from '@/lib/constants';
 import { email as validateEmail } from '@/lib/validators';
 import { useCart } from '@/features/cart';
+import { useT } from '@/features/i18n';
 import { SpinWheel } from './SpinWheel';
 
 const TITLE_ID = 'spin-wheel-title';
@@ -29,6 +30,8 @@ const PANEL_MOTION = {
  * the left, the offer on the right. Spin, land on 25%, leave an email, and
  * the code is applied to the bag. Shown once per browser, never on checkout,
  * and only after a short delay so it does not ambush someone on arrival.
+ * Any link to `?offer=welcome` (the hero's sign-up button) opens it at once,
+ * even for someone who has already seen it.
  *
  * Built on Overlay directly (like Modal and Drawer) because the image panel
  * needs the full height of the dialog, which Modal's header row would break.
@@ -36,7 +39,9 @@ const PANEL_MOTION = {
  * Step: 'spin' → 'spinning' → 'landed' (brief pause) → 'won' (email form) → 'claimed'.
  */
 export function SpinWheelPopup() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
+  const navigate = useNavigate();
+  const { t } = useT();
   const { applyPromo } = useCart();
   const [hasSeen, setHasSeen] = useLocalStorage(STORAGE_KEYS.SPIN_WHEEL, false);
   const [isOpen, setIsOpen] = useState(false);
@@ -60,16 +65,24 @@ export function SpinWheelPopup() {
     return () => window.clearTimeout(id);
   }, [hasSeen, isCheckout]);
 
+  // Any link to ?offer=welcome shows it straight away; closing drops the flag.
+  const params = new URLSearchParams(search);
+  const isRequested = params.get('offer') === 'welcome';
+
   const close = () => {
     setIsOpen(false);
     setHasSeen(true);
+    if (!isRequested) return;
+    params.delete('offer');
+    const rest = params.toString();
+    navigate({ pathname, search: rest ? `?${rest}` : '' }, { replace: true });
   };
 
   const handleClaim = (event) => {
     event.preventDefault();
     const message = validateEmail(email);
     if (message) {
-      setError(message);
+      setError(message && t('quiz.unlock.emailError'));
       return;
     }
     applyPromo(PROMO.code);
@@ -78,7 +91,7 @@ export function SpinWheelPopup() {
 
   return (
     <Overlay
-      isOpen={isOpen}
+      isOpen={isOpen || isRequested}
       onClose={close}
       titleId={TITLE_ID}
       containerClassName="items-end justify-center sm:items-center sm:p-4"
@@ -88,7 +101,7 @@ export function SpinWheelPopup() {
       <button
         type="button"
         onClick={close}
-        aria-label="Close welcome offer"
+        aria-label={t('welcome.close')}
         className="rounded-field text-content-muted hover:bg-ink-100 hover:text-content absolute top-3 right-3 z-10 grid size-9 place-items-center bg-white/80 backdrop-blur transition-colors md:bg-transparent md:backdrop-blur-none"
       >
         <FiX className="size-5" />
@@ -101,7 +114,7 @@ export function SpinWheelPopup() {
           <div className="absolute inset-0">
             <Image
               name="welcome-gift"
-              alt="SK Envision Argan Oil Shampoo and Hair Mask tied with a gold ribbon"
+              alt={t('welcome.imageAlt')}
               sizes="(min-width: 768px) 28rem, 100vw"
               className="size-full"
               imgClassName="object-[50%_62%] md:object-center"
@@ -126,13 +139,13 @@ export function SpinWheelPopup() {
           {isWheelStep && (
             <div className="mt-5 flex w-full flex-col items-center">
               <p className="text-gold-600 text-[0.6875rem] font-semibold tracking-[0.2em] uppercase">
-                Welcome gift
+                {t('welcome.eyebrow')}
               </p>
               <h2 id={TITLE_ID} className="font-display mt-2 text-3xl tracking-tight uppercase">
-                Spin to win
+                {t('welcome.spinTitle')}
               </h2>
               <p className="text-content-muted mt-2 text-sm">
-                Up to {PROMO.value}% off your first order.
+                {t('welcome.spinBody', { percent: PROMO.value })}
               </p>
               <div className="mt-6 w-full">
                 <SpinWheel
@@ -147,9 +160,9 @@ export function SpinWheelPopup() {
                 onClick={() => setStep('spinning')}
                 disabled={step !== 'spin'}
               >
-                {step === 'spin' && 'Spin the wheel'}
-                {step === 'spinning' && 'Spinning…'}
-                {step === 'landed' && `You won ${PROMO.value}% off!`}
+                {step === 'spin' && t('welcome.spin')}
+                {step === 'spinning' && t('welcome.spinning')}
+                {step === 'landed' && t('welcome.landed', { percent: PROMO.value })}
               </Button>
             </div>
           )}
@@ -160,19 +173,15 @@ export function SpinWheelPopup() {
                 id={TITLE_ID}
                 className="font-display text-4xl leading-none tracking-tight uppercase sm:text-5xl"
               >
-                {PROMO.value}% off
-                <span className="block">sitewide</span>
+                {t('welcome.offerLine1', { percent: PROMO.value })}
+                <span className="block">{t('welcome.offerLine2')}</span>
               </h2>
               {/* TODO(owner): confirm these subscriber perks before launch. */}
-              <p className="mt-4 text-sm font-semibold">
-                Plus, subscribers get first access to new launches and members-only offers.
-              </p>
-              <p className="text-content-muted mt-2 text-sm">
-                Sign up now to get your early access code.
-              </p>
+              <p className="mt-4 text-sm font-semibold">{t('welcome.perks')}</p>
+              <p className="text-content-muted mt-2 text-sm">{t('welcome.signUp')}</p>
 
               <label htmlFor="spin-email" className="sr-only">
-                Email address
+                {t('welcome.emailLabel')}
               </label>
               <Input
                 id="spin-email"
@@ -183,7 +192,7 @@ export function SpinWheelPopup() {
                   setEmail(event.target.value);
                   setError('');
                 }}
-                placeholder="Email address"
+                placeholder={t('welcome.emailPlaceholder')}
                 hasError={Boolean(error)}
                 aria-describedby="spin-email-feedback"
                 className="mt-6 h-12"
@@ -196,7 +205,7 @@ export function SpinWheelPopup() {
                 {error}
               </p>
               <Button type="submit" isFullWidth size="lg" className="mt-2">
-                Get early access
+                {t('welcome.submit')}
               </Button>
             </form>
           )}
@@ -204,19 +213,19 @@ export function SpinWheelPopup() {
           {step === 'claimed' && (
             <div className="mt-6 w-full max-w-sm space-y-5">
               <h2 id={TITLE_ID} className="font-display text-3xl tracking-tight uppercase">
-                You&rsquo;re in
+                {t('welcome.claimedTitle')}
               </h2>
               <p className="bg-success-50 text-success-600 rounded-field flex items-center justify-center gap-2 px-4 py-3 text-sm">
                 <FiCheck aria-hidden="true" className="size-4" />
-                {PROMO.value}% off applied to your bag
+                {t('welcome.applied', { percent: PROMO.value })}
               </p>
               <p className="text-content-muted text-sm">
-                Your code is{' '}
-                <span className="text-content font-semibold tracking-[0.12em]">{PROMO.code}</span>.
-                It comes off at checkout automatically.
+                {t('welcome.codeBefore')}{' '}
+                <span className="text-content font-semibold tracking-[0.12em]">{PROMO.code}</span>.{' '}
+                {t('welcome.codeAfter')}
               </p>
               <Button isFullWidth size="lg" onClick={close}>
-                Start shopping
+                {t('welcome.startShopping')}
               </Button>
             </div>
           )}
@@ -227,7 +236,7 @@ export function SpinWheelPopup() {
               onClick={close}
               className="text-content-subtle hover:text-content mt-4 text-xs underline underline-offset-4"
             >
-              No thanks
+              {t('welcome.noThanks')}
             </button>
           )}
         </div>

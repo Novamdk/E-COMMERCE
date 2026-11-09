@@ -1,0 +1,178 @@
+{
+  "content": {
+    "brand": {
+      "tagline": "Cuidado natural para el cabello y el cuerpo"
+    },
+    "hero": {
+      "eyebrow": "Solo ingredientes naturales",
+      "heading": "Belleza limpia que funciona de verdad",
+      "body": "Cuidado premium y natural para el cabello y el cuerpo, formulado con ingredientes de origen natural que nutren, protegen y revitalizan, sin químicos agresivos innecesarios."
+    },
+    "about": {
+      "heading": "Sobre SK Envision",
+      "paragraphs": [
+        "En SK Envision nos apasiona crear productos premium y naturales para el cabello y el cuerpo que inspiran confianza y favorecen una belleza saludable. Seleccionamos con cuidado ingredientes de origen natural de alta calidad para desarrollar fórmulas que nutren, protegen y revitalizan la piel y el cabello sin químicos agresivos innecesarios.",
+        "Nuestro compromiso va más allá de la belleza. Creemos en un cuidado limpio, sostenible y ético: prácticas libres de crueldad animal y envases respetuosos con el medio ambiente siempre que es posible. Cada producto está pensado para dar resultados eficaces y ser lo bastante suave para el uso diario."
+      ]
+    },
+    "ingredients": {
+      "heading": "Solo ingredientes naturales",
+      "body": "Nuestros productos se elaboran con ingredientes naturales cuidadosamente seleccionados que nutren, protegen y reparan la piel y el cabello. Ricas en extractos botánicos, vitaminas y nutrientes esenciales, nuestras fórmulas ofrecen resultados suaves pero eficaces, sin químicos agresivos.",
+      "body2": "Creemos en una belleza limpia que favorece una piel sana, un cabello más fuerte y la confianza de cada día, respetando la naturaleza."
+    },
+    "testimonials": [
+      {
+        "quote": "Un champú y acondicionador increíbles. Los probé por primera vez y funcionan de verdad: el pelo queda suave y brillante, con los rizos definidos.",
+        "name": "Cliente verificado",
+        "meta": "Dúo de champú y acondicionador de aceite de argán"
+      },
+      {
+        "quote": "Me encanta. Forma parte de mi rutina cada vez que me peino. Tengo el pelo grueso y encrespado, que absorbe todo, pero con muy poco basta: el primer frasco me duró cinco meses.",
+        "name": "Cliente verificado",
+        "meta": "Sérum orgánico para el crecimiento del cabello"
+      },
+      {
+        "quote": "Mascarilla de aceite de argán marroquí para cabello seco y dañado: nutritiva, hidratante e imprescindible. Mi pelo es otro después de dos usos.",
+        "name": "Cliente verificado",
+        "meta": "Mascarilla capilar reparadora con proteínas"
+      },
+      {
+        "quote": "La crema antimanchas es lo único que ha unificado de verdad el tono de mi piel. Tras seis semanas, la diferencia en las mejillas es evidente.",
+        "name": "Cliente verificado",
+        "meta": "Crema de colágeno antimanchas"
+      }
+    ],
+    "faq": [
+      {
+        "q": "¿Vuestros productos son realmente naturales?",
+        "a": "Cada fórmula se basa en ingredientes de origen natural: extractos botánicos, vitaminas y nutrientes esenciales. Dejamos fuera los químicos agresivos que resecan el cabello e irritan la piel."
+      },
+      {
+        "q": "¿Hacéis pruebas en animales?",
+        "a": "No. Toda la gama es libre de crueldad animal y usamos envases respetuosos con el medio ambiente siempre que podemos."
+      },
+      {
+        "q": "¿Cuándo se ven los resultados?",
+        "a": "Depende del producto. El sérum de pestañas está formulado para un crecimiento visible en unas cuatro semanas; las mascarillas y acondicionadores suelen notarse tras dos o tres lavados."
+      },
+      {
+        "q": "¿Cuál es vuestra política de devoluciones?",
+        "a": "Los productos sin abrir pueden devolverse en los 30 días siguientes a la entrega con reembolso completo. Si un producto llega dañado, contáctanos y lo sustituiremos."
+      },
+      {
+        "q": "¿Hacéis envíos internacionales?",
+        "a": "Sí. En EE. UU. el envío es gratuito a partir de 75 $. Las tarifas internacionales se calculan al pagar según el destino y el peso."
+      }
+    ],
+    "benefits": [
+      {
+        "title": "De origen natural",
+        "body": "Extractos botánicos, vitaminas y nutrientes esenciales, sin químicos agresivos."
+      },
+      {
+        "title": "Libre de crueldad animal",
+        "body": "Nunca probado en animales, con envases responsables siempre que es posible."
+      },
+      {
+        "title": "Envío gratis desde 75 $",
+        "body": "Por debajo, envío de 6,90 $, calculado al pagar."
+      },
+      {
+        "title": "Devoluciones en 30 días",
+        "body": "Productos sin abrir reembolsados por completo en los 30 días siguientes a la entrega."
+      }
+    ]
+  },
+  "categories": {
+    "color-shampoo-hair": {
+      "name": "Champús de color",
+      "description": "Color intenso de salón, directamente en la ducha."
+    },
+    "dark-spot": {
+      "name": "Antimanchas",
+      "description": "Fórmulas iluminadoras que atenúan las manchas y unifican el tono."
+    },
+    "eye-cream-anti-aging-organic": {
+      "name": "Contorno de ojos antiedad orgánico",
+      "description": "Cuidado específico para líneas finas y ojos cansados."
+    },
+    "eye-lashes-growth-serum": {
+      "name": "Sérum de crecimiento de pestañas",
+      "description": "Sérums para pestañas y cejas más densas y largas."
+    },
+    "face-lifting-collagen-cream": {
+      "name": "Cremas reafirmantes de colágeno",
+      "description": "Cremas de colágeno que reafirman, elevan y alisan."
+    },
+    "foot-peel-mask": {
+      "name": "Mascarilla exfoliante para pies",
+      "description": "Peelings exfoliantes para talones agrietados y durezas."
+    },
+    "hair-mask": {
+      "name": "Mascarillas capilares",
+      "description": "Tratamientos profundos con proteínas para el cabello seco y dañado."
+    },
+    "hair-serum": {
+      "name": "Sérums capilares",
+      "description": "Sérums que actúan desde el cuero cabelludo para recuperar densidad."
+    },
+    "packages": {
+      "name": "Packs",
+      "description": "Rutinas completas a mejor precio que por separado."
+    }
+  },
+  "products": {
+    "5091": {
+      "title": "Pack de belleza antimanchas",
+      "subtitle": "Nuestro más vendido"
+    },
+    "4824": {
+      "title": "Pack de cuidado capilar",
+      "subtitle": "Rutina completa en 3 pasos"
+    },
+    "2628": {
+      "title": "Dúo de champú y acondicionador de aceite de argán",
+      "subtitle": "Para un cabello sedoso"
+    },
+    "2621": {
+      "title": "Champú de aceite de argán",
+      "subtitle": "Para todo tipo de cabello"
+    },
+    "2547": {
+      "title": "Sérum de crecimiento de pestañas con colágeno",
+      "subtitle": "Pestañas y cejas en 4 semanas"
+    },
+    "2394": {
+      "title": "Tratamiento lifting de ojos Retinal ReSculpt",
+      "subtitle": "Vitamina A encapsulada"
+    },
+    "1958": {
+      "title": "Crema de colágeno antimanchas",
+      "subtitle": "Unifica el tono y atenúa las manchas"
+    },
+    "1773": {
+      "title": "Champú de color Magic Hair Dye",
+      "subtitle": "Color de salón en casa"
+    },
+    "1550": {
+      "title": "Crema antiarrugas de colágeno",
+      "subtitle": "Reafirma y alisa"
+    },
+    "29": {
+      "title": "Sérum orgánico para el crecimiento del cabello",
+      "subtitle": "Densidad de raíz a puntas"
+    },
+    "28": {
+      "title": "Mascarilla capilar reparadora con proteínas",
+      "subtitle": "Cabello seco y dañado"
+    },
+    "27": {
+      "title": "Mascarilla exfoliante para pies",
+      "subtitle": "Con gel hidratante"
+    },
+    "26": {
+      "title": "Acondicionador de aceite de argán",
+      "subtitle": "Desenreda e hidrata"
+    }
+  }
+}

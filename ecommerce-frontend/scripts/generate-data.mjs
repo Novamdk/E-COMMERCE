@@ -194,11 +194,35 @@ const EDITORIAL = [
 for (const e of EDITORIAL) manifest.push({ name: e.name, url: UPLOADS + e.file, kind: e.kind });
 
 /* Art produced for the redesign, committed under scripts/source-images. */
-const LOCAL_ART = [
-  // Argan shampoo + hair mask on a stone plinth with a gold ribbon: the
-  // welcome-offer popup image. Generated from the real SK packshots.
-  { name: 'welcome-gift', file: 'scripts/source-images/welcome-gift.jpg', kind: 'editorial' },
-];
+/**
+ * Campaign art generated from the real SK packshots, kept as JPEG masters in
+ * scripts/source-images. Name, then image kind (which sets the AVIF widths).
+ */
+const LOCAL_ART = Object.entries({
+  'welcome-gift': 'editorial', // popup: shampoo + mask with a gold ribbon
+  'holiday-hero': 'hero', // shampoo bursting through gold gift wrap
+  'routine-hair': 'editorial',
+  'gift-flatlay': 'editorial',
+  'gift-bestsellers': 'editorial',
+  'category-sets': 'editorial',
+  'category-hair': 'editorial',
+  'category-skin': 'editorial',
+  'category-lashes': 'editorial',
+  'journal-gift-guide': 'editorial',
+  'journal-argan-routine': 'editorial',
+  'hair-coily': 'avatar',
+  'hair-curly': 'avatar',
+  'hair-wavy': 'avatar',
+  'hair-straight': 'avatar',
+  'texture-shampoo': 'product', // hover swatches on product cards
+  'texture-conditioner': 'product',
+  'texture-mask': 'product',
+  'texture-serum': 'product',
+  'texture-cream': 'product',
+  'texture-gel': 'product',
+  'texture-color': 'product',
+  'texture-aqua': 'product',
+}).map(([name, kind]) => ({ name, file: `scripts/source-images/${name}.jpg`, kind }));
 for (const e of LOCAL_ART) manifest.push(e);
 
 /* ---------------- products.json ---------------- */

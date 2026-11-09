@@ -3,6 +3,7 @@ import { AnimatePresence, m } from 'framer-motion';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { ANNOUNCEMENT_INTERVAL_MS, ANNOUNCEMENTS } from '@/lib/constants';
 import { EASE_IN_SOFT, EASE_OUT_SOFT } from '@/lib/motion';
+import { LanguageSelect, useT } from '@/features/i18n';
 import { Container } from './Container';
 
 const MESSAGE_MOTION = {
@@ -20,6 +21,7 @@ const ARROW_CLASS =
  * give keyboard and touch users the same control.
  */
 export function AnnouncementBar() {
+  const { t } = useT();
   const [index, setIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const count = ANNOUNCEMENTS.length;
@@ -34,7 +36,7 @@ export function AnnouncementBar() {
 
   return (
     <section
-      aria-label="Announcements"
+      aria-label={t('announcements.label')}
       aria-roledescription="carousel"
       className="bg-surface-inverse text-content-inverse"
       onMouseEnter={() => setIsPaused(true)}
@@ -42,36 +44,43 @@ export function AnnouncementBar() {
       onFocus={() => setIsPaused(true)}
       onBlur={() => setIsPaused(false)}
     >
-      <Container className="flex h-9 items-center justify-between gap-2">
-        <button
-          type="button"
-          onClick={() => step(-1)}
-          aria-label="Previous announcement"
-          className={ARROW_CLASS}
-        >
-          <FiChevronLeft aria-hidden="true" className="size-3.5" />
-        </button>
+      <Container width="wide" className="relative h-9">
+        {/* Arrows hug the message; from lg up the language picker sits at the far right. */}
+        <div className="mx-auto flex h-full max-w-2xl items-center justify-between gap-2">
+          <button
+            type="button"
+            onClick={() => step(-1)}
+            aria-label={t('announcements.previous')}
+            className={ARROW_CLASS}
+          >
+            <FiChevronLeft aria-hidden="true" className="size-3.5" />
+          </button>
 
-        <div className="relative h-full flex-1 overflow-hidden">
-          <AnimatePresence mode="wait" initial={false}>
-            <m.p
-              key={index}
-              {...MESSAGE_MOTION}
-              className="absolute inset-0 grid place-items-center truncate text-center text-[0.6875rem] font-medium tracking-[0.1em] uppercase sm:tracking-[0.14em]"
-            >
-              {ANNOUNCEMENTS[index]}
-            </m.p>
-          </AnimatePresence>
+          <div className="relative h-full flex-1 overflow-hidden">
+            <AnimatePresence mode="wait" initial={false}>
+              <m.p
+                key={index}
+                {...MESSAGE_MOTION}
+                className="absolute inset-0 grid place-items-center truncate text-center text-[0.6875rem] font-medium tracking-[0.1em] uppercase sm:tracking-[0.14em]"
+              >
+                {t(ANNOUNCEMENTS[index].key, ANNOUNCEMENTS[index].values)}
+              </m.p>
+            </AnimatePresence>
+          </div>
+
+          <button
+            type="button"
+            onClick={() => step(1)}
+            aria-label={t('announcements.next')}
+            className={ARROW_CLASS}
+          >
+            <FiChevronRight aria-hidden="true" className="size-3.5" />
+          </button>
         </div>
 
-        <button
-          type="button"
-          onClick={() => step(1)}
-          aria-label="Next announcement"
-          className={ARROW_CLASS}
-        >
-          <FiChevronRight aria-hidden="true" className="size-3.5" />
-        </button>
+        <div className="absolute inset-y-0 right-8 hidden items-center lg:flex">
+          <LanguageSelect tone="inverse" />
+        </div>
       </Container>
     </section>
   );

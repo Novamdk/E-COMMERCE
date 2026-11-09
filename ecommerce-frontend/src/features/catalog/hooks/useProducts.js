@@ -4,6 +4,7 @@ import { PAGE_SIZE } from '@/lib/constants';
 import { filterProducts, paginate, sortProducts } from '@/lib/filterProducts';
 import { getProducts } from '@/services/productService';
 import { useProductFilters } from './useProductFilters';
+import { useT } from '@/features/i18n';
 
 /**
  * Fetches the catalog once, then derives the visible page from the URL filters.
@@ -12,7 +13,8 @@ import { useProductFilters } from './useProductFilters';
  *            catalogSize: number, loading: boolean, error: Error|null, refetch: () => void}}
  */
 export function useProducts() {
-  const fetchProducts = useCallback(() => getProducts(), []);
+  const { language } = useT();
+  const fetchProducts = useCallback(() => getProducts(language), [language]);
   const { data, loading, error, refetch } = useAsync(fetchProducts);
   const { filters } = useProductFilters();
 

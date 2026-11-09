@@ -19,6 +19,10 @@ export const ROUTES = {
   SIGN_UP: '/sign-up',
   ABOUT: '/about',
   CONTACT: '/contact',
+  COLLECTION: '/collections/:slug',
+  QUIZ: '/quiz/:quizId',
+  JOURNAL: '/journal',
+  JOURNAL_POST: '/journal/:slug',
   NOT_FOUND: '*',
 };
 
@@ -26,6 +30,15 @@ export const ROUTES = {
 export const productPath = (slug) => `/shop/${slug}`;
 /** @param {string} orderId @returns {string} */
 export const orderPath = (orderId) => `/orders/${orderId}`;
+/** @param {string} slug a key of COLLECTIONS @returns {string} */
+export const collectionPath = (slug) => `/collections/${slug}`;
+/** @param {'hair'|'gift'} quizId @returns {string} */
+export const quizPath = (quizId) => `/quiz/${quizId}`;
+/** @param {string} slug @returns {string} */
+export const journalPath = (slug) => `/journal/${slug}`;
+/** Home with the welcome offer opened, e.g. from the hero's sign-up button. */
+export const WELCOME_OFFER_PATH = '/?offer=welcome';
+
 /** @param {string} categorySlug @returns {string} */
 export const categoryPath = (categorySlug) => `/shop?category=${encodeURIComponent(categorySlug)}`;
 
@@ -39,7 +52,18 @@ export const TAX_RATE = 0.0825; // 8.25%
 export const PROMO_CODES = {
   SKGLOW10: { code: 'SKGLOW10', type: 'percent', value: 10, label: '10% off your order' },
   WELCOME25: { code: 'WELCOME25', type: 'percent', value: 25, label: '25% off your first order' },
+  // Unlocked by finishing a quiz and leaving an email.
+  QUIZ15: {
+    code: 'QUIZ15',
+    type: 'percent',
+    value: 15,
+    label: '15% off + free shipping',
+    hasFreeShipping: true,
+  },
 };
+
+/** The code a finished quiz unlocks. */
+export const QUIZ_PROMO_CODE = 'QUIZ15';
 
 /* ---------------------------- spin wheel ---------------------------- */
 /**
@@ -82,14 +106,38 @@ export const SOCIAL_LINKS = [
 /**
  * Messages that rotate in the bar above the header. Built from the rates
  * above so the bar can never advertise a threshold checkout does not honour.
+ * Each is a translation key plus the values it fills in.
  */
 export const ANNOUNCEMENTS = [
-  `Free shipping on orders over $${FREE_SHIPPING_THRESHOLD / 100}`,
-  `10% off with code ${PROMO_CODES.SKGLOW10.code}`,
-  'Naturally derived · Cruelty-free',
+  { key: 'announcements.freeShipping', values: { amount: `$${FREE_SHIPPING_THRESHOLD / 100}` } },
+  { key: 'announcements.promo', values: { code: PROMO_CODES.SKGLOW10.code } },
+  { key: 'announcements.natural' },
 ];
 /** How long each announcement stays up before the next one slides in. */
 export const ANNOUNCEMENT_INTERVAL_MS = 5000;
+
+/* ---------------------------- collections --------------------------- */
+/**
+ * Curated, shopper-facing collections, each a rule over the catalog. The
+ * source categories overlap heavily (most hair products sit in all three
+ * hair categories), so collections pick products by id or flag instead.
+ * Titles are translation keys under `collections.*`. Order here is menu order.
+ */
+export const COLLECTIONS = {
+  bestsellers: { title: 'collections.bestsellers', match: { bestSellers: true } },
+  'holiday-sets': { title: 'collections.holidaySets', match: { category: 'packages' } },
+  'shampoo-conditioner': {
+    title: 'collections.shampooConditioner',
+    match: { ids: ['2628', '2621', '26', '1773'] },
+  },
+  treatments: { title: 'collections.treatments', match: { ids: ['28', '29', '4824'] } },
+  'skin-care': {
+    title: 'collections.skinCare',
+    match: { ids: ['1958', '1550', '2394', '5091'] },
+  },
+  'eyes-lashes': { title: 'collections.eyesLashes', match: { ids: ['2547', '2394'] } },
+  body: { title: 'collections.body', match: { ids: ['27'] } },
+};
 
 /* ----------------------------- catalog ----------------------------- */
 export const PAGE_SIZE = 9;
@@ -128,6 +176,7 @@ export const STORAGE_KEYS = {
   ORDERS: 'skenvision.orders.v1',
   CHECKOUT: 'skenvision.checkout.v1',
   SPIN_WHEEL: 'skenvision.spinWheel.v1',
+  LANGUAGE: 'skenvision.language.v1',
 };
 
 /* ------------------------------ misc ------------------------------- */

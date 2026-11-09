@@ -57,12 +57,14 @@ export function discountFor(subtotal, code) {
 /**
  * @param {number} amountAfterDiscount in cents
  * @param {string} [methodId]
+ * @param {boolean} [hasFreeShipping] a promo that waives the flat rate
  * @returns {number} shipping cost in cents
  */
-export function shippingFor(amountAfterDiscount, methodId = 'standard') {
+export function shippingFor(amountAfterDiscount, methodId = 'standard', hasFreeShipping = false) {
   const method = SHIPPING_METHODS.find((m) => m.id === methodId) ?? SHIPPING_METHODS[0];
   if (amountAfterDiscount <= 0) return 0;
-  const base = amountAfterDiscount >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT_RATE;
+  const base =
+    hasFreeShipping || amountAfterDiscount >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT_RATE;
   return base + method.surcharge;
 }
 
@@ -84,7 +86,9 @@ export function calculateTotals({ lines = [], promoCode = null, shippingMethodId
   const subtotal = subtotalOf(lines);
   const discount = discountFor(subtotal, promoCode);
   const afterDiscount = subtotal - discount;
-  const shipping = shippingFor(afterDiscount, shippingMethodId);
+  const promo = resolvePromo(promoCode);
+  const hasFreeShipping = Boolean(promo?.hasFreeShipping);
+  const shipping = shippingFor(afterDiscount, shippingMethodId, hasFreeShipping);
   const tax = taxFor(afterDiscount);
 
   return {
@@ -94,7 +98,9 @@ export function calculateTotals({ lines = [], promoCode = null, shippingMethodId
     tax,
     total: afterDiscount + shipping + tax,
     itemCount: lines.reduce((n, line) => n + line.qty, 0),
-    freeShippingRemaining: Math.max(0, FREE_SHIPPING_THRESHOLD - afterDiscount),
-    promo: resolvePromo(promoCode),
+    freeShippingRemaining: hasFreeShipping
+      ? 0
+      : Math.max(0, FREE_SHIPPING_THRESHOLD - afterDiscount),
+    promo,
   };
 }

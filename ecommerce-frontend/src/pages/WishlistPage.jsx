@@ -10,6 +10,7 @@ import { ROUTES } from '@/lib/constants';
 import { getProducts } from '@/services/productService';
 import { ProductGrid } from '@/features/catalog';
 import { useWishlist } from '@/features/wishlist';
+import { useT } from '@/features/i18n';
 
 /**
  * Composes the wishlist feature with the catalog feature. Pages are the layer
@@ -17,7 +18,8 @@ import { useWishlist } from '@/features/wishlist';
  */
 export default function WishlistPage() {
   const { productIds, count, clear } = useWishlist();
-  const fetchProducts = useCallback(() => getProducts(), []);
+  const { language } = useT();
+  const fetchProducts = useCallback(() => getProducts(language), [language]);
   const { data, loading, error, refetch } = useAsync(fetchProducts);
 
   // Preserve the order items were saved in rather than catalog order.

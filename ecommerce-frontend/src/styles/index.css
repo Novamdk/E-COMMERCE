@@ -47,6 +47,16 @@
   --color-gold-600: oklch(0.6 0.11 74);
   --color-gold-700: oklch(0.5 0.09 70);
 
+  /* Holiday red -- the seasonal pop colour (offer bar, gift-guide link,
+     limited-time tiles). Paired with the gold for the festive campaign;
+     swap this ramp to change the season's colour in one place. */
+  --color-holiday-50: oklch(0.97 0.02 25);
+  --color-holiday-100: oklch(0.93 0.045 25);
+  --color-holiday-500: oklch(0.55 0.19 27);
+  --color-holiday-600: oklch(0.48 0.17 27);
+  --color-holiday-700: oklch(0.41 0.15 27);
+  --color-holiday-800: oklch(0.34 0.12 27);
+
   /* Terracotta -- sale, urgency. */
   --color-accent-50: oklch(0.969 0.017 50);
   --color-accent-100: oklch(0.932 0.04 48);
@@ -236,8 +246,75 @@
 }
 
 @layer utilities {
+  /* Shiny metallic gold, after the foil band on the SK Anti-Aging Morning &
+     Night Eye Cream box. For small accents only: rules, badges, chips. */
+  .bg-gold-sheen {
+    background-image: linear-gradient(
+      115deg,
+      oklch(0.66 0.11 72) 0%,
+      oklch(0.86 0.09 88) 38%,
+      oklch(0.95 0.05 92) 50%,
+      oklch(0.8 0.11 82) 62%,
+      oklch(0.62 0.11 70) 100%
+    );
+  }
+  .text-gold-sheen {
+    background-image: linear-gradient(
+      115deg,
+      oklch(0.7 0.12 74),
+      oklch(0.9 0.08 90) 45%,
+      oklch(0.74 0.12 78)
+    );
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Sideways ticker. The track holds four copies of the messages, so one
+     copy's width (a quarter of the track) is a seamless loop. */
+  .animate-marquee {
+    animation: marquee 38s linear infinite;
+  }
+
+  /* A slow gold glint that sweeps across a word, for the holiday links. */
+  .text-gold-shimmer {
+    background-image: linear-gradient(
+      100deg,
+      oklch(0.6 0.11 74) 0%,
+      oklch(0.6 0.11 74) 40%,
+      oklch(0.93 0.07 92) 50%,
+      oklch(0.6 0.11 74) 60%,
+      oklch(0.6 0.11 74) 100%
+    );
+    background-size: 250% 100%;
+    background-clip: text;
+    color: transparent;
+    animation: gold-shimmer 3.6s ease-in-out infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-marquee,
+    .text-gold-shimmer {
+      animation: none !important;
+    }
+  }
+
   /* Fades a long body of copy at its lower edge when clamped. */
   .mask-fade-b {
     mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes gold-shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: 0 0;
   }
 }

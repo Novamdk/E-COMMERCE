@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
+import { FiPlay } from 'react-icons/fi';
 import { Image } from '@/components/ui/Image';
 import { Container } from '@/components/layout/Container';
 import { productPath } from '@/lib/constants';
 import { formatCurrency } from '@/lib/formatCurrency';
+import { useT } from '@/features/i18n';
 import { SectionHeader } from './SectionHeader';
 
 /**
- * Which product each vertical tile features, the frame to show, and where to
- * centre the 9:16 crop so the person, not the printed copy, fills it. These
- * are stills for now; each tile is shaped 9:16 so short-form video can drop
- * into the same slot later without changing the layout.
+ * Which product each vertical tile features, the still to show for now, and
+ * where to centre the 9:16 crop. Every tile is already shaped like a phone
+ * video, so short-form clips drop into the same slot later without changing
+ * the layout.
  */
 const LOOKS = [
   {
@@ -31,16 +33,17 @@ const LOOKS = [
   },
 ];
 
-const TILE_SIZES = '(min-width: 1024px) 18vw, (min-width: 640px) 32vw, 62vw';
+const TILE_SIZES = '(min-width: 1024px) 20vw, (min-width: 640px) 32vw, 62vw';
 
 /**
- * Row of tall portrait tiles, each paired with the product it shows.
+ * Row of vertical video placeholders, each paired with the product it shows.
  * Scrolls sideways on small screens, sits as a single row on desktop.
  *
  * @param {object} props
  * @param {object[]} props.products the full catalog, to look each slug up
  */
 export function ShopTheLook({ products }) {
+  const { t } = useT();
   const bySlug = new Map(products.map((product) => [product.slug, product]));
   const looks = LOOKS.map((look) => ({ ...look, product: bySlug.get(look.slug) })).filter(
     (look) => look.product,
@@ -50,13 +53,17 @@ export function ShopTheLook({ products }) {
 
   return (
     <Container as="section" width="wide" aria-labelledby="looks-heading" className="py-20 lg:py-24">
-      <SectionHeader id="looks-heading" eyebrow="See it in action" title="Shop the look" />
+      <SectionHeader
+        id="looks-heading"
+        eyebrow={t('home.looks.eyebrow')}
+        title={t('home.looks.title')}
+      />
 
-      <ul className="-mx-4 flex snap-x snap-mandatory scroll-px-4 [scrollbar-width:none] gap-4 overflow-x-auto px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0 [&::-webkit-scrollbar]:hidden">
+      <ul className="-mx-4 flex snap-x snap-mandatory scroll-px-4 [scrollbar-width:none] gap-1 overflow-x-auto px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0 [&::-webkit-scrollbar]:hidden">
         {looks.map(({ slug, image, focus, product }) => (
           <li key={slug} className="w-[62%] shrink-0 snap-start sm:w-[32%] lg:w-auto">
             <Link to={productPath(slug)} className="group block">
-              <span className="rounded-card block overflow-hidden">
+              <span className="relative block overflow-hidden">
                 <Image
                   name={image}
                   alt=""
@@ -64,8 +71,24 @@ export function ShopTheLook({ products }) {
                   ratio="aspect-[9/16]"
                   imgClassName={`${focus} transition-transform duration-700 ease-out-soft group-hover:scale-[1.04]`}
                 />
+                <span
+                  aria-hidden="true"
+                  className="from-surface-inverse/50 absolute inset-0 bg-gradient-to-t to-transparent to-40%"
+                />
+                <span className="bg-surface-raised/90 text-content absolute top-3 left-3 rounded-full px-2.5 py-1 text-[0.5625rem] font-semibold tracking-[0.12em] uppercase">
+                  {t('home.looks.soon')}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="bg-surface-raised/85 text-content absolute top-1/2 left-1/2 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full backdrop-blur transition-transform group-hover:scale-110"
+                >
+                  <FiPlay className="ml-0.5 size-5" />
+                </span>
+                <span className="bg-surface-raised text-content group-hover:bg-content group-hover:text-content-inverse absolute bottom-3 left-3 rounded-full px-3 py-1.5 text-[0.625rem] font-semibold tracking-[0.12em] uppercase transition-colors">
+                  {t('home.looks.shop')}
+                </span>
               </span>
-              <span className="mt-4 block text-[0.6875rem] font-semibold tracking-[0.14em] uppercase group-hover:underline group-hover:underline-offset-4">
+              <span className="mt-3 block text-[0.6875rem] font-semibold tracking-[0.14em] uppercase group-hover:underline group-hover:underline-offset-4">
                 {product.title}
               </span>
               <span className="text-content-muted mt-1 block text-sm">

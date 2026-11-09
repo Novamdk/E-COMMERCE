@@ -1,7 +1,8 @@
 import { Container } from '@/components/layout/Container';
 import { ErrorPanel } from '@/components/ui/ErrorPanel';
 import { ProductCarousel } from '@/features/catalog';
-import { ROUTES } from '@/lib/constants';
+import { collectionPath } from '@/lib/constants';
+import { useT } from '@/features/i18n';
 import { SectionHeader } from './SectionHeader';
 
 /**
@@ -12,6 +13,8 @@ import { SectionHeader } from './SectionHeader';
  * @param {() => void} props.onRetry
  */
 export function FeaturedProducts({ products, isLoading, error, onRetry }) {
+  const { t } = useT();
+
   return (
     <Container
       as="section"
@@ -21,15 +24,19 @@ export function FeaturedProducts({ products, isLoading, error, onRetry }) {
     >
       <SectionHeader
         id="bestsellers-heading"
-        eyebrow="Most loved"
-        title="Bestsellers"
-        link={{ to: ROUTES.SHOP, label: 'Shop all' }}
+        eyebrow={t('home.bestsellers.eyebrow')}
+        title={t('home.bestsellers.title')}
+        link={{ to: collectionPath('bestsellers'), label: t('home.bestsellers.link') }}
       />
 
       {error ? (
-        <ErrorPanel title="Bestsellers could not load" error={error} onRetry={onRetry} />
+        <ErrorPanel title={t('home.bestsellers.error')} error={error} onRetry={onRetry} />
       ) : (
-        <ProductCarousel products={products} isLoading={isLoading} label="Bestsellers" />
+        <ProductCarousel
+          products={products}
+          isLoading={isLoading}
+          label={t('home.bestsellers.title')}
+        />
       )}
     </Container>
   );

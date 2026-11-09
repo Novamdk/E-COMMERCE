@@ -9,9 +9,11 @@ import { useAsync } from '@/hooks/useAsync';
 import { ROUTES } from '@/lib/constants';
 import { getSiteContent } from '@/services/productService';
 import { FaqSection, IngredientsSection } from '@/features/marketing';
+import { useT } from '@/features/i18n';
 
 export default function AboutPage() {
-  const fetchContent = useCallback(() => getSiteContent(), []);
+  const { language } = useT();
+  const fetchContent = useCallback(() => getSiteContent(language), [language]);
   const { data, loading, error, refetch } = useAsync(fetchContent);
 
   if (loading) {

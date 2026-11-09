@@ -106,17 +106,17 @@
   },
   {
     "name": "retinal-eye-lift-1",
-    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/\u773c\u971c3.jpg",
+    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/眼霜3.jpg",
     "kind": "product"
   },
   {
     "name": "retinal-eye-lift-2",
-    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/\u773c\u971c4.jpg",
+    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/眼霜4.jpg",
     "kind": "product"
   },
   {
     "name": "retinal-eye-lift-3",
-    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/\u773c\u971c5-e1784886069428.jpg",
+    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/眼霜5-e1784886069428.jpg",
     "kind": "product"
   },
   {
@@ -126,12 +126,12 @@
   },
   {
     "name": "retinal-eye-lift-5",
-    "url": "https://skenvisiontime.com/wp-content/uploads/2026/07/\u773c\u971c1-removebg-preview-e1784802115150.png",
+    "url": "https://skenvisiontime.com/wp-content/uploads/2026/07/眼霜1-removebg-preview-e1784802115150.png",
     "kind": "product"
   },
   {
     "name": "retinal-eye-lift-6",
-    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/\u773c\u971c6.jpg",
+    "url": "https://skenvisiontime.com/wp-content/uploads/2024/04/眼霜6.jpg",
     "kind": "product"
   },
   {
@@ -398,5 +398,115 @@
     "name": "welcome-gift",
     "file": "scripts/source-images/welcome-gift.jpg",
     "kind": "editorial"
+  },
+  {
+    "name": "holiday-hero",
+    "file": "scripts/source-images/holiday-hero.jpg",
+    "kind": "hero"
+  },
+  {
+    "name": "routine-hair",
+    "file": "scripts/source-images/routine-hair.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "gift-flatlay",
+    "file": "scripts/source-images/gift-flatlay.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "gift-bestsellers",
+    "file": "scripts/source-images/gift-bestsellers.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "category-sets",
+    "file": "scripts/source-images/category-sets.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "category-hair",
+    "file": "scripts/source-images/category-hair.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "category-skin",
+    "file": "scripts/source-images/category-skin.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "category-lashes",
+    "file": "scripts/source-images/category-lashes.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "journal-gift-guide",
+    "file": "scripts/source-images/journal-gift-guide.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "journal-argan-routine",
+    "file": "scripts/source-images/journal-argan-routine.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "hair-coily",
+    "file": "scripts/source-images/hair-coily.jpg",
+    "kind": "avatar"
+  },
+  {
+    "name": "hair-curly",
+    "file": "scripts/source-images/hair-curly.jpg",
+    "kind": "avatar"
+  },
+  {
+    "name": "hair-wavy",
+    "file": "scripts/source-images/hair-wavy.jpg",
+    "kind": "avatar"
+  },
+  {
+    "name": "hair-straight",
+    "file": "scripts/source-images/hair-straight.jpg",
+    "kind": "avatar"
+  },
+  {
+    "name": "texture-shampoo",
+    "file": "scripts/source-images/texture-shampoo.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-conditioner",
+    "file": "scripts/source-images/texture-conditioner.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-mask",
+    "file": "scripts/source-images/texture-mask.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-serum",
+    "file": "scripts/source-images/texture-serum.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-cream",
+    "file": "scripts/source-images/texture-cream.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-gel",
+    "file": "scripts/source-images/texture-gel.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-color",
+    "file": "scripts/source-images/texture-color.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-aqua",
+    "file": "scripts/source-images/texture-aqua.jpg",
+    "kind": "product"
   }
 ]

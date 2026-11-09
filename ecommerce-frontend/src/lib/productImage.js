@@ -55,6 +55,35 @@ const PACKSHOTS = {
 };
 
 /**
+ * What the formula itself looks like, shown when a card is hovered. One
+ * texture shot per product type, all on the same stone ground as the cards.
+ */
+const TEXTURES = {
+  'dark-spot-beauty-package': 'texture-cream',
+  'hair-care-package': 'texture-mask',
+  'argan-shampoo-conditioner': 'texture-shampoo',
+  'argan-shampoo': 'texture-shampoo',
+  'argan-conditioner': 'texture-conditioner',
+  'lash-growth-serum': 'texture-gel',
+  'retinal-eye-lift': 'texture-cream',
+  'dark-spot-collagen-cream': 'texture-cream',
+  'collagen-anti-aging-cream': 'texture-cream',
+  'color-dye-shampoo': 'texture-color',
+  'hair-regrowth-serum': 'texture-serum',
+  'repair-hair-mask': 'texture-mask',
+  'foot-peel-mask': 'texture-aqua',
+};
+
+/**
+ * @param {{ slug?: string }} product
+ * @returns {string|undefined} manifest name of the product's texture shot
+ */
+export function textureImage(product) {
+  const name = TEXTURES[product?.slug];
+  return name && imageMeta[name] ? name : undefined;
+}
+
+/**
  * @param {{ slug?: string, images?: string[] }} product
  * @returns {string|undefined} the manifest name of the primary image
  */

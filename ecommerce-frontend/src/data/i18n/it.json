@@ -1,0 +1,178 @@
+{
+  "content": {
+    "brand": {
+      "tagline": "Cura naturale per capelli e corpo"
+    },
+    "hero": {
+      "eyebrow": "Solo ingredienti naturali",
+      "heading": "Clean beauty che funziona davvero",
+      "body": "Cura premium e naturale per capelli e corpo, formulata con ingredienti di origine naturale che nutrono, proteggono e rivitalizzano, senza inutili sostanze chimiche aggressive."
+    },
+    "about": {
+      "heading": "Chi è SK Envision",
+      "paragraphs": [
+        "In SK Envision creiamo con passione prodotti naturali di alta gamma per capelli e corpo, che danno sicurezza e favoriscono una bellezza sana. Selezioniamo con cura ingredienti di origine naturale di alta qualità per sviluppare formule che nutrono, proteggono e rivitalizzano pelle e capelli, senza inutili sostanze chimiche aggressive.",
+        "Il nostro impegno va oltre la bellezza. Crediamo in una cura clean, sostenibile ed etica: pratiche cruelty-free e, quando possibile, confezioni rispettose dell’ambiente. Ogni prodotto è pensato per dare risultati concreti restando delicato per l’uso quotidiano."
+      ]
+    },
+    "ingredients": {
+      "heading": "Solo ingredienti naturali",
+      "body": "I nostri prodotti nascono da ingredienti naturali selezionati con cura che nutrono, proteggono e riparano pelle e capelli. Ricca di estratti botanici, vitamine e nutrienti essenziali, ogni formula offre risultati delicati ma efficaci, senza sostanze chimiche aggressive.",
+      "body2": "Crediamo in una clean beauty che sostiene una pelle sana, capelli più forti e la sicurezza di ogni giorno, nel rispetto della natura."
+    },
+    "testimonials": [
+      {
+        "quote": "Shampoo e balsamo fantastici. Li ho provati per la prima volta e funzionano davvero: capelli morbidi e lucenti, con i ricci ben definiti.",
+        "name": "Cliente verificato",
+        "meta": "Duo shampoo e balsamo all’olio di argan"
+      },
+      {
+        "quote": "Lo adoro. Fa parte della mia routine ogni volta che mi pettino. Ho capelli spessi e crespi che assorbono tutto, ma ne basta pochissimo: il primo flacone mi è durato cinque mesi.",
+        "name": "Cliente verificato",
+        "meta": "Siero biologico per la ricrescita dei capelli"
+      },
+      {
+        "quote": "Maschera all’olio di argan marocchino per capelli secchi e danneggiati: nutriente, idratante e irrinunciabile. Dopo due applicazioni i miei capelli sono un’altra cosa.",
+        "name": "Cliente verificato",
+        "meta": "Maschera riparatrice alle proteine"
+      },
+      {
+        "quote": "La crema antimacchie è l’unica cosa che ha uniformato davvero il mio incarnato. Dopo sei settimane la differenza sulle guance è evidente.",
+        "name": "Cliente verificato",
+        "meta": "Crema al collagene antimacchie"
+      }
+    ],
+    "faq": [
+      {
+        "q": "I vostri prodotti sono davvero naturali?",
+        "a": "Ogni formula si basa su ingredienti di origine naturale: estratti botanici, vitamine e nutrienti essenziali. Escludiamo le sostanze chimiche aggressive che seccano i capelli e irritano la pelle."
+      },
+      {
+        "q": "Testate sugli animali?",
+        "a": "No. Tutta la linea è cruelty-free e usiamo confezioni rispettose dell’ambiente ogni volta che possiamo."
+      },
+      {
+        "q": "Quando si vedono i risultati?",
+        "a": "Dipende dal prodotto. Il siero per ciglia è formulato per una crescita visibile in circa quattro settimane; maschere e balsami di solito fanno la differenza dopo due o tre lavaggi."
+      },
+      {
+        "q": "Qual è la vostra politica di reso?",
+        "a": "I prodotti non aperti possono essere resi entro 30 giorni dalla consegna con rimborso completo. Se un prodotto arriva danneggiato, contattaci e lo sostituiremo."
+      },
+      {
+        "q": "Spedite all’estero?",
+        "a": "Sì. Negli Stati Uniti la spedizione è gratuita oltre i 75 $. Le tariffe internazionali sono calcolate al pagamento in base a destinazione e peso."
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Di origine naturale",
+        "body": "Estratti botanici, vitamine e nutrienti essenziali, senza sostanze chimiche aggressive."
+      },
+      {
+        "title": "Cruelty-free",
+        "body": "Mai testato sugli animali, con confezioni responsabili quando possibile."
+      },
+      {
+        "title": "Spedizione gratuita oltre 75 $",
+        "body": "Sotto questa soglia, spedizione a 6,90 $, calcolata al pagamento."
+      },
+      {
+        "title": "Resi entro 30 giorni",
+        "body": "Prodotti non aperti rimborsati per intero entro 30 giorni dalla consegna."
+      }
+    ]
+  },
+  "categories": {
+    "color-shampoo-hair": {
+      "name": "Shampoo colorati",
+      "description": "Colore intenso da salone, direttamente sotto la doccia."
+    },
+    "dark-spot": {
+      "name": "Antimacchie",
+      "description": "Formule illuminanti che attenuano le macchie e uniformano l’incarnato."
+    },
+    "eye-cream-anti-aging-organic": {
+      "name": "Contorno occhi anti-età bio",
+      "description": "Cura mirata per rughette e occhi stanchi."
+    },
+    "eye-lashes-growth-serum": {
+      "name": "Siero per la crescita delle ciglia",
+      "description": "Sieri per ciglia e sopracciglia più folte e lunghe."
+    },
+    "face-lifting-collagen-cream": {
+      "name": "Creme liftanti al collagene",
+      "description": "Creme al collagene che rassodano, liftano e levigano."
+    },
+    "foot-peel-mask": {
+      "name": "Maschera esfoliante piedi",
+      "description": "Peeling esfolianti per talloni screpolati e calli."
+    },
+    "hair-mask": {
+      "name": "Maschere per capelli",
+      "description": "Trattamenti intensivi alle proteine per capelli secchi e trattati."
+    },
+    "hair-serum": {
+      "name": "Sieri per capelli",
+      "description": "Sieri che partono dal cuoio capelluto per ridare densità."
+    },
+    "packages": {
+      "name": "Kit",
+      "description": "Routine complete a un prezzo migliore rispetto ai singoli prodotti."
+    }
+  },
+  "products": {
+    "5091": {
+      "title": "Kit bellezza antimacchie",
+      "subtitle": "Il nostro bestseller"
+    },
+    "4824": {
+      "title": "Kit cura dei capelli",
+      "subtitle": "Routine completa in 3 passaggi"
+    },
+    "2628": {
+      "title": "Duo shampoo e balsamo all’olio di argan",
+      "subtitle": "Per capelli setosi"
+    },
+    "2621": {
+      "title": "Shampoo all’olio di argan",
+      "subtitle": "Per tutti i tipi di capelli"
+    },
+    "2547": {
+      "title": "Siero per ciglia al collagene",
+      "subtitle": "Ciglia e sopracciglia in 4 settimane"
+    },
+    "2394": {
+      "title": "Trattamento liftante occhi Retinal ReSculpt",
+      "subtitle": "Vitamina A incapsulata"
+    },
+    "1958": {
+      "title": "Crema al collagene antimacchie",
+      "subtitle": "Uniforma l’incarnato e attenua le macchie"
+    },
+    "1773": {
+      "title": "Shampoo colorante Magic Hair Dye",
+      "subtitle": "Il colore del salone a casa"
+    },
+    "1550": {
+      "title": "Crema antirughe al collagene",
+      "subtitle": "Rassoda e leviga"
+    },
+    "29": {
+      "title": "Siero biologico per la ricrescita dei capelli",
+      "subtitle": "Densità dalla radice alle punte"
+    },
+    "28": {
+      "title": "Maschera riparatrice alle proteine",
+      "subtitle": "Capelli secchi e danneggiati"
+    },
+    "27": {
+      "title": "Maschera esfoliante piedi",
+      "subtitle": "Con gel idratante"
+    },
+    "26": {
+      "title": "Balsamo all’olio di argan",
+      "subtitle": "Districa e idrata"
+    }
+  }
+}

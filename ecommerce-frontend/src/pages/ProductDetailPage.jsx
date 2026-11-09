@@ -15,6 +15,7 @@ import {
   ProductPurchasePanel,
   RelatedProducts,
 } from '@/features/catalog';
+import { useT } from '@/features/i18n';
 
 /** Two-column placeholder matching the loaded layout. */
 function DetailSkeleton() {
@@ -43,7 +44,8 @@ function DetailSkeleton() {
 export default function ProductDetailPage() {
   const { slug } = useParams();
 
-  const fetchProduct = useCallback(() => getProductBySlug(slug), [slug]);
+  const { language } = useT();
+  const fetchProduct = useCallback(() => getProductBySlug(slug, language), [slug, language]);
   const { data: product, loading, error, refetch } = useAsync(fetchProduct);
 
   if (loading) {

@@ -2,13 +2,15 @@ import { useCallback } from 'react';
 import { useAsync } from '@/hooks/useAsync';
 import { getRelatedProducts } from '@/services/productService';
 import { ProductGrid } from './ProductGrid';
+import { useT } from '@/features/i18n';
 
 /**
  * @param {object} props
  * @param {string} props.slug the product to find neighbours for
  */
 export function RelatedProducts({ slug }) {
-  const fetchRelated = useCallback(() => getRelatedProducts(slug), [slug]);
+  const { language } = useT();
+  const fetchRelated = useCallback(() => getRelatedProducts(slug, language), [slug, language]);
   const { data, loading, error } = useAsync(fetchRelated);
 
   // A failed sidebar recommendation is not worth an error panel on a page that

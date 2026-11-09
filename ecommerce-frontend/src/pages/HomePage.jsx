@@ -1,31 +1,40 @@
 import { useCallback, useMemo } from 'react';
 import { useAsync } from '@/hooks/useAsync';
-import { getCategories, getProducts, getSiteContent } from '@/services/productService';
+import { getProducts, getSiteContent } from '@/services/productService';
 import {
   BenefitsStrip,
-  CategoryTiles,
   FaqSection,
   FeaturedProducts,
   Hero,
-  IngredientsSection,
-  PromoPair,
+  HolidayPair,
+  OfferMarquee,
+  ShopByCategory,
   ShopTheLook,
   Testimonials,
 } from '@/features/marketing';
 import { RouteFallback } from '@/components/layout/RouteFallback';
 import { ErrorPanel } from '@/components/ui/ErrorPanel';
 import { Container } from '@/components/layout/Container';
+import { FREE_SHIPPING_THRESHOLD, PROMO_CODES, SPIN_WHEEL } from '@/lib/constants';
+import { discountPercent, formatCurrency } from '@/lib/formatCurrency';
+import { useT } from '@/features/i18n';
+import { JournalSection } from '@/features/journal';
+import { QuizTeaser } from '@/features/quiz';
 
 const FEATURED_COUNT = 8;
+const WELCOME = PROMO_CODES[SPIN_WHEEL.PROMO_CODE];
 
+/**
+ * The holiday homepage: the gift-wrap hero, a red offer ticker, gifts, the
+ * quiz, the limited-time sets, shoppable video, categories and the journal.
+ */
 export default function HomePage() {
-  const fetchContent = useCallback(() => getSiteContent(), []);
-  const fetchProducts = useCallback(() => getProducts(), []);
-  const fetchCategories = useCallback(() => getCategories(), []);
+  const { t, language } = useT();
+  const fetchContent = useCallback(() => getSiteContent(language), [language]);
+  const fetchProducts = useCallback(() => getProducts(language), [language]);
 
   const content = useAsync(fetchContent);
   const products = useAsync(fetchProducts);
-  const categories = useAsync(fetchCategories);
 
   // Best sellers first, then the biggest absolute savings.
   const featured = useMemo(() => {
@@ -39,28 +48,38 @@ export default function HomePage() {
       .slice(0, FEATURED_COUNT);
   }, [products.data]);
 
-  // Bundles get their own editorial tiles. A two-item filter is too cheap to memoise.
-  const sets = (products.data ?? []).filter((product) => product.categories.includes('packages'));
+  // The biggest saving across the sets, so the copy never overstates it.
+  const maxSetSavings = Math.max(
+    0,
+    ...(products.data ?? [])
+      .filter((product) => product.categories.includes('packages'))
+      .map((product) => discountPercent(product.price, product.compareAtPrice)),
+  );
 
   if (content.loading) return <RouteFallback />;
 
   if (content.error || !content.data) {
     return (
       <Container className="py-20">
-        <ErrorPanel
-          title="The homepage could not load"
-          error={content.error}
-          onRetry={content.refetch}
-        />
+        <ErrorPanel title={t('home.loadError')} error={content.error} onRetry={content.refetch} />
       </Container>
     );
   }
 
   const site = content.data;
+  const marquee = [
+    t('home.marquee.welcome', { percent: WELCOME.value, code: WELCOME.code }),
+    t('announcements.freeShipping', {
+      amount: formatCurrency(FREE_SHIPPING_THRESHOLD, { compact: true }),
+    }),
+    maxSetSavings > 0 && t('home.marquee.sets', { percent: maxSetSavings }),
+    t('home.marquee.limited'),
+  ].filter(Boolean);
 
   return (
     <>
-      <Hero hero={site.hero} />
+      <Hero />
+      <OfferMarquee messages={marquee} />
 
       <FeaturedProducts
         products={featured}
@@ -69,12 +88,11 @@ export default function HomePage() {
         onRetry={products.refetch}
       />
 
-      <PromoPair products={sets} isLoading={products.loading} />
-
-      <CategoryTiles categories={categories.data ?? []} isLoading={categories.loading} />
-
-      <IngredientsSection ingredients={site.ingredients} />
+      <QuizTeaser />
+      <HolidayPair maxSavings={maxSetSavings} />
       <ShopTheLook products={products.data ?? []} />
+      <ShopByCategory />
+      <JournalSection />
       <Testimonials testimonials={site.testimonials} />
       <FaqSection faq={site.faq} />
       <BenefitsStrip benefits={site.benefits} />

@@ -4,6 +4,7 @@ import { calculateTotals } from '@/lib/calculateTotals';
 import { toPricedLines } from '@/lib/cartLine';
 import { getProducts } from '@/services/productService';
 import { useCart } from './useCart';
+import { useT } from '@/features/i18n';
 
 /**
  * Joins the stored cart to the catalog and derives the money breakdown.
@@ -17,7 +18,8 @@ import { useCart } from './useCart';
  */
 export function useCartLines({ shippingMethodId = 'standard' } = {}) {
   const { items, promoCode } = useCart();
-  const fetchProducts = useCallback(() => getProducts(), []);
+  const { language } = useT();
+  const fetchProducts = useCallback(() => getProducts(language), [language]);
   const { data, loading, error } = useAsync(fetchProducts);
 
   const lines = useMemo(() => toPricedLines(items, data ?? []), [items, data]);

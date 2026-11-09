@@ -1,0 +1,227 @@
+/**
+ * Journal posts, written in-house. Each post carries its copy per language;
+ * a language missing from a post falls back to English. `products` are
+ * catalog ids the post links to at the end, in order.
+ *
+ * @typedef {{title: string, excerpt: string, sections: {heading: string, body: string}[]}} PostCopy
+ * @typedef {{slug: string, image: string, date: string, readMinutes: number,
+ *   products: string[], copy: Record<string, PostCopy>}} Post
+ */
+
+/** @type {Post[]} */
+export const POSTS = [
+  {
+    slug: 'holiday-gift-guide',
+    image: 'journal-gift-guide',
+    date: '2026-11-07',
+    readMinutes: 4,
+    products: ['5091', '2547', '4824'],
+    copy: {
+      en: {
+        title: 'The SK Envision holiday gift guide',
+        excerpt:
+          'Five gifts for everyone on your list, from the skin-care devotee to the friend who has everything.',
+        sections: [
+          {
+            heading: 'For the skin-care devotee',
+            body: 'The Dark Spot Beauty Package brings our Dark Spot Collagen Cream together with its routine partners in one box. It is our bestseller for a reason, and it arrives ready to give.',
+          },
+          {
+            heading: 'For the one who loves a lash',
+            body: 'The Collagen Eyelash Growth Serum is a small gift with a visible pay-off: one stroke along the lash line each night, and fuller-looking lashes and brows in about four weeks.',
+          },
+          {
+            heading: 'For great hair days, every day',
+            body: 'The Hair Care Package Deal is a complete three-step routine built around argan oil: shampoo, conditioner and the Protein Repair Hair Mask for a weekly reset.',
+          },
+          {
+            heading: 'Wrap it in gold',
+            body: 'Every order ships in our signature packaging. Holiday sets are a limited-time edition, so order early if you have a date in mind.',
+          },
+        ],
+      },
+      fr: {
+        title: 'Le guide cadeaux des fêtes SK Envision',
+        excerpt:
+          'Cinq idées pour toute votre liste, de la passionnée de soins au proche qui a déjà tout.',
+        sections: [
+          {
+            heading: 'Pour la passionnée de soins',
+            body: 'Le Dark Spot Beauty Package réunit notre Crème collagène anti-taches et ses alliés de routine dans un seul coffret. Notre best-seller, prêt à offrir.',
+          },
+          {
+            heading: 'Pour les amoureuses des cils',
+            body: 'Le Sérum de croissance des cils au collagène est un petit cadeau aux résultats visibles : un trait chaque soir, et des cils et sourcils plus fournis en environ quatre semaines.',
+          },
+          {
+            heading: 'Pour de beaux cheveux, chaque jour',
+            body: 'Le Hair Care Package Deal est une routine complète en trois étapes à l’huile d’argan : shampooing, après-shampooing et le Masque réparateur aux protéines.',
+          },
+          {
+            heading: 'Emballé d’or',
+            body: 'Chaque commande est expédiée dans notre emballage signature. Les coffrets des fêtes sont en édition limitée : commandez tôt.',
+          },
+        ],
+      },
+      es: {
+        title: 'La guía de regalos navideños de SK Envision',
+        excerpt:
+          'Cinco regalos para toda tu lista, desde la fan del cuidado de la piel hasta quien ya lo tiene todo.',
+        sections: [
+          {
+            heading: 'Para la fan del cuidado de la piel',
+            body: 'El Dark Spot Beauty Package reúne nuestra Crema de colágeno antimanchas y sus aliados de rutina en una sola caja. Nuestro más vendido, listo para regalar.',
+          },
+          {
+            heading: 'Para quien ama sus pestañas',
+            body: 'El Sérum de crecimiento de pestañas con colágeno es un regalo pequeño con resultados visibles: un trazo cada noche y pestañas y cejas más pobladas en unas cuatro semanas.',
+          },
+          {
+            heading: 'Para un pelo increíble cada día',
+            body: 'El Hair Care Package Deal es una rutina completa de tres pasos con aceite de argán: champú, acondicionador y la Mascarilla reparadora de proteínas.',
+          },
+          {
+            heading: 'Envuelto en oro',
+            body: 'Cada pedido se envía en nuestro empaque exclusivo. Los sets navideños son de edición limitada: pide con tiempo.',
+          },
+        ],
+      },
+      it: {
+        title: 'La guida ai regali di Natale SK Envision',
+        excerpt:
+          'Cinque regali per tutta la tua lista, dall’appassionata di skincare a chi ha già tutto.',
+        sections: [
+          {
+            heading: 'Per l’appassionata di skincare',
+            body: 'Il Dark Spot Beauty Package riunisce la nostra Crema al collagene anti-macchie e i suoi alleati in un’unica confezione. Il nostro best seller, pronto da regalare.',
+          },
+          {
+            heading: 'Per chi ama le ciglia',
+            body: 'Il Siero crescita ciglia al collagene è un piccolo regalo dai risultati visibili: una passata ogni sera e ciglia e sopracciglia più folte in circa quattro settimane.',
+          },
+          {
+            heading: 'Per capelli splendidi ogni giorno',
+            body: 'L’Hair Care Package Deal è una routine completa in tre passaggi all’olio di argan: shampoo, balsamo e la Maschera riparatrice alle proteine.',
+          },
+          {
+            heading: 'Avvolto nell’oro',
+            body: 'Ogni ordine viaggia nella nostra confezione firmata. I set natalizi sono in edizione limitata: ordina in anticipo.',
+          },
+        ],
+      },
+    },
+  },
+  {
+    slug: 'argan-oil-hair-routine',
+    image: 'journal-argan-routine',
+    date: '2026-10-28',
+    readMinutes: 3,
+    products: ['2628', '28', '29'],
+    copy: {
+      en: {
+        title: 'Your three-step argan oil hair routine',
+        excerpt:
+          'How to build a wash day around argan oil for softer, shinier hair, whatever your hair type.',
+        sections: [
+          {
+            heading: 'Step 1: Cleanse',
+            body: 'Massage the Argan Oil Shampoo into wet roots and let the lather run through the lengths. It cleans without stripping, so hair stays soft rather than squeaky.',
+          },
+          {
+            heading: 'Step 2: Condition',
+            body: 'Work the Argan Oil Conditioner from mid-lengths to ends, comb it through with your fingers, and rinse after a minute or two to detangle and add shine.',
+          },
+          {
+            heading: 'Step 3: Repair, once a week',
+            body: 'Swap the conditioner for the Protein Repair Hair Mask once a week. Leave it on for five to ten minutes. Dry, coloured or heat-styled hair will feel the difference.',
+          },
+          {
+            heading: 'Bonus: care for the roots',
+            body: 'If density is your concern, finish with a few drops of the Organic Hair Regrowth Serum on a clean scalp, massaged in with your fingertips.',
+          },
+        ],
+      },
+      fr: {
+        title: 'Votre routine capillaire à l’huile d’argan en trois étapes',
+        excerpt:
+          'Construire un jour de lavage autour de l’huile d’argan pour des cheveux plus doux et brillants.',
+        sections: [
+          {
+            heading: 'Étape 1 : laver',
+            body: 'Massez le Shampooing à l’huile d’argan sur racines mouillées et laissez la mousse glisser sur les longueurs. Il nettoie sans décaper.',
+          },
+          {
+            heading: 'Étape 2 : démêler',
+            body: 'Appliquez l’Après-shampooing des longueurs aux pointes, démêlez avec les doigts et rincez après une à deux minutes.',
+          },
+          {
+            heading: 'Étape 3 : réparer, une fois par semaine',
+            body: 'Remplacez l’après-shampooing par le Masque réparateur aux protéines une fois par semaine, cinq à dix minutes de pose.',
+          },
+          {
+            heading: 'Bonus : soigner les racines',
+            body: 'Pour plus de densité, terminez par quelques gouttes de Sérum de repousse bio massées sur le cuir chevelu propre.',
+          },
+        ],
+      },
+      es: {
+        title: 'Tu rutina capilar de tres pasos con aceite de argán',
+        excerpt:
+          'Cómo organizar el día de lavado en torno al aceite de argán para un pelo más suave y brillante.',
+        sections: [
+          {
+            heading: 'Paso 1: limpiar',
+            body: 'Masajea el Champú de aceite de argán en las raíces húmedas y deja que la espuma recorra el largo. Limpia sin resecar.',
+          },
+          {
+            heading: 'Paso 2: acondicionar',
+            body: 'Aplica el Acondicionador de medios a puntas, desenreda con los dedos y aclara tras uno o dos minutos.',
+          },
+          {
+            heading: 'Paso 3: reparar, una vez por semana',
+            body: 'Cambia el acondicionador por la Mascarilla reparadora de proteínas una vez por semana y déjala actuar de cinco a diez minutos.',
+          },
+          {
+            heading: 'Extra: cuida las raíces',
+            body: 'Si buscas más densidad, termina con unas gotas del Sérum orgánico de crecimiento sobre el cuero cabelludo limpio.',
+          },
+        ],
+      },
+      it: {
+        title: 'La tua routine capelli all’olio di argan in tre passaggi',
+        excerpt:
+          'Come organizzare il lavaggio attorno all’olio di argan per capelli più morbidi e luminosi.',
+        sections: [
+          {
+            heading: 'Passaggio 1: detergere',
+            body: 'Massaggia lo Shampoo all’olio di argan sulle radici bagnate e lascia scorrere la schiuma sulle lunghezze. Deterge senza seccare.',
+          },
+          {
+            heading: 'Passaggio 2: condizionare',
+            body: 'Applica il Balsamo dalle lunghezze alle punte, districa con le dita e risciacqua dopo uno o due minuti.',
+          },
+          {
+            heading: 'Passaggio 3: riparare, una volta a settimana',
+            body: 'Sostituisci il balsamo con la Maschera riparatrice alle proteine una volta a settimana, in posa da cinque a dieci minuti.',
+          },
+          {
+            heading: 'Extra: cura delle radici',
+            body: 'Per più densità, concludi con qualche goccia di Siero ricrescita bio massaggiato sul cuoio capelluto pulito.',
+          },
+        ],
+      },
+    },
+  },
+];
+
+/**
+ * @param {Post} post
+ * @param {string} language
+ * @returns {Post & PostCopy}
+ */
+export function localizePost(post, language) {
+  return { ...post, ...(post.copy[language] ?? post.copy.en) };
+}
+
+/** @param {string} slug @returns {Post|undefined} */
+export const findPost = (slug) => POSTS.find((post) => post.slug === slug);

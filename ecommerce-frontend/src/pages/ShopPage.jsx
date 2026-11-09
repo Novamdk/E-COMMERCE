@@ -19,6 +19,7 @@ import {
   useProductFilters,
   useProducts,
 } from '@/features/catalog';
+import { useT } from '@/features/i18n';
 
 const FILTER_DRAWER_TITLE_ID = 'filter-drawer-title';
 
@@ -27,7 +28,8 @@ export default function ShopPage() {
   const { filters, setFilters, setPage, clearFilters, activeCount } = useProductFilters();
   const { items, page, pageCount, total, loading, error, refetch } = useProducts();
 
-  const fetchCategories = useCallback(() => getCategories(), []);
+  const { language } = useT();
+  const fetchCategories = useCallback(() => getCategories(language), [language]);
   const { data: categories } = useAsync(fetchCategories);
 
   const activeCategory = (categories ?? []).find((c) => c.slug === filters.category);
