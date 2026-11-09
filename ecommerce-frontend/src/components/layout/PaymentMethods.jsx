@@ -57,12 +57,15 @@ const METHODS = [
 export function PaymentMethods({ className }) {
   const { t } = useT();
   return (
-    <ul aria-label={t('footer.payments')} className={cn('flex flex-wrap gap-2', className)}>
+    <ul
+      aria-label={t('footer.payments')}
+      className={cn('grid grid-cols-4 gap-2.5 lg:flex lg:flex-wrap lg:gap-2', className)}
+    >
       {METHODS.map((method) => (
         <li
           key={method.id}
           title={method.label}
-          className="rounded-field bg-surface-raised grid h-9 w-14 place-items-center overflow-hidden shadow-[0_1px_2px_rgb(0_0_0/0.25)]"
+          className="rounded-field bg-surface-raised grid h-14 place-items-center overflow-hidden shadow-[0_1px_2px_rgb(0_0_0/0.25)] sm:h-16 lg:h-9 lg:w-14"
         >
           <span aria-hidden="true" className="grid place-items-center">
             {method.mark}
