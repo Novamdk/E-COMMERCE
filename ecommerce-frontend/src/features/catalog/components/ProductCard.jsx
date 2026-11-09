@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/Image';
 import { Rating } from '@/components/ui/Rating';
@@ -18,13 +19,15 @@ const PACKSHOT = 'p-[11%] mix-blend-multiply';
 
 const GRID_SIZES = '(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw';
 
-// Full width under the price on phones, a compact pill beside it from sm up.
+// A compact pill beside the price, as on Olaplex's grid, at every width.
 const PILL =
-  'relative z-10 inline-flex h-9 w-full shrink-0 items-center justify-center rounded-full border border-content px-4 sm:w-auto text-[0.6875rem] font-semibold tracking-[0.12em] uppercase transition-colors hover:bg-content hover:text-content-inverse disabled:pointer-events-none disabled:opacity-40';
+  'relative z-10 inline-flex h-8 shrink-0 items-center justify-center rounded-full border border-content px-3.5 sm:h-9 sm:px-4 text-[0.625rem] sm:text-[0.6875rem] font-semibold tracking-[0.12em] uppercase transition-colors hover:bg-content hover:text-content-inverse disabled:pointer-events-none disabled:opacity-40';
 
 /**
  * Catalog tile: packshot on stone, and on hover the formula's texture fades
- * in so a shopper sees what the cream, gel or oil actually looks like.
+ * in so a shopper sees what the cream, gel or oil actually looks like. On
+ * touch screens the same swap happens while a finger rests on the tile, so
+ * dragging through the grid flashes each formula, as on Olaplex.
  * Products with a size or colour axis send the shopper to the detail page to
  * choose, rather than guessing a variant on their behalf.
  *
@@ -46,11 +49,20 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
   // The texture shot if there is one, else a second, genuinely different photo.
   const hoverImage =
     textureImage(product) ?? product.images.find((name) => name !== cardImage) ?? null;
+  const [isTouched, setIsTouched] = useState(false);
+  const touchHandlers = hoverImage
+    ? {
+        onTouchStart: () => setIsTouched(true),
+        onTouchEnd: () => setIsTouched(false),
+        onTouchCancel: () => setIsTouched(false),
+      }
+    : {};
 
   return (
     <article
+      {...touchHandlers}
       className={cn(
-        'group bg-surface-sunken relative flex h-full flex-col',
+        'group bg-surface-sunken relative flex h-full flex-col [-webkit-touch-callout:none]',
         isFlush ? 'p-4 sm:p-6' : 'rounded-card p-4 sm:p-5',
       )}
     >
@@ -89,12 +101,17 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
           imgClassName={cn(
             PACKSHOT,
             'ease-out-soft transition duration-700',
-            hoverImage && 'group-hover:opacity-0',
+            hoverImage && (isTouched ? 'opacity-0' : 'group-hover:opacity-0'),
           )}
         />
         {hoverImage && (
           // Wrapped, because Image's own box is `relative` and cannot also be absolute.
-          <span className="ease-out-soft absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+          <span
+            className={cn(
+              'ease-out-soft absolute inset-0 transition-opacity duration-500',
+              isTouched ? 'opacity-100' : 'opacity-0 group-hover:opacity-100',
+            )}
+          >
             <Image
               name={hoverImage}
               alt=""
@@ -127,9 +144,11 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
           </span>
         )}
 
-        <div className="mt-auto flex flex-col gap-2.5 pt-3 sm:flex-row sm:items-end sm:justify-between sm:gap-3">
-          <p className="flex flex-wrap items-baseline gap-x-2">
-            <span className="text-[0.9375rem] font-semibold">{formatCurrency(product.price)}</span>
+        <div className="mt-auto flex items-end justify-between gap-2 pt-3 sm:gap-3">
+          <p className="flex min-w-0 flex-col sm:flex-row sm:flex-wrap sm:items-baseline sm:gap-x-2">
+            <span className="text-sm font-semibold sm:text-[0.9375rem]">
+              {formatCurrency(product.price)}
+            </span>
             {product.compareAtPrice && (
               <span className="text-content-subtle text-xs">
                 {t('product.value', { price: formatCurrency(product.compareAtPrice) })}

@@ -72,6 +72,15 @@ const LEARN_LINKS = [
   { to: ROUTES.JOURNAL, label: 'nav.blog' },
 ];
 
+/** Pill row under the header on phones, like Olaplex's. */
+const QUICK_LINKS = [
+  { to: ROUTES.GIFT_GUIDE, label: 'nav.giftGuide', isHoliday: true },
+  { to: ROUTES.SHOP, label: 'nav.shopAll' },
+  { to: collectionPath('bestsellers'), label: 'collections.bestsellers' },
+  { to: collectionPath('holiday-sets'), label: 'collections.holidaySets' },
+  { to: quizPath('hair'), label: 'nav.hairQuiz' },
+];
+
 const BESTSELLERS = { to: collectionPath('bestsellers'), label: 'collections.bestsellers' };
 
 /**
@@ -191,6 +200,33 @@ export function Header() {
             </div>
           </div>
         </Container>
+
+        {/* Phones and tablets: the main destinations as a sideways row of pills. */}
+        <nav
+          aria-label={t('header.quickLinks')}
+          className="border-holiday-600/30 border-t lg:hidden"
+        >
+          <ul
+            data-lenis-prevent
+            className="flex [scrollbar-width:none] gap-2 overflow-x-auto px-4 py-2.5 [&::-webkit-scrollbar]:hidden"
+          >
+            {QUICK_LINKS.map((link) => (
+              <li key={link.to} className="shrink-0">
+                <Link
+                  to={link.to}
+                  className={cn(
+                    'flex h-8 items-center rounded-full border px-4 text-[0.8125rem] whitespace-nowrap',
+                    link.isHoliday
+                      ? 'border-holiday-600 text-holiday-600'
+                      : 'border-content/25 text-content',
+                  )}
+                >
+                  {t(link.label)}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </header>
 
       <MobileNav

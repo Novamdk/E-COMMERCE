@@ -24,6 +24,7 @@ export const es = {
     wishlistCount: 'Favoritos, {count} artículos guardados',
     wishlistEmpty: 'Favoritos, ningún artículo guardado',
     shopAll: 'Ver todos los productos',
+    quickLinks: 'Accesos rápidos',
   },
   mobileNav: {
     title: 'Menú',

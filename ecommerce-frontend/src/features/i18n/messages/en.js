@@ -27,6 +27,7 @@ export const en = {
     wishlistCount: 'Wishlist, {count} saved items',
     wishlistEmpty: 'Wishlist, no saved items',
     shopAll: 'Shop all products',
+    quickLinks: 'Quick links',
   },
   mobileNav: {
     title: 'Menu',

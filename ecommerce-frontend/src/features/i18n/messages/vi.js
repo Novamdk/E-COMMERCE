@@ -24,6 +24,7 @@ export const vi = {
     wishlistCount: 'Yêu thích, đã lưu {count} sản phẩm',
     wishlistEmpty: 'Yêu thích, chưa lưu sản phẩm nào',
     shopAll: 'Xem tất cả sản phẩm',
+    quickLinks: 'Liên kết nhanh',
   },
   mobileNav: {
     title: 'Menu',
