@@ -1,10 +1,10 @@
 import { Badge } from '@/components/ui/Badge';
 import { Rating } from '@/components/ui/Rating';
 import { Container } from '@/components/layout/Container';
-import { SectionHeader } from './SectionHeader';
+import { useT } from '@/features/i18n';
 
 /**
- * Three-up review row: stars, a short serif quote, and who said it. Reviews
+ * Three-up review row under one large "Reviews" heading: stars, a short serif quote, and who said it. Reviews
  * flagged `isPlaceholder` carry a visible tag so sample copy cannot pass as a
  * real customer's words once the site is live.
  *
@@ -13,10 +13,16 @@ import { SectionHeader } from './SectionHeader';
  *          isPlaceholder?: boolean}[]} props.testimonials
  */
 export function Testimonials({ testimonials }) {
+  const { t } = useT();
   return (
     <section aria-labelledby="testimonials-heading" className="bg-surface-sunken">
       <Container width="wide" className="py-20 lg:py-24">
-        <SectionHeader id="testimonials-heading" eyebrow="Reviews" title="In their words" />
+        <h2
+          id="testimonials-heading"
+          className="font-display mb-12 text-center text-[2.75rem] leading-none tracking-[-0.02em] sm:mb-14 sm:text-[4rem] lg:text-[5rem]"
+        >
+          {t('home.reviews.eyebrow')}
+        </h2>
 
         <ul className="grid gap-12 md:grid-cols-3 md:gap-10">
           {testimonials.slice(0, 3).map((testimonial) => (
@@ -35,7 +41,7 @@ export function Testimonials({ testimonials }) {
                   <p className="text-content-muted text-xs">{testimonial.meta}</p>
                   {testimonial.isPlaceholder && (
                     <Badge variant="neutral" className="mt-2">
-                      Sample review
+                      {t('home.reviews.sample')}
                     </Badge>
                   )}
                 </figcaption>

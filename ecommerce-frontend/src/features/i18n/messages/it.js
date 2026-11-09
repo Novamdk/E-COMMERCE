@@ -170,7 +170,6 @@ export const it = {
     },
     reviews: {
       eyebrow: 'Recensioni',
-      title: 'Nelle loro parole',
       sample: 'Recensione di esempio',
     },
     faq: {

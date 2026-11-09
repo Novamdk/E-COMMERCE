@@ -169,7 +169,6 @@ export const vi = {
     },
     reviews: {
       eyebrow: 'Đánh giá',
-      title: 'Khách hàng nói gì',
       sample: 'Đánh giá mẫu',
     },
     faq: {

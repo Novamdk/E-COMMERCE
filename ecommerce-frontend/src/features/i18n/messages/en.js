@@ -172,7 +172,6 @@ export const en = {
     },
     reviews: {
       eyebrow: 'Reviews',
-      title: 'In their words',
       sample: 'Sample review',
     },
     faq: {
