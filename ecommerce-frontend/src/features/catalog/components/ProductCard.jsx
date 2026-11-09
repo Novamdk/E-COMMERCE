@@ -59,10 +59,37 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
     <article
       {...pointerHandlers}
       className={cn(
-        'group bg-surface-sunken relative flex h-full flex-col [-webkit-touch-callout:none]',
+        'group bg-surface-sunken relative isolate flex h-full flex-col overflow-hidden [-webkit-touch-callout:none]',
         isFlush ? 'p-4 sm:p-6' : 'rounded-card p-4 sm:p-5',
       )}
     >
+      {hoverImage && (
+        // The texture fills the whole tile behind the name and price, as on
+        // Olaplex, easing in with a slow settle from a slight zoom. A soft
+        // wash at the foot keeps the copy readable over any texture.
+        <span
+          aria-hidden="true"
+          className={cn(
+            'ease-out-soft pointer-events-none absolute inset-0 -z-10 transition-opacity duration-700',
+            isTextureShown ? 'opacity-100' : 'opacity-0',
+          )}
+        >
+          <Image
+            name={hoverImage}
+            alt=""
+            sizes={GRID_SIZES}
+            fit="cover"
+            isTransparent
+            className="size-full"
+            imgClassName={cn(
+              'ease-out-soft transition-transform duration-[1200ms] mix-blend-multiply',
+              isTextureShown ? 'scale-100' : 'scale-110',
+            )}
+          />
+          <span className="from-surface-sunken via-surface-sunken/70 absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t to-transparent" />
+        </span>
+      )}
+
       <div className="flex items-start justify-between gap-2">
         <span className="flex flex-wrap gap-1.5">
           {product.isBestSeller && (
@@ -86,7 +113,15 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
         </span>
       </div>
 
-      <Link to={href} tabIndex={-1} aria-hidden="true" className="relative mt-2 block">
+      <Link
+        to={href}
+        tabIndex={-1}
+        aria-hidden="true"
+        className={cn(
+          'ease-out-soft relative mt-2 block transition-[opacity,transform] duration-700',
+          isTextureShown && 'scale-95 opacity-0',
+        )}
+      >
         <Image
           name={cardImage}
           alt=""
@@ -95,31 +130,8 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
           fit="contain"
           priority={isPriority}
           isTransparent
-          imgClassName={cn(
-            PACKSHOT,
-            'ease-out-soft transition-opacity duration-500',
-            isTextureShown && 'opacity-0',
-          )}
+          imgClassName={PACKSHOT}
         />
-        {hoverImage && (
-          // Wrapped, because Image's own box is `relative` and cannot also be absolute.
-          <span
-            className={cn(
-              'ease-out-soft absolute inset-0 transition-opacity duration-500',
-              isTextureShown ? 'opacity-100' : 'opacity-0',
-            )}
-          >
-            <Image
-              name={hoverImage}
-              alt=""
-              sizes={GRID_SIZES}
-              ratio="aspect-square"
-              fit="cover"
-              isTransparent
-              imgClassName="mix-blend-multiply"
-            />
-          </span>
-        )}
       </Link>
 
       <div className="mt-5 flex flex-1 flex-col gap-1.5">
