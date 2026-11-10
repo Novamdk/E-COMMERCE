@@ -341,8 +341,57 @@ What the site sends (all in `src/lib/klaviyo.js`):
   address to the list with email marketing consent. The text-message field is not wired.
 - Event `CheckoutURL`s are cart links (`/cart?items=...`) that rebuild the bag on any device.
 
-Placed Order, Ordered Product and Fulfilled are not sent yet: they belong on the server once
-real orders and payments exist.
+Order events are sent from the server (`api/_lib/klaviyo.js`) once real checkout is on:
+
+- **Placed Order** and one **Ordered Product** per item when PayPal confirms the payment.
+- **Fulfilled Order** (with carrier and tracking number) when an order is marked shipped.
+- **Refunded Order** and **Cancelled Order** from PayPal's refund, reversal and denial
+  webhooks. Each event carries an `OrderURL` the shopper can open without signing in.
+
+### Accounts, orders and payments (Supabase + PayPal)
+
+With none of these set, the site keeps the original demo sign-in and demo checkout, so this
+code can be merged before the accounts exist. Variables are listed in `.env.example`.
+
+| Variable                                                                      | Turns on                                      |
+| ----------------------------------------------------------------------------- | --------------------------------------------- |
+| `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`                                 | real sign up and sign in                      |
+| `VITE_PAYPAL_CLIENT_ID` (plus the two above)                                  | real checkout and order history               |
+| `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`                                   | the `/api` functions' database access         |
+| `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `PAYPAL_ENV`, `PAYPAL_WEBHOOK_ID` | payments                                      |
+| `SITE_URL`, `ADMIN_API_TOKEN`                                                 | order links in emails; marking orders shipped |
+
+One-time setup:
+
+1. **Supabase** (free plan): create a project, open SQL Editor, run
+   `supabase/migrations/0001_store.sql`, then run `pnpm db:seed` and paste the generated
+   `supabase/seed.sql`. Under Authentication > URL Configuration set the Site URL to the
+   store's address. Supabase's built-in email sender is rate limited; before launch add the
+   store's own SMTP under Authentication > Emails.
+2. **PayPal**: at developer.paypal.com create an app on the same business account the store
+   uses (sandbox first). Add a webhook pointing at `https://<site>/api/paypal/webhook` for
+   `CHECKOUT.ORDER.APPROVED`, `PAYMENT.CAPTURE.COMPLETED`, `PAYMENT.CAPTURE.REFUNDED`,
+   `PAYMENT.CAPTURE.REVERSED` and `PAYMENT.CAPTURE.DENIED`, and copy its id.
+3. Add the variables in Vercel and redeploy. Place a sandbox order end to end, check it in
+   Supabase's `orders` table and in Klaviyo's activity feed, then switch to the live app.
+
+How checkout works: the browser sends only what is in the bag. `/api/checkout/create`
+prices it from `products.json` with the same `calculateTotals` the storefront uses, saves a
+pending order and opens a PayPal order for that exact total. After the shopper approves,
+`/api/checkout/capture` captures the payment, checks the amount, marks the order paid,
+lowers stock and sends the Klaviyo events. The webhook does the same if the browser closes
+first, and records each PayPal event so a repeat delivery does nothing.
+
+Marking an order shipped (until there is an admin screen):
+
+```bash
+curl -X POST https://<site>/api/admin/fulfill \
+  -H "Authorization: Bearer $ADMIN_API_TOKEN" -H "Content-Type: application/json" \
+  -d '{"orderNumber":"SK-XXXXXX","carrier":"USPS","trackingNumber":"9400..."}'
+```
+
+Tables have row level security on with no public policies: the browser can manage only its
+own sign-in, and every read or write of orders goes through `/api` with the service key.
 
 What that file does, and why:
 
@@ -373,16 +422,16 @@ A few things that are easy to get wrong here:
 
 ## Known limitations
 
-1. **Auth is fake.** Accounts and sessions live in localStorage in plain text and anyone can
+1. **Auth is fake in demo mode.** (With Supabase configured, see Deploying.) Accounts and sessions live in localStorage in plain text and anyone can
    read or edit them from devtools. It exists so the order history has something to hang off,
    and it is labelled as such on the sign-in page. Checkout does not require it — see Routes.
    A guest who places an order and _then_ registers does not get that order linked to the new
    account.
-2. **No payment processing.** The payment step validates card numbers with a Luhn checksum and
+2. **No payment processing in demo mode.** (With PayPal configured, see Deploying.) The payment step validates card numbers with a Luhn checksum and
    masks input, but nothing is transmitted. Only the last four digits are ever stored, and card
    fields are deliberately kept in memory — never written to localStorage — so a refresh
    mid-checkout clears them while the shipping address survives.
-3. **Orders are per-browser.** Clearing site data loses order history.
+3. **Demo orders are per-browser.** Clearing site data loses order history.
 4. **Stock numbers are synthesised.** The source API exposes only an in-stock boolean, so a
    deterministic per-product count is generated to exercise in-stock / low-stock / sold-out
    states. Prices, ratings, review counts, descriptions and variants are all real.

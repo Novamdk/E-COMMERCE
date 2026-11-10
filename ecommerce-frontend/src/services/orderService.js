@@ -1,11 +1,25 @@
+import { apiFetch, getAccessToken, isPayPalEnabled } from '@/lib/backend';
 import { MOCK_LATENCY_MS, STORAGE_KEYS } from '@/lib/constants';
 import { readStorage, writeStorage } from '@/lib/storage';
 import { ServiceError } from './productService';
 
 /**
- * Order persistence. Backed by localStorage because there is no server, but
- * shaped like a REST client so swapping in real endpoints is contained here.
+ * Order persistence. With PayPal configured (see lib/backend.js) orders live
+ * in the database and are read through /api; otherwise the original demo
+ * keeps them in localStorage. Both return the same order shape.
  */
+
+/* Guests see their order through a secret link; remember it in this browser. */
+const GUEST_TOKENS_KEY = 'skenvision.orderTokens.v1';
+
+/** @param {string} orderNumber @param {string} token */
+export function rememberOrderToken(orderNumber, token) {
+  if (!token) return;
+  const tokens = readStorage(GUEST_TOKENS_KEY, {});
+  writeStorage(GUEST_TOKENS_KEY, { ...tokens, [orderNumber]: token });
+}
+
+const tokenFor = (orderNumber) => readStorage(GUEST_TOKENS_KEY, {})[orderNumber] ?? null;
 
 /** @template T @param {T} payload @returns {Promise<T>} */
 function request(payload) {
@@ -47,6 +61,19 @@ function generateOrderNumber() {
  * @returns {Promise<object[]>} that user's orders, newest first
  */
 export async function getOrders(userId) {
+  if (isPayPalEnabled) {
+    if (await getAccessToken()) {
+      const { orders } = await apiFetch('/api/orders');
+      return orders;
+    }
+    // Guests: the orders placed in this browser, through their secret links.
+    const numbers = Object.keys(readStorage(GUEST_TOKENS_KEY, {})).slice(-20);
+    const results = await Promise.allSettled(numbers.map((number) => getOrderById(number)));
+    return results
+      .filter((result) => result.status === 'fulfilled')
+      .map((result) => result.value)
+      .sort((a, b) => new Date(b.placedAt) - new Date(a.placedAt));
+  }
   const all = readStorage(STORAGE_KEYS.ORDERS, []);
   const mine = all
     .filter((order) => order.userId === userId)
@@ -59,7 +86,14 @@ export async function getOrders(userId) {
  * @returns {Promise<object>}
  * @throws {ServiceError} 404 when the order is unknown
  */
-export async function getOrderById(orderId) {
+export async function getOrderById(orderId, viewToken = null) {
+  if (isPayPalEnabled) {
+    const token = viewToken ?? tokenFor(orderId);
+    if (token) rememberOrderToken(orderId, token);
+    const query = token ? `?t=${encodeURIComponent(token)}` : '';
+    const { order } = await apiFetch(`/api/orders/${encodeURIComponent(orderId)}${query}`);
+    return order;
+  }
   const all = readStorage(STORAGE_KEYS.ORDERS, []);
   const order = all.find((o) => o.id === orderId);
   if (!order) throw new ServiceError(`Order ${orderId} was not found.`, 404);
@@ -67,7 +101,34 @@ export async function getOrderById(orderId) {
 }
 
 /**
- * Persists a completed order and returns it with its generated reference.
+ * Real checkout, step 1: the server prices the bag, saves a pending order and
+ * opens a PayPal order for that total.
+ *
+ * @param {{items: object[], promoCode: string|null, shippingMethodId: string, shipping: object}} draft
+ * @returns {Promise<{paypalOrderId: string, orderNumber: string}>}
+ */
+export function startPayPalCheckout(draft) {
+  return apiFetch('/api/checkout/create', { method: 'POST', body: draft });
+}
+
+/**
+ * Real checkout, step 2, after the shopper approves in PayPal: capture the
+ * payment and get the confirmed order back.
+ *
+ * @param {string} paypalOrderId
+ * @returns {Promise<object>} the order
+ */
+export async function completePayPalCheckout(paypalOrderId) {
+  const { order, viewToken } = await apiFetch('/api/checkout/capture', {
+    method: 'POST',
+    body: { paypalOrderId },
+  });
+  rememberOrderToken(order.id, viewToken);
+  return order;
+}
+
+/**
+ * Demo checkout: persists a completed order and returns it with its generated reference.
  *
  * @param {{userId: string, lines: object[], totals: object, shipping: object,
  *          payment: object, shippingMethodId: string, promoCode: string|null}} draft

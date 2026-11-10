@@ -4,14 +4,21 @@ import { ErrorPanel } from '@/components/ui/ErrorPanel';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { orderPath, ROUTES } from '@/lib/constants';
+import { isPayPalEnabled } from '@/lib/backend';
 import { identify, trackStartedCheckout } from '@/lib/klaviyo';
-import { createOrder, getGuestId } from '@/services/orderService';
+import {
+  completePayPalCheckout,
+  createOrder,
+  getGuestId,
+  startPayPalCheckout,
+} from '@/services/orderService';
 import { useAuth } from '@/features/auth';
 import { useCart, useCartLines } from '@/features/cart';
 import {
   CHECKOUT_STEPS,
   CheckoutStepper,
   OrderTotalsAside,
+  PayPalButtons,
   PaymentStep,
   ReviewStep,
   ShippingStep,
@@ -20,7 +27,7 @@ import {
 
 const STEP_TITLES = {
   shipping: 'Where should we send it?',
-  payment: 'How would you like to pay?',
+  payment: isPayPalEnabled ? 'Check everything over and pay' : 'How would you like to pay?',
   review: 'Check everything over',
 };
 
@@ -62,6 +69,39 @@ export default function CheckoutLayout() {
       trackStartedCheckout({ items, total: totals.total });
     }
     goToStep(step === 'shipping' ? 'payment' : 'review');
+  };
+
+  // Real checkout: the server prices the bag and opens the PayPal order, so
+  // the browser only sends what is in the bag, never a price.
+  const handlePayPalCreate = async () => {
+    setSubmitError(null);
+    const { paypalOrderId } = await startPayPalCheckout({
+      items: items.map(({ productId, qty, size, color }) => ({ productId, qty, size, color })),
+      promoCode: totals.promo?.code ?? null,
+      shippingMethodId: form.shippingMethodId,
+      shipping: form.shipping,
+    }).catch((err) => {
+      setSubmitError(err.message);
+      throw err;
+    });
+    return paypalOrderId;
+  };
+
+  const handlePayPalApprove = async (paypalOrderId) => {
+    setIsPlacing(true);
+    setSubmitError(null);
+    try {
+      const order = await completePayPalCheckout(paypalOrderId);
+      setHasPlacedOrder(true);
+      clearCart();
+      form.resetAfterOrder();
+      navigate(orderPath(order.id), { replace: true, state: { isJustPlaced: true } });
+    } catch (err) {
+      setSubmitError(
+        err.message ?? 'We could not confirm your payment. You have not been charged.',
+      );
+      setIsPlacing(false);
+    }
   };
 
   const handlePlaceOrder = async () => {
@@ -131,7 +171,7 @@ export default function CheckoutLayout() {
           canVisit={(target) =>
             target === 'shipping' ||
             (target === 'payment' && form.isStepValid('shipping')) ||
-            (target === 'review' && form.isReviewReady)
+            (target === 'review' && !isPayPalEnabled && form.isReviewReady)
           }
         />
       </div>
@@ -143,7 +183,26 @@ export default function CheckoutLayout() {
           ) : (
             <>
               {step === 'shipping' && <ShippingStep form={form} onContinue={handleContinue} />}
-              {step === 'payment' && (
+              {step === 'payment' && isPayPalEnabled && (
+                <ReviewStep
+                  form={form}
+                  lines={lines}
+                  totals={totals}
+                  isPlacing={isPlacing}
+                  submitError={submitError}
+                  onPlaceOrder={() => {}}
+                  onEditStep={goToStep}
+                  paySlot={
+                    <PayPalButtons
+                      disabled={isPlacing || lines.length === 0}
+                      createOrder={handlePayPalCreate}
+                      onApprove={handlePayPalApprove}
+                      onError={setSubmitError}
+                    />
+                  }
+                />
+              )}
+              {step === 'payment' && !isPayPalEnabled && (
                 <PaymentStep
                   form={form}
                   onContinue={handleContinue}
