@@ -125,7 +125,10 @@
     "2628": { "title": "Bộ dầu gội & dầu xả Argan Oil", "subtitle": "Cho mái tóc suôn mượt" },
     "2621": { "title": "Dầu gội Argan Oil", "subtitle": "Mọi loại tóc" },
     "2547": { "title": "Serum dưỡng mi collagen", "subtitle": "Mi & lông mày sau 4 tuần" },
-    "2394": { "title": "Kem nâng cơ mắt Retinal ReSculpt", "subtitle": "Vitamin A bao nang" },
+    "2394": {
+      "title": "Kem tái tạo vùng mắt SK Envision",
+      "subtitle": "Kem dưỡng mắt nhẹ hằng ngày"
+    },
     "1958": { "title": "Kem collagen trị đốm nâu", "subtitle": "Đều màu da & mờ đốm" },
     "1773": { "title": "Dầu gội nhuộm màu Magic", "subtitle": "Màu chuẩn salon tại nhà" },
     "1550": { "title": "Kem collagen chống nhăn", "subtitle": "Săn chắc & mịn da" },

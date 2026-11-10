@@ -81,8 +81,12 @@ const OVERRIDES = {
   },
   2394: {
     slug: 'retinal-eye-lift',
-    title: 'Retinal ReSculpt Eye Lift Treatment',
-    subtitle: 'Encapsulated vitamin A',
+    // SK Envision's own product: renamed and rewritten (Nov 2026), so the
+    // source copy, which used another brand's product name, is not used.
+    title: 'SK Envision Eye Renewal Cream',
+    subtitle: 'Lightweight daily eye cream',
+    description:
+      'A lightweight eye cream made for the delicate skin around your eyes. It absorbs quickly, layers well under makeup, and helps the eye area look smoother, brighter and more rested with daily use.\n\nHow to use: pat a small amount around the eye area, morning or night. Patch-test first and avoid direct contact with eyes.',
   },
   1958: {
     slug: 'dark-spot-collagen-cream',
@@ -231,7 +235,7 @@ const products = rawProducts
   .filter((p) => OVERRIDES[p.id])
   .map((p) => {
     const o = OVERRIDES[p.id];
-    const body = paragraphs(p.description);
+    const body = o.description ? o.description.split('\n\n') : paragraphs(p.description);
     const short = clean(p.short_description) || body[0]?.slice(0, 160) || '';
     const colorAttr = (p.attributes || []).find((a) => /colou?r/i.test(a.name));
     const price = Number(p.prices.price);

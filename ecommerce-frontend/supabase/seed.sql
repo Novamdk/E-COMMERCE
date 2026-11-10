@@ -6,7 +6,7 @@ values
   ('2628', 'argan-shampoo-conditioner', 'Argan Oil Shampoo & Conditioner Duo', 3995, 6995),
   ('2621', 'argan-shampoo', 'Argan Oil Shampoo', 2195, 3495),
   ('2547', 'lash-growth-serum', 'Collagen Eyelash Growth Serum', 3895, 8995),
-  ('2394', 'retinal-eye-lift', 'Retinal ReSculpt Eye Lift Treatment', 4895, 8995),
+  ('2394', 'retinal-eye-lift', 'SK Envision Eye Renewal Cream', 4895, 8995),
   ('1958', 'dark-spot-collagen-cream', 'Dark Spot Collagen Cream', 4895, 8995),
   ('1773', 'color-dye-shampoo', 'Magic Hair Dye Color Shampoo', 3995, 7995),
   ('1550', 'collagen-anti-aging-cream', 'Collagen Anti-Aging Wrinkle Cream', 4895, 8995),
