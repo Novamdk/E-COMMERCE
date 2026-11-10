@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import { FiPackage } from 'react-icons/fi';
 import { useParams } from 'react-router-dom';
 import { Button } from '@/components/ui/Button';
@@ -13,6 +13,7 @@ import { FREE_SHIPPING_THRESHOLD, PROMO_CODES, ROUTES, SPIN_WHEEL } from '@/lib/
 import { discountPercent, formatCurrency } from '@/lib/formatCurrency';
 import { primaryImage, textureImage } from '@/lib/productImage';
 import { breadcrumbLd, productLd } from '@/lib/seo';
+import { trackViewedProduct } from '@/lib/klaviyo';
 import { getProductBySlug, getProducts } from '@/services/productService';
 import { Gallery, ProductPurchasePanel, RelatedProducts } from '@/features/catalog';
 import { useT } from '@/features/i18n';
@@ -50,6 +51,12 @@ export default function ProductDetailPage() {
   const fetchCatalog = useCallback(() => getProducts(language), [language]);
   const { data: product, loading, error, refetch } = useAsync(fetchProduct);
   const catalog = useAsync(fetchCatalog);
+
+  // Once per product shown, for browse-abandonment emails.
+  const viewedId = product?.id;
+  useEffect(() => {
+    if (viewedId) trackViewedProduct({ id: viewedId });
+  }, [viewedId]);
 
   const origin = typeof window === 'undefined' ? '' : window.location.origin;
   usePageMeta(

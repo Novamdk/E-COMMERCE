@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from '@/app/App';
+import { loadKlaviyo } from '@/lib/klaviyo';
 import '@/styles/index.css';
 
 /**
@@ -29,6 +30,9 @@ window.addEventListener('load', () => {
     }
   }, 10000);
 });
+
+// Klaviyo onsite tracking; does nothing unless VITE_KLAVIYO_PUBLIC_KEY is set.
+loadKlaviyo();
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -53,9 +53,9 @@ export default [
     },
   },
 
-  // Node-side build tooling.
+  // Node-side build tooling and Vercel serverless functions (api/).
   {
-    files: ['scripts/**/*.mjs', 'vite.config.js', 'eslint.config.js'],
+    files: ['scripts/**/*.mjs', 'vite.config.js', 'eslint.config.js', 'api/**/*.js'],
     languageOptions: { globals: { ...globals.node } },
     rules: { 'no-console': 'off', 'no-restricted-imports': 'off' },
   },

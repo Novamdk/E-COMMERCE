@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { ErrorPanel } from '@/components/ui/ErrorPanel';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { orderPath, ROUTES } from '@/lib/constants';
+import { identify, trackStartedCheckout } from '@/lib/klaviyo';
 import { createOrder, getGuestId } from '@/services/orderService';
 import { useAuth } from '@/features/auth';
 import { useCart, useCartLines } from '@/features/cart';
@@ -33,7 +34,7 @@ export default function CheckoutLayout() {
   const navigate = useNavigate();
   const form = useCheckoutForm();
   const { user } = useAuth();
-  const { clearCart } = useCart();
+  const { clearCart, items } = useCart();
   const { lines, totals, loading, error } = useCartLines({
     shippingMethodId: form.shippingMethodId,
   });
@@ -41,6 +42,7 @@ export default function CheckoutLayout() {
   const [isPlacing, setIsPlacing] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [hasPlacedOrder, setHasPlacedOrder] = useState(false);
+  const hasTrackedCheckout = useRef(false);
 
   const isKnownStep = CHECKOUT_STEPS.includes(step);
 
@@ -48,6 +50,17 @@ export default function CheckoutLayout() {
 
   const handleContinue = () => {
     if (!form.attemptStep(step)) return;
+    // The shipping step is where we first learn the shopper's email, so this
+    // is when Klaviyo can tie the checkout to a person (once per visit).
+    if (step === 'shipping' && !hasTrackedCheckout.current) {
+      hasTrackedCheckout.current = true;
+      identify({
+        email: form.shipping.email,
+        firstName: form.shipping.firstName,
+        lastName: form.shipping.lastName,
+      });
+      trackStartedCheckout({ items, total: totals.total });
+    }
     goToStep(step === 'shipping' ? 'payment' : 'review');
   };
 

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useReducer } from 'react';
 import { STORAGE_KEYS } from '@/lib/constants';
+import { identify } from '@/lib/klaviyo';
 import { readStorage, removeStorage, writeStorage } from '@/lib/storage';
 import * as authService from '@/services/authService';
 import { AuthContext } from './AuthContext';
@@ -10,7 +11,9 @@ export function AuthProvider({ children }) {
   const [state, dispatch] = useReducer(authReducer, initialAuthState);
 
   useEffect(() => {
-    dispatch({ type: 'RESTORED', payload: readStorage(STORAGE_KEYS.SESSION, null) });
+    const session = readStorage(STORAGE_KEYS.SESSION, null);
+    dispatch({ type: 'RESTORED', payload: session });
+    if (session?.email) identify({ email: session.email, name: session.name });
   }, []);
 
   /**
@@ -24,6 +27,7 @@ export function AuthProvider({ children }) {
       const user = await authService[method](credentials);
       writeStorage(STORAGE_KEYS.SESSION, user);
       dispatch({ type: 'SUBMIT_SUCCESS', payload: user });
+      identify({ email: user.email, name: user.name });
       return { ok: true };
     } catch (error) {
       const message = error?.message ?? 'Something went wrong. Please try again.';

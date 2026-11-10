@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
+import { useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import { STORAGE_KEYS } from '@/lib/constants';
 import { readStorage, writeStorage } from '@/lib/storage';
 import { resolvePromo } from '@/lib/calculateTotals';
+import { cartFromUrl, trackAddedToCart } from '@/lib/klaviyo';
 import { CartContext } from './CartContext';
 import { cartReducer, initialCartState } from './cartReducer';
 
@@ -13,19 +14,43 @@ export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialCartState);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  // Rehydrate once on mount, then mirror every change back.
+  // Latest state for callbacks that must stay stable (addItem reads it to
+  // report the whole cart to Klaviyo).
+  const stateRef = useRef(state);
+
+  // Rehydrate once on mount, then mirror every change back. A cart link from
+  // an abandonment email (?items=...) wins over what this browser had, so the
+  // shopper sees the bag they left even on another device.
   useEffect(() => {
     const stored = readStorage(STORAGE_KEYS.CART, null);
-    if (stored) dispatch({ type: 'HYDRATE', payload: stored });
+    const fromLink = cartFromUrl(window.location.search);
+    if (fromLink) {
+      dispatch({
+        type: 'HYDRATE',
+        payload: { items: fromLink, promoCode: stored?.promoCode ?? null },
+      });
+      const url = new URL(window.location.href);
+      url.searchParams.delete('items');
+      window.history.replaceState(
+        window.history.state,
+        '',
+        `${url.pathname}${url.search}${url.hash}`,
+      );
+    } else if (stored) {
+      dispatch({ type: 'HYDRATE', payload: stored });
+    }
   }, []);
 
   useEffect(() => {
+    stateRef.current = state;
     writeStorage(STORAGE_KEYS.CART, state);
   }, [state]);
 
   const addItem = useCallback((product, { size = null, color = null, qty = 1 } = {}) => {
-    dispatch({ type: 'ADD_ITEM', payload: { productId: product.id, size, color, qty } });
+    const action = { type: 'ADD_ITEM', payload: { productId: product.id, size, color, qty } };
+    dispatch(action);
     setIsDrawerOpen(true);
+    trackAddedToCart(action.payload, cartReducer(stateRef.current, action).items);
   }, []);
 
   const setQty = useCallback((lineId, qty) => {

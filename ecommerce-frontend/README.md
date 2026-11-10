@@ -314,12 +314,39 @@ far less often than app code, so a deploy invalidates only the ~28 kB app shell.
 
 ## Deploying to Vercel
 
-Import the repo and deploy — `vercel.json` carries the whole configuration, and no
-environment variables are needed because there is no backend.
+Import the repo and deploy — `vercel.json` carries the whole configuration. The site
+builds and runs with no environment variables; Klaviyo tracking and email signups switch on
+once the variables below are set (see `.env.example`).
+
+### Klaviyo (email marketing)
+
+| Variable                  | Where it is used       | Value                                                   |
+| ------------------------- | ---------------------- | ------------------------------------------------------- |
+| `VITE_KLAVIYO_PUBLIC_KEY` | browser (`klaviyo.js`) | the account's public site key (Settings > API keys)     |
+| `KLAVIYO_PRIVATE_API_KEY` | `/api/subscribe` only  | a private key with Lists, Profiles, Subscriptions write |
+| `KLAVIYO_LIST_ID`         | `/api/subscribe` only  | the id of the "Email List"                              |
+
+Set `VITE_KLAVIYO_PUBLIC_KEY` for **Production** only if preview deploys should not send
+events to the live account. Changing a `VITE_` variable needs a redeploy, because Vite bakes it
+into the bundle.
+
+What the site sends (all in `src/lib/klaviyo.js`):
+
+- **Viewed Product** on each product page, plus `trackViewedItem` for recently-viewed blocks.
+- **Added to Cart** with the whole bag, from `CartProvider.addItem`.
+- **Started Checkout** when the shopper continues past the shipping step (first point we
+  have their email).
+- **identify** on sign in, sign up, signups and checkout, so events reach the right profile.
+- Email signups (footer, spin wheel, quiz) go to `/api/subscribe`, which subscribes the
+  address to the list with email marketing consent. The text-message field is not wired.
+- Event `CheckoutURL`s are cart links (`/cart?items=...`) that rebuild the bag on any device.
+
+Placed Order, Ordered Product and Fulfilled are not sent yet: they belong on the server once
+real orders and payments exist.
 
 What that file does, and why:
 
-- **`rewrites: /(.*) → /index.html`.** Routing is client-side, so without this a hard refresh
+- **`rewrites: /(.*) → /index.html`** (except `/api`, `/assets`, `/img`, `/og`). Routing is client-side, so without this a hard refresh
   or a shared link to `/shop/argan-shampoo` returns a 404. Vercel checks the filesystem
   _before_ applying rewrites, so real files under `/assets` and `/img` are unaffected by the
   catch-all.

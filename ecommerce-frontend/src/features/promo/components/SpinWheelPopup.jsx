@@ -12,6 +12,7 @@ import { PROMO_CODES, ROUTES, SPIN_WHEEL, STORAGE_KEYS } from '@/lib/constants';
 import { email as validateEmail } from '@/lib/validators';
 import { useCart } from '@/features/cart';
 import { useT } from '@/features/i18n';
+import { subscribeEmail } from '@/services/subscribeService';
 import { SpinWheel } from './SpinWheel';
 
 const TITLE_ID = 'spin-wheel-title';
@@ -86,6 +87,7 @@ export function SpinWheelPopup() {
       return;
     }
     applyPromo(PROMO.code);
+    subscribeEmail({ email: email.trim(), source: 'Spin wheel' });
     setStep('claimed');
   };
 
