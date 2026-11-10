@@ -66,11 +66,11 @@ export const fr = {
     removeGift: 'Retirer le cadeau {title}',
   },
   footer: {
-    joinHeading: 'Inscrivez-vous et profitez de -10 % sur votre première commande.',
+    joinHeading: 'Inscrivez-vous et profitez de -25 % sur votre première commande.',
     emailLabel: 'Adresse e-mail pour la newsletter',
     emailPlaceholder: 'vous@exemple.com',
     signUp: 'S’inscrire',
-    thanks: 'Merci ! Votre code de -10 % arrive.',
+    thanks: 'Merci ! Votre code de -25 % arrive.',
     finePrint: 'Des nouvelles de temps en temps. Désinscription à tout moment.',
     social: 'SK Envision sur les réseaux sociaux',
     socialLink: 'SK Envision sur {network} (s’ouvre dans un nouvel onglet)',

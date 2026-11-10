@@ -66,11 +66,11 @@ export const vi = {
     removeGift: 'Xóa quà tặng {title}',
   },
   footer: {
-    joinHeading: 'Đăng ký để được giảm 10% cho đơn hàng đầu tiên.',
+    joinHeading: 'Đăng ký để được giảm 25% cho đơn hàng đầu tiên.',
     emailLabel: 'Địa chỉ email nhận bản tin',
     emailPlaceholder: 'ban@example.com',
     signUp: 'Đăng ký',
-    thanks: 'Cảm ơn bạn, mã giảm 10% đang được gửi đến.',
+    thanks: 'Cảm ơn bạn, mã giảm 25% đang được gửi đến.',
     finePrint: 'Thỉnh thoảng gửi tin. Hủy đăng ký bất cứ lúc nào.',
     social: 'SK Envision trên mạng xã hội',
     socialLink: 'SK Envision trên {network} (mở trong thẻ mới)',

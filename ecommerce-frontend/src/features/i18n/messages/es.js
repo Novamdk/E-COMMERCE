@@ -66,11 +66,11 @@ export const es = {
     removeGift: 'Quitar el regalo {title}',
   },
   footer: {
-    joinHeading: 'Únete a la lista y consigue un 10 % en tu primer pedido.',
+    joinHeading: 'Únete a la lista y consigue un 25 % en tu primer pedido.',
     emailLabel: 'Correo electrónico para la newsletter',
     emailPlaceholder: 'tu@ejemplo.com',
     signUp: 'Suscribirme',
-    thanks: '¡Gracias! Tu código del 10 % está en camino.',
+    thanks: '¡Gracias! Tu código del 25 % está en camino.',
     finePrint: 'Novedades de vez en cuando. Date de baja cuando quieras.',
     social: 'SK Envision en redes sociales',
     socialLink: 'SK Envision en {network} (se abre en una pestaña nueva)',
