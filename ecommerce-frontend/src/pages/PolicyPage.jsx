@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLenis } from 'lenis/react';
+import { FiCheck } from 'react-icons/fi';
 import { Checkbox } from '@/components/ui/Checkbox';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { useHydrated } from '@/hooks/useHydrated';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { ROUTES } from '@/lib/constants';
-import { POLICIES, POLICY_UPDATED, policyBySlug } from '@/data/policies';
+import { POLICIES, POLICY_UPDATED, policyBySlug, sectionId } from '@/data/policies';
 import { hasAdOptOut, hasGlobalPrivacyControl, setAdOptOut } from '@/lib/adTags';
 
 /**
@@ -63,7 +64,7 @@ function useScrollToHash() {
 }
 
 /**
- * Shipping, returns, privacy and terms. One component for all four: the text
+ * Shipping, returns, privacy, terms and accessibility. One component for all five: the text
  * lives in src/data/policies.js so the prerendered HTML says the same thing.
  * Policies stay in English in every language, as the binding version.
  *
@@ -83,15 +84,65 @@ export default function PolicyPage({ slug }) {
       />
       <p className="text-content-subtle mt-4 text-sm">Last updated {POLICY_UPDATED}</p>
 
-      <div className="mt-10 space-y-10">
+      {policy.summary?.length > 0 && (
+        <aside
+          aria-labelledby="policy-summary"
+          className="rounded-panel border-border bg-surface-raised mt-8 border p-6"
+        >
+          <h2 id="policy-summary" className="text-sm font-semibold tracking-[0.12em] uppercase">
+            At a glance
+          </h2>
+          <ul className="mt-4 space-y-2.5">
+            {policy.summary.map((item) => (
+              <li key={item} className="flex gap-3 leading-relaxed">
+                <FiCheck aria-hidden="true" className="text-brand-700 mt-1 size-4 shrink-0" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </aside>
+      )}
+
+      {policy.sections.length > 4 && (
+        <nav aria-labelledby="policy-contents" className="mt-8">
+          <h2
+            id="policy-contents"
+            className="text-content-subtle text-sm font-semibold tracking-[0.12em] uppercase"
+          >
+            On this page
+          </h2>
+          <ol className="mt-3 grid gap-x-8 gap-y-1.5 text-sm sm:grid-cols-2">
+            {policy.sections.map((section) => (
+              <li key={section.heading}>
+                <Link
+                  to={{ hash: sectionId(section) }}
+                  className="text-content-muted hover:text-content underline-offset-2 hover:underline"
+                >
+                  {section.heading}
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )}
+
+      <div className="mt-12 space-y-10">
         {policy.sections.map((section) => (
-          <section key={section.heading} id={section.id} className="scroll-mt-24 space-y-3">
+          <section
+            key={section.heading}
+            id={sectionId(section)}
+            className="border-border scroll-mt-24 space-y-3 border-t pt-8 first:border-t-0 first:pt-0"
+          >
             <h2 className="font-display text-2xl">{section.heading}</h2>
             {section.blocks.map((block, index) =>
               typeof block === 'string' ? (
                 <p key={index} className="text-content-muted leading-relaxed">
                   {block}
                 </p>
+              ) : block.subheading ? (
+                <h3 key={index} className="pt-2 font-semibold">
+                  {block.subheading}
+                </h3>
               ) : (
                 <ul
                   key={index}

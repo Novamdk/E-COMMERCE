@@ -46,7 +46,7 @@ import {
 } from '../src/lib/seo.js';
 import { en } from '../src/features/i18n/messages/en.js';
 import { POSTS } from '../src/features/journal/posts.js';
-import { POLICIES, POLICY_UPDATED, RETURN_WINDOW_DAYS } from '../src/data/policies.js';
+import { POLICIES, POLICY_UPDATED, RETURN_WINDOW_DAYS, sectionId } from '../src/data/policies.js';
 
 const { render: renderApp } = await import('../dist-ssr/entry-server.js');
 
@@ -282,14 +282,20 @@ for (const policy of POLICIES) {
     priority: 0.3,
     body: `<article><h1>${esc(policy.title)}</h1><p>Last updated ${esc(POLICY_UPDATED)}.</p><p>${esc(
       policy.intro,
-    )}</p>${policy.sections
+    )}</p>${
+      policy.summary?.length
+        ? `<h2>At a glance</h2><ul>${policy.summary.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`
+        : ''
+    }${policy.sections
       .map(
         (section) =>
-          `<h2>${esc(section.heading)}</h2>${section.blocks
+          `<h2 id="${sectionId(section)}">${esc(section.heading)}</h2>${section.blocks
             .map((block) =>
               typeof block === 'string'
                 ? `<p>${esc(block)}</p>`
-                : `<ul>${block.list.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`,
+                : block.subheading
+                  ? `<h3>${esc(block.subheading)}</h3>`
+                  : `<ul>${block.list.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`,
             )
             .join('')}`,
       )
