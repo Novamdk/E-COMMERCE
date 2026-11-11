@@ -77,11 +77,12 @@ export class ServiceError extends Error {
  */
 function request(payload) {
   const { min, max } = MOCK_LATENCY_MS;
-  const delay = min + Math.random() * (max - min);
+  // No fake latency when pages are rendered at build time.
+  const delay = typeof window === 'undefined' ? 0 : min + Math.random() * (max - min);
 
   return new Promise((resolve, reject) => {
-    window.setTimeout(() => {
-      if (MOCK_FAILURE_RATE > 0 && Math.random() < MOCK_FAILURE_RATE) {
+    globalThis.setTimeout(() => {
+      if (delay > 0 && MOCK_FAILURE_RATE > 0 && Math.random() < MOCK_FAILURE_RATE) {
         reject(new ServiceError('The catalog is temporarily unavailable.', 503));
         return;
       }

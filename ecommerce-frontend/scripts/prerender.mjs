@@ -7,9 +7,13 @@
  * For every public route this writes dist/<route>/index.html with:
  *   - its own <title>, description, canonical URL, Open Graph/Twitter tags
  *   - schema.org JSON-LD (Organization, Product, BreadcrumbList, Article)
- *   - the page's main text as plain HTML inside #root, which React replaces
- *     on load (createRoot, not hydration), so shoppers never see it
+ *   - the whole page rendered to HTML inside #root by the app itself
+ *     (src/entry-server.jsx, built to dist-ssr/), plus the data it fetched,
+ *     so the browser hydrates it instead of drawing it again
  * plus sitemap.xml, robots.txt, llms.txt and 1200x630 JPEG share images.
+ *
+ * Routes that are not prerendered (cart, checkout, account) are served
+ * dist/spa.html, the empty app shell, by the rewrite in vercel.json.
  *
  * Vercel serves real files before the SPA rewrite, so /shop/argan-shampoo
  * gets dist/shop/argan-shampoo/index.html.
@@ -43,6 +47,8 @@ import {
 import { en } from '../src/features/i18n/messages/en.js';
 import { POSTS } from '../src/features/journal/posts.js';
 import { POLICIES, POLICY_UPDATED, RETURN_WINDOW_DAYS } from '../src/data/policies.js';
+
+const { render: renderApp } = await import('../dist-ssr/entry-server.js');
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
@@ -302,7 +308,7 @@ if (SHOW_STORE_FINDER)
 
 /* ------------------------------- write ------------------------------- */
 
-function render(page) {
+function render(page, app) {
   const url = `${ORIGIN}${page.path === '/' ? '/' : page.path}`;
   const title = pageTitle(page.title);
   const description = snippet(page.description);
@@ -337,18 +343,38 @@ function render(page) {
   let html = template.replace(/<!-- seo:start[\s\S]*?<!-- seo:end -->/, head);
   // Only the homepage shows the hero, so only it preloads the hero image.
   if (page.path !== '/') html = html.replace(/<!-- lcp:start[\s\S]*?<!-- lcp:end -->/, '');
-  // Readable text for crawlers. Visually hidden, and replaced by the app on load.
   html = html.replace(
     '<div id="root"></div>',
-    `<div id="root"><div class="sr-only">${nav}<main>${page.body}</main></div></div>`,
+    app
+      ? // The real page, plus the data it was rendered from, for hydration.
+        `<div id="root">${app.html}</div><script>window.__SSR_DATA__=${JSON.stringify(
+          app.data,
+        ).replace(/</g, '\\u003c')}</script>`
+      : // Fallback if the app could not render: readable text for crawlers,
+        // visually hidden and replaced by the app on load.
+        `<div id="root"><div class="sr-only">${nav}<main>${page.body}</main></div></div>`,
   );
   return html;
 }
 
+// The empty shell, for routes that only make sense in the browser.
+fs.writeFileSync(
+  path.join(DIST, 'spa.html'),
+  template.replace(/<!-- lcp:start[\s\S]*?<!-- lcp:end -->/, ''),
+);
+
+let fallbacks = 0;
 for (const page of pages) {
+  let app = null;
+  try {
+    app = await renderApp(page.path);
+  } catch (error) {
+    fallbacks += 1;
+    console.warn(`${page.path}: full render failed, using text summary (${error.message})`);
+  }
   const dir = page.path === '/' ? DIST : path.join(DIST, page.path);
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, 'index.html'), render(page));
+  fs.writeFileSync(path.join(dir, 'index.html'), render(page, app));
 }
 
 const today = new Date().toISOString().slice(0, 10);
@@ -468,5 +494,5 @@ await Promise.all(
 );
 
 console.log(
-  `prerendered ${pages.length} routes for ${ORIGIN}, plus sitemap.xml, robots.txt, llms.txt`,
+  `prerendered ${pages.length - fallbacks} of ${pages.length} routes as full pages for ${ORIGIN}, plus sitemap.xml, robots.txt, llms.txt`,
 );

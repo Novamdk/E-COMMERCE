@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo } from 'react';
+import { useHydrated } from '@/hooks/useHydrated';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
 import { STORAGE_KEYS } from '@/lib/constants';
 import { I18nContext } from './I18nContext';
@@ -11,7 +12,14 @@ import { createTranslator } from './translate';
  */
 export function I18nProvider({ children }) {
   const [stored, setStored] = useLocalStorage(STORAGE_KEYS.LANGUAGE, null);
-  const language = isSupportedLanguage(stored) ? stored : detectLanguage();
+  // Pages are rendered in English at build time; the browser's language is
+  // only consulted after hydration so the first render matches that HTML.
+  const hydrated = useHydrated();
+  const language = isSupportedLanguage(stored)
+    ? stored
+    : hydrated
+      ? detectLanguage()
+      : DEFAULT_LANGUAGE;
 
   useEffect(() => {
     document.documentElement.lang = language;

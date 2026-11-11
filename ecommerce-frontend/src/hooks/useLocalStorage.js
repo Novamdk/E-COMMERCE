@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { isHydrating } from '@/lib/ssr';
 import { readStorage, writeStorage } from '@/lib/storage';
 
 /**
@@ -10,7 +11,19 @@ import { readStorage, writeStorage } from '@/lib/storage';
  * @returns {[T, (value: T | ((prev: T) => T)) => void]}
  */
 export function useLocalStorage(key, initialValue) {
-  const [value, setValue] = useState(() => readStorage(key, initialValue));
+  // A server-rendered page first renders with the default, as the server did,
+  // and reads storage straight after; otherwise React would discard the HTML.
+  const [deferRead] = useState(isHydrating);
+  const [value, setValue] = useState(() =>
+    deferRead ? initialValue : readStorage(key, initialValue),
+  );
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one read after hydration
+    if (deferRead) setValue(readStorage(key, initialValue));
+    // Mount only: the stored value is read once, then kept in state.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // Skip the write on the very first render: it would just rewrite what we
   // only just read, and would clobber storage if the initial read failed.

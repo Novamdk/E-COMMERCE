@@ -414,10 +414,17 @@ own sign-in, and every read or write of orders goes through `/api` with the serv
 
 What that file does, and why:
 
-- **`rewrites: /(.*) → /index.html`** (except `/api`, `/assets`, `/img`, `/og`). Routing is client-side, so without this a hard refresh
-  or a shared link to `/shop/argan-shampoo` returns a 404. Vercel checks the filesystem
-  _before_ applying rewrites, so real files under `/assets` and `/img` are unaffected by the
-  catch-all.
+- **Public pages are prerendered as full HTML.** `pnpm run build` also builds
+  `src/entry-server.jsx` for Node (`dist-ssr/`), and `scripts/prerender.mjs` renders every
+  public route with it into `dist/<route>/index.html`, together with the data each page
+  fetched (`window.__SSR_DATA__`). The browser hydrates that HTML instead of drawing the page
+  again, so search engines, link previews and AI assistants read the real page. Anything that
+  depends on the browser (stored language, cart, wishlist, portals) waits until after
+  hydration: see `src/lib/ssr.js`, `useHydrated` and `useLocalStorage`.
+- **`rewrites: /(.*) → /spa.html`** (except `/api`, `/assets`, `/img`, `/og`). Routes that are not prerendered (cart, checkout,
+  account, unknown URLs) get the empty app shell and render in the browser. Vercel checks the
+  filesystem _before_ applying rewrites, so prerendered pages and real files under `/assets`
+  and `/img` are unaffected by the catch-all.
 - **`/assets/*` cached immutable for a year.** Vite content-hashes those filenames, so they
   can never go stale.
 - **`/img/*` cached a week with `stale-while-revalidate`, deliberately not immutable.** AVIF

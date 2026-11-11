@@ -4,6 +4,7 @@ import { AnimatePresence, m } from 'framer-motion';
 import { cn } from '@/lib/cn';
 import { BACKDROP_MOTION } from '@/lib/motion';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
+import { useHydrated } from '@/hooks/useHydrated';
 import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import { useScrollLock } from '@/hooks/useScrollLock';
 
@@ -41,6 +42,11 @@ export function Overlay({
   useScrollLock(isOpen);
   useFocusTrap(panelRef, { active: isOpen, onEscape: handleClose });
   useOnClickOutside(panelRef, handleClose, isOpen);
+
+  // Portals need document.body, which the server does not have; overlays are
+  // closed on first load anyway, so they mount once the page is hydrated.
+  const hydrated = useHydrated();
+  if (!hydrated) return null;
 
   return createPortal(
     <AnimatePresence>

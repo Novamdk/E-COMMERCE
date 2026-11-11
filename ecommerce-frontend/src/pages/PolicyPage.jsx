@@ -4,6 +4,7 @@ import { useLenis } from 'lenis/react';
 import { Checkbox } from '@/components/ui/Checkbox';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
+import { useHydrated } from '@/hooks/useHydrated';
 import { usePageMeta } from '@/hooks/usePageMeta';
 import { ROUTES } from '@/lib/constants';
 import { POLICIES, POLICY_UPDATED, policyBySlug } from '@/data/policies';
@@ -15,8 +16,11 @@ import { hasAdOptOut, hasGlobalPrivacyControl, setAdOptOut } from '@/lib/adTags'
  * here, since the browser's own signal wins.
  */
 function AdChoices() {
-  const isGpc = hasGlobalPrivacyControl();
-  const [isOptedOut, setIsOptedOut] = useState(() => hasAdOptOut());
+  // The page is prerendered, so read browser settings only after hydration.
+  const isHydrated = useHydrated();
+  const isGpc = isHydrated && hasGlobalPrivacyControl();
+  const [choice, setChoice] = useState(null);
+  const isOptedOut = choice ?? (isHydrated && hasAdOptOut());
 
   return (
     <div className="rounded-panel border-border bg-surface-raised mt-2 space-y-3 border p-5">
@@ -27,7 +31,7 @@ function AdChoices() {
         checked={isOptedOut}
         disabled={isGpc}
         onChange={(event) => {
-          setIsOptedOut(event.target.checked);
+          setChoice(event.target.checked);
           setAdOptOut(event.target.checked);
         }}
       />

@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { use, useCallback, useEffect, useId, useRef, useState } from 'react';
+import { IS_SERVER, serverRequest, takeHydrationData } from '@/lib/ssr';
 
 /**
  * The single entry point for async data in the app. Every consumer gets
@@ -13,9 +14,25 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 export function useAsync(asyncFn, options = {}) {
   const { immediate = true } = options;
 
+  // On the server (build-time rendering) the request runs during render and
+  // the page waits for it, so the HTML has the real content. In the browser,
+  // the first render of a server-rendered page starts from that same data.
+  const id = useId();
+  const serverResult = IS_SERVER && immediate ? use(serverRequest(id, asyncFn)) : null;
+  const [prefilled] = useState(() => (immediate ? takeHydrationData(id) : undefined));
+  const skipFirstFetchRef = useRef(Boolean(prefilled));
+
   // Initial state already carries the right loading flag, so the mount fetch
   // never has to flip it synchronously.
-  const [state, setState] = useState({ data: null, loading: immediate, error: null });
+  const [state, setState] = useState(() => {
+    if (serverResult) {
+      return serverResult.error
+        ? { data: null, loading: false, error: serverResult.error }
+        : { data: serverResult.data, loading: false, error: null };
+    }
+    if (prefilled) return { data: prefilled.data, loading: false, error: null };
+    return { data: null, loading: immediate, error: null };
+  });
 
   // Guards against applying a response that a newer call has superseded, or
   // that lands after unmount.
@@ -51,7 +68,13 @@ export function useAsync(asyncFn, options = {}) {
   }, [asyncFn]);
 
   useEffect(() => {
-    if (immediate) resolve();
+    if (!immediate) return;
+    // Already holding the server's data for this first render.
+    if (skipFirstFetchRef.current) {
+      skipFirstFetchRef.current = false;
+      return;
+    }
+    resolve();
   }, [immediate, resolve]);
 
   /** Re-runs the request, showing the loading state while it is in flight. */
