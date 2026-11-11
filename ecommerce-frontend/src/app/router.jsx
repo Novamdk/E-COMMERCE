@@ -28,6 +28,7 @@ const GiftGuidePage = lazy(() => import('@/pages/GiftGuidePage'));
 const QuizPage = lazy(() => import('@/pages/QuizPage'));
 const JournalPage = lazy(() => import('@/pages/JournalPage'));
 const JournalPostPage = lazy(() => import('@/pages/JournalPostPage'));
+const PolicyPage = lazy(() => import('@/pages/PolicyPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
 
 export const router = createBrowserRouter([
@@ -49,6 +50,10 @@ export const router = createBrowserRouter([
       { path: 'about', element: <AboutPage /> },
       ...(SHOW_STORE_FINDER ? [{ path: 'stores', element: <StoresPage /> }] : []),
       { path: 'contact', element: <ContactPage /> },
+      { path: 'shipping', element: <PolicyPage slug="shipping" /> },
+      { path: 'returns', element: <PolicyPage slug="returns" /> },
+      { path: 'privacy', element: <PolicyPage slug="privacy" /> },
+      { path: 'terms', element: <PolicyPage slug="terms" /> },
       { path: 'sign-in', element: <SignInPage /> },
       { path: 'sign-up', element: <SignUpPage /> },
 

@@ -41,6 +41,7 @@ import {
 } from '../src/lib/seo.js';
 import { en } from '../src/features/i18n/messages/en.js';
 import { POSTS } from '../src/features/journal/posts.js';
+import { POLICIES, POLICY_UPDATED, RETURN_WINDOW_DAYS } from '../src/data/policies.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = path.join(ROOT, 'dist');
@@ -113,7 +114,7 @@ const nav = `<nav><a href="/">Home</a> · <a href="/shop">Shop all</a> · <a hre
   .map((slug) => `<a href="/collections/${slug}">${esc(t(COLLECTIONS[slug].title))}</a>`)
   .join(
     ' · ',
-  )} · <a href="/quiz/hair">Hair quiz</a> · <a href="/quiz/gift">Gift finder</a> · <a href="/journal">Blog</a> · <a href="/about">About</a>${SHOW_STORE_FINDER ? ' · <a href="/stores">Find a store</a>' : ''} · <a href="/contact">Contact</a></nav>`;
+  )} · <a href="/quiz/hair">Hair quiz</a> · <a href="/quiz/gift">Gift finder</a> · <a href="/journal">Blog</a> · <a href="/about">About</a>${SHOW_STORE_FINDER ? ' · <a href="/stores">Find a store</a>' : ''} · <a href="/contact">Contact</a> · ${POLICIES.map((policy) => `<a href="${policy.path}">${esc(policy.title)}</a>`).join(' · ')}</nav>`;
 
 /* ------------------------------- pages ------------------------------- */
 
@@ -265,6 +266,29 @@ pages.push({
   )}.</p>`,
 });
 
+for (const policy of POLICIES) {
+  pages.push({
+    path: policy.path,
+    title: policy.title,
+    description: policy.description,
+    priority: 0.3,
+    body: `<article><h1>${esc(policy.title)}</h1><p>Last updated ${esc(POLICY_UPDATED)}.</p><p>${esc(
+      policy.intro,
+    )}</p>${policy.sections
+      .map(
+        (section) =>
+          `<h2>${esc(section.heading)}</h2>${section.blocks
+            .map((block) =>
+              typeof block === 'string'
+                ? `<p>${esc(block)}</p>`
+                : `<ul>${block.list.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`,
+            )
+            .join('')}`,
+      )
+      .join('')}</article>`,
+  });
+}
+
 if (SHOW_STORE_FINDER)
   pages.push({
     path: '/stores',
@@ -361,7 +385,7 @@ fs.writeFileSync(
 
 > ${DEFAULT_DESCRIPTION}
 
-${BRAND} is a natural hair and skin care brand based at ${CONTACT.ADDRESS_LINES.join(', ')}. Formulas use naturally derived ingredients such as argan oil, collagen, proteins and botanical extracts, and are cruelty-free. Prices are in US dollars. Orders over ${money(FREE_SHIPPING_THRESHOLD)} ship free in the US; unopened products can be returned within 30 days.
+${BRAND} is a natural hair and skin care brand based at ${CONTACT.ADDRESS_LINES.join(', ')}. Formulas use naturally derived ingredients such as argan oil, collagen, proteins and botanical extracts, and are cruelty-free. Prices are in US dollars. Orders over ${money(FREE_SHIPPING_THRESHOLD)} ship free in the US; unopened products can be returned within ${RETURN_WINDOW_DAYS} days of delivery.
 
 Contact: ${CONTACT.PHONE} · ${CONTACT.EMAIL}
 
@@ -388,6 +412,10 @@ ${Object.keys(COLLECTIONS)
 
 - [Hair quiz](${ORIGIN}/quiz/hair): four questions about hair type, texture, concern and styling, then a recommended routine.
 - [Gift finder](${ORIGIN}/quiz/gift): who the gift is for, what they love and a budget, then gift picks.
+
+## Store policies
+
+${POLICIES.map((policy) => `- [${policy.title}](${ORIGIN}${policy.path}): ${policy.description}`).join('\n')}
 
 ## Journal
 

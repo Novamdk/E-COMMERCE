@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FiCheckCircle, FiClock, FiMail, FiMapPin } from 'react-icons/fi';
+import { FiCheckCircle, FiClock, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
 import { FormField } from '@/components/ui/FormField';
 import { Input } from '@/components/ui/Input';
@@ -7,7 +7,7 @@ import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { useForm } from '@/hooks/useForm';
 import { usePageMeta } from '@/hooks/usePageMeta';
-import { ROUTES } from '@/lib/constants';
+import { CONTACT, ROUTES } from '@/lib/constants';
 import { email as validateEmail, required } from '@/lib/validators';
 
 const SCHEMA = {
@@ -22,15 +22,23 @@ const SCHEMA = {
 };
 
 const DETAILS = [
-  {
-    icon: FiMail,
-    label: 'Email',
-    value: 'Skenvisiontime@yahoo.com',
-    href: 'mailto:Skenvisiontime@yahoo.com',
-  },
+  { icon: FiMail, label: 'Email', value: CONTACT.EMAIL, href: `mailto:${CONTACT.EMAIL}` },
+  { icon: FiPhone, label: 'Phone', value: CONTACT.PHONE, href: CONTACT.PHONE_HREF },
   { icon: FiClock, label: 'Response time', value: 'Within one business day' },
-  { icon: FiMapPin, label: 'Shipping from', value: 'United States' },
+  { icon: FiMapPin, label: 'Mailing address', value: CONTACT.ADDRESS_LINES.join(', ') },
 ];
+
+/**
+ * The form has no mail server behind it, so it hands the message to the
+ * shopper's own email app, addressed to us and filled in. Nothing is lost
+ * and replies land in their inbox.
+ */
+function openEmailDraft({ name, email, subject, message }) {
+  const body = `${message.trim()}\n\n${name.trim()}\n${email.trim()}`;
+  window.location.href = `mailto:${CONTACT.EMAIL}?subject=${encodeURIComponent(
+    subject.trim(),
+  )}&body=${encodeURIComponent(body)}`;
+}
 
 export default function ContactPage() {
   usePageMeta({ title: 'Contact us', path: '/contact' });
@@ -39,7 +47,10 @@ export default function ContactPage() {
   const form = useForm({
     initialValues: { name: '', email: '', subject: '', message: '' },
     schema: SCHEMA,
-    onSubmit: () => setIsSent(true),
+    onSubmit: (values) => {
+      openEmailDraft(values);
+      setIsSent(true);
+    },
   });
 
   return (
@@ -57,10 +68,14 @@ export default function ContactPage() {
               <span className="bg-success-50 text-success-600 grid size-12 place-items-center rounded-full">
                 <FiCheckCircle aria-hidden="true" className="size-6" />
               </span>
-              <h2 className="font-display mt-5 text-2xl">Message sent</h2>
+              <h2 className="font-display mt-5 text-2xl">Almost there</h2>
               <p className="text-content-muted mt-2 text-sm leading-relaxed">
-                Thanks for reaching out — we will reply within one business day. (Demo note: this
-                form validates locally and does not actually send anything.)
+                Your email app should have opened with your message ready to send. Press send there
+                and we will reply within one business day. Nothing opened? Email us at{' '}
+                <a href={`mailto:${CONTACT.EMAIL}`} className="text-content font-medium underline">
+                  {CONTACT.EMAIL}
+                </a>
+                .
               </p>
               <Button
                 variant="secondary"
@@ -70,7 +85,7 @@ export default function ContactPage() {
                   setIsSent(false);
                 }}
               >
-                Send another message
+                Write another message
               </Button>
             </div>
           ) : (
@@ -117,7 +132,7 @@ export default function ContactPage() {
               </FormField>
 
               <Button type="submit" size="lg" className="self-start">
-                Send message
+                Continue in email
               </Button>
             </form>
           )}

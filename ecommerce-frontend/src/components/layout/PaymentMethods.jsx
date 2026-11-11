@@ -1,9 +1,9 @@
-import { FaCcAmazonPay } from 'react-icons/fa6';
-import { SiApplepay, SiGooglepay, SiPaypal, SiStripe, SiVisa } from 'react-icons/si';
+import { FaCcAmex, FaCcDiscover } from 'react-icons/fa6';
+import { SiPaypal, SiVisa } from 'react-icons/si';
 import { cn } from '@/lib/cn';
 import { useT } from '@/features/i18n';
 
-/** Two overlapping discs: the Mastercard and Maestro marks share this shape. */
+/** Two overlapping discs: the Mastercard mark. */
 function InterlockingCircles({ left, right, overlap }) {
   return (
     <svg viewBox="0 0 38 24" className="h-6 w-9" aria-hidden="true">
@@ -15,40 +15,26 @@ function InterlockingCircles({ left, right, overlap }) {
 }
 
 /**
- * Accepted payment marks. Each is a vector (no raster logos), drawn in its
- * official brand colour (the one place hex values are allowed: they are the
- * card networks' colours, not ours), on a white chip of identical size, so
- * the row stays crisp at any resolution and reads as one tidy set.
+ * Accepted payment marks: only what checkout really takes. Payment goes
+ * through PayPal, which accepts a PayPal account or, without one, the four
+ * major US cards. Each is a vector (no raster logos), drawn in its official
+ * brand colour (the one place hex values are allowed: they are the card
+ * networks' colours, not ours), on a white chip of identical size, so the row
+ * stays crisp at any resolution and reads as one tidy set.
  *
- * Wordmark logos (Visa, Apple Pay, Google Pay) sit small inside their square
- * icon box, so they get a larger box than symbol logos to read at the same
- * optical size.
+ * Add a mark here only once checkout accepts it (Apple Pay or Google Pay need
+ * extra PayPal setup first).
  */
 const METHODS = [
   { id: 'paypal', label: 'PayPal', mark: <SiPaypal className="size-5 text-[#003087]" /> },
+  { id: 'visa', label: 'Visa', mark: <SiVisa className="size-10 text-[#1A1F71]" /> },
   {
     id: 'mastercard',
     label: 'Mastercard',
     mark: <InterlockingCircles left="#EB001B" right="#F79E1B" overlap="#FF5F00" />,
   },
-  { id: 'visa', label: 'Visa', mark: <SiVisa className="size-10 text-[#1A1F71]" /> },
-  {
-    id: 'maestro',
-    label: 'Maestro',
-    mark: <InterlockingCircles left="#EB001B" right="#00A2E5" overlap="#7375CF" />,
-  },
-  { id: 'applepay', label: 'Apple Pay', mark: <SiApplepay className="size-11 text-black" /> },
-  {
-    id: 'amazonpay',
-    label: 'Amazon Pay',
-    mark: <FaCcAmazonPay className="size-7 text-[#232F3E]" />,
-  },
-  {
-    id: 'googlepay',
-    label: 'Google Pay',
-    mark: <SiGooglepay className="size-11 text-[#5F6368]" />,
-  },
-  { id: 'stripe', label: 'Stripe', mark: <SiStripe className="size-5 text-[#635BFF]" /> },
+  { id: 'amex', label: 'American Express', mark: <FaCcAmex className="size-7 text-[#006FCF]" /> },
+  { id: 'discover', label: 'Discover', mark: <FaCcDiscover className="size-7 text-[#FF6000]" /> },
 ];
 
 /**
@@ -59,7 +45,7 @@ export function PaymentMethods({ className }) {
   return (
     <ul
       aria-label={t('footer.payments')}
-      className={cn('grid grid-cols-4 gap-2.5 lg:flex lg:flex-wrap lg:gap-2', className)}
+      className={cn('grid grid-cols-5 gap-2.5 lg:flex lg:flex-wrap lg:gap-2', className)}
     >
       {METHODS.map((method) => (
         <li

@@ -11,6 +11,7 @@ import {
 } from '@/lib/constants';
 import { Image } from '@/components/ui/Image';
 import { LanguageSelect, useT } from '@/features/i18n';
+import { isPayPalEnabled } from '@/lib/backend';
 import { Container } from './Container';
 import { PaymentMethods } from './PaymentMethods';
 import { SignUpBand } from './SignUpBand';
@@ -18,6 +19,8 @@ import { SignUpBand } from './SignUpBand';
 /** Labels are translation keys. */
 const HELP_LINKS = [
   { to: ROUTES.CONTACT, label: 'footer.contact' },
+  { to: ROUTES.SHIPPING, label: 'footer.shipping' },
+  { to: ROUTES.RETURNS, label: 'footer.returns' },
   { to: ROUTES.ORDERS, label: 'footer.orders' },
   { to: ROUTES.CART, label: 'footer.bag' },
 ];
@@ -27,6 +30,8 @@ const COMPANY_LINKS = [
   ...(SHOW_STORE_FINDER ? [{ to: ROUTES.STORES, label: 'nav.findStore' }] : []),
   { to: ROUTES.WISHLIST, label: 'footer.wishlist' },
   { to: ROUTES.SIGN_IN, label: 'footer.signIn' },
+  { to: ROUTES.PRIVACY, label: 'footer.privacy' },
+  { to: ROUTES.TERMS, label: 'footer.terms' },
 ];
 
 const SOCIAL_ICONS = {
@@ -156,7 +161,8 @@ export function Footer() {
           <div className="text-content-inverse/50 space-y-3 text-xs lg:text-right">
             <LanguageSelect tone="inverse" />
             <p>{t('footer.rights', { year: new Date().getFullYear() })}</p>
-            <p>{t('footer.demo')}</p>
+            {/* Only while checkout is still the demo; gone once PayPal is set up. */}
+            {!isPayPalEnabled && <p>{t('footer.demo')}</p>}
           </div>
         </div>
       </Container>

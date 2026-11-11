@@ -25,6 +25,10 @@ export const ROUTES = {
   JOURNAL: '/journal',
   JOURNAL_POST: '/journal/:slug',
   STORES: '/stores',
+  SHIPPING: '/shipping',
+  RETURNS: '/returns',
+  PRIVACY: '/privacy',
+  TERMS: '/terms',
   NOT_FOUND: '*',
 };
 
