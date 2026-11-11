@@ -3,6 +3,7 @@ import { STORAGE_KEYS } from '@/lib/constants';
 import { readStorage, writeStorage } from '@/lib/storage';
 import { resolvePromo } from '@/lib/calculateTotals';
 import { cartFromUrl, trackAddedToCart } from '@/lib/klaviyo';
+import { adAddToCart } from '@/lib/adTags';
 import { CartContext } from './CartContext';
 import { cartReducer, initialCartState } from './cartReducer';
 
@@ -51,6 +52,7 @@ export function CartProvider({ children }) {
     dispatch(action);
     setIsDrawerOpen(true);
     trackAddedToCart(action.payload, cartReducer(stateRef.current, action).items);
+    adAddToCart(action.payload);
   }, []);
 
   const setQty = useCallback((lineId, qty) => {

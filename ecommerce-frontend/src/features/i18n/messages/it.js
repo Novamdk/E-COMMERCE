@@ -83,6 +83,7 @@ export const it = {
     returns: 'Resi',
     privacy: 'Informativa sulla privacy',
     terms: 'Termini di servizio',
+    privacyChoices: 'Le tue scelte sulla privacy',
     bag: 'Il tuo carrello',
     company: 'SK Envision',
     story: 'La nostra storia',

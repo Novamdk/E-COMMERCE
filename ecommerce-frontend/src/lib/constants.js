@@ -218,6 +218,7 @@ export const STORAGE_KEYS = {
   CHECKOUT: 'skenvision.checkout.v1',
   SPIN_WHEEL: 'skenvision.spinWheel.v1',
   LANGUAGE: 'skenvision.language.v1',
+  AD_OPT_OUT: 'skenvision.adOptOut.v1',
 };
 
 /* ------------------------------ misc ------------------------------- */

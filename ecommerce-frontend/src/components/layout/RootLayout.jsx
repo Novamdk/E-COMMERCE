@@ -1,7 +1,8 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence, m } from 'framer-motion';
 import { EASE_OUT_SOFT } from '@/lib/motion';
+import { adPageView } from '@/lib/adTags';
 import { useScrollToTopOnNavigate } from '@/hooks/useScrollToTopOnNavigate';
 import { CartDrawer } from '@/features/cart';
 import { SpinWheelPopup } from '@/features/promo';
@@ -18,8 +19,13 @@ import { RouteFallback } from './RouteFallback';
  * a filter rewrites the query string and should not re-animate the page.
  */
 export function RootLayout() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   useScrollToTopOnNavigate();
+
+  // Ad platforms count page views by route, since the app never reloads.
+  useEffect(() => {
+    adPageView();
+  }, [pathname, search]);
 
   return (
     <div className="flex min-h-dvh flex-col">

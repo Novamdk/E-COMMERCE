@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { ErrorPanel } from '@/components/ui/ErrorPanel';
 import { PageHeader } from '@/components/layout/PageHeader';
@@ -6,6 +6,7 @@ import { PageShell } from '@/components/layout/PageShell';
 import { orderPath, ROUTES } from '@/lib/constants';
 import { isPayPalEnabled } from '@/lib/backend';
 import { identify, trackStartedCheckout } from '@/lib/klaviyo';
+import { adBeginCheckout, adPurchase } from '@/lib/adTags';
 import {
   completePayPalCheckout,
   createOrder,
@@ -50,6 +51,16 @@ export default function CheckoutLayout() {
   const [submitError, setSubmitError] = useState(null);
   const [hasPlacedOrder, setHasPlacedOrder] = useState(false);
   const hasTrackedCheckout = useRef(false);
+  const hasSentBeginCheckout = useRef(false);
+
+  // Ad platforms count a checkout as soon as the shopper opens it, once per
+  // visit, after the bag's total is known.
+  const checkoutTotal = loading ? null : totals.total;
+  useEffect(() => {
+    if (hasSentBeginCheckout.current || checkoutTotal == null || !items.length) return;
+    hasSentBeginCheckout.current = true;
+    adBeginCheckout({ items, total: checkoutTotal });
+  }, [checkoutTotal, items]);
 
   const isKnownStep = CHECKOUT_STEPS.includes(step);
 
@@ -92,6 +103,7 @@ export default function CheckoutLayout() {
     setSubmitError(null);
     try {
       const order = await completePayPalCheckout(paypalOrderId);
+      adPurchase(order);
       setHasPlacedOrder(true);
       clearCart();
       form.resetAfterOrder();

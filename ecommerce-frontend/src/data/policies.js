@@ -10,7 +10,8 @@
  * return window, refunds to the original payment method without the original
  * shipping, 1 to 2 business days to ship, UPS as the carrier, US-only orders.
  * Everything else describes how this site actually works (PayPal checkout,
- * Supabase accounts, Klaviyo email and onsite tracking, Vercel hosting).
+ * Supabase accounts, Klaviyo email and onsite tracking, Meta, TikTok and Google
+ * advertising tags, Vercel hosting).
  *
  * Plain JavaScript with relative imports so Node can load it at build time.
  */
@@ -42,7 +43,11 @@ const WELCOME = PROMO_CODES.WELCOME25;
  * A section is a heading plus blocks. A block is a paragraph string, or
  * `{ list: string[] }` for a bulleted list.
  *
- * @typedef {{ heading: string, blocks: (string | { list: string[] })[] }} PolicySection
+ * `id` gives the section an anchor; `hasAdChoices` shows the advertising
+ * opt-out switch at the end of the section (React page only).
+ *
+ * @typedef {{ heading: string, id?: string, hasAdChoices?: boolean,
+ *   blocks: (string | { list: string[] })[] }} PolicySection
  * @typedef {{ slug: string, path: string, title: string, label: string,
  *   description: string, intro: string, sections: PolicySection[] }} Policy
  */
@@ -182,9 +187,9 @@ const privacy = {
   title: 'Privacy policy',
   label: 'Privacy',
   description:
-    'What information SK Envision collects when you shop, why, who helps us process it, how email and cookies work, and your privacy rights, including for California residents.',
+    'What information SK Envision collects when you shop, why, who helps us process it, how email, cookies and advertising tags work, and your privacy rights, including for California residents.',
   intro:
-    'This policy explains what information SK Envision collects when you visit our website or shop with us, how we use it and the choices you have. We do not sell your personal information.',
+    'This policy explains what information SK Envision collects when you visit our website or shop with us, how we use it and the choices you have. We never sell your personal information for money.',
   sections: [
     {
       heading: 'Who we are',
@@ -217,6 +222,7 @@ const privacy = {
             'To send marketing emails if you have signed up, such as new products, offers and a reminder about items left in your bag.',
             'To answer your questions, prevent fraud and keep the site secure.',
             'To understand which products and pages people like, so we can improve the store.',
+            'To measure how our ads on Meta, TikTok and Google perform and to show our ads to people who have visited the store.',
             'To meet tax, accounting and other legal duties.',
           ],
         },
@@ -235,6 +241,7 @@ const privacy = {
             'UPS, to deliver your order.',
           ],
         },
+        'We also use advertising tags from Meta (Facebook and Instagram), TikTok and Google on our site, described under "Cookies and tracking" below. They receive information about your visit directly from your browser.',
         'We may also share information if the law requires it, to protect our rights or customers, or as part of selling or merging the business.',
       ],
     },
@@ -246,10 +253,13 @@ const privacy = {
     },
     {
       heading: 'Cookies and tracking',
+      id: 'choices',
+      hasAdChoices: true,
       blocks: [
         'Our site stores a few things in your browser so it works properly: your bag, your wishlist, your language and, if you sign in, your session. These stay on your device.',
         "We use Klaviyo's onsite tracking, which sets a cookie to recognise your browser and records the products you view, add to your bag and check out. If you have given us your email, this activity is linked to it so we can send relevant emails, such as a reminder about items left in your bag. PayPal may set its own cookies when you pay, to process the payment and prevent fraud.",
-        'We do not use advertising cookies or share your activity with advertising networks. You can block or delete cookies in your browser settings; the store will still work, though your bag may not be remembered.',
+        'We also use advertising tags from Meta, TikTok and Google. They set cookies and tell those companies which pages and products you view, what you add to your bag, when you start checkout and when you buy (the order number, items and total). We use this to measure how our ads perform and to show our ads to people who have visited our store. Meta, TikTok and Google may combine it with what they already know about you, under their own privacy policies.',
+        'You can turn off these advertising tags at any time with the setting below, or by turning on Global Privacy Control in your browser, which we treat as the same request. You can also block or delete cookies in your browser settings; the store will still work, though your bag may not be remembered.',
       ],
     },
     {
@@ -273,13 +283,13 @@ const privacy = {
             'To know what personal information we collect, use and share, and to get a copy of it.',
             'To delete the personal information we hold about you, with some legal exceptions such as order records we must keep for tax purposes.',
             'To correct inaccurate personal information.',
-            'To opt out of the sale or sharing of your personal information. We do not sell it, and we do not share it for cross-context behavioural advertising.',
+            'To opt out of the sale or sharing of your personal information. We never sell it for money, but the advertising tags described above may count as "sharing" for cross-context behavioural advertising under California law. You can opt out with the "Your privacy choices" setting on this page (also linked at the bottom of every page) or with Global Privacy Control.',
             'To limit the use of sensitive personal information. We do not collect sensitive personal information as defined by the law.',
             'Not to be treated differently for using any of these rights.',
           ],
         },
         `To make a request, email ${EMAIL} with the subject "California privacy request". We will confirm your identity using the email address on your orders and reply within 45 days. You can also have an authorised agent make a request for you, with your written permission.`,
-        'In the last 12 months we collected the categories listed under "What we collect" above, from you and from your use of our site, for the purposes listed under "How we use it". We shared them only with the service providers listed under "Who helps us".',
+        'In the last 12 months we collected the categories listed under "What we collect" above, from you and from your use of our site, for the purposes listed under "How we use it". We disclosed them to the service providers listed under "Who helps us", and shared identifiers and browsing and purchase activity with Meta, TikTok and Google for advertising, as described under "Cookies and tracking".',
       ],
     },
     {

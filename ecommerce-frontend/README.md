@@ -348,6 +348,25 @@ Order events are sent from the server (`api/_lib/klaviyo.js`) once real checkout
 - **Refunded Order** and **Cancelled Order** from PayPal's refund, reversal and denial
   webhooks. Each event carries an `OrderURL` the shopper can open without signing in.
 
+### Ad tags (Meta, TikTok, Google)
+
+| Variable                   | Value                                                         |
+| -------------------------- | ------------------------------------------------------------- |
+| `VITE_META_PIXEL_ID`       | Meta Pixel ID, numbers only                                   |
+| `VITE_TIKTOK_PIXEL_ID`     | TikTok Pixel ID                                               |
+| `VITE_GOOGLE_TAG_IDS`      | `G-XXXX` (GA4) and/or `AW-XXXX` (Google Ads), comma separated |
+| `VITE_GOOGLE_ADS_PURCHASE` | optional Ads purchase conversion, `AW-XXXX/label`             |
+
+All in `src/lib/adTags.js`. Each tag loads only when its ID is set. Events use each
+platform's standard names: page view on every route, view item on product pages, add to
+cart, begin checkout when checkout opens, and purchase (with the order number as the
+transaction and dedup id) after a PayPal payment is captured. Demo orders send nothing.
+
+California treats these tags as "sharing", so none load when the shopper opts out with
+"Your privacy choices" (footer link to `/privacy#choices`, saved in localStorage) or the
+browser sends Global Privacy Control. The privacy policy in `src/data/policies.js`
+describes them.
+
 ### Accounts, orders and payments (Supabase + PayPal)
 
 With none of these set, the site keeps the original demo sign-in and demo checkout, so this

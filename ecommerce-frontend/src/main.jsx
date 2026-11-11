@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { App } from '@/app/App';
 import { loadKlaviyo } from '@/lib/klaviyo';
+import { loadAdTags } from '@/lib/adTags';
 import '@/styles/index.css';
 
 /**
@@ -33,6 +34,9 @@ window.addEventListener('load', () => {
 
 // Klaviyo onsite tracking; does nothing unless VITE_KLAVIYO_PUBLIC_KEY is set.
 loadKlaviyo();
+// Meta, TikTok and Google tags; each loads only when its ID is set, and none
+// for shoppers who opted out or whose browser sends Global Privacy Control.
+loadAdTags();
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -14,6 +14,7 @@ import { discountPercent, formatCurrency } from '@/lib/formatCurrency';
 import { primaryImage, textureImage } from '@/lib/productImage';
 import { breadcrumbLd, productLd } from '@/lib/seo';
 import { trackViewedProduct } from '@/lib/klaviyo';
+import { adViewItem } from '@/lib/adTags';
 import { getProductBySlug, getProducts } from '@/services/productService';
 import { Gallery, ProductPurchasePanel, RelatedProducts } from '@/features/catalog';
 import { useT } from '@/features/i18n';
@@ -55,7 +56,9 @@ export default function ProductDetailPage() {
   // Once per product shown, for browse-abandonment emails.
   const viewedId = product?.id;
   useEffect(() => {
-    if (viewedId) trackViewedProduct({ id: viewedId });
+    if (!viewedId) return;
+    trackViewedProduct({ id: viewedId });
+    adViewItem({ id: viewedId });
   }, [viewedId]);
 
   const origin = typeof window === 'undefined' ? '' : window.location.origin;
