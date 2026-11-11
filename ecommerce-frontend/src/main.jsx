@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { createRoot, hydrateRoot } from 'react-dom/client';
 import { App } from '@/app/App';
+import { beginHydration } from '@/lib/ssr';
 import '@/styles/index.css';
 
 /**
@@ -30,8 +31,19 @@ window.addEventListener('load', () => {
   }, 10000);
 });
 
-createRoot(document.getElementById('root')).render(
+const container = document.getElementById('root');
+const app = (
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 );
+
+// Public pages arrive fully rendered (scripts/prerender.mjs): take over that
+// HTML instead of redrawing it. Everything else (cart, checkout, local dev)
+// starts from the empty shell.
+if (container.hasChildNodes() && window.__SSR_DATA__) {
+  beginHydration();
+  hydrateRoot(container, app);
+} else {
+  createRoot(container).render(app);
+}

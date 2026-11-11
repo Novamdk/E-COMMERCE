@@ -6,7 +6,7 @@
   "rewrites": [
     {
       "source": "/((?!assets/|img/|og/).*)",
-      "destination": "/index.html"
+      "destination": "/spa.html"
     }
   ],
   "headers": [

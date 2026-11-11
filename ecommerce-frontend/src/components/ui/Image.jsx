@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { cn } from '@/lib/cn';
 import { getImage } from '@/lib/productImage';
 
@@ -35,6 +35,11 @@ export function Image({
 }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const { src, srcSet, width, height } = getImage(name);
+  // On a server-rendered page the image can finish loading before React takes
+  // over, so its load event is never seen; catch that case when it attaches.
+  const imgRef = useCallback((node) => {
+    if (node?.complete && node.naturalWidth > 0) setIsLoaded(true);
+  }, []);
 
   if (!src) {
     return (
@@ -61,6 +66,7 @@ export function Image({
         <div className="bg-ink-200/60 absolute inset-0 animate-pulse" />
       )}
       <img
+        ref={imgRef}
         src={src}
         srcSet={srcSet}
         sizes={sizes}

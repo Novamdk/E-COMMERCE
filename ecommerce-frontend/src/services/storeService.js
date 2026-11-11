@@ -17,9 +17,10 @@ import { MOCK_LATENCY_MS } from '@/lib/constants';
  */
 function request(payload) {
   const { min, max } = MOCK_LATENCY_MS;
-  const delay = min + Math.random() * (max - min);
+  // No fake latency when pages are rendered at build time.
+  const delay = typeof window === 'undefined' ? 0 : min + Math.random() * (max - min);
   return new Promise((resolve) => {
-    window.setTimeout(() => resolve(structuredClone(payload)), delay);
+    globalThis.setTimeout(() => resolve(structuredClone(payload)), delay);
   });
 }
 
