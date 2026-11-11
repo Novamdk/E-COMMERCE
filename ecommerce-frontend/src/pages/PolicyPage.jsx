@@ -103,29 +103,6 @@ export default function PolicyPage({ slug }) {
         </aside>
       )}
 
-      {policy.sections.length > 4 && (
-        <nav aria-labelledby="policy-contents" className="mt-8">
-          <h2
-            id="policy-contents"
-            className="text-content-subtle text-sm font-semibold tracking-[0.12em] uppercase"
-          >
-            On this page
-          </h2>
-          <ol className="mt-3 grid gap-x-8 gap-y-1.5 text-sm sm:grid-cols-2">
-            {policy.sections.map((section) => (
-              <li key={section.heading}>
-                <Link
-                  to={{ hash: sectionId(section) }}
-                  className="text-content-muted hover:text-content underline-offset-2 hover:underline"
-                >
-                  {section.heading}
-                </Link>
-              </li>
-            ))}
-          </ol>
-        </nav>
-      )}
-
       <div className="mt-12 space-y-10">
         {policy.sections.map((section) => (
           <section
