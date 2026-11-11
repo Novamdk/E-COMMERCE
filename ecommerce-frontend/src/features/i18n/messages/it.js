@@ -123,6 +123,13 @@ export const it = {
     previousImage: 'Immagine precedente',
     nextImage: 'Immagine successiva',
     related: 'Potrebbe piacerti anche',
+    reviewsTitle: 'Recensioni',
+    reviewsCount: '{count} recensioni',
+    reviewsSource:
+      'Recensioni trasferite dal nostro sito web precedente, con le parole originali di ogni cliente.',
+    reviewVerified: 'Acquirente verificato',
+    reviewsMore: 'Mostra altre recensioni',
+    reviewsRated: 'Valutazione {rating} su 5',
     loadError: 'Impossibile caricare questo prodotto',
     notFound: 'Questo prodotto non esiste',
     notFoundBody: 'Il link potrebbe essere scaduto o il prodotto potrebbe aver cambiato nome.',

@@ -38,7 +38,7 @@ export function LanguageSelect({ tone = 'default', className }) {
         id={id}
         value={language}
         onChange={(event) => setLanguage(event.target.value)}
-        className="cursor-pointer appearance-none bg-transparent py-1 pr-5 [field-sizing:content] text-[0.6875rem] font-medium tracking-[0.1em] uppercase focus-visible:underline"
+        className="[field-sizing:content] cursor-pointer appearance-none bg-transparent py-1 pr-5 text-[0.6875rem] font-medium tracking-[0.1em] uppercase focus-visible:underline"
       >
         {LANGUAGES.map((option) => (
           <option key={option.id} value={option.id} lang={option.id} className="text-content">

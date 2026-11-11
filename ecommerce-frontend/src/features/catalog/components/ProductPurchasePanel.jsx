@@ -4,11 +4,7 @@ import { FiCheck, FiChevronDown, FiMapPin, FiTruck } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
 import { QuantityStepper } from '@/components/ui/QuantityStepper';
 import { Rating } from '@/components/ui/Rating';
-import {
-  FREE_SHIPPING_THRESHOLD,
-  ROUTES,
-  SHOW_STORE_FINDER,
-} from '@/lib/constants';
+import { FREE_SHIPPING_THRESHOLD, ROUTES, SHOW_STORE_FINDER } from '@/lib/constants';
 import { discountPercent, formatCurrency } from '@/lib/formatCurrency';
 import { useCart } from '@/features/cart';
 import { useT } from '@/features/i18n';

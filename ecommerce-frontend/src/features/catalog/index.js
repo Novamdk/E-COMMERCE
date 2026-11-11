@@ -15,5 +15,6 @@ export { ProductBreadcrumbs } from './components/ProductBreadcrumbs';
 export { VariantPicker } from './components/VariantPicker';
 export { ProductPurchasePanel } from './components/ProductPurchasePanel';
 export { RelatedProducts } from './components/RelatedProducts';
+export { ProductReviews } from './components/ProductReviews';
 export { useProducts } from './hooks/useProducts';
 export { useProductFilters } from './hooks/useProductFilters';

@@ -112,7 +112,7 @@ const productList = (items) =>
       (p) =>
         `<li><a href="/shop/${p.slug}">${esc(p.title)}</a> — ${esc(p.subtitle)}. ${money(p.price)}${
           p.compareAtPrice ? ` (${money(p.compareAtPrice)} value)` : ''
-        }, rated ${p.rating}/5 from ${p.reviewCount} reviews.</li>`,
+        }${p.reviewCount > 0 ? `, rated ${p.rating}/5 from ${p.reviewCount} reviews` : ''}.</li>`,
     )
     .join('')}</ul>`;
 
@@ -182,7 +182,11 @@ for (const product of products) {
     body: `<h1>${esc(product.title)}</h1>
 <p>${esc(product.subtitle)}. Price ${money(product.price)}${
       product.compareAtPrice ? ` (${money(product.compareAtPrice)} value)` : ''
-    }. Rated ${product.rating} out of 5 from ${product.reviewCount} reviews. ${
+    }.${
+      product.reviewCount > 0
+        ? ` Rated ${product.rating} out of 5 from ${product.reviewCount} reviews.`
+        : ''
+    } ${
       product.stock > 0 ? 'In stock.' : 'Out of stock.'
     } Free US shipping on orders over ${money(FREE_SHIPPING_THRESHOLD)}.</p>
 ${d.benefits.length ? `<h2>Key benefits</h2><ul>${d.benefits.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>` : ''}
@@ -436,7 +440,7 @@ ${[...products]
   .sort(byFeatured)
   .map((p) => {
     const d = details[p.id];
-    return `- [${p.title}](${ORIGIN}/shop/${p.slug}): ${p.subtitle}. ${money(p.price)}, rated ${p.rating}/5 (${p.reviewCount} reviews).${
+    return `- [${p.title}](${ORIGIN}/shop/${p.slug}): ${p.subtitle}. ${money(p.price)}${p.reviewCount > 0 ? `, rated ${p.rating}/5 (${p.reviewCount} reviews)` : ''}.${
       d?.benefits?.length ? ` ${d.benefits.join('; ')}.` : ''
     }`;
   })

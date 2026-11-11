@@ -275,6 +275,15 @@ const CATEGORY_SLUGS = { 'eye-lashes-growth-serum': 'lash-brow-serum' };
 const catSlug = (slug) => CATEGORY_SLUGS[slug] ?? slug;
 
 /* ---------------- products.json ---------------- */
+/** Average stars and count from src/data/reviews.json; none means 0 and 0. */
+const REVIEWS = JSON.parse(fs.readFileSync(path.join(DATA, 'reviews.json'), 'utf8'));
+function reviewStats(id) {
+  const list = REVIEWS[id] ?? [];
+  if (!list.length) return { rating: 0, reviewCount: 0 };
+  const average = list.reduce((sum, review) => sum + review.rating, 0) / list.length;
+  return { rating: Math.round(average * 10) / 10, reviewCount: list.length };
+}
+
 const products = rawProducts
   .filter((p) => OVERRIDES[p.id])
   .map((p) => {
@@ -303,11 +312,9 @@ const products = rawProducts
       category: catSlug(p.categories[0]?.slug ?? 'uncategorized'),
       categories: p.categories.map((c) => catSlug(c.slug)),
       images: p.images.map((img) => imageIndex.get(img.src.split('?')[0])).filter(Boolean),
-      // The source site's star ratings and review counts were not real
-      // customer reviews (owner, Nov 2026), so none are shown until real
-      // reviews are added.
-      rating: 0,
-      reviewCount: 0,
+      // Stars and counts come only from the reviews moved over from the old
+      // site (src/data/reviews.json), never from the old site's totals.
+      ...reviewStats(String(p.id)),
       stock,
       variants: {
         sizes: SIZES[o.slug] ?? [],

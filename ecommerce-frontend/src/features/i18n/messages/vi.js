@@ -123,6 +123,13 @@ export const vi = {
     previousImage: 'Ảnh trước',
     nextImage: 'Ảnh tiếp theo',
     related: 'Có thể bạn cũng thích',
+    reviewsTitle: 'Đánh giá',
+    reviewsCount: '{count} đánh giá',
+    reviewsSource:
+      'Đánh giá được chuyển từ trang web cũ của chúng tôi, giữ nguyên lời của từng khách hàng.',
+    reviewVerified: 'Người mua đã xác minh',
+    reviewsMore: 'Xem thêm đánh giá',
+    reviewsRated: 'Được đánh giá {rating} trên 5',
     loadError: 'Không tải được sản phẩm này',
     notFound: 'Sản phẩm không tồn tại',
     notFoundBody: 'Liên kết có thể đã cũ hoặc sản phẩm đã đổi tên.',

@@ -176,10 +176,10 @@ export const PRICE_BOUNDS = { min: 0, max: 15000 };
 export const RELATED_PRODUCT_COUNT = 4;
 
 /**
- * Star ratings, the rating filter and "Top rated" sorting stay hidden until
- * real customer reviews are on the site. Turn on once they are.
+ * Star ratings, the rating filter and "Top rated" sorting. Counts and stars
+ * come only from the reviews in src/data/reviews.json.
  */
-export const SHOW_RATINGS = false;
+export const SHOW_RATINGS = true;
 
 export const SORT_OPTIONS = [
   { value: 'featured', label: 'Featured' },

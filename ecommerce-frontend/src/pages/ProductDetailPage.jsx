@@ -16,7 +16,7 @@ import { breadcrumbLd, productLd } from '@/lib/seo';
 import { trackViewedProduct } from '@/lib/klaviyo';
 import { adViewItem } from '@/lib/adTags';
 import { getProductBySlug, getProducts } from '@/services/productService';
-import { Gallery, ProductPurchasePanel, RelatedProducts } from '@/features/catalog';
+import { Gallery, ProductPurchasePanel, ProductReviews, RelatedProducts } from '@/features/catalog';
 import { useT } from '@/features/i18n';
 import { OfferMarquee, ShopTheLook } from '@/features/marketing';
 
@@ -145,6 +145,7 @@ export default function ProductDetailPage() {
       <ShopTheLook products={catalog.data ?? []} />
 
       <Container width="wide" className="pb-20">
+        <ProductReviews productId={product.id} />
         <RelatedProducts slug={product.slug} />
       </Container>
     </>

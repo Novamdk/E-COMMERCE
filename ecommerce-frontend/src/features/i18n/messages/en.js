@@ -126,6 +126,13 @@ export const en = {
     previousImage: 'Previous image',
     nextImage: 'Next image',
     related: 'You may also like',
+    reviewsTitle: 'Reviews',
+    reviewsCount: '{count} reviews',
+    reviewsSource:
+      "Reviews moved from our previous website, shown with each reviewer's original words.",
+    reviewVerified: 'Verified buyer',
+    reviewsMore: 'Show more reviews',
+    reviewsRated: 'Rated {rating} out of 5',
     loadError: 'This product could not load',
     notFound: 'That product does not exist',
     notFoundBody: 'The link may be out of date, or the product may have been renamed.',
