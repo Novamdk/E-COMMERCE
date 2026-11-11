@@ -98,7 +98,6 @@ export const vi = {
     bestseller: 'Bán chạy',
     save: 'Tiết kiệm {percent}%',
     soldOut: 'Hết hàng',
-    onlyLeft: 'Chỉ còn {count}',
     chooseOptions: 'Chọn tùy chọn',
     addToBag: 'Thêm vào giỏ',
     addToCartLabel: 'Thêm {title} vào giỏ',
@@ -416,7 +415,7 @@ export const vi = {
     collection:
       'Mua {name} từ SK Envision: chăm sóc tóc và da tự nhiên với dầu argan, collagen và chiết xuất thực vật. Miễn phí vận chuyển tại Mỹ cho đơn từ 75 $.',
     shopTitle: 'Tất cả sản phẩm',
-    shop: 'Tất cả sản phẩm SK Envision: dầu gội và dầu xả dầu argan, mặt nạ tóc, serum mọc tóc, kem trị đốm nâu và collagen, serum dưỡng mi và bộ quà.',
+    shop: 'Tất cả sản phẩm SK Envision: dầu gội và dầu xả dầu argan, mặt nạ tóc, serum dưỡng da đầu, kem trị đốm nâu và collagen, serum dưỡng mi và bộ quà.',
     about:
       'SK Envision tạo ra sản phẩm chăm sóc tóc và da tự nhiên cao cấp, thành phần nguồn gốc tự nhiên, không thử nghiệm trên động vật và không hóa chất mạnh.',
     stores:

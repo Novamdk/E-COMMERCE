@@ -2,7 +2,7 @@ import { FiStar } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { cn } from '@/lib/cn';
-import { PRICE_BOUNDS, QUERY_KEYS, RATING_FILTERS } from '@/lib/constants';
+import { PRICE_BOUNDS, QUERY_KEYS, RATING_FILTERS, SHOW_RATINGS } from '@/lib/constants';
 import { formatCurrency } from '@/lib/formatCurrency';
 
 /** Price inputs are shown in dollars but stored in cents. */
@@ -115,37 +115,39 @@ export function Filters({ filters, categories, onFiltersChange, onClear, activeC
         </p>
       </fieldset>
 
-      <fieldset className={SECTION}>
-        <legend className={LEGEND}>Customer rating</legend>
-        <ul className="flex flex-col gap-0.5">
-          {RATING_FILTERS.map((threshold) => {
-            const isActive = filters.rating === threshold;
-            return (
-              <li key={threshold}>
-                <button
-                  type="button"
-                  onClick={() =>
-                    onFiltersChange({ [QUERY_KEYS.RATING]: isActive ? null : threshold })
-                  }
-                  aria-pressed={isActive}
-                  className={cn(
-                    'rounded-field flex w-full items-center gap-2 px-2.5 py-2 text-left text-sm transition-colors',
-                    isActive
-                      ? 'bg-surface-brand text-brand-700 font-medium'
-                      : 'text-content-muted hover:bg-ink-100 hover:text-content',
-                  )}
-                >
-                  <FiStar
-                    aria-hidden="true"
-                    className={cn('size-4', isActive && 'fill-accent-400 text-accent-400')}
-                  />
-                  {threshold} stars &amp; up
-                </button>
-              </li>
-            );
-          })}
-        </ul>
-      </fieldset>
+      {SHOW_RATINGS && (
+        <fieldset className={SECTION}>
+          <legend className={LEGEND}>Customer rating</legend>
+          <ul className="flex flex-col gap-0.5">
+            {RATING_FILTERS.map((threshold) => {
+              const isActive = filters.rating === threshold;
+              return (
+                <li key={threshold}>
+                  <button
+                    type="button"
+                    onClick={() =>
+                      onFiltersChange({ [QUERY_KEYS.RATING]: isActive ? null : threshold })
+                    }
+                    aria-pressed={isActive}
+                    className={cn(
+                      'rounded-field flex w-full items-center gap-2 px-2.5 py-2 text-left text-sm transition-colors',
+                      isActive
+                        ? 'bg-surface-brand text-brand-700 font-medium'
+                        : 'text-content-muted hover:bg-ink-100 hover:text-content',
+                    )}
+                  >
+                    <FiStar
+                      aria-hidden="true"
+                      className={cn('size-4', isActive && 'fill-accent-400 text-accent-400')}
+                    />
+                    {threshold} stars &amp; up
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </fieldset>
+      )}
     </div>
   );
 }

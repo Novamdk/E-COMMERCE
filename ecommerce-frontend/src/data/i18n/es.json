@@ -29,7 +29,7 @@
       {
         "quote": "Me encanta. Forma parte de mi rutina cada vez que me peino. Tengo el pelo grueso y encrespado, que absorbe todo, pero con muy poco basta: el primer frasco me duró cinco meses.",
         "name": "Cliente verificado",
-        "meta": "Sérum orgánico para el crecimiento del cabello"
+        "meta": "Sérum orgánico para cuero cabelludo y cabello"
       },
       {
         "quote": "Mascarilla de aceite de argán marroquí para cabello seco y dañado: nutritiva, hidratante e imprescindible. Mi pelo es otro después de dos usos.",
@@ -96,7 +96,7 @@
       "name": "Contorno de ojos antiedad orgánico",
       "description": "Cuidado específico para líneas finas y ojos cansados."
     },
-    "eye-lashes-growth-serum": {
+    "lash-brow-serum": {
       "name": "Sérum de pestañas y cejas",
       "description": "Sérums para pestañas y cejas de aspecto más largo y poblado."
     },
@@ -139,7 +139,7 @@
       "subtitle": "Para todo tipo de cabello"
     },
     "2547": {
-      "title": "Sérum de crecimiento de pestañas con colágeno",
+      "title": "Sérum de pestañas y cejas con colágeno",
       "subtitle": "Pestañas y cejas de aspecto más poblado"
     },
     "2394": {
@@ -159,7 +159,7 @@
       "subtitle": "Reafirma y alisa"
     },
     "29": {
-      "title": "Sérum orgánico para el crecimiento del cabello",
+      "title": "Sérum orgánico para cuero cabelludo y cabello",
       "subtitle": "Sérum nutritivo para el cuero cabelludo"
     },
     "28": {

@@ -87,8 +87,10 @@ const OVERRIDES = {
       'A gentle everyday shampoo enriched with natural argan oil. It lifts away dirt, oil and product buildup from hair and scalp, and leaves strands soft, smooth and shiny.\n\nUse it on its own, or follow with the Argan Oil Conditioner (sold separately) to detangle and add moisture. Made for straight, wavy, curly and coily hair.\n\nHow to use: massage into wet hair and scalp until it lathers, then rinse well. Use whenever you wash your hair.',
   },
   2547: {
-    slug: 'lash-growth-serum',
-    title: 'Collagen Eyelash Growth Serum',
+    slug: 'lash-brow-serum',
+    // Image files keep their original names.
+    asset: 'lash-growth-serum',
+    title: 'Collagen Lash & Brow Serum',
     subtitle: 'Fuller-looking lashes & brows',
     // Cosmetic wording only: no new-growth or "in 4 weeks" promises.
     description:
@@ -126,8 +128,9 @@ const OVERRIDES = {
     subtitle: 'Firms & smooths',
   },
   29: {
-    slug: 'hair-regrowth-serum',
-    title: 'Organic Hair Regrowth Serum',
+    slug: 'scalp-hair-serum',
+    asset: 'hair-regrowth-serum',
+    title: 'Organic Scalp & Hair Serum',
     subtitle: 'Nourishing scalp serum',
     // Cosmetic wording only: no follicle or new-growth claims.
     description:
@@ -164,7 +167,7 @@ const SIZES = {
   'argan-conditioner': ['8 oz', '17 oz'],
   'argan-shampoo-conditioner': ['8 oz duo', '17 oz duo'],
   'repair-hair-mask': ['8 oz', '16 oz'],
-  'hair-regrowth-serum': ['2 oz', '4 oz'],
+  'scalp-hair-serum': ['2 oz', '4 oz'],
 };
 
 /** Deterministic pseudo-random in [0,1) from an integer seed, so builds are stable. */
@@ -189,7 +192,7 @@ for (const p of rawProducts) {
   for (const img of p.images) {
     const url = img.src.split('?')[0];
     if (imageIndex.has(url)) continue;
-    const name = `${o.slug}-${i}`;
+    const name = `${o.asset ?? o.slug}-${i}`;
     imageIndex.set(url, name);
     manifest.push({ name, url, kind: 'product' });
     i += 1;
@@ -267,6 +270,10 @@ const LOCAL_ART = Object.entries({
 }).map(([name, kind]) => ({ name, file: `scripts/source-images/${name}.jpg`, kind }));
 for (const e of LOCAL_ART) manifest.push(e);
 
+/** Category slugs as shoppers see them in links (the source slug made a growth claim). */
+const CATEGORY_SLUGS = { 'eye-lashes-growth-serum': 'lash-brow-serum' };
+const catSlug = (slug) => CATEGORY_SLUGS[slug] ?? slug;
+
 /* ---------------- products.json ---------------- */
 const products = rawProducts
   .filter((p) => OVERRIDES[p.id])
@@ -279,7 +286,6 @@ const products = rawProducts
     const colorAttr = (p.attributes || []).find((a) => /colou?r/i.test(a.name));
     const price = Number(p.prices.price);
     const regular = Number(p.prices.regular_price);
-    const rating = Number(p.average_rating) || 0;
 
     // Source stock is only a boolean; spread a deterministic count so the UI
     // exercises in-stock / low-stock / out-of-stock states. Demo data.
@@ -294,11 +300,14 @@ const products = rawProducts
       excerpt: short,
       price,
       compareAtPrice: regular > price ? regular : null,
-      category: p.categories[0]?.slug ?? 'uncategorized',
-      categories: p.categories.map((c) => c.slug),
+      category: catSlug(p.categories[0]?.slug ?? 'uncategorized'),
+      categories: p.categories.map((c) => catSlug(c.slug)),
       images: p.images.map((img) => imageIndex.get(img.src.split('?')[0])).filter(Boolean),
-      rating: rating || Number((3.9 + seeded(p.id + 7) * 1.1).toFixed(1)),
-      reviewCount: p.review_count,
+      // The source site's star ratings and review counts were not real
+      // customer reviews (owner, Nov 2026), so none are shown until real
+      // reviews are added.
+      rating: 0,
+      reviewCount: 0,
       stock,
       variants: {
         sizes: SIZES[o.slug] ?? [],
@@ -322,7 +331,7 @@ const CATEGORY_NAMES = {
   'dark-spot': 'Dark Spot Care',
   'face-lifting-collagen-cream': 'Collagen Creams',
   'eye-cream-anti-aging-organic': 'Eye Care',
-  'eye-lashes-growth-serum': 'Lash & Brow Serum',
+  'lash-brow-serum': 'Lash & Brow Serum',
   packages: 'Bundles',
 };
 const CATEGORY_COPY = {
@@ -334,19 +343,19 @@ const CATEGORY_COPY = {
   'dark-spot': 'Brightening formulas that fade pigmentation and even tone.',
   'face-lifting-collagen-cream': 'Collagen creams that firm, lift and smooth.',
   'eye-cream-anti-aging-organic': 'Targeted care for fine lines and tired eyes.',
-  'eye-lashes-growth-serum': 'Lash and brow serums for fuller, longer-looking lashes.',
+  'lash-brow-serum': 'Lash and brow serums for fuller, longer-looking lashes.',
   packages: 'Complete routines, bundled in one order.',
 };
 const categories = rawCats
   .filter((c) => c.count > 0)
   .map((c) => ({
     id: String(c.id),
-    slug: c.slug,
+    slug: catSlug(c.slug),
     name:
-      CATEGORY_NAMES[c.slug] ??
+      CATEGORY_NAMES[catSlug(c.slug)] ??
       clean(c.name).replace(/\b\w+/g, (w) => (w.length > 2 ? w[0] + w.slice(1).toLowerCase() : w)),
-    description: CATEGORY_COPY[c.slug] ?? '',
-    count: products.filter((p) => p.categories.includes(c.slug)).length,
+    description: CATEGORY_COPY[catSlug(c.slug)] ?? '',
+    count: products.filter((p) => p.categories.includes(catSlug(c.slug))).length,
   }))
   .filter((c) => c.count > 0);
 
@@ -391,7 +400,7 @@ const content = {
       quote:
         'I love this stuff. It is part of my routine every time I style my hair. I have thick, frizzy hair that soaks up product, but a little goes a long way — the first bottle lasted me five months.',
       name: 'Verified customer',
-      meta: 'Organic Hair Regrowth Serum',
+      meta: 'Organic Scalp & Hair Serum',
       rating: 5,
       // Placeholder until real reviews are supplied; the UI tags these.
       isPlaceholder: true,

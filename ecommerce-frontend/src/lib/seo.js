@@ -9,7 +9,7 @@ import { CURRENCY } from './constants.js';
 
 export const BRAND = 'SK Envision';
 export const DEFAULT_DESCRIPTION =
-  'SK Envision natural hair and skin care: argan oil shampoo and conditioner, protein hair mask, hair regrowth serum, dark spot and collagen creams, and eyelash growth serum. Free US shipping over $75.';
+  'SK Envision natural hair and skin care: argan oil shampoo and conditioner, protein hair mask, scalp and hair serum, dark spot and collagen creams, and lash and brow serum. Free US shipping over $75.';
 export const DEFAULT_IMAGE = '/og/default.jpg';
 
 /** @param {string} [title] @returns {string} */

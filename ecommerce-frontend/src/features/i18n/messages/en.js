@@ -101,7 +101,6 @@ export const en = {
     bestseller: 'Bestseller',
     save: 'Save {percent}%',
     soldOut: 'Sold out',
-    onlyLeft: 'Only {count} left',
     chooseOptions: 'Choose options',
     addToBag: 'Add to bag',
     addToCartLabel: 'Add {title} to cart',
@@ -419,7 +418,7 @@ export const en = {
     collection:
       'Shop {name} from SK Envision: natural hair and skin care made with argan oil, collagen and botanical extracts. Free US shipping over $75.',
     shopTitle: 'Shop all products',
-    shop: 'Shop every SK Envision product: argan oil shampoo and conditioner, hair masks, regrowth serum, dark spot and collagen creams, eyelash serum and gift sets.',
+    shop: 'Shop every SK Envision product: argan oil shampoo and conditioner, hair masks, scalp serum, dark spot and collagen creams, lash and brow serum and gift sets.',
     about:
       'SK Envision makes premium natural hair and skin care with naturally derived ingredients, cruelty-free and without harsh chemicals.',
     stores:

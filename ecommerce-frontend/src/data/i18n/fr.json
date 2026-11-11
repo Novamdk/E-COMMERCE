@@ -29,7 +29,7 @@
       {
         "quote": "J’adore ce produit. Il fait partie de ma routine à chaque coiffage. J’ai les cheveux épais et frisés qui absorbent tout, mais il en faut très peu : le premier flacon m’a duré cinq mois.",
         "name": "Client vérifié",
-        "meta": "Sérum bio pour la repousse des cheveux"
+        "meta": "Sérum bio cuir chevelu et cheveux"
       },
       {
         "quote": "Masque à l’huile d’argan du Maroc pour cheveux secs et abîmés : nourrissant, hydratant, indispensable. Mes cheveux sont complètement différents après deux utilisations.",
@@ -96,7 +96,7 @@
       "name": "Contour des yeux anti-âge bio",
       "description": "Un soin ciblé pour les ridules et les yeux fatigués."
     },
-    "eye-lashes-growth-serum": {
+    "lash-brow-serum": {
       "name": "Sérum cils et sourcils",
       "description": "Des sérums pour des cils et sourcils visiblement plus longs et fournis."
     },
@@ -139,7 +139,7 @@
       "subtitle": "Tous types de cheveux"
     },
     "2547": {
-      "title": "Sérum de pousse des cils au collagène",
+      "title": "Sérum cils et sourcils au collagène",
       "subtitle": "Cils et sourcils visiblement plus fournis"
     },
     "2394": {
@@ -159,7 +159,7 @@
       "subtitle": "Raffermit et lisse"
     },
     "29": {
-      "title": "Sérum bio pour la repousse des cheveux",
+      "title": "Sérum bio cuir chevelu et cheveux",
       "subtitle": "Sérum nourrissant pour le cuir chevelu"
     },
     "28": {

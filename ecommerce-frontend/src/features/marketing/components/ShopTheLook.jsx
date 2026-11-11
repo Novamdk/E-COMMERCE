@@ -18,7 +18,7 @@ const LOOKS = [
     image: 'argan-shampoo-conditioner-3',
     focus: 'object-[62%_center]',
   },
-  { slug: 'lash-growth-serum', image: 'lash-growth-serum-2', focus: 'object-[45%_center]' },
+  { slug: 'lash-brow-serum', image: 'lash-growth-serum-2', focus: 'object-[45%_center]' },
   {
     slug: 'dark-spot-collagen-cream',
     image: 'dark-spot-collagen-cream-5',

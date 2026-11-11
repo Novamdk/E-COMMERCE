@@ -50,8 +50,8 @@ const PACKSHOTS = {
   'retinal-eye-lift': 'retinal-eye-lift-5',
   'dark-spot-collagen-cream': 'dark-spot-collagen-cream-6',
   'collagen-anti-aging-cream': 'collagen-anti-aging-cream-1',
-  'hair-regrowth-serum': 'hair-regrowth-serum-3',
-  'lash-growth-serum': 'lash-growth-serum-4',
+  'scalp-hair-serum': 'hair-regrowth-serum-3',
+  'lash-brow-serum': 'lash-growth-serum-4',
 };
 
 /**
@@ -64,12 +64,12 @@ const TEXTURES = {
   'argan-shampoo-conditioner': 'texture-shampoo',
   'argan-shampoo': 'texture-shampoo',
   'argan-conditioner': 'texture-conditioner',
-  'lash-growth-serum': 'texture-gel',
+  'lash-brow-serum': 'texture-gel',
   'retinal-eye-lift': 'texture-cream',
   'dark-spot-collagen-cream': 'texture-cream',
   'collagen-anti-aging-cream': 'texture-cream',
   'color-dye-shampoo': 'texture-color',
-  'hair-regrowth-serum': 'texture-serum',
+  'scalp-hair-serum': 'texture-serum',
   'repair-hair-mask': 'texture-nude',
   'foot-peel-mask': 'texture-aqua',
 };

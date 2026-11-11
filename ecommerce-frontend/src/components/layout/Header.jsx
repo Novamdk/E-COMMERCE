@@ -47,7 +47,7 @@ const SHOP_COLUMNS = [
       { to: categoryPath('hair-serum'), label: 'nav.goalFuller' },
       { to: collectionPath('shampoo-conditioner'), label: 'nav.goalShine' },
       { to: categoryPath('color-shampoo-hair'), label: 'nav.goalColour' },
-      { to: categoryPath('eye-lashes-growth-serum'), label: 'nav.goalLashes' },
+      { to: categoryPath('lash-brow-serum'), label: 'nav.goalLashes' },
     ],
   },
   {

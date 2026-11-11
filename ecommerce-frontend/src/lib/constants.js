@@ -175,18 +175,22 @@ export const PAGE_SIZE = 9;
 export const PRICE_BOUNDS = { min: 0, max: 15000 };
 export const RELATED_PRODUCT_COUNT = 4;
 
+/**
+ * Star ratings, the rating filter and "Top rated" sorting stay hidden until
+ * real customer reviews are on the site. Turn on once they are.
+ */
+export const SHOW_RATINGS = false;
+
 export const SORT_OPTIONS = [
   { value: 'featured', label: 'Featured' },
   { value: 'price-asc', label: 'Price: low to high' },
   { value: 'price-desc', label: 'Price: high to low' },
   { value: 'rating-desc', label: 'Top rated' },
   { value: 'name-asc', label: 'Name: A–Z' },
-];
+].filter((option) => SHOW_RATINGS || option.value !== 'rating-desc');
 export const DEFAULT_SORT = 'featured';
 
 export const RATING_FILTERS = [4, 3, 2, 1];
-
-export const LOW_STOCK_THRESHOLD = 8;
 
 /* ---------------------------- query keys ---------------------------- */
 export const QUERY_KEYS = {

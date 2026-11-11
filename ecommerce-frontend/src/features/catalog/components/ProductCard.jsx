@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Image } from '@/components/ui/Image';
 import { Rating } from '@/components/ui/Rating';
 import { cn } from '@/lib/cn';
-import { LOW_STOCK_THRESHOLD, productPath } from '@/lib/constants';
+import { productPath } from '@/lib/constants';
 import { discountPercent, formatCurrency } from '@/lib/formatCurrency';
 import { primaryImage, textureImage } from '@/lib/productImage';
 import { useCart } from '@/features/cart';
@@ -43,7 +43,6 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
   const saving = discountPercent(product.price, product.compareAtPrice);
   const hasVariants = product.variants.sizes.length > 0 || product.variants.colors.length > 0;
   const isOutOfStock = product.stock <= 0;
-  const isLowStock = !isOutOfStock && product.stock <= LOW_STOCK_THRESHOLD;
   const href = productPath(product.slug);
   const cardImage = primaryImage(product);
   // The texture shot if there is one, else a second, genuinely different photo.
@@ -145,12 +144,8 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
           </Link>
         </h3>
 
-        <Rating value={product.rating} reviewCount={product.reviewCount} size="sm" />
-
-        {isLowStock && (
-          <span className="text-holiday-600 text-xs font-medium">
-            {t('product.onlyLeft', { count: product.stock })}
-          </span>
+        {product.reviewCount > 0 && (
+          <Rating value={product.rating} reviewCount={product.reviewCount} size="sm" />
         )}
 
         <div className="mt-auto flex items-end justify-between gap-2 pt-3 sm:gap-3">

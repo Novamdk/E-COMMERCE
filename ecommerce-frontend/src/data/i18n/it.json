@@ -29,7 +29,7 @@
       {
         "quote": "Lo adoro. Fa parte della mia routine ogni volta che mi pettino. Ho capelli spessi e crespi che assorbono tutto, ma ne basta pochissimo: il primo flacone mi è durato cinque mesi.",
         "name": "Cliente verificato",
-        "meta": "Siero biologico per la ricrescita dei capelli"
+        "meta": "Siero biologico per cuoio capelluto e capelli"
       },
       {
         "quote": "Maschera all’olio di argan marocchino per capelli secchi e danneggiati: nutriente, idratante e irrinunciabile. Dopo due applicazioni i miei capelli sono un’altra cosa.",
@@ -96,7 +96,7 @@
       "name": "Contorno occhi anti-età bio",
       "description": "Cura mirata per rughette e occhi stanchi."
     },
-    "eye-lashes-growth-serum": {
+    "lash-brow-serum": {
       "name": "Siero ciglia e sopracciglia",
       "description": "Sieri per ciglia e sopracciglia dall’aspetto più lungo e folto."
     },
@@ -139,7 +139,7 @@
       "subtitle": "Per tutti i tipi di capelli"
     },
     "2547": {
-      "title": "Siero per ciglia al collagene",
+      "title": "Siero ciglia e sopracciglia al collagene",
       "subtitle": "Ciglia e sopracciglia dall’aspetto più folto"
     },
     "2394": {
@@ -159,7 +159,7 @@
       "subtitle": "Rassoda e leviga"
     },
     "29": {
-      "title": "Siero biologico per la ricrescita dei capelli",
+      "title": "Siero biologico per cuoio capelluto e capelli",
       "subtitle": "Siero nutriente per il cuoio capelluto"
     },
     "28": {

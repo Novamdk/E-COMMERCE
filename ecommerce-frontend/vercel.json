@@ -5,6 +5,16 @@
   "outputDirectory": "dist",
   "redirects": [
     {
+      "source": "/shop/hair-regrowth-serum",
+      "destination": "/shop/scalp-hair-serum",
+      "permanent": true
+    },
+    {
+      "source": "/shop/lash-growth-serum",
+      "destination": "/shop/lash-brow-serum",
+      "permanent": true
+    },
+    {
       "source": "/product/dark-spot-beauty-package-our-best-seller",
       "destination": "/shop/dark-spot-beauty-package",
       "permanent": true
@@ -46,12 +56,12 @@
     },
     {
       "source": "/product/eye-lashes-serum-collagen",
-      "destination": "/shop/lash-growth-serum",
+      "destination": "/shop/lash-brow-serum",
       "permanent": true
     },
     {
       "source": "/product/eye-lashes-serum-collagen/",
-      "destination": "/shop/lash-growth-serum",
+      "destination": "/shop/lash-brow-serum",
       "permanent": true
     },
     {
@@ -96,12 +106,12 @@
     },
     {
       "source": "/product/hair-serum-regrowth-of-hair-extracted-from-organic-natural-ingrediants",
-      "destination": "/shop/hair-regrowth-serum",
+      "destination": "/shop/scalp-hair-serum",
       "permanent": true
     },
     {
       "source": "/product/hair-serum-regrowth-of-hair-extracted-from-organic-natural-ingrediants/",
-      "destination": "/shop/hair-regrowth-serum",
+      "destination": "/shop/scalp-hair-serum",
       "permanent": true
     },
     {
@@ -186,12 +196,12 @@
     },
     {
       "source": "/product-category/eye-lashes-growth-serum",
-      "destination": "/shop?category=eye-lashes-growth-serum",
+      "destination": "/shop?category=lash-brow-serum",
       "permanent": true
     },
     {
       "source": "/product-category/eye-lashes-growth-serum/",
-      "destination": "/shop?category=eye-lashes-growth-serum",
+      "destination": "/shop?category=lash-brow-serum",
       "permanent": true
     },
     {

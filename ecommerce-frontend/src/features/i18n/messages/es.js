@@ -98,7 +98,6 @@ export const es = {
     bestseller: 'Más vendido',
     save: 'Ahorra un {percent} %',
     soldOut: 'Agotado',
-    onlyLeft: 'Solo quedan {count}',
     chooseOptions: 'Elegir opciones',
     addToBag: 'Añadir a la cesta',
     addToCartLabel: 'Añadir {title} a la cesta',
@@ -419,7 +418,7 @@ export const es = {
     collection:
       'Compra {name} de SK Envision: cuidado natural del pelo y la piel con aceite de argán, colágeno y extractos botánicos. Envío gratis en EE. UU. desde 75 $.',
     shopTitle: 'Todos los productos',
-    shop: 'Todos los productos SK Envision: champú y acondicionador de aceite de argán, mascarillas, sérum de crecimiento, cremas antimanchas y de colágeno, sérum de pestañas y sets de regalo.',
+    shop: 'Todos los productos SK Envision: champú y acondicionador de aceite de argán, mascarillas, sérum para el cuero cabelludo, cremas antimanchas y de colágeno, sérum de pestañas y sets de regalo.',
     about:
       'SK Envision crea cuidado natural premium para el pelo y la piel, con ingredientes de origen natural, sin crueldad animal y sin químicos agresivos.',
     stores:
