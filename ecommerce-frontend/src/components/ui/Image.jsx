@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { cn } from '@/lib/cn';
 import { getImage } from '@/lib/productImage';
 
@@ -20,6 +20,7 @@ const FITS = {
  * @param {boolean} [props.priority] eager-load above-the-fold images
  * @param {'cover'|'contain'} [props.fit]
  * @param {string} [props.ratio] Tailwind aspect class, e.g. "aspect-square"
+ * @param {boolean} [props.isTransparent] no backdrop or shimmer, for artwork with an alpha channel such as the logo
  */
 export function Image({
   name,
@@ -30,9 +31,15 @@ export function Image({
   ratio,
   className,
   imgClassName,
+  isTransparent = false,
 }) {
   const [isLoaded, setIsLoaded] = useState(false);
   const { src, srcSet, width, height } = getImage(name);
+  // On a server-rendered page the image can finish loading before React takes
+  // over, so its load event is never seen; catch that case when it attaches.
+  const imgRef = useCallback((node) => {
+    if (node?.complete && node.naturalWidth > 0) setIsLoaded(true);
+  }, []);
 
   if (!src) {
     return (
@@ -47,9 +54,19 @@ export function Image({
   }
 
   return (
-    <div className={cn('bg-surface-sunken relative overflow-hidden', ratio, className)}>
-      {!isLoaded && <div className="bg-ink-200/60 absolute inset-0 animate-pulse" />}
+    <div
+      className={cn(
+        'relative overflow-hidden',
+        !isTransparent && 'bg-surface-sunken',
+        ratio,
+        className,
+      )}
+    >
+      {!isLoaded && !isTransparent && (
+        <div className="bg-ink-200/60 absolute inset-0 animate-pulse" />
+      )}
       <img
+        ref={imgRef}
         src={src}
         srcSet={srcSet}
         sizes={sizes}

@@ -4,6 +4,8 @@ import { AnimatePresence, m } from 'framer-motion';
 import { EASE_OUT_SOFT } from '@/lib/motion';
 import { useScrollToTopOnNavigate } from '@/hooks/useScrollToTopOnNavigate';
 import { CartDrawer } from '@/features/cart';
+import { SpinWheelPopup } from '@/features/promo';
+import { AnnouncementBar } from './AnnouncementBar';
 import { Footer } from './Footer';
 import { Header } from './Header';
 import { RouteFallback } from './RouteFallback';
@@ -21,6 +23,7 @@ export function RootLayout() {
 
   return (
     <div className="flex min-h-dvh flex-col">
+      <AnnouncementBar />
       <Header />
 
       <main id="main" className="flex-1">
@@ -40,6 +43,7 @@ export function RootLayout() {
 
       <Footer />
       <CartDrawer />
+      <SpinWheelPopup />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import {
   FREE_SHIPPING_THRESHOLD,
+  GIFT_WITH_PURCHASE,
   PROMO_CODES,
   SHIPPING_FLAT_RATE,
   SHIPPING_METHODS,
@@ -57,12 +58,14 @@ export function discountFor(subtotal, code) {
 /**
  * @param {number} amountAfterDiscount in cents
  * @param {string} [methodId]
+ * @param {boolean} [hasFreeShipping] a promo that waives the flat rate
  * @returns {number} shipping cost in cents
  */
-export function shippingFor(amountAfterDiscount, methodId = 'standard') {
+export function shippingFor(amountAfterDiscount, methodId = 'standard', hasFreeShipping = false) {
   const method = SHIPPING_METHODS.find((m) => m.id === methodId) ?? SHIPPING_METHODS[0];
   if (amountAfterDiscount <= 0) return 0;
-  const base = amountAfterDiscount >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT_RATE;
+  const base =
+    hasFreeShipping || amountAfterDiscount >= FREE_SHIPPING_THRESHOLD ? 0 : SHIPPING_FLAT_RATE;
   return base + method.surcharge;
 }
 
@@ -78,13 +81,16 @@ export function taxFor(taxableAmount) {
  * The single source of truth for an order's money breakdown.
  * @param {{ lines: PricedLine[], promoCode?: string|null, shippingMethodId?: string }} input
  * @returns {{subtotal:number, discount:number, shipping:number, tax:number, total:number,
- *            itemCount:number, freeShippingRemaining:number, promo:object|null}}
+ *            itemCount:number, freeShippingRemaining:number, promo:object|null,
+ *            giftRemaining:number, isGiftUnlocked:boolean}}
  */
 export function calculateTotals({ lines = [], promoCode = null, shippingMethodId = 'standard' }) {
   const subtotal = subtotalOf(lines);
   const discount = discountFor(subtotal, promoCode);
   const afterDiscount = subtotal - discount;
-  const shipping = shippingFor(afterDiscount, shippingMethodId);
+  const promo = resolvePromo(promoCode);
+  const hasFreeShipping = Boolean(promo?.hasFreeShipping);
+  const shipping = shippingFor(afterDiscount, shippingMethodId, hasFreeShipping);
   const tax = taxFor(afterDiscount);
 
   return {
@@ -94,7 +100,12 @@ export function calculateTotals({ lines = [], promoCode = null, shippingMethodId
     tax,
     total: afterDiscount + shipping + tax,
     itemCount: lines.reduce((n, line) => n + line.qty, 0),
-    freeShippingRemaining: Math.max(0, FREE_SHIPPING_THRESHOLD - afterDiscount),
-    promo: resolvePromo(promoCode),
+    freeShippingRemaining: hasFreeShipping
+      ? 0
+      : Math.max(0, FREE_SHIPPING_THRESHOLD - afterDiscount),
+    promo,
+    // Gift with purchase counts the bag before discounts, as Olaplex's does.
+    giftRemaining: Math.max(0, GIFT_WITH_PURCHASE.THRESHOLD - subtotal),
+    isGiftUnlocked: promo?.type === 'gift' && subtotal >= GIFT_WITH_PURCHASE.THRESHOLD,
   };
 }

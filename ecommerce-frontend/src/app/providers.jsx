@@ -2,6 +2,7 @@ import { domAnimation, LazyMotion, MotionConfig } from 'framer-motion';
 import { ReactLenis } from 'lenis/react';
 import { AuthProvider } from '@/features/auth';
 import { CartProvider } from '@/features/cart';
+import { I18nProvider } from '@/features/i18n';
 import { WishlistProvider } from '@/features/wishlist';
 
 /** Lenis tuning: short, low-inertia easing — smooth without feeling laggy. */
@@ -38,11 +39,13 @@ export function Providers({ children }) {
       */}
       <LazyMotion features={domAnimation}>
         <ReactLenis root options={LENIS_OPTIONS}>
-          <AuthProvider>
-            <WishlistProvider>
-              <CartProvider>{children}</CartProvider>
-            </WishlistProvider>
-          </AuthProvider>
+          <I18nProvider>
+            <AuthProvider>
+              <WishlistProvider>
+                <CartProvider>{children}</CartProvider>
+              </WishlistProvider>
+            </AuthProvider>
+          </I18nProvider>
         </ReactLenis>
       </LazyMotion>
     </MotionConfig>

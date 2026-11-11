@@ -8,6 +8,7 @@ import { Pagination } from '@/components/ui/Pagination';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { useAsync } from '@/hooks/useAsync';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import { PAGE_SIZE, ROUTES } from '@/lib/constants';
 import { getCategories } from '@/services/productService';
 import {
@@ -19,6 +20,7 @@ import {
   useProductFilters,
   useProducts,
 } from '@/features/catalog';
+import { useT } from '@/features/i18n';
 
 const FILTER_DRAWER_TITLE_ID = 'filter-drawer-title';
 
@@ -27,7 +29,9 @@ export default function ShopPage() {
   const { filters, setFilters, setPage, clearFilters, activeCount } = useProductFilters();
   const { items, page, pageCount, total, loading, error, refetch } = useProducts();
 
-  const fetchCategories = useCallback(() => getCategories(), []);
+  const { t, language } = useT();
+  usePageMeta({ title: t('seo.shopTitle'), description: t('seo.shop'), path: '/shop' });
+  const fetchCategories = useCallback(() => getCategories(language), [language]);
   const { data: categories } = useAsync(fetchCategories);
 
   const activeCategory = (categories ?? []).find((c) => c.slug === filters.category);

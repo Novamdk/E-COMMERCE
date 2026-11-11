@@ -1,42 +1,30 @@
 import { Link } from 'react-router-dom';
-import { FiChevronRight } from 'react-icons/fi';
-import { categoryPath, ROUTES } from '@/lib/constants';
-
-/** Turns a category slug into a readable label. @param {string} slug */
-const labelOf = (slug) =>
-  slug.replace(/-/g, ' ').replace(/\b\w/g, (character) => character.toUpperCase());
+import { collectionPath, COLLECTIONS, ROUTES } from '@/lib/constants';
+import { collectionOf } from '@/lib/filterProducts';
+import { useT } from '@/features/i18n';
 
 /**
- * Home › Shop › Collection › Product.
+ * Home / Collection, small and quiet above the product title.
  * @param {{ product: object }} props
  */
 export function ProductBreadcrumbs({ product }) {
-  const primaryCategory = product.categories[0];
-
-  const crumbs = [
-    { label: 'Home', to: ROUTES.HOME },
-    { label: 'Shop', to: ROUTES.SHOP },
-    primaryCategory && { label: labelOf(primaryCategory), to: categoryPath(primaryCategory) },
-    { label: product.title },
-  ].filter(Boolean);
+  const { t } = useT();
+  const slug = collectionOf(product);
 
   return (
-    <nav aria-label="Breadcrumb">
-      <ol className="text-content-subtle flex flex-wrap items-center gap-1.5 text-sm">
-        {crumbs.map((crumb, index) => (
-          <li key={crumb.label} className="flex items-center gap-1.5">
-            {index > 0 && <FiChevronRight aria-hidden="true" className="size-3.5" />}
-            {crumb.to ? (
-              <Link to={crumb.to} className="hover:text-content transition-colors">
-                {crumb.label}
-              </Link>
-            ) : (
-              <span aria-current="page" className="text-content-muted line-clamp-1">
-                {crumb.label}
-              </span>
-            )}
-          </li>
-        ))}
+    <nav aria-label={t('collection.breadcrumb')}>
+      <ol className="text-content-muted flex flex-wrap items-center gap-1.5 text-xs">
+        <li>
+          <Link to={ROUTES.HOME} className="hover:text-content transition-colors">
+            {t('collection.home')}
+          </Link>
+        </li>
+        <li aria-hidden="true">/</li>
+        <li>
+          <Link to={collectionPath(slug)} className="hover:text-content transition-colors">
+            {t(COLLECTIONS[slug].title)}
+          </Link>
+        </li>
       </ol>
     </nav>
   );

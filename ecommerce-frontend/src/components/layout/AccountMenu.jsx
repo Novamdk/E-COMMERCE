@@ -6,6 +6,7 @@ import { ROUTES } from '@/lib/constants';
 import { MENU_ITEM_MOTION, MENU_MOTION } from '@/lib/motion';
 import { useOnClickOutside } from '@/hooks/useOnClickOutside';
 import { useAuth } from '@/features/auth';
+import { useT } from '@/features/i18n';
 
 const ITEM =
   'flex items-center gap-2.5 rounded-field px-3 py-2.5 text-sm transition-colors hover:bg-surface-brand';
@@ -13,6 +14,7 @@ const ITEM =
 /** Account dropdown when signed in, a plain sign-in link when not. */
 export function AccountMenu() {
   const { isAuthenticated, user, signOut } = useAuth();
+  const { t } = useT();
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef(null);
 
@@ -23,7 +25,7 @@ export function AccountMenu() {
     return (
       <Link
         to={ROUTES.SIGN_IN}
-        aria-label="Sign in to your account"
+        aria-label={t('account.signInLabel')}
         className="text-content hover:bg-ink-100 grid size-10 place-items-center rounded-full transition-colors"
       >
         <FiUser aria-hidden="true" className="size-[1.1875rem]" />
@@ -38,7 +40,7 @@ export function AccountMenu() {
         onClick={() => setIsOpen((open) => !open)}
         aria-expanded={isOpen}
         aria-haspopup="true"
-        aria-label={`Account menu for ${user.name}`}
+        aria-label={t('account.menuFor', { name: user.name })}
         className="bg-surface-brand text-brand-700 hover:bg-brand-100 grid size-10 place-items-center rounded-full text-sm font-semibold transition-colors"
       >
         <span aria-hidden="true">{user.name.charAt(0).toUpperCase()}</span>
@@ -64,7 +66,7 @@ export function AccountMenu() {
             <m.div variants={MENU_ITEM_MOTION}>
               <Link to={ROUTES.ORDERS} onClick={close} className={ITEM}>
                 <FiPackage aria-hidden="true" className="size-4" />
-                Order history
+                {t('account.orders')}
               </Link>
             </m.div>
 
@@ -78,7 +80,7 @@ export function AccountMenu() {
                 className={`${ITEM} text-danger-600 hover:bg-danger-50 w-full text-left`}
               >
                 <FiLogOut aria-hidden="true" className="size-4" />
-                Sign out
+                {t('account.signOut')}
               </button>
             </m.div>
           </m.div>

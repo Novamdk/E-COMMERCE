@@ -1,4 +1,4 @@
-import { DEFAULT_SORT } from './constants';
+import { COLLECTIONS, DEFAULT_SORT } from './constants';
 
 /**
  * Catalog filtering, sorting and pagination as pure functions, so the hook
@@ -104,4 +104,42 @@ export function relatedTo(product, all, limit) {
     .sort((a, b) => b.shared - a.shared || a.priceGap - b.priceGap)
     .slice(0, limit)
     .map((entry) => entry.product);
+}
+
+/** Review count that earns a product a place in the Bestsellers collection. */
+const BESTSELLER_REVIEWS = 900;
+
+/**
+ * Products in one curated collection, best sellers first (the order every
+ * collection page opens with).
+ *
+ * @param {object[]} products
+ * @param {string} slug a key of COLLECTIONS
+ * @returns {object[]|null} null when the collection does not exist
+ */
+export function collectionProducts(products, slug) {
+  const collection = COLLECTIONS[slug];
+  if (!collection) return null;
+  const { ids, category, bestSellers } = collection.match;
+  const matched = products.filter((product) => {
+    if (ids) return ids.includes(product.id);
+    if (category) return product.categories.includes(category);
+    if (bestSellers) return product.isBestSeller || product.reviewCount >= BESTSELLER_REVIEWS;
+    return true;
+  });
+  return sortProducts(matched, DEFAULT_SORT);
+}
+
+/**
+ * The curated collection a product is shown under on its own page: the first
+ * id-picked collection that lists it, else the sets, else bestsellers.
+ * @param {object} product
+ * @returns {string} a COLLECTIONS slug
+ */
+export function collectionOf(product) {
+  const byId = Object.entries(COLLECTIONS).find(([, collection]) =>
+    collection.match.ids?.includes(product.id),
+  );
+  if (byId) return byId[0];
+  return product.categories.includes('packages') ? 'holiday-sets' : 'bestsellers';
 }

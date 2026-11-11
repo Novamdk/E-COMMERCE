@@ -1,4 +1,5 @@
 import { FiX } from 'react-icons/fi';
+import { cn } from '@/lib/cn';
 import { EASE_IN_SOFT, EASE_OUT_SOFT } from '@/lib/motion';
 import { Overlay } from './Overlay';
 
@@ -33,8 +34,23 @@ const SIDES = {
  * @param {string} props.titleId
  * @param {'left'|'right'} [props.side]
  * @param {import('react').ReactNode} [props.footer]
+ * @param {import('react').ReactNode} [props.heading] shown in place of the title text (e.g. a
+ *   logo); `title` still names the dialog for screen readers
+ * @param {string} [props.panelClassName] replaces the side's default panel size
+ * @param {string} [props.headerClassName] border colour for the header bar (default border-border)
  */
-export function Drawer({ isOpen, onClose, title, titleId, side = 'right', footer, children }) {
+export function Drawer({
+  isOpen,
+  onClose,
+  title,
+  titleId,
+  side = 'right',
+  footer,
+  heading,
+  panelClassName,
+  headerClassName,
+  children,
+}) {
   const config = SIDES[side] ?? SIDES.right;
 
   return (
@@ -43,13 +59,27 @@ export function Drawer({ isOpen, onClose, title, titleId, side = 'right', footer
       onClose={onClose}
       titleId={titleId}
       containerClassName={config.container}
-      panelClassName={config.panel}
+      panelClassName={panelClassName ?? config.panel}
       panelMotion={config.motion}
     >
-      <header className="border-border flex items-center justify-between gap-4 border-b px-5 py-4">
-        <h2 id={titleId} className="font-display text-xl">
-          {title}
-        </h2>
+      <header
+        className={cn(
+          'flex items-center justify-between gap-4 border-b px-5 py-4',
+          headerClassName ?? 'border-border',
+        )}
+      >
+        {heading ? (
+          <div className="flex min-w-0 flex-1 items-center justify-between gap-4">
+            <h2 id={titleId} className="sr-only">
+              {title}
+            </h2>
+            {heading}
+          </div>
+        ) : (
+          <h2 id={titleId} className="font-display text-xl">
+            {title}
+          </h2>
+        )}
         <button
           type="button"
           onClick={onClose}

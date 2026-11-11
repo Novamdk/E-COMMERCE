@@ -35,7 +35,7 @@ export function Rating({ value, reviewCount, size = 'sm', className }) {
                   className="absolute inset-0 overflow-hidden"
                   style={{ width: `${fill * 100}%` }}
                 >
-                  <FiStar className={cn(starClass, 'fill-accent-400 text-accent-400')} />
+                  <FiStar className={cn(starClass, 'fill-gold-500 text-gold-500')} />
                 </span>
               )}
             </span>

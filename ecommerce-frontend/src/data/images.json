@@ -723,5 +723,222 @@
     "widths": [
       96
     ]
+  },
+  "welcome-gift": {
+    "width": 1120,
+    "height": 1400,
+    "aspect": 0.8,
+    "widths": [
+      600,
+      1120
+    ]
+  },
+  "holiday-hero": {
+    "width": 1920,
+    "height": 1086,
+    "aspect": 1.768,
+    "widths": [
+      768,
+      1280,
+      1920
+    ]
+  },
+  "about-hero": {
+    "width": 1280,
+    "height": 716,
+    "aspect": 1.7872,
+    "widths": [
+      768,
+      1280
+    ]
+  },
+  "routine-hair": {
+    "width": 860,
+    "height": 792,
+    "aspect": 1.0859,
+    "widths": [
+      600,
+      860
+    ]
+  },
+  "gift-flatlay": {
+    "width": 1200,
+    "height": 896,
+    "aspect": 1.3397,
+    "widths": [
+      600,
+      1200
+    ]
+  },
+  "gift-bestsellers": {
+    "width": 1200,
+    "height": 896,
+    "aspect": 1.3397,
+    "widths": [
+      600,
+      1200
+    ]
+  },
+  "category-sets": {
+    "width": 1000,
+    "height": 1250,
+    "aspect": 0.8,
+    "widths": [
+      600,
+      1000
+    ]
+  },
+  "category-hair": {
+    "width": 1000,
+    "height": 1250,
+    "aspect": 0.8,
+    "widths": [
+      600,
+      1000
+    ]
+  },
+  "category-skin": {
+    "width": 1000,
+    "height": 1250,
+    "aspect": 0.8,
+    "widths": [
+      600,
+      1000
+    ]
+  },
+  "category-lashes": {
+    "width": 1000,
+    "height": 1250,
+    "aspect": 0.8,
+    "widths": [
+      600,
+      1000
+    ]
+  },
+  "journal-gift-guide": {
+    "width": 1200,
+    "height": 797,
+    "aspect": 1.5056,
+    "widths": [
+      600,
+      1200
+    ]
+  },
+  "journal-argan-routine": {
+    "width": 1200,
+    "height": 797,
+    "aspect": 1.5056,
+    "widths": [
+      600,
+      1200
+    ]
+  },
+  "hair-coily": {
+    "width": 192,
+    "height": 192,
+    "aspect": 1,
+    "widths": [
+      96,
+      192
+    ]
+  },
+  "hair-curly": {
+    "width": 192,
+    "height": 192,
+    "aspect": 1,
+    "widths": [
+      96,
+      192
+    ]
+  },
+  "hair-wavy": {
+    "width": 192,
+    "height": 192,
+    "aspect": 1,
+    "widths": [
+      96,
+      192
+    ]
+  },
+  "hair-straight": {
+    "width": 192,
+    "height": 192,
+    "aspect": 1,
+    "widths": [
+      96,
+      192
+    ]
+  },
+  "texture-shampoo": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "texture-conditioner": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "texture-nude": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "texture-serum": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "texture-cream": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "texture-gel": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "texture-color": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "texture-aqua": {
+    "width": 800,
+    "height": 800,
+    "aspect": 1,
+    "widths": [
+      400,
+      800
+    ]
   }
 }

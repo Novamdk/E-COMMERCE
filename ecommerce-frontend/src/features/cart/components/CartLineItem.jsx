@@ -7,6 +7,7 @@ import { productPath } from '@/lib/constants';
 import { formatCurrency } from '@/lib/formatCurrency';
 import { lineTotal } from '@/lib/calculateTotals';
 import { useCart } from '../useCart';
+import { primaryImage } from '@/lib/productImage';
 
 /**
  * One row of the cart, used in both the drawer and the full cart page.
@@ -25,7 +26,7 @@ export function CartLineItem({ line, layout = 'compact' }) {
     <li className="flex gap-4 py-5">
       <Link to={productPath(product.slug)} tabIndex={-1} aria-hidden="true" className="shrink-0">
         <Image
-          name={product.images[0]}
+          name={primaryImage(product)}
           alt=""
           sizes={isFull ? '7rem' : '5rem'}
           ratio="aspect-[4/5]"

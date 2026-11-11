@@ -39,9 +39,54 @@ export function getImage(name, options = {}) {
 }
 
 /**
- * @param {{ images?: string[] }} product
+ * Cleanest packshot per product: the product itself on a plain, light
+ * backdrop with little or no printed text. The source site leads several
+ * galleries with busy marketing collages; using these on cards, in the bag
+ * and at checkout is what keeps every surface looking like one set.
+ * Products not listed fall back to their first gallery image.
+ */
+const PACKSHOTS = {
+  'hair-care-package': 'hair-care-package-3',
+  'retinal-eye-lift': 'retinal-eye-lift-5',
+  'dark-spot-collagen-cream': 'dark-spot-collagen-cream-6',
+  'collagen-anti-aging-cream': 'collagen-anti-aging-cream-1',
+  'hair-regrowth-serum': 'hair-regrowth-serum-3',
+  'lash-growth-serum': 'lash-growth-serum-4',
+};
+
+/**
+ * What the formula itself looks like, shown when a card is hovered. One
+ * texture shot per product type, all on the same stone ground as the cards.
+ */
+const TEXTURES = {
+  'dark-spot-beauty-package': 'texture-cream',
+  'hair-care-package': 'texture-nude',
+  'argan-shampoo-conditioner': 'texture-shampoo',
+  'argan-shampoo': 'texture-shampoo',
+  'argan-conditioner': 'texture-conditioner',
+  'lash-growth-serum': 'texture-gel',
+  'retinal-eye-lift': 'texture-cream',
+  'dark-spot-collagen-cream': 'texture-cream',
+  'collagen-anti-aging-cream': 'texture-cream',
+  'color-dye-shampoo': 'texture-color',
+  'hair-regrowth-serum': 'texture-serum',
+  'repair-hair-mask': 'texture-nude',
+  'foot-peel-mask': 'texture-aqua',
+};
+
+/**
+ * @param {{ slug?: string }} product
+ * @returns {string|undefined} manifest name of the product's texture shot
+ */
+export function textureImage(product) {
+  const name = TEXTURES[product?.slug];
+  return name && imageMeta[name] ? name : undefined;
+}
+
+/**
+ * @param {{ slug?: string, images?: string[] }} product
  * @returns {string|undefined} the manifest name of the primary image
  */
 export function primaryImage(product) {
-  return product?.images?.[0];
+  return PACKSHOTS[product?.slug] ?? product?.images?.[0];
 }

@@ -1,73 +1,68 @@
-import { FiArrowRight } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
 import { Image } from '@/components/ui/Image';
 import { Container } from '@/components/layout/Container';
-import { ROUTES } from '@/lib/constants';
+import { WELCOME_OFFER_PATH } from '@/lib/constants';
+import { useT } from '@/features/i18n';
 
 /**
- * Landing hero. Asymmetric split rather than a centred stack, and the image
- * is the one eagerly-loaded asset on the page since it is the LCP element.
+ * Seasonal campaign hero: the Argan Oil Shampoo bursting out of torn gold
+ * gift wrap, with the welcome offer over it. The sign-up button opens the
+ * welcome pop-up, so the offer and the code it promises are always the same.
  *
- * @param {object} props
- * @param {{eyebrow: string, heading: string, body: string}} props.hero
+ * Phones get one full-screen photo with white copy over a dark wash at the
+ * top, as on Olaplex; from md up dark copy sits on the untouched foil. The
+ * image is the LCP element, so it is the one eager asset.
  */
-export function Hero({ hero }) {
+export function Hero() {
+  const { t } = useT();
+
   return (
-    <section className="bg-surface-brand relative overflow-hidden">
-      <Container className="relative py-14 sm:py-20 lg:py-28">
-        <div className="grid items-center gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
-          <div className="max-w-xl">
-            <p className="text-brand-700 text-xs font-semibold tracking-[0.12em] uppercase">
-              {hero.eyebrow}
-            </p>
+    <section className="relative isolate overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <Image
+          name="holiday-hero"
+          alt={t('home.hero.imageAlt')}
+          sizes="100vw"
+          ratio="size-full"
+          priority
+          imgClassName="object-[74%_center] md:object-center"
+        />
+      </div>
+      {/* Phones: a dark wash behind the white copy. md up: a soft gold lift behind dark copy. */}
+      <span
+        aria-hidden="true"
+        className="absolute inset-0 -z-10 bg-gradient-to-b from-black/75 via-black/35 via-45% to-transparent to-70% md:hidden"
+      />
+      <span
+        aria-hidden="true"
+        className="from-gold-50/70 absolute inset-0 -z-10 hidden bg-gradient-to-r via-transparent via-45% to-transparent md:block"
+      />
 
-            <h1 className="font-display text-display sm:text-display-lg mt-5">{hero.heading}</h1>
+      <Container
+        width="wide"
+        className="flex h-[min(calc(100svh-10rem),44rem)] min-h-[30rem] items-start pt-9 md:h-[34rem] md:min-h-0 md:items-center md:pt-0 lg:h-[40rem] xl:h-[44rem]"
+      >
+        <div className="text-content-inverse md:text-brand-900 max-w-xl">
+          <p className="text-[0.6875rem] font-semibold tracking-[0.2em] uppercase">
+            {t('home.hero.eyebrow')}
+          </p>
+          <h1 className="font-display text-display sm:text-display-lg mt-3 tracking-tight md:mt-4">
+            {t('home.hero.heading')}
+          </h1>
+          <p className="mt-3 max-w-md text-base leading-relaxed font-medium sm:text-lg md:mt-5">
+            {t('home.hero.body')}
+          </p>
+          <p className="mt-1.5 text-xs italic opacity-80 md:mt-2">{t('home.hero.finePrint')}</p>
 
-            <p className="text-content-muted mt-6 text-lg leading-relaxed">{hero.body}</p>
-
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Button to={ROUTES.SHOP} size="lg">
-                Shop the collection
-                <FiArrowRight aria-hidden="true" className="size-4" />
-              </Button>
-              <Button to={ROUTES.ABOUT} variant="outline" size="lg">
-                Our ingredients
-              </Button>
-            </div>
-
-            <dl className="border-brand-200 mt-12 grid max-w-md grid-cols-3 gap-6 border-t pt-7">
-              {[
-                { value: '13', label: 'Formulas' },
-                { value: '9k+', label: 'Reviews' },
-                { value: '4.9', label: 'Avg. rating' },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <dt className="sr-only">{stat.label}</dt>
-                  <dd>
-                    <span className="font-display text-brand-800 block text-3xl">{stat.value}</span>
-                    <span className="text-content-muted mt-0.5 block text-xs">{stat.label}</span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
+          <div className="mt-6 md:hidden">
+            <Button to={WELCOME_OFFER_PATH} variant="outline-inverse">
+              {t('home.hero.cta')}
+            </Button>
           </div>
-
-          <div className="relative">
-            <Image
-              name="hero-portrait"
-              alt="A person applying a cream mask at home"
-              sizes="(min-width: 1024px) 38rem, 100vw"
-              ratio="aspect-[4/5] sm:aspect-[3/2] lg:aspect-[4/5]"
-              priority
-              className="rounded-panel shadow-lifted"
-            />
-
-            <div className="rounded-card bg-surface-raised shadow-lifted absolute -bottom-5 -left-3 max-w-[13rem] p-4 sm:left-6 lg:-left-8">
-              <p className="font-display text-brand-800 text-2xl">100%</p>
-              <p className="text-content-muted mt-0.5 text-xs leading-snug">
-                Naturally derived ingredients, cruelty-free, no harsh chemicals
-              </p>
-            </div>
+          <div className="mt-8 hidden md:block">
+            <Button to={WELCOME_OFFER_PATH} size="lg">
+              {t('home.hero.cta')}
+            </Button>
           </div>
         </div>
       </Container>

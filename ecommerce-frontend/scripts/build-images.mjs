@@ -41,10 +41,14 @@ const UA =
 
 /**
  * Fetch a URL into the download cache, skipping the request if already cached.
- * @param {{name: string, url: string}} entry
+ * @param {{name: string, url?: string, file?: string}} entry
  * @returns {Promise<string>} absolute path to the cached original
  */
 async function ensureCached(entry) {
+  // Art made for this site (not pulled from the old one) is committed as an
+  // original under scripts/source-images and needs no download.
+  if (entry.file) return path.join(ROOT, entry.file);
+
   const ext = path.extname(new URL(entry.url).pathname) || '.jpg';
   const dest = path.join(CACHE, entry.name + ext);
   if (fs.existsSync(dest) && fs.statSync(dest).size > 0) return dest;

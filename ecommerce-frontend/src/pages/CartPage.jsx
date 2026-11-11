@@ -3,14 +3,16 @@ import { Button } from '@/components/ui/Button';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { ErrorPanel } from '@/components/ui/ErrorPanel';
 import { Skeleton } from '@/components/ui/Skeleton';
+import { Image } from '@/components/ui/Image';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { ROUTES } from '@/lib/constants';
+import { primaryImage } from '@/lib/productImage';
 import { CartLineItem, CartSummary, PromoForm, useCart, useCartLines } from '@/features/cart';
 
 export default function CartPage() {
   const { itemCount } = useCart();
-  const { lines, totals, loading, error } = useCartLines();
+  const { lines, gifts, totals, loading, error } = useCartLines();
 
   const isEmpty = !loading && !error && lines.length === 0;
 
@@ -58,6 +60,24 @@ export default function CartPage() {
                 <ul className="divide-border border-border divide-y border-y">
                   {lines.map((line) => (
                     <CartLineItem key={line.id} line={line} layout="full" />
+                  ))}
+                  {gifts.map((product) => (
+                    <li key={`gift-${product.id}`} className="flex items-center gap-4 py-5">
+                      <Image
+                        name={primaryImage(product)}
+                        alt=""
+                        sizes="7rem"
+                        ratio="aspect-[4/5]"
+                        className="rounded-field w-28"
+                      />
+                      <div>
+                        <p className="text-gold-700 text-xs font-semibold tracking-[0.14em] uppercase">
+                          Free gift
+                        </p>
+                        <p className="mt-1 font-medium">{product.title}</p>
+                        <p className="text-content-muted mt-1 text-sm">Free</p>
+                      </div>
+                    </li>
                   ))}
                 </ul>
               )}

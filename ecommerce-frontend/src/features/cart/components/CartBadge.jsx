@@ -1,4 +1,5 @@
 import { FiShoppingBag } from 'react-icons/fi';
+import { useT } from '@/features/i18n';
 import { useCart } from '../useCart';
 
 /**
@@ -7,13 +8,14 @@ import { useCart } from '../useCart';
  */
 export function CartBadge() {
   const { itemCount, openDrawer } = useCart();
+  const { t } = useT();
 
   return (
     <>
       <button
         type="button"
         onClick={openDrawer}
-        aria-label={itemCount > 0 ? `Open cart, ${itemCount} items` : 'Open cart, empty'}
+        aria-label={itemCount > 0 ? t('cart.open', { count: itemCount }) : t('cart.openEmpty')}
         className="text-content hover:bg-ink-100 relative grid size-10 place-items-center rounded-full transition-colors"
       >
         <FiShoppingBag aria-hidden="true" className="size-[1.1875rem]" />
@@ -28,7 +30,7 @@ export function CartBadge() {
       </button>
 
       <span role="status" aria-live="polite" className="sr-only">
-        {itemCount === 0 ? 'Cart is empty' : `${itemCount} items in cart`}
+        {itemCount === 0 ? t('cart.statusEmpty') : t('cart.status', { count: itemCount })}
       </span>
     </>
   );

@@ -393,5 +393,125 @@
     "name": "avatar-4",
     "url": "https://skenvisiontime.com/wp-content/uploads/2023/01/testimonial-09-free-img.jpg",
     "kind": "avatar"
+  },
+  {
+    "name": "welcome-gift",
+    "file": "scripts/source-images/welcome-gift.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "holiday-hero",
+    "file": "scripts/source-images/holiday-hero.jpg",
+    "kind": "hero"
+  },
+  {
+    "name": "about-hero",
+    "file": "scripts/source-images/about-hero.jpg",
+    "kind": "hero"
+  },
+  {
+    "name": "routine-hair",
+    "file": "scripts/source-images/routine-hair.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "gift-flatlay",
+    "file": "scripts/source-images/gift-flatlay.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "gift-bestsellers",
+    "file": "scripts/source-images/gift-bestsellers.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "category-sets",
+    "file": "scripts/source-images/category-sets.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "category-hair",
+    "file": "scripts/source-images/category-hair.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "category-skin",
+    "file": "scripts/source-images/category-skin.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "category-lashes",
+    "file": "scripts/source-images/category-lashes.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "journal-gift-guide",
+    "file": "scripts/source-images/journal-gift-guide.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "journal-argan-routine",
+    "file": "scripts/source-images/journal-argan-routine.jpg",
+    "kind": "editorial"
+  },
+  {
+    "name": "hair-coily",
+    "file": "scripts/source-images/hair-coily.jpg",
+    "kind": "avatar"
+  },
+  {
+    "name": "hair-curly",
+    "file": "scripts/source-images/hair-curly.jpg",
+    "kind": "avatar"
+  },
+  {
+    "name": "hair-wavy",
+    "file": "scripts/source-images/hair-wavy.jpg",
+    "kind": "avatar"
+  },
+  {
+    "name": "hair-straight",
+    "file": "scripts/source-images/hair-straight.jpg",
+    "kind": "avatar"
+  },
+  {
+    "name": "texture-shampoo",
+    "file": "scripts/source-images/texture-shampoo.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-conditioner",
+    "file": "scripts/source-images/texture-conditioner.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-nude",
+    "file": "scripts/source-images/texture-nude.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-serum",
+    "file": "scripts/source-images/texture-serum.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-cream",
+    "file": "scripts/source-images/texture-cream.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-gel",
+    "file": "scripts/source-images/texture-gel.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-color",
+    "file": "scripts/source-images/texture-color.jpg",
+    "kind": "product"
+  },
+  {
+    "name": "texture-aqua",
+    "file": "scripts/source-images/texture-aqua.jpg",
+    "kind": "product"
   }
 ]

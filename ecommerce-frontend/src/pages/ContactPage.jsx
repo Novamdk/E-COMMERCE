@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/Input';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
 import { useForm } from '@/hooks/useForm';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import { ROUTES } from '@/lib/constants';
 import { email as validateEmail, required } from '@/lib/validators';
 
@@ -32,6 +33,7 @@ const DETAILS = [
 ];
 
 export default function ContactPage() {
+  usePageMeta({ title: 'Contact us', path: '/contact' });
   const [isSent, setIsSent] = useState(false);
 
   const form = useForm({

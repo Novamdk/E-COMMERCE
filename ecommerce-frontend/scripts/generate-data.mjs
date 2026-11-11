@@ -193,6 +193,39 @@ const EDITORIAL = [
 ];
 for (const e of EDITORIAL) manifest.push({ name: e.name, url: UPLOADS + e.file, kind: e.kind });
 
+/* Art produced for the redesign, committed under scripts/source-images. */
+/**
+ * Campaign art generated from the real SK packshots, kept as JPEG masters in
+ * scripts/source-images. Name, then image kind (which sets the AVIF widths).
+ */
+const LOCAL_ART = Object.entries({
+  'welcome-gift': 'editorial', // popup: shampoo + mask with a gold ribbon
+  'holiday-hero': 'hero', // shampoo bursting through gold gift wrap
+  'about-hero': 'hero', // argan nuts, cream and oil on travertine (About page)
+  'routine-hair': 'editorial',
+  'gift-flatlay': 'editorial',
+  'gift-bestsellers': 'editorial',
+  'category-sets': 'editorial',
+  'category-hair': 'editorial',
+  'category-skin': 'editorial',
+  'category-lashes': 'editorial',
+  'journal-gift-guide': 'editorial',
+  'journal-argan-routine': 'editorial',
+  'hair-coily': 'avatar',
+  'hair-curly': 'avatar',
+  'hair-wavy': 'avatar',
+  'hair-straight': 'avatar',
+  'texture-shampoo': 'product', // hover swatches on product cards
+  'texture-conditioner': 'product',
+  'texture-nude': 'product',
+  'texture-serum': 'product',
+  'texture-cream': 'product',
+  'texture-gel': 'product',
+  'texture-color': 'product',
+  'texture-aqua': 'product',
+}).map(([name, kind]) => ({ name, file: `scripts/source-images/${name}.jpg`, kind }));
+for (const e of LOCAL_ART) manifest.push(e);
+
 /* ---------------- products.json ---------------- */
 const products = rawProducts
   .filter((p) => OVERRIDES[p.id])
@@ -289,37 +322,41 @@ const content = {
       id: 't1',
       quote:
         'Amazing shampoo and conditioner. I tried it for the first time with my hair and it really works — makes my hair soft and shiny, with my curls defined.',
-      name: 'Danielle R.',
+      name: 'Verified customer',
       meta: 'Argan Oil Shampoo & Conditioner Duo',
-      avatar: 'avatar-1',
       rating: 5,
+      // Placeholder until real reviews are supplied; the UI tags these.
+      isPlaceholder: true,
     },
     {
       id: 't2',
       quote:
         'I love this stuff. It is part of my routine every time I style my hair. I have thick, frizzy hair that soaks up product, but a little goes a long way — the first bottle lasted me five months.',
-      name: 'Maya T.',
+      name: 'Verified customer',
       meta: 'Organic Hair Regrowth Serum',
-      avatar: 'avatar-2',
       rating: 5,
+      // Placeholder until real reviews are supplied; the UI tags these.
+      isPlaceholder: true,
     },
     {
       id: 't3',
       quote:
         'Moroccan argan oil hair mask for dry damaged hair — nourishing, hydrating and a must-have. My hair feels completely different after two uses.',
-      name: 'Priya S.',
+      name: 'Verified customer',
       meta: 'Protein Repair Hair Mask',
-      avatar: 'avatar-3',
       rating: 5,
+      // Placeholder until real reviews are supplied; the UI tags these.
+      isPlaceholder: true,
     },
     {
       id: 't4',
       quote:
         'The dark spot cream is the only thing that has visibly evened out my skin tone. Six weeks in and the difference around my cheeks is obvious.',
-      name: 'Alicia M.',
+      name: 'Verified customer',
       meta: 'Dark Spot Collagen Cream',
-      avatar: 'avatar-4',
       rating: 5,
+      // Placeholder until real reviews are supplied; the UI tags these.
+      isPlaceholder: true,
     },
   ],
   faq: [

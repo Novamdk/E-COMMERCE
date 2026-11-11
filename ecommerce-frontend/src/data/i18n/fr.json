@@ -1,0 +1,178 @@
+{
+  "content": {
+    "brand": {
+      "tagline": "Soins naturels pour les cheveux et le corps"
+    },
+    "hero": {
+      "eyebrow": "Uniquement des ingrédients naturels",
+      "heading": "Une beauté clean qui fait vraiment effet",
+      "body": "Des soins premium et naturels pour les cheveux et le corps, formulés avec des ingrédients d’origine naturelle qui nourrissent, protègent et revitalisent, sans produits chimiques agressifs inutiles."
+    },
+    "about": {
+      "heading": "À propos de SK Envision",
+      "paragraphs": [
+        "Chez SK Envision, nous sommes passionnés par la création de soins naturels haut de gamme pour les cheveux et le corps, qui donnent confiance en soi et favorisent une beauté saine. Nous sélectionnons avec soin des ingrédients d’origine naturelle de grande qualité pour élaborer des formules qui nourrissent, protègent et revitalisent la peau et les cheveux, sans produits chimiques agressifs inutiles.",
+        "Notre engagement va au-delà de la beauté. Nous croyons en des soins clean, durables et éthiques : aucun test sur les animaux et, dès que possible, des emballages respectueux de l’environnement. Chaque produit est conçu pour être efficace tout en restant assez doux pour un usage quotidien."
+      ]
+    },
+    "ingredients": {
+      "heading": "Uniquement des ingrédients naturels",
+      "body": "Nos produits sont élaborés à partir d’ingrédients naturels soigneusement sélectionnés qui nourrissent, protègent et réparent la peau et les cheveux. Riche en extraits botaniques, en vitamines et en nutriments essentiels, chaque formule est pensée pour des résultats doux mais efficaces, sans produits chimiques agressifs.",
+      "body2": "Nous croyons en une beauté clean qui favorise une peau saine, des cheveux plus forts et la confiance au quotidien, dans le respect de la nature."
+    },
+    "testimonials": [
+      {
+        "quote": "Un shampooing et un après-shampooing incroyables. Je les ai essayés pour la première fois et ça marche vraiment : mes cheveux sont doux et brillants, et mes boucles bien définies.",
+        "name": "Client vérifié",
+        "meta": "Duo shampooing et après-shampooing à l’huile d’argan"
+      },
+      {
+        "quote": "J’adore ce produit. Il fait partie de ma routine à chaque coiffage. J’ai les cheveux épais et frisés qui absorbent tout, mais il en faut très peu : le premier flacon m’a duré cinq mois.",
+        "name": "Client vérifié",
+        "meta": "Sérum bio pour la repousse des cheveux"
+      },
+      {
+        "quote": "Masque à l’huile d’argan du Maroc pour cheveux secs et abîmés : nourrissant, hydratant, indispensable. Mes cheveux sont complètement différents après deux utilisations.",
+        "name": "Client vérifié",
+        "meta": "Masque capillaire réparateur aux protéines"
+      },
+      {
+        "quote": "La crème anti-taches est la seule chose qui a visiblement unifié mon teint. Après six semaines, la différence sur mes joues est flagrante.",
+        "name": "Client vérifié",
+        "meta": "Crème au collagène anti-taches"
+      }
+    ],
+    "faq": [
+      {
+        "q": "Vos produits sont-ils vraiment naturels ?",
+        "a": "Chaque formule repose sur des ingrédients d’origine naturelle : extraits botaniques, vitamines et nutriments essentiels. Nous écartons les produits chimiques agressifs qui assèchent les cheveux et irritent la peau."
+      },
+      {
+        "q": "Testez-vous sur les animaux ?",
+        "a": "Non. Toute notre gamme est non testée sur les animaux, et nous utilisons des emballages respectueux de l’environnement dès que possible."
+      },
+      {
+        "q": "Au bout de combien de temps voit-on des résultats ?",
+        "a": "Cela dépend du produit. Le sérum pour cils est formulé pour une pousse visible en quatre semaines environ ; les masques et après-shampooings font généralement la différence après deux ou trois lavages."
+      },
+      {
+        "q": "Quelle est votre politique de retour ?",
+        "a": "Les produits non ouverts peuvent être retournés sous 30 jours après livraison pour un remboursement complet. Si un produit arrive endommagé, contactez-nous et nous le remplacerons."
+      },
+      {
+        "q": "Livrez-vous à l’international ?",
+        "a": "Oui. Aux États-Unis, la livraison est offerte dès 75 $ d’achat. Les frais internationaux sont calculés au paiement selon la destination et le poids."
+      }
+    ],
+    "benefits": [
+      {
+        "title": "D’origine naturelle",
+        "body": "Extraits botaniques, vitamines et nutriments essentiels, sans produits chimiques agressifs."
+      },
+      {
+        "title": "Non testé sur les animaux",
+        "body": "Jamais testé sur les animaux, avec des emballages responsables dès que possible."
+      },
+      {
+        "title": "Livraison offerte dès 75 $",
+        "body": "En dessous, livraison à 6,90 $, calculée au paiement."
+      },
+      {
+        "title": "Retours sous 30 jours",
+        "body": "Produits non ouverts remboursés intégralement sous 30 jours après livraison."
+      }
+    ]
+  },
+  "categories": {
+    "color-shampoo-hair": {
+      "name": "Shampooings colorants",
+      "description": "Une couleur riche, digne d’un salon, directement sous la douche."
+    },
+    "dark-spot": {
+      "name": "Anti-taches",
+      "description": "Des formules éclaircissantes qui atténuent les taches et unifient le teint."
+    },
+    "eye-cream-anti-aging-organic": {
+      "name": "Contour des yeux anti-âge bio",
+      "description": "Un soin ciblé pour les ridules et les yeux fatigués."
+    },
+    "eye-lashes-growth-serum": {
+      "name": "Sérum de pousse des cils",
+      "description": "Des sérums pour des cils et sourcils plus fournis et plus longs."
+    },
+    "face-lifting-collagen-cream": {
+      "name": "Crèmes liftantes au collagène",
+      "description": "Des crèmes au collagène qui raffermissent, liftent et lissent."
+    },
+    "foot-peel-mask": {
+      "name": "Masque exfoliant pour les pieds",
+      "description": "Des peelings exfoliants pour les talons fendillés et les callosités."
+    },
+    "hair-mask": {
+      "name": "Masques capillaires",
+      "description": "Des soins profonds aux protéines pour les cheveux secs et abîmés."
+    },
+    "hair-serum": {
+      "name": "Sérums capillaires",
+      "description": "Des sérums qui agissent dès le cuir chevelu pour redonner de la densité."
+    },
+    "packages": {
+      "name": "Coffrets",
+      "description": "Des routines complètes à un meilleur prix qu’à l’unité."
+    }
+  },
+  "products": {
+    "5091": {
+      "title": "Coffret beauté anti-taches",
+      "subtitle": "Notre best-seller"
+    },
+    "4824": {
+      "title": "Coffret soin des cheveux",
+      "subtitle": "Routine complète en 3 étapes"
+    },
+    "2628": {
+      "title": "Duo shampooing et après-shampooing à l’huile d’argan",
+      "subtitle": "Pour des cheveux soyeux"
+    },
+    "2621": {
+      "title": "Shampooing à l’huile d’argan",
+      "subtitle": "Tous types de cheveux"
+    },
+    "2547": {
+      "title": "Sérum de pousse des cils au collagène",
+      "subtitle": "Cils et sourcils en 4 semaines"
+    },
+    "2394": {
+      "title": "Soin liftant yeux Retinal ReSculpt",
+      "subtitle": "Vitamine A encapsulée"
+    },
+    "1958": {
+      "title": "Crème au collagène anti-taches",
+      "subtitle": "Unifie le teint, atténue les taches"
+    },
+    "1773": {
+      "title": "Shampooing colorant Magic Hair Dye",
+      "subtitle": "La couleur du salon à la maison"
+    },
+    "1550": {
+      "title": "Crème anti-rides au collagène",
+      "subtitle": "Raffermit et lisse"
+    },
+    "29": {
+      "title": "Sérum bio pour la repousse des cheveux",
+      "subtitle": "Densité des racines aux pointes"
+    },
+    "28": {
+      "title": "Masque capillaire réparateur aux protéines",
+      "subtitle": "Cheveux secs et abîmés"
+    },
+    "27": {
+      "title": "Masque exfoliant pour les pieds",
+      "subtitle": "Avec gel hydratant"
+    },
+    "26": {
+      "title": "Après-shampooing à l’huile d’argan",
+      "subtitle": "Démêle et hydrate"
+    }
+  }
+}

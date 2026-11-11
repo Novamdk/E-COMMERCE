@@ -5,7 +5,7 @@ import { reactRefresh } from 'eslint-plugin-react-refresh';
 import eslintConfigPrettier from 'eslint-config-prettier/flat';
 
 export default [
-  { ignores: ['dist/**', 'public/img/**', '.cache/**', 'node_modules/**'] },
+  { ignores: ['dist/**', 'dist-ssr/**', 'public/img/**', '.cache/**', 'node_modules/**'] },
 
   js.configs.recommended,
   reactHooks.configs.flat.recommended,
@@ -60,11 +60,11 @@ export default [
     rules: { 'no-console': 'off', 'no-restricted-imports': 'off' },
   },
 
-  // The route table pairs lazy page components with a non-component `router`
+  // The route table pairs lazy page components with a non-component `routes` array
   // export. Fast refresh cannot handle that file either way, and splitting it
   // would mean a second module whose only job is to re-export the same object.
   {
-    files: ['src/app/router.jsx'],
+    files: ['src/app/routes.jsx'],
     rules: { 'react-refresh/only-export-components': 'off' },
   },
 
