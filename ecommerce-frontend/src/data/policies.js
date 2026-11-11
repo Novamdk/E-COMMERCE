@@ -6,14 +6,14 @@
  * same text. Contact details, delivery estimates and codes come from
  * constants.js, so the pages match what checkout does.
  *
- * Rebuilt Nov 2026 to cover what large US hair and beauty stores cover
- * (processing, carriers, lost and stolen parcels, return conditions, CCPA/CPRA
- * notices including the financial incentive and "sale or sharing", Shine the
- * Light, the California Civil Code 1789.3 notice, accessibility), written in
- * SK Envision's own words. Owner's choices kept: 30-day returns on unopened
- * products, customer pays return shipping unless it is our error, damage and
- * lost parcels reported within 14 days, California law and Orange County
- * courts.
+ * Rewritten Nov 2026 in a formal style modeled on the structure of large US
+ * haircare stores' policies (Olaplex: question-style shipping FAQ, short
+ * returns policy, numbered Terms sections, privacy notice organised by what we
+ * collect, how we use and share it, choices and California rights, and an
+ * accessibility statement). The wording is SK Envision's own. Owner's choices
+ * kept: 30-day returns on unopened products, customer pays return shipping
+ * unless it is our error, damage and lost parcels reported within 14 days,
+ * California law and Orange County courts.
  *
  * Shipping prices are left to checkout until the owner sets final rates.
  *
@@ -62,85 +62,105 @@ const shipping = {
   title: 'Shipping policy',
   label: 'Shipping',
   description:
-    'How SK Envision ships within the United States: processing times, delivery estimates, tracking, address changes and what to do if a package is lost, stolen or damaged.',
+    'Shipping questions answered: where SK Envision ships, shipping costs, order processing, delivery times, tracking, carriers, sales tax and lost or damaged packages.',
   intro:
-    'Everything you need to know about getting your order: when it leaves us, how long it takes, how to track it and what we do if something goes wrong along the way.',
+    'Answers to the most common questions about how SK Envision ships your order. If you cannot find what you need here, our customer care team is happy to help.',
   summary: [
-    'Orders ship within 1 to 2 business days.',
-    'We ship to street addresses in all 50 US states.',
+    'We ship to all 50 US states.',
+    'Orders are processed within 1 to 2 business days.',
     'Shipping options and costs are shown at checkout before you pay.',
     'A tracking number is emailed as soon as your order ships.',
-    `Tell us within ${REPORT_WINDOW_DAYS} days if a package is lost, damaged or missing an item.`,
   ],
   sections: [
     {
-      heading: 'Order processing',
+      heading: 'Where do you ship?',
       blocks: [
-        'Orders are packed and handed to the carrier within 1 to 2 business days (Monday to Friday, excluding US holidays). Orders placed on a weekend or holiday start processing the next business day.',
-        'During busy periods such as Black Friday, holiday sales and new launches, processing can take a few extra days. We will email you if your order is going to be later than expected.',
-        'You will get an order confirmation email straight after you pay. If you do not see it within an hour, check your spam folder or email us.',
+        'We currently ship to street addresses in all 50 United States. Delivery to PO boxes and APO/FPO/DPO military addresses may be available for some orders; please contact us before ordering and we will confirm.',
       ],
     },
     {
-      heading: 'Where we ship',
+      heading: 'Do you ship internationally?',
       blocks: [
-        'We ship to street addresses in all 50 US states.',
-        `We do not ship outside the United States at the moment. If you need delivery to a PO box or an APO/FPO military address, email ${EMAIL} before you order and we will tell you whether we can send it.`,
+        'Not at this time. SK Envision ships within the United States only. We hope to offer international shipping in the future.',
       ],
     },
     {
-      heading: 'Shipping options and costs',
+      heading: 'How much does shipping cost?',
       blocks: [
-        'The shipping options available for your address, and their exact cost, are shown at checkout before you pay. Any free-shipping offer that is running is shown on the site and applied at checkout automatically when your order qualifies.',
+        'Shipping costs are calculated at checkout based on your shipping address and the delivery method you choose, and are shown before you complete your purchase. When a free shipping promotion is running, the terms are shown on our site and qualifying orders receive it automatically at checkout.',
+      ],
+    },
+    {
+      heading: 'When will my order be processed?',
+      blocks: [
+        'Orders are processed and handed to the carrier within 1 to 2 business days, Monday through Friday, excluding US federal holidays. Orders placed on a weekend or holiday begin processing the next business day.',
+        'During peak periods, including Black Friday, the holiday season and new product launches, processing may take a few additional business days. If your order will be delayed beyond our normal timeframe, we will contact you by email.',
+      ],
+    },
+    {
+      heading: 'When will I receive my order?',
+      blocks: [
+        'Delivery time depends on the shipping method selected at checkout and is counted from the day your order ships:',
         {
-          list: [
-            `Standard shipping: usually arrives ${standard.detail} after your order ships.`,
-            `Express shipping: usually arrives ${express.detail} after your order ships.`,
-          ],
+          list: [`Standard shipping: ${standard.detail}.`, `Express shipping: ${express.detail}.`],
         },
-        'Delivery times are estimates from the carrier, not guarantees. Weather, carrier delays and holiday volume can add time, and Alaska and Hawaii usually take longer.',
+        'Delivery times are estimates provided by our carriers and are not guaranteed. Weather, carrier delays and high seasonal volume may extend delivery times. Deliveries to Alaska, Hawaii and remote areas may take longer.',
       ],
     },
     {
-      heading: 'Tracking your order',
+      heading: 'How do I track my order?',
       blocks: [
-        'When your order ships, we email a tracking number and a link to follow it. If you have an account, you can also see your orders and tracking under My account.',
-        'Tracking can take up to 24 hours to update after you receive it.',
+        'Once your order ships, you will receive a shipping confirmation email with your tracking number and a link to follow your package. If you have an account, you can also view your order status under My Account. Please allow up to 24 hours for tracking information to update.',
       ],
     },
     {
-      heading: 'Changing or cancelling an order',
+      heading: 'Who is your courier service?',
       blocks: [
-        `We start packing orders quickly, so email ${EMAIL} as soon as possible with your order number if you need to change your address or cancel. We will do our best, but once an order has shipped we cannot change or cancel it. You can return it instead under our returns policy.`,
+        'We ship with major US carriers. The carrier handling your order is shown in your shipping confirmation email.',
       ],
     },
     {
-      heading: 'Check your address',
+      heading: 'Can I change or cancel my order?',
       blocks: [
-        'Please make sure your shipping address is complete and correct, including any apartment or suite number. We are not responsible for orders delivered to an address entered incorrectly at checkout.',
-        'If a package comes back to us as undeliverable or unclaimed, we will contact you. We can reship it once you confirm the address (you pay the new shipping cost) or refund the products, less the original shipping.',
+        `Orders are processed quickly, so please contact us at ${EMAIL} as soon as possible with your order number. We will do our best to accommodate changes to the shipping address or to cancel an order that has not yet shipped. Once an order has shipped it can no longer be changed or cancelled, but it may be returned in accordance with our Returns Policy.`,
       ],
     },
     {
-      heading: 'Lost, stolen or damaged packages',
+      heading: 'What if my shipping address is incorrect?',
+      blocks: [
+        'Please review your shipping address carefully at checkout, including any apartment or suite number. SK Envision is not responsible for orders delivered to an incorrect address entered at checkout.',
+        'If a package is returned to us as undeliverable or unclaimed, we will contact you. We can reship the order once the correct address is confirmed (additional shipping charges apply), or issue a refund for the products, less the original shipping charge.',
+      ],
+    },
+    {
+      heading: 'What if my package is lost, stolen or damaged?',
       blocks: [
         { subheading: 'Lost in transit' },
-        `If your tracking has not moved for 7 days, or your order has not arrived within ${REPORT_WINDOW_DAYS} days of the latest delivery estimate, email us with your order number. We will open a trace with the carrier and, if the package cannot be found, send a replacement or a refund.`,
+        `If your tracking information has not updated for 7 days, or your order has not arrived within ${REPORT_WINDOW_DAYS} days of the estimated delivery date, contact us with your order number. We will open a trace with the carrier and, if the package cannot be located, send a replacement or issue a refund.`,
         { subheading: 'Marked as delivered but not received' },
-        'Please check around your property, with neighbours and with your building or mail room, and wait one more business day, since carriers sometimes mark packages delivered early. If it still has not turned up, email us within 14 days of the delivery date and we will file a claim with the carrier and help you get it sorted.',
+        `Please check around your property, with neighbors and with your building's mail room, and allow one additional business day, as carriers sometimes mark packages as delivered early. If the package still has not arrived, contact us within ${REPORT_WINDOW_DAYS} days of the delivery date and we will file a claim with the carrier and work with you on a resolution.`,
         { subheading: 'Damaged, leaking or missing items' },
-        `Email us within ${REPORT_WINDOW_DAYS} days of delivery with your order number and a photo of the product and the box. We will send a replacement or a refund, at no cost to you.`,
+        `Contact us within ${REPORT_WINDOW_DAYS} days of delivery with your order number and photos of the product and packaging. We will send a replacement or issue a refund at no cost to you.`,
       ],
     },
     {
-      heading: 'Sales tax',
+      heading: 'Do you charge sales tax on orders through your website?',
       blocks: [
-        'Sales tax, where it applies, is added at checkout and shown in your order total before you pay.',
+        'Yes, where required by law. Applicable sales tax is calculated at checkout based on your shipping address and is shown in your order total before you complete your purchase.',
       ],
     },
     {
-      heading: 'Questions',
-      blocks: [`Email ${EMAIL} or call ${PHONE}. We reply within one business day.`],
+      heading: 'Is there a quantity limit per product?',
+      blocks: [
+        'Our products are sold for personal use and not for resale. SK Envision reserves the right to limit quantities per order, per customer or per household, and to cancel orders that appear to be placed for resale.',
+      ],
+    },
+    {
+      heading: 'Contact us',
+      blocks: [
+        `For any questions about shipping, please contact us at ${EMAIL} or ${PHONE}. We respond within one business day.`,
+        'SK Envision reserves the right to modify this policy at any time. Changes take effect when posted on this page.',
+      ],
     },
   ],
 };
@@ -151,56 +171,58 @@ const shipping = {
 const returns = {
   slug: 'returns',
   path: '/returns',
-  title: 'Returns and refunds',
+  title: 'Returns policy',
   label: 'Returns',
-  description: `Returns within ${RETURN_WINDOW_DAYS} days of delivery on unopened products, refunds to your original payment method, and free fixes if an order arrives damaged or wrong.`,
-  intro: `We want you to love what you ordered. If something is not right, you have ${RETURN_WINDOW_DAYS} days from delivery to return it. Because these are hair and skin care products, a few rules keep everything safe and hygienic for every customer.`,
+  description: `SK Envision returns policy: returns of unopened products within ${RETURN_WINDOW_DAYS} days of delivery, how to start a return, return shipping, refunds, exchanges and damaged or incorrect orders.`,
+  intro: `If you are not completely satisfied with your purchase from SK Envision, you may return unopened products within ${RETURN_WINDOW_DAYS} days of delivery. Because our products are hair and skin care, the conditions below help keep every product safe and hygienic for all of our customers.`,
   summary: [
-    `${RETURN_WINDOW_DAYS} days from delivery to start a return.`,
-    'Products must be unopened and unused, in their original packaging.',
-    'Damaged, defective or wrong items are on us, opened or not.',
-    'Return shipping is paid by you, unless we made a mistake.',
-    'Refunds go back to your original payment method.',
+    `${RETURN_WINDOW_DAYS} days from delivery to return unopened products.`,
+    'Damaged, defective or incorrect items are replaced or refunded at no cost.',
+    'Return shipping is paid by the customer unless the return is due to our error.',
+    'Refunds are issued to the original payment method.',
   ],
   sections: [
     {
-      heading: 'What you can return',
+      heading: 'Return eligibility',
       blocks: [
+        'To be eligible for a return, items must be:',
         {
           list: [
-            `Unopened, unused products in their original packaging, with any seal intact, within ${RETURN_WINDOW_DAYS} days of delivery.`,
-            'Bundles and sets can be returned whole and unopened. If you want to return part of a set, email us first and we will work out the refund for the items you send back.',
-            'Only orders placed on our website. Products bought from another shop, salon or marketplace go back to where you bought them.',
+            'Unopened, unused and in their original packaging, with any safety seal intact.',
+            `Returned within ${RETURN_WINDOW_DAYS} days of the delivery date.`,
+            'Purchased directly from SK Envision through our website.',
+          ],
+        },
+        'Bundles and sets must be returned complete and unopened. To return part of a set, please contact us first so we can calculate the refund for the items being returned.',
+        'If your purchase was made from another retailer, salon or marketplace, please contact that seller directly for a return in line with its own return policy.',
+      ],
+    },
+    {
+      heading: 'Non-returnable items',
+      blocks: [
+        'For health and hygiene reasons, we cannot accept returns of opened or used products, except as described under "Damaged, defective or incorrect items" below. The following are also not eligible for return:',
+        {
+          list: [
+            `Items returned more than ${RETURN_WINDOW_DAYS} days after delivery.`,
+            'Items identified as final sale at the time of purchase.',
+            'Free gifts and samples.',
+            'Products damaged after delivery through misuse, exposure to heat or improper storage.',
           ],
         },
       ],
     },
     {
-      heading: 'What we cannot accept',
+      heading: 'Damaged, defective or incorrect items',
       blocks: [
-        'For hygiene and safety reasons, we cannot take back products that have been opened, used or had their seal broken, unless one of the cases under "When we cover it" applies. We also cannot accept:',
+        'We will make it right at no cost to you, whether or not the product has been opened, if:',
         {
           list: [
-            `Returns started more than ${RETURN_WINDOW_DAYS} days after delivery.`,
-            'Items marked as final sale when you bought them.',
-            'Free gifts and samples. You are welcome to keep them.',
-            'Products damaged after delivery through misuse, heat or storage.',
+            `Your item arrived damaged, leaking or defective, and you contact us within ${REPORT_WINDOW_DAYS} days of delivery with photos.`,
+            `You received the wrong item, or an item was missing from your order, and you contact us within ${REPORT_WINDOW_DAYS} days of delivery.`,
+            'You experienced a skin or scalp reaction. Please stop using the product immediately and contact us with your order number. Each case is reviewed individually.',
           ],
         },
-      ],
-    },
-    {
-      heading: 'When we cover it',
-      blocks: [
-        'We will put it right at no cost to you, even if the product has been opened, when:',
-        {
-          list: [
-            `It arrived damaged, leaking or defective, and you tell us within ${REPORT_WINDOW_DAYS} days of delivery with a photo.`,
-            `We sent the wrong item, or an item was missing, and you tell us within ${REPORT_WINDOW_DAYS} days of delivery.`,
-            'It caused a skin or scalp reaction. Stop using it straight away and email us with your order number. We look at every case individually and will help make it right.',
-          ],
-        },
-        'In these cases we send a replacement or a full refund, including shipping, and we may not need the item back.',
+        'In these cases we will send a replacement or issue a full refund, including any shipping charges. We may not require the item to be returned.',
       ],
     },
     {
@@ -208,9 +230,9 @@ const returns = {
       blocks: [
         {
           list: [
-            `Email ${EMAIL} with your order number, the items you want to return and the reason.`,
-            'We reply within one business day with the return address and instructions. Please wait for our reply before sending anything, since packages sent without instructions can be delayed or lost.',
-            'Pack the items securely and send them with a tracked service. Keep your tracking number until your refund arrives.',
+            `Email ${EMAIL} with your order number, the items you wish to return and the reason for the return.`,
+            'We will respond within one business day with your return authorization, the return address and instructions. Please do not send items back without a return authorization, as unauthorized returns may be delayed or lost.',
+            'Pack the items securely and ship them using a trackable service. Keep your tracking number until your refund has been issued.',
           ],
         },
       ],
@@ -218,38 +240,41 @@ const returns = {
     {
       heading: 'Return shipping',
       blocks: [
-        'You pay for return shipping, unless the return is because of our mistake or a damaged or defective product. We recommend a tracked service, as we cannot refund returns that do not reach us.',
+        'Return shipping costs are the responsibility of the customer, unless the return is the result of our error or a damaged or defective product. We recommend using a trackable shipping service, as SK Envision cannot issue refunds for returns that are not received.',
       ],
     },
     {
       heading: 'Refunds',
       blocks: [
-        'Once your return arrives and we have checked it, we email you to confirm. Approved refunds are sent within 5 business days, to the original payment method: your PayPal account, or the card you paid with through PayPal.',
-        'We refund the price you paid for the returned items, after any discount. Original shipping costs are refunded only when the return is because of our mistake or a damaged or defective product.',
-        'Your bank or card company decides how quickly the money shows up, which can take up to 10 business days or one billing cycle. If it has been longer than that, check with PayPal or your bank first, then email us and we will look into it.',
+        'Once your return is received and inspected, we will notify you by email. Approved refunds are issued within 5 business days to your original payment method, either your PayPal account or the card used through PayPal.',
+        'Refunds are for the amount paid for the returned items, after any discounts. Original shipping charges are refunded only when the return is the result of our error or a damaged or defective product.',
+        'Depending on your bank or card issuer, it may take up to 10 business days, or one billing cycle, for the refund to appear on your statement.',
       ],
     },
     {
       heading: 'Exchanges',
       blocks: [
-        `Want a different product or shade? Email us within ${RETURN_WINDOW_DAYS} days of delivery. Exchanges follow the same rules as returns: the item must be unopened, and you pay the shipping back to us unless we made a mistake.`,
+        `To exchange an item for a different product or shade, contact us within ${RETURN_WINDOW_DAYS} days of delivery. Exchanges are subject to the same conditions as returns: the item must be unopened, and return shipping is the responsibility of the customer unless the exchange is due to our error.`,
       ],
     },
     {
-      heading: 'Cancelling an order',
+      heading: 'Order cancellations',
       blocks: [
-        `If you change your mind before your order ships, email ${EMAIL} right away. If we have not shipped it yet, we cancel it and refund you in full. Once it has shipped, it follows this returns policy.`,
+        `To cancel an order, contact us at ${EMAIL} as soon as possible. If the order has not yet shipped, we will cancel it and issue a full refund. Orders that have already shipped are subject to this Returns Policy.`,
       ],
     },
     {
       heading: 'Gifts',
       blocks: [
-        'If you received an order as a gift, the refund goes to the person who paid for it. Email us with the order number and we will help.',
+        'Refunds for orders received as gifts are issued to the original purchaser. Please contact us with the order number and we will assist you.',
       ],
     },
     {
-      heading: 'Questions',
-      blocks: [`Email ${EMAIL} or call ${PHONE}. We reply within one business day.`],
+      heading: 'Contact us',
+      blocks: [
+        `For any further questions about returns, please contact us at ${EMAIL} or ${PHONE}.`,
+        'SK Envision reserves the right to modify this policy at any time. Changes take effect when posted on this page and do not apply to orders placed before the change.',
+      ],
     },
   ],
 };
@@ -260,190 +285,178 @@ const returns = {
 const privacy = {
   slug: 'privacy',
   path: '/privacy',
-  title: 'Privacy policy',
+  title: 'Privacy notice',
   label: 'Privacy',
   description:
-    'What personal information SK Envision collects, how it is used and shared, how cookies, email, texts and advertising tags work, and your privacy rights, including for California residents.',
+    'How SK Envision collects, uses, shares and protects personal information, your choices about email, texts, cookies and advertising, and the rights of California residents under the CCPA.',
   intro:
-    'This policy explains what personal information SK Envision collects when you visit our website, shop with us or sign up for emails or texts, how we use and share it, and the choices and rights you have. We do not sell your personal information for money.',
-  summary: [
-    'We collect what we need to run the store, ship your orders and send the emails or texts you sign up for.',
-    'We never see your card number: payments are handled by PayPal.',
-    'Advertising tags from Meta, TikTok and Google can be turned off below, and we honour Global Privacy Control.',
-    `You can ask to see, correct or delete your information at ${EMAIL}.`,
-  ],
+    'This Privacy Notice describes how SK Envision ("SK Envision", "we", "us" or "our") collects, uses, shares and protects personal information. It also explains the rights and choices you have regarding your personal information and how you can contact us with questions.',
+  summary: [],
   sections: [
     {
-      heading: 'Who we are',
+      heading: 'What this privacy notice covers',
       blocks: [
-        `SK Envision ("we", "us") is a hair and skin care store based at ${ADDRESS}. This policy covers our website and any emails and texts we send. For privacy questions, email ${EMAIL} or call ${PHONE}.`,
+        'This Privacy Notice covers personal information that SK Envision obtains when you visit our website (the "Site"), create an account, purchase products, sign up for emails or text messages, take a quiz, communicate with us or otherwise interact with us.',
+        'Our Site may contain links to third-party websites and services. We have no control over the privacy practices of websites and services we do not own, and we encourage you to review their privacy notices.',
       ],
     },
     {
       heading: 'Information we collect',
       blocks: [
-        { subheading: 'Information you give us' },
+        'We collect information about you from a variety of sources depending on how you interact with us. Examples of personal information we collect directly from you include:',
         {
           list: [
-            'Contact and account details: name, email address, phone number, shipping and billing address, and your password if you create an account (stored by our account provider in encrypted form, so we never see it).',
-            'Order details: the products you buy, prices, discount codes used, order history and any returns.',
-            'Sign-ups and quizzes: your email or mobile number when you sign up for offers, and your answers if you take our hair quiz or gift finder.',
-            'Messages: anything you send us by email, phone or our contact form.',
+            'Account registration: when you create an account, we collect your name, email address and login details. Your password is stored by our account provider in encrypted form and is not visible to us.',
+            'Purchasing online: when you place an order, we collect your name, email address, phone number, shipping address and billing address. Payments are processed by PayPal; we do not receive or store your full card number.',
+            'Quizzes: when you complete our hair quiz or gift finder, we collect your answers, such as your hair type and concerns, and, if you choose to provide it, your email address.',
+            'Promotional communications: when you sign up for emails or text messages, we collect your email address or mobile phone number, and information about how you interact with the messages we send.',
+            'Communications with us: when you contact us by email, phone or our contact form, we collect your name, contact details and any information you choose to share.',
+            'Reviews and content: if you submit a review, photo or other content, we collect the information you share.',
           ],
         },
-        { subheading: 'Information collected automatically' },
-        {
-          list: [
-            'Browsing activity: pages and products you view, items you add to your bag or wishlist, checkouts you start and purchases, and how you reached our site.',
-            'Device information: browser type, device type, IP address and approximate location based on your IP address (city or region, not your precise location).',
-            'Cookies and similar technologies, described below.',
-          ],
-        },
-        { subheading: 'Information from others' },
-        {
-          list: [
-            'PayPal tells us whether a payment went through and gives us a transaction reference. We never receive your full card number.',
-            'Delivery companies tell us about the status of your shipment.',
-            'Advertising platforms may tell us, in summary form, how our ads performed.',
-          ],
-        },
-        'We do not knowingly collect sensitive personal information, such as health information, government ID numbers or precise location. Please do not send us health details by email; if you tell us about a reaction to a product, we use what you share only to help you and handle the issue.',
+        { subheading: 'Information from other sources' },
+        'We may also receive information about you from third parties, including PayPal (confirmation of payment and a transaction reference), our shipping carriers (delivery status) and advertising partners (aggregated information about the performance of our advertising).',
+        { subheading: 'Information we collect automatically' },
+        'When you visit our Site, we and our service providers obtain certain information by automated means, such as cookies, pixels, web server logs and similar technologies. This may include your IP address, device and browser type, operating system, language preference, referring URL, approximate location derived from your IP address, pages and products viewed, items added to your bag, checkouts started, purchases, and the dates and times of your visits.',
+        'We do not intentionally collect sensitive personal information such as government identification numbers or precise geolocation. If you tell us about a reaction to a product, we use that information only to assist you and resolve the issue.',
       ],
     },
     {
-      heading: 'How we use it',
+      heading: 'How we use your personal information',
       blocks: [
+        'We use personal information to:',
         {
           list: [
-            'To process payments, ship orders, send order and delivery updates and handle returns and refunds.',
-            'To run your account and show your order history.',
-            'To send marketing emails and texts you have signed up for, such as new products, offers and a reminder about items left in your bag.',
-            'To recommend products, for example from your quiz answers.',
-            'To answer questions and give customer support.',
-            'To understand how the store is used and improve it.',
-            'To measure our advertising and show our ads to people who have visited our store.',
-            'To prevent fraud, keep the site secure and enforce our terms.',
-            'To meet tax, accounting and other legal obligations.',
+            'Process and fulfill your orders, including payment, shipping, returns and refunds, and send you transactional communications about your orders.',
+            'Create and maintain your account and order history.',
+            'Respond to your questions, requests and feedback, and provide customer support.',
+            'Send marketing emails and text messages you have agreed to receive, including product launches, promotions and reminders about items left in your bag.',
+            'Personalize your experience, including product recommendations based on your quiz answers and purchases.',
+            'Conduct analytics and research to understand how our Site is used and to improve our products and services.',
+            'Measure the effectiveness of our advertising and show our advertisements to people who have visited our Site.',
+            'Detect, investigate and prevent fraud, security incidents and other unlawful activity, and enforce our Terms & Conditions.',
+            'Comply with applicable law, including tax and accounting obligations, and establish, exercise or defend legal claims.',
           ],
         },
+        'We may also use personal information for other purposes that we describe to you at the time of collection or with your consent.',
       ],
     },
     {
-      heading: 'How we share it',
-      blocks: [
-        'We share personal information only as described here:',
-        {
-          list: [
-            'Service providers that run the store for us and may use the information only for that purpose: PayPal (payments), Supabase (accounts and order records), Klaviyo (email, texts and onsite activity), Vercel (website hosting) and our shipping carriers.',
-            'Advertising partners: Meta (Facebook and Instagram), TikTok and Google receive information about your visit through tags on our site, as described under "Cookies and advertising". You can opt out below.',
-            'Legal and safety: when the law requires it, to respond to valid legal requests, or to protect our customers, our business or others from fraud or harm.',
-            'Business changes: if SK Envision is sold, merged or reorganised, customer information may transfer to the new owner, who must continue to protect it under this policy.',
-          ],
-        },
-      ],
-    },
-    {
-      heading: 'Cookies and advertising',
+      heading: 'Cookies, analytics and interest-based advertising',
       id: 'choices',
       hasAdChoices: true,
       blocks: [
-        { subheading: 'Cookies we need' },
-        'Our site stores a few things in your browser so it works: your bag, wishlist, language and, if you sign in, your session. PayPal may set its own cookies when you pay, to process the payment and prevent fraud.',
+        { subheading: 'Essential cookies' },
+        'Our Site stores certain information in your browser so that it functions properly, including your shopping bag, wishlist, language preference and, if you sign in, your session. PayPal may set its own cookies during payment to process your transaction and prevent fraud.',
         { subheading: 'Email and site activity' },
-        "We use Klaviyo's onsite tracking, which recognises your browser and records products you view, add to your bag and check out. If you have given us your email, this activity is linked to it so we can send relevant emails, such as a reminder about items left in your bag.",
-        { subheading: 'Advertising tags' },
-        'We use advertising tags from Meta, TikTok and Google. They set cookies and tell those companies which pages and products you view, what you add to your bag, when you start checkout and when you buy (the order number, items and total). We use this to measure how our ads perform and to show our ads to people who have visited our store. These companies may combine it with other information they hold about you, under their own privacy policies.',
+        'We use Klaviyo to send emails and text messages and to record activity on our Site, such as products viewed, items added to your bag and checkouts started. If you have provided your email address, this activity is associated with it so that we can send relevant messages, such as a reminder about items left in your bag.',
+        { subheading: 'Interest-based advertising' },
+        'We use advertising pixels and tags provided by Meta (Facebook and Instagram), TikTok and Google. These technologies collect information about your activity on our Site, including pages and products viewed, items added to your bag, checkouts started and purchases (order number, items and total), and share it with these companies so that we can measure our advertising and show our advertisements to people who have visited our Site. These companies may combine this information with other information they hold about you, in accordance with their own privacy policies.',
         { subheading: 'Your choices' },
-        'You can turn these advertising tags off with the setting below. We also treat a Global Privacy Control signal from your browser as the same request. You can block or delete cookies in your browser settings too; the store will still work, though your bag may not be remembered. Our site does not respond to other "Do Not Track" signals.',
+        'You may opt out of these advertising technologies at any time using the setting below. We also honor the Global Privacy Control (GPC) signal from your browser as a request to opt out. You may also block or delete cookies through your browser settings; the Site will continue to work, although some features, such as remembering your bag, may not. Other than GPC, our Site does not respond to "Do Not Track" signals.',
       ],
     },
     {
-      heading: 'Emails and texts',
+      heading: 'How we share your personal information',
       blocks: [
-        `We send marketing emails only if you sign up, for example for the ${WELCOME.label.toLowerCase()} code. Every marketing email has an unsubscribe link, and you can also email ${EMAIL} to be removed.`,
-        'If you sign up for texts, we send recurring automated marketing messages to the number you give us. Consent is not a condition of purchase, message frequency varies, and message and data rates may apply. Reply STOP to stop or HELP for help. We do not share your mobile number or text consent with other companies for their own marketing.',
-        'Unsubscribing does not stop messages about orders you place, such as order confirmations and delivery updates.',
-      ],
-    },
-    {
-      heading: 'How long we keep it',
-      blocks: [
+        'We share personal information only as described in this Privacy Notice:',
         {
           list: [
-            'Order and payment records: as long as tax and accounting rules require, usually seven years.',
-            'Accounts: until you ask us to delete your account.',
-            'Marketing data: until you unsubscribe or ask us to delete it.',
-            'Customer service messages: up to three years after the issue is closed.',
+            'Service providers: companies that perform services on our behalf and may use personal information only to provide those services, including PayPal (payment processing), Supabase (account and order records), Klaviyo (email, text messaging and site activity), Vercel (website hosting) and our shipping carriers.',
+            'Advertising partners: Meta, TikTok and Google, through the advertising technologies described above, unless you opt out.',
+            'Legal compliance and protection: when required by law or legal process, or when we believe disclosure is necessary to protect the rights, property or safety of SK Envision, our customers or others.',
+            'Business transfers: in connection with a merger, acquisition, reorganization or sale of all or part of our business, in which case personal information may be transferred to the successor, subject to this Privacy Notice.',
           ],
         },
+        'We do not sell personal information for money.',
       ],
     },
     {
-      heading: 'Security',
+      heading: 'How we protect your personal information',
       blocks: [
-        'Our site uses encrypted connections (HTTPS), payments are handled by PayPal, and our order database only accepts requests from our own servers. No system is perfectly secure, so please use a strong password that you do not use anywhere else, and tell us if you think your account has been misused.',
+        'We maintain reasonable administrative, technical and physical safeguards designed to protect personal information against loss, theft and unauthorized access, use or disclosure. Our Site uses encrypted (HTTPS) connections, payments are handled by PayPal, and our order database accepts requests only from our own servers. However, no method of transmission over the internet or electronic storage is completely secure. Please use a unique, strong password for your account and contact us if you believe your account has been compromised.',
       ],
     },
     {
-      heading: 'Your rights',
+      heading: 'Data retention',
       blocks: [
-        `You can ask us at any time to tell you what personal information we hold about you, give you a copy, correct it or delete it. Email ${EMAIL} from the address you shop with. Depending on where you live, you may have additional rights under your state's privacy law; we honour them as the law requires.`,
-        'If we decline your request, you can appeal by replying to our decision with the subject "Privacy appeal". We will respond within 45 days.',
+        'We retain personal information for as long as necessary to fulfill the purposes described in this Privacy Notice, unless a longer retention period is required or permitted by law. Order and payment records are kept for as long as required by tax and accounting laws. Account information is kept until you ask us to delete your account. Marketing information is kept until you unsubscribe or ask us to delete it. Customer service records are kept for as long as needed to resolve your request and handle any related claims.',
       ],
     },
     {
-      heading: 'California privacy rights',
+      heading: 'Your choices',
       blocks: [
-        'If you live in California, the California Consumer Privacy Act, as amended by the California Privacy Rights Act (together, the CCPA), gives you the rights below. This section is also our notice at collection.',
-        { subheading: 'What we collect and why' },
-        'In the last 12 months we collected these categories of personal information, from you, your device and the companies named in "Information we collect", for the purposes in "How we use it":',
+        { subheading: 'Marketing emails' },
+        `You may unsubscribe from marketing emails at any time by clicking the unsubscribe link in any email or by contacting us at ${EMAIL}.`,
+        { subheading: 'Text messages' },
+        'If you sign up for text messages, you agree to receive recurring automated marketing text messages at the mobile number you provide. Consent is not a condition of purchase. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe or HELP for help. We do not share your mobile number or text messaging consent with third parties for their own marketing purposes.',
+        'Opting out of marketing communications does not stop transactional messages about your orders, such as order confirmations and shipping updates.',
+        { subheading: 'Access, correction and deletion' },
+        `You may request access to, correction of or deletion of your personal information by emailing ${EMAIL} from the email address associated with your orders. Depending on where you live, you may have additional rights under applicable state privacy laws, which we honor as required. If we decline your request, you may appeal by replying to our decision with the subject line "Privacy Appeal", and we will respond within 45 days.`,
+      ],
+    },
+    {
+      heading: 'Information for California residents',
+      blocks: [
+        'This section applies to California residents and supplements the rest of this Privacy Notice. It is provided under the California Consumer Privacy Act, as amended by the California Privacy Rights Act (together, the "CCPA"), and serves as our notice at collection.',
+        { subheading: 'Categories of personal information we collect' },
+        'In the preceding 12 months, we have collected the following categories of personal information, from the sources described in "Information we collect" and for the purposes described in "How we use your personal information":',
         {
           list: [
-            'Identifiers, such as name, email, phone number, postal address, IP address and account login.',
+            'Identifiers, such as name, email address, phone number, postal address, IP address and account login.',
             'Customer records, such as billing and shipping address and phone number.',
-            'Commercial information, such as products bought, considered or returned.',
-            'Internet activity, such as pages and products viewed and interactions with our emails.',
-            'Approximate location derived from your IP address.',
-            'Inferences, such as product preferences from your purchases and quiz answers.',
+            'Commercial information, such as products purchased, considered or returned.',
+            'Internet or other electronic network activity, such as pages and products viewed and interactions with our emails.',
+            'Geolocation data, limited to approximate location derived from IP address.',
+            'Inferences, such as product preferences derived from purchases and quiz answers.',
           ],
         },
-        'We keep each category for the periods in "How long we keep it". We do not collect sensitive personal information as defined by the CCPA, and we do not knowingly sell or share the personal information of anyone under 16.',
-        { subheading: 'Selling and sharing' },
-        'We do not sell personal information for money. However, the advertising tags from Meta, TikTok and Google may count as "selling" or "sharing" for cross-context behavioural advertising under California law. The categories involved are identifiers, internet activity and commercial information. You can opt out at any time with the "Your privacy choices" setting on this page, which is also linked at the bottom of every page, or with Global Privacy Control.',
-        { subheading: 'Your rights' },
+        'We retain each category for the periods described in "Data retention". We do not collect sensitive personal information as defined by the CCPA, and we do not knowingly sell or share the personal information of consumers under 16 years of age.',
+        { subheading: 'Sale and sharing of personal information' },
+        'We do not sell personal information for money. However, our use of advertising technologies from Meta, TikTok and Google may be considered a "sale" or "sharing" of personal information for cross-context behavioral advertising under the CCPA. The categories involved are identifiers, internet or other electronic network activity and commercial information. You may opt out at any time using the "Your privacy choices" setting on this page, also linked at the bottom of every page of our Site, or by enabling Global Privacy Control in your browser.',
+        { subheading: 'Your California privacy rights' },
+        'Subject to certain exceptions, California residents have the right to:',
         {
           list: [
-            'To know what personal information we collect, use, disclose and share, and to get a copy of it.',
-            'To delete personal information we hold about you, with some legal exceptions, such as order records we must keep for tax purposes.',
-            'To correct inaccurate personal information.',
-            'To opt out of the sale or sharing of your personal information.',
-            'To limit the use of sensitive personal information. We do not collect it, so there is nothing to limit.',
-            'Not to be treated differently for using any of these rights.',
+            'Know what personal information we have collected, used, disclosed, sold and shared about you, and obtain a copy of it.',
+            'Request deletion of personal information we have collected from you, subject to legal exceptions, such as records we are required to keep for tax purposes.',
+            'Correct inaccurate personal information.',
+            'Opt out of the sale or sharing of personal information.',
+            'Limit the use of sensitive personal information. Because we do not collect sensitive personal information, this right does not currently apply.',
+            'Not receive discriminatory treatment for exercising any of these rights.',
           ],
         },
-        { subheading: 'How to make a request' },
-        `Email ${EMAIL} with the subject "California privacy request", or call ${PHONE}. To protect you, we verify requests by matching the details you give us with our records, usually by confirming the email address on your orders. We respond within 45 days, or tell you if we need up to 45 more. You can ask someone to act for you as an authorised agent; we will ask for your written permission and may ask you to verify your identity directly.`,
+        { subheading: 'Submitting a request' },
+        `To submit a request, email ${EMAIL} with the subject line "California Privacy Request" or call ${PHONE}. To protect your information, we verify requests by matching the information you provide with our records, typically by confirming the email address associated with your orders. We will respond within 45 days, or notify you if we need up to an additional 45 days. You may use an authorized agent to submit a request on your behalf; we will require written proof of the agent's authorization and may ask you to verify your identity directly with us.`,
         { subheading: 'Notice of financial incentive' },
-        `We offer a discount, such as ${WELCOME.label.toLowerCase()}, to people who sign up for our emails or texts, and a discount for finishing our hair quiz with your email. In exchange we collect your email address or mobile number, and quiz answers where relevant. Joining is optional, and you can leave at any time by unsubscribing or replying STOP; you keep any discount already used. We estimate the value of your information to be roughly equal to the discount offered, based on what we expect a subscriber to spend with us and the cost of the offer.`,
+        `We offer discounts, such as ${WELCOME.label.toLowerCase()}, to customers who sign up for our emails or text messages or who provide their email address when completing our hair quiz. In exchange, we collect your email address or mobile phone number and, where applicable, your quiz answers. Participation is voluntary, and you may withdraw at any time by unsubscribing or replying STOP; you keep any discount already redeemed. We estimate the value of your personal information to be approximately equal to the value of the discount offered, based on the expected purchases of subscribers and the cost of the offer.`,
         { subheading: 'Shine the Light' },
-        `California's "Shine the Light" law lets residents ask once a year about personal information we disclosed to other companies for their own direct marketing. We do not disclose personal information for that purpose. You can still send a request to ${EMAIL}.`,
+        `California Civil Code section 1798.83 permits California residents to request, once per year, information about the personal information we disclosed to third parties for their own direct marketing purposes. SK Envision does not disclose personal information to third parties for their own direct marketing purposes. You may submit a request to ${EMAIL}.`,
       ],
     },
     {
-      heading: 'Children',
+      heading: 'Children’s privacy',
       blocks: [
-        'Our store is for adults. It is not directed to children under 16, and we do not knowingly collect personal information from children under 13. If you believe a child has given us personal information, email us and we will delete it.',
+        'Our Site is intended for adults and is not directed to children under 16. We do not knowingly collect personal information from children under 13. If you believe a child has provided us with personal information, please contact us and we will delete it.',
       ],
     },
     {
-      heading: 'Changes to this policy',
+      heading: 'Where your information is processed',
       blocks: [
-        'If we change this policy, we will update the date at the top of this page. If a change is significant, we will tell customers by email or with a notice on the site before it takes effect.',
+        'SK Envision is located in the United States, and the personal information we collect is stored and processed in the United States by us and our service providers.',
       ],
     },
     {
-      heading: 'Contact us',
-      blocks: [`Email ${EMAIL}, call ${PHONE} or write to SK Envision, ${ADDRESS}.`],
+      heading: 'Communicating with us',
+      blocks: [
+        `If you have any questions about this Privacy Notice or our privacy practices, please contact us by email at ${EMAIL}, by phone at ${PHONE}, or by mail at SK Envision, Attn: Privacy, ${ADDRESS}.`,
+      ],
+    },
+    {
+      heading: 'Changes to this privacy notice',
+      blocks: [
+        'We may update this Privacy Notice from time to time. When we do, we will update the date at the top of this page. If we make material changes, we will notify you by email or by a notice on our Site before the changes take effect.',
+      ],
     },
   ],
 };
@@ -454,166 +467,172 @@ const privacy = {
 const terms = {
   slug: 'terms',
   path: '/terms',
-  title: 'Terms of service',
+  title: 'Terms & conditions',
   label: 'Terms',
   description:
-    'The terms for using the SK Envision website and buying our hair and skin care products: orders, pricing, payment, promotions, product use, reviews, liability and governing law.',
+    'The Terms & Conditions governing use of the SK Envision website and purchases of SK Envision products, including orders, pricing, product use, liability, governing law and text message terms.',
   intro:
-    'These terms are an agreement between you and SK Envision. They apply when you use our website, create an account, sign up for emails or texts, or buy from us. By doing any of these, you agree to these terms and to our shipping, returns and privacy policies. If you do not agree, please do not use the site.',
-  summary: [
-    'You must be 18 or older to buy from us.',
-    'Our products are cosmetics: read the label and patch test before use.',
-    'Prices and promotions can change, but never on an order you have already paid for.',
-    'California law applies, with disputes heard in Orange County, California.',
-  ],
+    'PLEASE READ THESE TERMS AND CONDITIONS CAREFULLY, AS THEY AFFECT YOUR LEGAL RIGHTS AND OBLIGATIONS, INCLUDING LIMITATIONS OF LIABILITY AND THE LAW AND COURTS THAT GOVERN ANY DISPUTE.',
+  summary: [],
   sections: [
     {
-      heading: 'About us',
-      blocks: [`This website is run by SK Envision, ${ADDRESS}. Email ${EMAIL} or call ${PHONE}.`],
-    },
-    {
-      heading: 'Who can use the site',
+      heading: 'Overview',
       blocks: [
-        'You must be at least 18, or the age of majority where you live, to create an account or place an order. Our products are sold for personal use, not for resale; we may limit or cancel orders that appear to be placed by resellers.',
+        'This website (the "Site") is operated by SK Envision ("SK Envision", "we", "us" or "our"). SK Envision offers this Site, including all information, tools and services available from it, to you, the user, conditioned upon your acceptance of all terms, conditions, policies and notices stated here.',
+        'By visiting our Site and/or purchasing from us, you agree to be bound by these Terms & Conditions (the "Terms"), including the additional policies referenced here and available by hyperlink, including our Shipping Policy, Returns Policy and Privacy Notice. These Terms apply to all users of the Site, including browsers, customers and contributors of content. If you do not agree to these Terms, you may not access or use the Site.',
+        'The headings in these Terms are for convenience only and do not limit or otherwise affect these Terms.',
       ],
     },
     {
-      heading: 'Your account',
+      heading: 'Section 1 - Online store terms',
       blocks: [
-        'Keep your login details private and tell us straight away if you think someone else has used your account. You are responsible for activity on your account. We may suspend or close accounts that break these terms. You can ask us to delete your account at any time.',
+        'By agreeing to these Terms, you represent that you are at least 18 years of age, or the age of majority in your state of residence. You may not use our products or the Site for any illegal or unauthorized purpose, and you may not violate any laws in your jurisdiction in your use of the Site. A breach of any of these Terms may result in the immediate termination of your use of the Site.',
       ],
     },
     {
-      heading: 'Product information and safe use',
+      heading: 'Section 2 - General conditions',
       blocks: [
-        'Our products are cosmetics for external use only. They are not intended to diagnose, treat, cure or prevent any disease, and results vary from person to person. Descriptions and photos on our site are for general information and are not medical advice.',
-        {
-          list: [
-            'Read the full label, directions and ingredient list before use, especially if you have allergies or sensitive skin.',
-            'Patch test before first use: apply a small amount to the inside of your arm or behind your ear and wait 24 hours. For hair colour products, do the allergy test in the product instructions before every use.',
-            'Stop using a product if you notice redness, itching, burning or swelling, and see a doctor if it does not settle.',
-            'Keep products away from your eyes unless they are made for the eye area, and rinse with water if they get in them.',
-            'Ask your doctor before use if you are pregnant or breastfeeding, have a skin or scalp condition, or are under medical treatment.',
-            'Keep out of reach of children.',
-          ],
-        },
-        'We try to show products, colours and ingredients accurately, but packaging and formulas can change, and colours can look different on screens. The label on the product you receive is the one to follow.',
+        'We reserve the right to refuse service to anyone, for any lawful reason, at any time. You agree not to reproduce, duplicate, copy, sell, resell or exploit any portion of the Site, use of the Site or access to the Site without our express written permission.',
       ],
     },
     {
-      heading: 'Orders',
+      heading: 'Section 3 - Accounts',
       blocks: [
-        'Your order is an offer to buy. Our order confirmation email confirms we received it; we accept your order when we ship it. We may refuse, limit or cancel any order, for example if a product is unavailable, a price or description was wrong, the order looks fraudulent, or a promotion was misused. If we cancel after you have paid, we refund you in full.',
+        'You are responsible for maintaining the confidentiality of your account login details and for all activity under your account. Please notify us immediately if you believe your account has been used without your authorization. We may suspend or close accounts that violate these Terms. You may request that we delete your account at any time.',
       ],
     },
     {
-      heading: 'Prices and availability',
+      heading: 'Section 4 - Accuracy of information',
       blocks: [
-        'Prices are in US dollars and do not include shipping or sales tax, which are shown at checkout before you pay.',
-        'We may change prices, products and promotions at any time, but a change never affects an order you have already paid for. If a product is listed at the wrong price because of an error, we will contact you before shipping and let you choose to pay the correct price or cancel.',
+        'We make every effort to ensure the information on this Site is accurate and complete. However, the material on this Site is provided for general information only. Occasionally the Site may contain typographical errors, inaccuracies or omissions relating to product descriptions, pricing, promotions, shipping charges, transit times and availability. We reserve the right to correct any errors, inaccuracies or omissions and to change or update information at any time without prior notice.',
       ],
     },
     {
-      heading: 'Payment',
+      heading: 'Section 5 - Products and safe use',
       blocks: [
-        'We take payment through PayPal: with your PayPal account, or with a debit or credit card through PayPal without an account. PayPal may also offer its own Pay Later options under its own terms. We never see or store your full card number. Your payment is charged when you place the order.',
+        'SK Envision products are cosmetics intended for external use only. They are not intended to diagnose, treat, cure or prevent any disease. Individual results vary. Information on this Site is not medical advice.',
+        'Before using any product, you agree to read the complete label, directions, warnings and ingredient list. We recommend a patch test before first use. For hair color products, perform the allergy test described in the product instructions before every use. Discontinue use if irritation occurs and consult a physician if it persists. Consult your physician before use if you are pregnant or nursing, have a skin or scalp condition or are under medical care. Keep products out of reach of children.',
+        'We have made every effort to display the colors and images of our products accurately, but we cannot guarantee that your device will display them accurately. Packaging and formulations may change; the label on the product you receive governs.',
       ],
     },
     {
-      heading: 'Promotions and discount codes',
+      heading: 'Section 6 - Orders, pricing and payment',
       blocks: [
-        {
-          list: [
-            `${WELCOME.code} gives ${WELCOME.value}% off your first order, once per customer.`,
-            'Unless an offer says otherwise, one discount code can be used per order, codes cannot be combined, exchanged for cash or applied to past orders, and they apply to products, not to tax or gift cards.',
-            'Each promotion may have its own dates and conditions, which are shown with the offer.',
-            'We may end or change an offer at any time, and cancel orders that misuse a code.',
-          ],
-        },
+        'Your order constitutes an offer to purchase. Our order confirmation email acknowledges that we have received your order; your order is accepted when it ships. We reserve the right to refuse, limit or cancel any order, including orders that exceed quantity limits, appear to be placed by resellers, contain pricing or description errors, or involve suspected fraud or misuse of a promotion. If we cancel an order after payment, we will issue a full refund.',
+        'All prices are in US dollars and exclude shipping and applicable sales tax, which are shown at checkout before you complete your purchase. Prices and product availability are subject to change without notice, but changes do not affect orders that have already been paid for. If a product is listed at an incorrect price due to an error, we will contact you before shipping and give you the option to pay the correct price or cancel the order.',
+        'Payment is processed by PayPal, using your PayPal account or a debit or credit card. Any PayPal Pay Later options are offered by PayPal under its own terms. Your payment is charged when you place your order. You agree to provide current, complete and accurate purchase information.',
       ],
     },
     {
-      heading: 'Shipping, returns and risk of loss',
+      heading: 'Section 7 - Promotions and discount codes',
       blocks: [
-        'Delivery and returns follow our shipping policy and returns policy, which are part of these terms. Title and risk of loss pass to you when the carrier delivers your order.',
+        `Unless otherwise stated, discount codes are limited to one per order, cannot be combined with other offers, have no cash value, cannot be applied to previous orders and apply to merchandise only, excluding shipping and taxes. ${WELCOME.code} provides ${WELCOME.value}% off a customer's first order and may be used once per customer. Each promotion is subject to the dates and conditions stated with the offer. We reserve the right to modify or end any promotion at any time and to cancel orders that misuse a promotion.`,
       ],
     },
     {
-      heading: 'Emails and texts',
+      heading: 'Section 8 - Shipping, returns and risk of loss',
       blocks: [
-        'If you sign up for marketing emails or texts, you agree to receive them at the email address or number you give us. Texts are recurring automated marketing messages; consent is not a condition of purchase, message frequency varies, and message and data rates may apply. Reply STOP to cancel or HELP for help, and use the unsubscribe link in any email. Carriers are not liable for delayed or undelivered messages.',
+        'Shipping and returns are governed by our Shipping Policy and Returns Policy, which are incorporated into these Terms. Title and risk of loss for products pass to you upon delivery by the carrier.',
       ],
     },
     {
-      heading: 'Reviews and content you share',
+      heading: 'Section 9 - Third-party services and links',
       blocks: [
-        'If you post a review, photo or comment on our site or tag us on social media, it must be honest, based on your own experience and free of anything unlawful, offensive or that you do not have the right to share. If you received a free product or other benefit in exchange, you must say so.',
-        'By submitting content to us, you allow SK Envision to use, show and share it, with your name or handle, on our website, emails and social media without payment. We may remove content that breaks these rules. We do not edit reviews to change their meaning, and we publish negative reviews as well as positive ones.',
+        'The Site uses and links to services provided by third parties, such as PayPal and social media platforms. These services are governed by their own terms and privacy policies. We are not responsible for the content, accuracy or practices of third-party websites or services, and any use of them is at your own risk.',
       ],
     },
     {
-      heading: 'Our content and trademarks',
+      heading: 'Section 10 - Reviews, comments and other submissions',
       blocks: [
-        'The SK Envision name, logo, product names, photos, videos and text on this site belong to SK Envision or our licensors. You may view and print pages for personal shopping, but please do not copy, sell or reuse our content without our written permission.',
+        'If you submit a review, photo, comment or other content ("Submissions"), you agree that it will be truthful, based on your own experience with the product, and will not contain unlawful, defamatory, obscene or otherwise objectionable material or infringe the rights of any third party. If you received a free product or any other benefit in connection with a Submission, you must clearly disclose it.',
+        'By providing a Submission, you grant SK Envision a non-exclusive, royalty-free, perpetual license to use, reproduce, display and distribute it, together with your name or username, on our Site, in emails and on social media. We may, but are not obligated to, remove Submissions that violate these Terms. We do not edit reviews to change their meaning, and we publish both positive and negative reviews.',
       ],
     },
     {
-      heading: 'Using the site responsibly',
+      heading: 'Section 11 - Personal information',
       blocks: [
-        'Please do not use the site to break the law, infringe anyone’s rights, send spam, try to gain access to accounts or systems that are not yours, interfere with the site’s security or performance, or collect data from it with bots or scrapers.',
+        'Our collection and use of personal information through the Site is governed by our Privacy Notice.',
       ],
     },
     {
-      heading: 'Other companies’ services',
+      heading: 'Section 12 - Intellectual property',
       blocks: [
-        'Our site links to and uses services run by other companies, such as PayPal and social media sites. Their own terms and privacy policies apply, and we are not responsible for their content or practices.',
+        'The SK Envision name, logo, product names, images, videos, text and other content on the Site are owned by SK Envision or its licensors and are protected by intellectual property laws. You may view and print pages for your personal, non-commercial use only. Any other use without our prior written permission is prohibited.',
       ],
     },
     {
-      heading: 'Disclaimers',
+      heading: 'Section 13 - Prohibited uses',
       blocks: [
-        'We work hard to keep the site accurate and available, but it is provided "as is" and "as available". To the extent the law allows, we do not promise the site will always be available, uninterrupted or error free, and we make no warranties beyond those stated on our products or required by law.',
+        'In addition to other prohibitions in these Terms, you may not use the Site or its content: (a) for any unlawful purpose; (b) to solicit others to perform or participate in any unlawful acts; (c) to violate any international, federal or state law or regulation; (d) to infringe our intellectual property rights or those of others; (e) to harass, abuse, defame or discriminate against any person; (f) to submit false or misleading information; (g) to upload or transmit viruses or other malicious code; (h) to collect or track the personal information of others; (i) to spam, phish, scrape, crawl or use automated means to access the Site; or (j) to interfere with or circumvent the security features of the Site.',
       ],
     },
     {
-      heading: 'Limitation of liability',
+      heading: 'Section 14 - Disclaimer of warranties; limitation of liability',
       blocks: [
-        'To the extent the law allows, SK Envision is not liable for indirect, incidental, special or consequential losses arising from your use of the site or our products, and our total liability for any claim about an order is limited to the amount you paid for that order. Nothing in these terms limits rights you have under consumer protection law that cannot be waived, or our liability where the law does not allow it to be limited.',
+        'WE DO NOT GUARANTEE, REPRESENT OR WARRANT THAT YOUR USE OF THE SITE WILL BE UNINTERRUPTED, TIMELY, SECURE OR ERROR-FREE. EXCEPT AS EXPRESSLY STATED BY US OR REQUIRED BY LAW, THE SITE AND ALL PRODUCTS AND SERVICES DELIVERED THROUGH IT ARE PROVIDED "AS IS" AND "AS AVAILABLE", WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT, TO THE FULLEST EXTENT PERMITTED BY LAW.',
+        'TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL SK ENVISION OR ITS OWNERS, EMPLOYEES, AGENTS, SUPPLIERS OR SERVICE PROVIDERS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES, INCLUDING LOST PROFITS OR LOSS OF DATA, ARISING FROM YOUR USE OF THE SITE OR ANY PRODUCTS PURCHASED THROUGH IT. OUR TOTAL LIABILITY FOR ANY CLAIM RELATING TO AN ORDER SHALL NOT EXCEED THE AMOUNT YOU PAID FOR THAT ORDER.',
+        'SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF CERTAIN WARRANTIES OR DAMAGES, SO SOME OF THE ABOVE MAY NOT APPLY TO YOU. NOTHING IN THESE TERMS LIMITS ANY RIGHTS YOU HAVE UNDER CONSUMER PROTECTION LAWS THAT CANNOT BE WAIVED.',
       ],
     },
     {
-      heading: 'Indemnity',
+      heading: 'Section 15 - Indemnification',
       blocks: [
-        'If you break these terms or the law when using our site, you agree to cover reasonable costs, losses and claims that SK Envision faces as a result.',
+        'You agree to indemnify, defend and hold harmless SK Envision and its owners, employees, agents, suppliers and service providers from any claim or demand, including reasonable attorneys’ fees, made by any third party arising out of your breach of these Terms or your violation of any law or the rights of a third party.',
       ],
     },
     {
-      heading: 'Governing law and disputes',
+      heading: 'Section 16 - Governing law and disputes',
       blocks: [
-        `These terms are governed by the laws of the State of California and applicable US federal law. If you have a concern, please contact us first at ${EMAIL}; most issues can be solved quickly. Any dispute that we cannot resolve will be decided in the state or federal courts located in Orange County, California, unless the law where you live gives you the right to bring it elsewhere. Either of us may bring an eligible claim in small claims court.`,
+        `These Terms are governed by the laws of the State of California, without regard to its conflict of law principles, and applicable federal law. If you have a concern, please contact us first at ${EMAIL} so that we can try to resolve it informally. Any dispute that cannot be resolved informally shall be brought exclusively in the state or federal courts located in Orange County, California, and you and SK Envision consent to the personal jurisdiction of those courts, except where applicable law gives you the right to bring a claim elsewhere. Either party may bring an eligible claim in small claims court.`,
       ],
     },
     {
-      heading: 'Notice for California residents',
+      heading: 'Section 17 - Notice to California residents',
       blocks: [
-        'Under California Civil Code section 1789.3, California users are entitled to the following consumer rights notice. The Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs can be reached in writing at 1625 North Market Blvd., Suite N 112, Sacramento, CA 95834, or by phone at (800) 952-5210.',
+        'Under California Civil Code section 1789.3, California users are entitled to the following consumer rights notice: the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs may be contacted in writing at 1625 North Market Blvd., Suite N 112, Sacramento, CA 95834, or by telephone at (800) 952-5210.',
       ],
     },
     {
-      heading: 'General',
+      heading: 'Section 18 - Copyright infringement notice',
       blocks: [
-        'If any part of these terms cannot be enforced, the rest still applies. If we do not enforce a right straight away, we can still enforce it later. These terms, with the policies they mention, are the whole agreement between you and us about using the site and buying from us.',
+        'We respect the intellectual property rights of others. If you believe that material on the Site infringes your copyright, please send a notice to SK Envision, Attn: Legal, at the address below or by email, including: (1) your physical or electronic signature; (2) a description of the copyrighted work; (3) information sufficient to locate the material on the Site; (4) your name, address, telephone number and email address; (5) a statement that you have a good faith belief that the use is not authorized by the copyright owner, its agent or the law; and (6) a statement, made under penalty of perjury, that the information in your notice is accurate and that you are the copyright owner or authorized to act on its behalf.',
       ],
     },
     {
-      heading: 'Changes to these terms',
+      heading: 'Section 19 - Severability and waiver',
       blocks: [
-        'We may update these terms. The date at the top of this page shows when they last changed, and the version on this page when you place an order applies to that order.',
+        'If any provision of these Terms is found to be unlawful, void or unenforceable, that provision shall be enforced to the fullest extent permitted by law and the unenforceable portion shall be severed, without affecting the validity of the remaining provisions. Our failure to exercise or enforce any right or provision of these Terms shall not constitute a waiver of that right or provision.',
       ],
     },
     {
-      heading: 'Contact us',
-      blocks: [`Email ${EMAIL}, call ${PHONE} or write to SK Envision, ${ADDRESS}.`],
+      heading: 'Section 20 - Termination',
+      blocks: [
+        'These Terms are effective unless and until terminated by you or us. You may terminate them at any time by ceasing to use the Site. We may terminate your access to the Site at any time if you fail to comply with these Terms. Obligations and liabilities incurred before termination survive termination.',
+      ],
+    },
+    {
+      heading: 'Section 21 - Entire agreement',
+      blocks: [
+        'These Terms, together with the policies posted on the Site, constitute the entire agreement between you and SK Envision regarding your use of the Site and supersede any prior agreements or communications.',
+      ],
+    },
+    {
+      heading: 'Section 22 - Changes to these terms',
+      blocks: [
+        'We may update these Terms at any time by posting the revised Terms on this page and updating the date at the top. The Terms in effect when you place an order govern that order. Your continued use of the Site after changes are posted constitutes acceptance of the revised Terms.',
+      ],
+    },
+    {
+      heading: 'Section 23 - Mobile messaging terms',
+      blocks: [
+        'By opting in to SK Envision text messages, you agree to receive recurring automated marketing and informational text messages from SK Envision at the mobile number you provide, which may include promotions and cart reminders. Consent is not a condition of any purchase. Message frequency varies. Message and data rates may apply. Reply STOP to cancel at any time, or HELP for help. Wireless carriers are not liable for delayed or undelivered messages. Our Privacy Notice explains how we handle your information.',
+      ],
+    },
+    {
+      heading: 'Section 24 - Contact information',
+      blocks: [
+        `Questions about these Terms should be sent to SK Envision at ${EMAIL}, by phone at ${PHONE}, or by mail at ${ADDRESS}.`,
+      ],
     },
   ],
 };
@@ -627,64 +646,66 @@ const accessibility = {
   title: 'Accessibility statement',
   label: 'Accessibility',
   description:
-    'SK Envision is committed to a website everyone can use. Our accessibility standard, what we have done, known limitations and how to get help.',
+    'SK Envision’s website accessibility statement: how to get assistance, our goal and standard (WCAG 2.1 AA), the steps we are taking, known limitations and how to give feedback.',
   intro:
-    'SK Envision wants everyone to be able to shop with us, including people who use screen readers, keyboard navigation, magnification, voice control or other assistive technology. We are committed to equal access under the Americans with Disabilities Act and California’s Unruh Civil Rights Act.',
-  summary: [
-    'We aim to meet WCAG 2.1 level AA.',
-    'Every page and checkout step can be used with a keyboard and screen reader.',
-    `Need help? Email ${EMAIL} or call ${PHONE} and we will help you shop or order.`,
-  ],
+    'SK Envision is committed to providing a positive experience for all of our customers, including people with disabilities, and to equal access under the Americans with Disabilities Act and California’s Unruh Civil Rights Act.',
+  summary: [],
   sections: [
+    {
+      heading: 'Accessibility assistance',
+      blocks: [
+        `If you have difficulty using or accessing any part of this website, please email us at ${EMAIL} or call ${PHONE}. We will work with you to provide the information, product or transaction you are looking for through a communication method that is accessible to you, at the same prices available on our website.`,
+      ],
+    },
+    {
+      heading: 'Our goal',
+      blocks: [
+        'Our goal is for every customer to be able to find information, browse products and complete a purchase on our website easily and independently, including customers who use screen readers, keyboard navigation, screen magnification, voice control or other assistive technologies.',
+      ],
+    },
     {
       heading: 'Our standard',
       blocks: [
-        'We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.1 at level AA, the standard published by the World Wide Web Consortium for making websites usable by people with disabilities.',
+        'We aim to conform to the Web Content Accessibility Guidelines (WCAG) 2.1, Level AA, published by the World Wide Web Consortium (W3C).',
       ],
     },
     {
-      heading: 'What we have done',
+      heading: 'Actions',
       blocks: [
+        'Steps we have taken to support accessibility include:',
         {
           list: [
-            'Every page, menu, product option and checkout step can be used with a keyboard alone, with a visible focus outline.',
-            'Images have text descriptions, and buttons, links and form fields have labels that screen readers announce.',
-            'Pages use clear headings and landmarks so assistive technology can move around them.',
-            'Text and buttons have strong colour contrast, and pages can be zoomed without losing content.',
-            'Animations are reduced when your device is set to reduce motion.',
-            'Error messages in forms explain what to fix.',
+            'Designing menus, product options and checkout steps to work with a keyboard, with a visible focus indicator.',
+            'Providing text alternatives for images and accessible labels for buttons, links and form fields.',
+            'Using clear headings and page landmarks to support navigation with assistive technology.',
+            'Choosing color combinations with strong contrast, and reducing animation when your device is set to reduce motion.',
+            'Providing form error messages that explain how to correct the error.',
           ],
         },
-      ],
-    },
-    {
-      heading: 'Compatibility',
-      blocks: [
-        'The site is designed to work with current versions of Chrome, Safari, Firefox and Edge, and with common screen readers such as VoiceOver, TalkBack, NVDA and JAWS.',
       ],
     },
     {
       heading: 'Known limitations',
       blocks: [
-        'We are still improving the site, and some parts may not be fully accessible yet:',
+        'Some parts of our website may not yet be fully accessible:',
         {
           list: [
-            'Some product photos show text printed on packaging that is not repeated word for word on the page. Product names, sizes and directions are always written on the product page.',
-            'Payment happens in PayPal’s own window, which follows PayPal’s accessibility standards rather than ours.',
+            'Some product photos show text printed on packaging that is not repeated word for word on the page. Product names, sizes and directions are always provided in text on the product page.',
+            'Payment is completed in PayPal’s own window, which is governed by PayPal’s accessibility practices.',
           ],
         },
       ],
     },
     {
-      heading: 'Get help or give feedback',
+      heading: 'Ongoing effort',
       blocks: [
-        `If anything on our site is hard to use, email ${EMAIL} or call ${PHONE}. Tell us the page and what went wrong. We aim to reply within two business days, and we can help you find products, answer questions about them or place your order by email or phone at the same prices.`,
+        'We view accessibility as an ongoing effort. We review new pages and features against WCAG 2.1 Level AA and address issues as we identify them or as customers report them.',
       ],
     },
     {
-      heading: 'Ongoing work',
+      heading: 'Feedback',
       blocks: [
-        'We review new pages and features against WCAG 2.1 AA and fix problems as we find them or as customers report them.',
+        `We welcome your feedback and suggestions on how we can improve the accessibility of our website. Please contact us at ${EMAIL} or ${PHONE}, and include the page and the issue you encountered. We aim to respond within two business days.`,
         `This statement was last reviewed on ${POLICY_UPDATED}.`,
       ],
     },
