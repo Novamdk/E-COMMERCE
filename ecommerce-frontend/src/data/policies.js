@@ -428,8 +428,48 @@ const terms = {
   ],
 };
 
+/** @type {Policy} */
+const accessibility = {
+  slug: 'accessibility',
+  path: '/accessibility',
+  title: 'Accessibility',
+  label: 'Accessibility',
+  description:
+    'How SK Envision works to make its website usable for everyone, and how to get help or report a problem.',
+  intro:
+    'We want everyone to be able to shop with us, including people who use a screen reader, keyboard, magnifier or other assistive technology.',
+  sections: [
+    {
+      heading: 'What we aim for',
+      blocks: [
+        'We aim to meet the Web Content Accessibility Guidelines (WCAG) 2.1 at level AA. We design the site to these standards and fix problems as we find them:',
+        {
+          list: [
+            'Every page and checkout step works with a keyboard alone.',
+            'Images have text descriptions, and buttons and form fields have labels that screen readers announce.',
+            'Text has strong contrast against its background and can be zoomed without breaking the page.',
+            'Animations are reduced when your device asks for less motion.',
+          ],
+        },
+      ],
+    },
+    {
+      heading: 'Need help or found a problem?',
+      blocks: [
+        `If any part of the site is hard to use, email ${EMAIL} or call ${CONTACT.PHONE}. Tell us the page and what went wrong, and we will help you find a product or place your order another way. We aim to reply within two business days.`,
+      ],
+    },
+    {
+      heading: 'Other companies',
+      blocks: [
+        'Payment happens in PayPal, which runs its own accessibility programme. If you have trouble paying, contact us and we will help.',
+      ],
+    },
+  ],
+};
+
 /** In footer order. */
-export const POLICIES = [shipping, returns, privacy, terms];
+export const POLICIES = [shipping, returns, privacy, terms, accessibility];
 
 /** @param {string} slug @returns {Policy | undefined} */
 export const policyBySlug = (slug) => POLICIES.find((policy) => policy.slug === slug);

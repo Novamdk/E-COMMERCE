@@ -83,6 +83,7 @@ export const fr = {
     returns: 'Retours',
     privacy: 'Politique de confidentialité',
     terms: "Conditions d'utilisation",
+    accessibility: 'Accessibilité',
     privacyChoices: 'Vos choix en matière de confidentialité',
     bag: 'Votre panier',
     company: 'SK Envision',

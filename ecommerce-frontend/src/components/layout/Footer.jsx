@@ -32,6 +32,7 @@ const COMPANY_LINKS = [
   { to: ROUTES.SIGN_IN, label: 'footer.signIn' },
   { to: ROUTES.PRIVACY, label: 'footer.privacy' },
   { to: ROUTES.TERMS, label: 'footer.terms' },
+  { to: ROUTES.ACCESSIBILITY, label: 'footer.accessibility' },
   // Required by California law while the ad tags count as sharing.
   { to: `${ROUTES.PRIVACY}#choices`, label: 'footer.privacyChoices' },
 ];

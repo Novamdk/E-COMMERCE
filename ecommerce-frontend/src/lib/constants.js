@@ -29,6 +29,7 @@ export const ROUTES = {
   RETURNS: '/returns',
   PRIVACY: '/privacy',
   TERMS: '/terms',
+  ACCESSIBILITY: '/accessibility',
   NOT_FOUND: '*',
 };
 

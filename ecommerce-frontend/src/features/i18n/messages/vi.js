@@ -83,6 +83,7 @@ export const vi = {
     returns: 'Đổi trả',
     privacy: 'Chính sách quyền riêng tư',
     terms: 'Điều khoản dịch vụ',
+    accessibility: 'Khả năng tiếp cận',
     privacyChoices: 'Lựa chọn quyền riêng tư của bạn',
     bag: 'Giỏ hàng',
     company: 'SK Envision',

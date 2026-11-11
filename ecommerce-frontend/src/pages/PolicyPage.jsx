@@ -63,7 +63,7 @@ function useScrollToHash() {
  * lives in src/data/policies.js so the prerendered HTML says the same thing.
  * Policies stay in English in every language, as the binding version.
  *
- * @param {{ slug: 'shipping' | 'returns' | 'privacy' | 'terms' }} props
+ * @param {{ slug: 'shipping' | 'returns' | 'privacy' | 'terms' | 'accessibility' }} props
  */
 export default function PolicyPage({ slug }) {
   const policy = policyBySlug(slug);

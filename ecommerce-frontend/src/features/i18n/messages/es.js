@@ -83,6 +83,7 @@ export const es = {
     returns: 'Devoluciones',
     privacy: 'Política de privacidad',
     terms: 'Términos del servicio',
+    accessibility: 'Accesibilidad',
     privacyChoices: 'Tus opciones de privacidad',
     bag: 'Tu cesta',
     company: 'SK Envision',
