@@ -172,7 +172,6 @@ export const fr = {
     looks: {
       eyebrow: 'En action',
       title: 'Shoppez le look',
-      soon: 'Vidéo bientôt disponible',
       shop: 'Shoppez le look',
     },
     reviews: {
@@ -248,7 +247,7 @@ export const fr = {
     goalRepair: 'Réparer les cheveux secs et abîmés',
     goalFuller: 'Des cheveux plus épais',
     goalShine: 'Des cheveux doux et brillants',
-    goalColour: 'Couvrir les cheveux blancs',
+    goalColour: 'Raviver ma couleur',
     goalLashes: 'Cils et sourcils plus longs',
     learn: 'Découvrir',
     aboutUs: 'À propos',
@@ -272,6 +271,7 @@ export const fr = {
     breadcrumb: 'Fil d’Ariane',
     home: 'Accueil',
     count: '{count} produits',
+    countOne: '1 produit',
     error: 'Impossible de charger cette collection',
     loading: 'Chargement des produits',
     sortLabel: 'Trier',

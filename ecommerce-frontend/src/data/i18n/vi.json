@@ -51,7 +51,7 @@
       },
       {
         "q": "Bao lâu thì thấy kết quả?",
-        "a": "Tùy sản phẩm. Serum dưỡng mi cho kết quả thấy rõ sau khoảng bốn tuần; mặt nạ và dầu xả thường thấy khác biệt sau hai, ba lần gội."
+        "a": "Tùy sản phẩm và tùy bạn. Mặt nạ và dầu xả thường thấy khác biệt sau hai, ba lần gội; serum và kem được dùng hằng ngày trong vài tuần."
       },
       {
         "q": "Chính sách đổi trả thế nào?",
@@ -83,8 +83,8 @@
   },
   "categories": {
     "color-shampoo-hair": {
-      "name": "Dầu gội màu",
-      "description": "Lên màu đậm chuẩn salon ngay khi tắm."
+      "name": "Nhuộm tóc",
+      "description": "Làm mới màu tóc ngay khi tắm."
     },
     "dark-spot": {
       "name": "Trị đốm nâu",
@@ -95,8 +95,8 @@
       "description": "Chăm sóc chuyên biệt cho nếp nhăn và đôi mắt mệt mỏi."
     },
     "eye-lashes-growth-serum": {
-      "name": "Serum dưỡng mi",
-      "description": "Serum cho mi và lông mày dày, dài hơn."
+      "name": "Serum dưỡng mi và lông mày",
+      "description": "Serum cho mi và lông mày trông dài, dày hơn."
     },
     "face-lifting-collagen-cream": {
       "name": "Kem collagen nâng cơ mặt",
@@ -112,11 +112,11 @@
     },
     "hair-serum": {
       "name": "Serum tóc",
-      "description": "Serum chăm sóc da đầu giúp tóc dày từ chân."
+      "description": "Serum nhẹ cho da đầu, giúp tóc trông dày hơn."
     },
     "packages": {
       "name": "Bộ sản phẩm",
-      "description": "Trọn quy trình với giá thấp hơn mua lẻ."
+      "description": "Quy trình trọn vẹn trong một đơn hàng."
     }
   },
   "products": {
@@ -124,15 +124,15 @@
     "4824": { "title": "Bộ chăm sóc tóc ưu đãi", "subtitle": "Quy trình 3 bước trọn vẹn" },
     "2628": { "title": "Bộ dầu gội & dầu xả Argan Oil", "subtitle": "Cho mái tóc suôn mượt" },
     "2621": { "title": "Dầu gội Argan Oil", "subtitle": "Mọi loại tóc" },
-    "2547": { "title": "Serum dưỡng mi collagen", "subtitle": "Mi & lông mày sau 4 tuần" },
+    "2547": { "title": "Serum dưỡng mi collagen", "subtitle": "Mi và lông mày trông dày hơn" },
     "2394": {
       "title": "Kem tái tạo vùng mắt SK Envision",
       "subtitle": "Kem dưỡng mắt nhẹ hằng ngày"
     },
-    "1958": { "title": "Kem collagen trị đốm nâu", "subtitle": "Đều màu da & mờ đốm" },
-    "1773": { "title": "Dầu gội nhuộm màu Magic", "subtitle": "Màu chuẩn salon tại nhà" },
+    "1958": { "title": "Kem collagen trị đốm nâu", "subtitle": "Cho làn da trông đều màu hơn" },
+    "1773": { "title": "Dầu gội nhuộm màu Magic", "subtitle": "Làm mới màu tóc tại nhà" },
     "1550": { "title": "Kem collagen chống nhăn", "subtitle": "Săn chắc & mịn da" },
-    "29": { "title": "Serum mọc tóc hữu cơ", "subtitle": "Dày tóc từ gốc đến ngọn" },
+    "29": { "title": "Serum mọc tóc hữu cơ", "subtitle": "Serum dưỡng da đầu" },
     "28": { "title": "Mặt nạ phục hồi tóc protein", "subtitle": "Tóc khô & hư tổn" },
     "27": { "title": "Mặt nạ lột da chân", "subtitle": "Kèm gel dưỡng ẩm" },
     "26": { "title": "Dầu xả Argan Oil", "subtitle": "Gỡ rối & cấp ẩm" }

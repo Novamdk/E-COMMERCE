@@ -171,7 +171,6 @@ export const vi = {
     looks: {
       eyebrow: 'Xem thực tế',
       title: 'Mua theo phong cách',
-      soon: 'Video sắp ra mắt',
       shop: 'Mua theo phong cách',
     },
     reviews: {
@@ -247,7 +246,7 @@ export const vi = {
     goalRepair: 'Phục hồi tóc khô, hư tổn',
     goalFuller: 'Tóc dày và chắc hơn',
     goalShine: 'Tóc mềm mượt, bóng khỏe',
-    goalColour: 'Phủ tóc bạc & làm mới màu',
+    goalColour: 'Làm mới màu tóc',
     goalLashes: 'Mi & lông mày dài hơn',
     learn: 'Tìm hiểu',
     aboutUs: 'Về chúng tôi',
@@ -271,6 +270,7 @@ export const vi = {
     breadcrumb: 'Đường dẫn',
     home: 'Trang chủ',
     count: '{count} sản phẩm',
+    countOne: '1 sản phẩm',
     error: 'Không tải được bộ sưu tập này',
     loading: 'Đang tải sản phẩm',
     sortLabel: 'Sắp xếp',

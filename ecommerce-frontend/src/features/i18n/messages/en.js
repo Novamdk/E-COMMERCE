@@ -174,7 +174,6 @@ export const en = {
     looks: {
       eyebrow: 'See it in action',
       title: 'Shop the look',
-      soon: 'Video coming soon',
       shop: 'Shop the look',
     },
     reviews: {
@@ -249,7 +248,7 @@ export const en = {
     goalRepair: 'Repair dry, damaged hair',
     goalFuller: 'Thicker, fuller hair',
     goalShine: 'Soft, shiny hair',
-    goalColour: 'Cover greys & refresh colour',
+    goalColour: 'Refresh my colour',
     goalLashes: 'Longer lashes & brows',
     learn: 'Learn',
     aboutUs: 'About us',
@@ -273,6 +272,7 @@ export const en = {
     breadcrumb: 'Breadcrumb',
     home: 'Home',
     count: '{count} products',
+    countOne: '1 product',
     error: 'This collection could not load',
     loading: 'Loading products',
     sortLabel: 'Sort',

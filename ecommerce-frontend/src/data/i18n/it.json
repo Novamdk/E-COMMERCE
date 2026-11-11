@@ -53,7 +53,7 @@
       },
       {
         "q": "Quando si vedono i risultati?",
-        "a": "Dipende dal prodotto. Il siero per ciglia è formulato per una crescita visibile in circa quattro settimane; maschere e balsami di solito fanno la differenza dopo due o tre lavaggi."
+        "a": "Dipende dal prodotto e da te. Maschere e balsami di solito fanno una differenza percepibile dopo due o tre lavaggi; sieri e creme sono pensati per l’uso quotidiano per diverse settimane."
       },
       {
         "q": "Qual è la vostra politica di reso?",
@@ -85,8 +85,8 @@
   },
   "categories": {
     "color-shampoo-hair": {
-      "name": "Shampoo colorati",
-      "description": "Colore intenso da salone, direttamente sotto la doccia."
+      "name": "Colorazione",
+      "description": "Ravviva il tuo colore sotto la doccia."
     },
     "dark-spot": {
       "name": "Antimacchie",
@@ -97,8 +97,8 @@
       "description": "Cura mirata per rughette e occhi stanchi."
     },
     "eye-lashes-growth-serum": {
-      "name": "Siero per la crescita delle ciglia",
-      "description": "Sieri per ciglia e sopracciglia più folte e lunghe."
+      "name": "Siero ciglia e sopracciglia",
+      "description": "Sieri per ciglia e sopracciglia dall’aspetto più lungo e folto."
     },
     "face-lifting-collagen-cream": {
       "name": "Creme liftanti al collagene",
@@ -114,11 +114,11 @@
     },
     "hair-serum": {
       "name": "Sieri per capelli",
-      "description": "Sieri che partono dal cuoio capelluto per ridare densità."
+      "description": "Sieri leggeri per il cuoio capelluto, per capelli dall’aspetto più folto."
     },
     "packages": {
       "name": "Kit",
-      "description": "Routine complete a un prezzo migliore rispetto ai singoli prodotti."
+      "description": "Routine complete in un solo ordine."
     }
   },
   "products": {
@@ -140,7 +140,7 @@
     },
     "2547": {
       "title": "Siero per ciglia al collagene",
-      "subtitle": "Ciglia e sopracciglia in 4 settimane"
+      "subtitle": "Ciglia e sopracciglia dall’aspetto più folto"
     },
     "2394": {
       "title": "Crema occhi rinnovatrice SK Envision",
@@ -148,11 +148,11 @@
     },
     "1958": {
       "title": "Crema al collagene antimacchie",
-      "subtitle": "Uniforma l’incarnato e attenua le macchie"
+      "subtitle": "Per un tono più uniforme"
     },
     "1773": {
       "title": "Shampoo colorante Magic Hair Dye",
-      "subtitle": "Il colore del salone a casa"
+      "subtitle": "Colore ravvivato a casa"
     },
     "1550": {
       "title": "Crema antirughe al collagene",
@@ -160,7 +160,7 @@
     },
     "29": {
       "title": "Siero biologico per la ricrescita dei capelli",
-      "subtitle": "Densità dalla radice alle punte"
+      "subtitle": "Siero nutriente per il cuoio capelluto"
     },
     "28": {
       "title": "Maschera riparatrice alle proteine",

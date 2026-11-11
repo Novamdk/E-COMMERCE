@@ -14,7 +14,8 @@
  * Vercel serves real files before the SPA rewrite, so /shop/argan-shampoo
  * gets dist/shop/argan-shampoo/index.html.
  *
- * The site origin comes from SITE_URL, else Vercel's production domain.
+ * Canonical URLs, the sitemap and structured data use SITE_URL, else
+ * https://skenvisiontime.com. Preview builds (VERCEL_ENV=preview) are noindex.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -52,12 +53,13 @@ const content = read('src/data/content.json');
 const details = read('src/data/product-details.json').en;
 const images = read('src/data/images.json');
 
-const ORIGIN = (
-  process.env.SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL &&
-    `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
-  'https://e-commerce-sk.vercel.app'
-).replace(/\/$/, '');
+// Canonical URLs, the sitemap and structured data always name the live
+// domain, so a Vercel preview never competes with the real store in search.
+const ORIGIN = (process.env.SITE_URL || 'https://skenvisiontime.com').replace(/\/$/, '');
+
+// Preview and development deployments must stay out of search results.
+// (Vercel also sends an X-Robots-Tag: noindex header on them.)
+const IS_PREVIEW = Boolean(process.env.VERCEL_ENV) && process.env.VERCEL_ENV !== 'production';
 
 const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
 
@@ -308,7 +310,9 @@ function render(page) {
   const head = `<!-- seo:start -->
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}" />
-    <link rel="canonical" href="${esc(url)}" />
+    <link rel="canonical" href="${esc(url)}" />${
+      IS_PREVIEW ? '\n    <meta name="robots" content="noindex, nofollow" />' : ''
+    }
     <meta property="og:site_name" content="${BRAND}" />
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(description)}" />
@@ -364,7 +368,12 @@ ${pages
 
 fs.writeFileSync(
   path.join(DIST, 'robots.txt'),
-  `# Search engines and AI assistants are welcome to read the storefront.
+  IS_PREVIEW
+    ? `# Preview build: not for search engines.
+User-agent: *
+Disallow: /
+`
+    : `# Search engines and AI assistants are welcome to read the storefront.
 User-agent: *
 Allow: /
 Disallow: /cart

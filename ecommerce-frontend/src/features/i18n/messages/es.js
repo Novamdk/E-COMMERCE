@@ -173,7 +173,6 @@ export const es = {
     looks: {
       eyebrow: 'En acción',
       title: 'Compra el look',
-      soon: 'Vídeo próximamente',
       shop: 'Compra el look',
     },
     reviews: {
@@ -249,7 +248,7 @@ export const es = {
     goalRepair: 'Reparar cabello seco y dañado',
     goalFuller: 'Cabello más denso',
     goalShine: 'Cabello suave y brillante',
-    goalColour: 'Cubrir canas y avivar el color',
+    goalColour: 'Avivar mi color',
     goalLashes: 'Pestañas y cejas más largas',
     learn: 'Descubre',
     aboutUs: 'Nosotros',
@@ -273,6 +272,7 @@ export const es = {
     breadcrumb: 'Ruta de navegación',
     home: 'Inicio',
     count: '{count} productos',
+    countOne: '1 producto',
     error: 'No se pudo cargar esta colección',
     loading: 'Cargando productos',
     sortLabel: 'Ordenar',

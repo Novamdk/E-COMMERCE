@@ -53,7 +53,7 @@
       },
       {
         "q": "¿Cuándo se ven los resultados?",
-        "a": "Depende del producto. El sérum de pestañas está formulado para un crecimiento visible en unas cuatro semanas; las mascarillas y acondicionadores suelen notarse tras dos o tres lavados."
+        "a": "Depende del producto y de ti. Las mascarillas y acondicionadores suelen notarse tras dos o tres lavados; los sérums y cremas están pensados para usarse a diario durante varias semanas."
       },
       {
         "q": "¿Cuál es vuestra política de devoluciones?",
@@ -85,8 +85,8 @@
   },
   "categories": {
     "color-shampoo-hair": {
-      "name": "Champús de color",
-      "description": "Color intenso de salón, directamente en la ducha."
+      "name": "Coloración",
+      "description": "Renueva tu color en la ducha."
     },
     "dark-spot": {
       "name": "Antimanchas",
@@ -97,8 +97,8 @@
       "description": "Cuidado específico para líneas finas y ojos cansados."
     },
     "eye-lashes-growth-serum": {
-      "name": "Sérum de crecimiento de pestañas",
-      "description": "Sérums para pestañas y cejas más densas y largas."
+      "name": "Sérum de pestañas y cejas",
+      "description": "Sérums para pestañas y cejas de aspecto más largo y poblado."
     },
     "face-lifting-collagen-cream": {
       "name": "Cremas reafirmantes de colágeno",
@@ -114,11 +114,11 @@
     },
     "hair-serum": {
       "name": "Sérums capilares",
-      "description": "Sérums que actúan desde el cuero cabelludo para recuperar densidad."
+      "description": "Sérums ligeros para el cuero cabelludo y un cabello de aspecto más denso."
     },
     "packages": {
       "name": "Packs",
-      "description": "Rutinas completas a mejor precio que por separado."
+      "description": "Rutinas completas en un solo pedido."
     }
   },
   "products": {
@@ -140,7 +140,7 @@
     },
     "2547": {
       "title": "Sérum de crecimiento de pestañas con colágeno",
-      "subtitle": "Pestañas y cejas en 4 semanas"
+      "subtitle": "Pestañas y cejas de aspecto más poblado"
     },
     "2394": {
       "title": "Crema renovadora para ojos SK Envision",
@@ -148,11 +148,11 @@
     },
     "1958": {
       "title": "Crema de colágeno antimanchas",
-      "subtitle": "Unifica el tono y atenúa las manchas"
+      "subtitle": "Para un tono más uniforme"
     },
     "1773": {
       "title": "Champú de color Magic Hair Dye",
-      "subtitle": "Color de salón en casa"
+      "subtitle": "Color renovado en casa"
     },
     "1550": {
       "title": "Crema antiarrugas de colágeno",
@@ -160,7 +160,7 @@
     },
     "29": {
       "title": "Sérum orgánico para el crecimiento del cabello",
-      "subtitle": "Densidad de raíz a puntas"
+      "subtitle": "Sérum nutritivo para el cuero cabelludo"
     },
     "28": {
       "title": "Mascarilla capilar reparadora con proteínas",

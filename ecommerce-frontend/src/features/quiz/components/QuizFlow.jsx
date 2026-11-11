@@ -74,8 +74,10 @@ export function QuizFlow({ quiz, products, initialAnswers = {} }) {
       className="grid min-h-[calc(100dvh-7.5rem)] md:grid-cols-2"
     >
       <div className="flex flex-col px-4 py-10 sm:px-10 lg:px-16 lg:py-16">
+        {/* One dot per question, so the count matches "four quick questions";
+            the optional email step shows every dot filled. */}
         <ol className="flex gap-2.5" aria-label={t('quiz.progress')}>
-          {Array.from({ length: questionCount + 1 }, (_, index) => (
+          {Array.from({ length: questionCount }, (_, index) => (
             <li
               key={index}
               aria-current={index === stepIndex ? 'step' : undefined}
@@ -85,7 +87,7 @@ export function QuizFlow({ quiz, products, initialAnswers = {} }) {
               )}
             >
               <span className="sr-only">
-                {t('quiz.stepOf', { index: index + 1, total: questionCount + 1 })}
+                {t('quiz.stepOf', { index: index + 1, total: questionCount })}
               </span>
             </li>
           ))}

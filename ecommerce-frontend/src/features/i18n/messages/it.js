@@ -172,7 +172,6 @@ export const it = {
     looks: {
       eyebrow: 'Guardalo in azione',
       title: 'Acquista il look',
-      soon: 'Video in arrivo',
       shop: 'Acquista il look',
     },
     reviews: {
@@ -247,7 +246,7 @@ export const it = {
     goalRepair: 'Riparare capelli secchi e danneggiati',
     goalFuller: 'Capelli più folti',
     goalShine: 'Capelli morbidi e luminosi',
-    goalColour: 'Coprire i bianchi e ravvivare il colore',
+    goalColour: 'Ravvivare il mio colore',
     goalLashes: 'Ciglia e sopracciglia più lunghe',
     learn: 'Scopri',
     aboutUs: 'Chi siamo',
@@ -271,6 +270,7 @@ export const it = {
     breadcrumb: 'Percorso',
     home: 'Home',
     count: '{count} prodotti',
+    countOne: '1 prodotto',
     error: 'Impossibile caricare questa collezione',
     loading: 'Caricamento prodotti',
     sortLabel: 'Ordina',
