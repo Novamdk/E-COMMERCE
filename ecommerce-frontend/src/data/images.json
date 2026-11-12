@@ -940,5 +940,96 @@
       400,
       800
     ]
+  },
+  "hair-care-package-3-card": {
+    "width": 400,
+    "height": 500,
+    "aspect": 0.8,
+    "widths": [
+      400
+    ]
+  },
+  "argan-shampoo-conditioner-0-card": {
+    "width": 400,
+    "height": 500,
+    "aspect": 0.8,
+    "widths": [
+      400
+    ]
+  },
+  "argan-shampoo-0-card": {
+    "width": 400,
+    "height": 500,
+    "aspect": 0.8,
+    "widths": [
+      400
+    ]
+  },
+  "lash-growth-serum-4-card": {
+    "width": 400,
+    "height": 500,
+    "aspect": 0.8,
+    "widths": [
+      400
+    ]
+  },
+  "retinal-eye-lift-5-card": {
+    "width": 400,
+    "height": 500,
+    "aspect": 0.8,
+    "widths": [
+      400
+    ]
+  },
+  "dark-spot-collagen-cream-6-card": {
+    "width": 800,
+    "height": 1000,
+    "aspect": 0.8,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "color-dye-shampoo-0-card": {
+    "width": 800,
+    "height": 1000,
+    "aspect": 0.8,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "hair-regrowth-serum-3-card": {
+    "width": 400,
+    "height": 500,
+    "aspect": 0.8,
+    "widths": [
+      400
+    ]
+  },
+  "repair-hair-mask-0-card": {
+    "width": 800,
+    "height": 1000,
+    "aspect": 0.8,
+    "widths": [
+      400,
+      800
+    ]
+  },
+  "foot-peel-mask-0-card": {
+    "width": 400,
+    "height": 500,
+    "aspect": 0.8,
+    "widths": [
+      400
+    ]
+  },
+  "argan-conditioner-0-card": {
+    "width": 400,
+    "height": 500,
+    "aspect": 0.8,
+    "widths": [
+      400
+    ]
   }
 }

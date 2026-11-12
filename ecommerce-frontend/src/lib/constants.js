@@ -175,7 +175,8 @@ export const COLLECTIONS = {
 };
 
 /* ----------------------------- catalog ----------------------------- */
-export const PAGE_SIZE = 9;
+/** 16 keeps the whole catalog on one page, four to a row. */
+export const PAGE_SIZE = 16;
 export const PRICE_BOUNDS = { min: 0, max: 15000 };
 export const RELATED_PRODUCT_COUNT = 4;
 

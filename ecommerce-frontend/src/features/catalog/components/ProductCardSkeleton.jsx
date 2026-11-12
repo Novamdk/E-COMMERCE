@@ -5,7 +5,7 @@ export function ProductCardSkeleton() {
   return (
     <div className="bg-surface-sunken flex flex-col p-5 sm:p-6">
       <Skeleton className="h-6 w-20" />
-      <Skeleton className="mt-2 aspect-square w-full" />
+      <Skeleton className="mt-2 aspect-[4/5] w-full" />
       <div className="flex flex-col gap-2.5 pt-5">
         <Skeleton className="h-3 w-1/2" />
         <Skeleton className="h-4 w-3/4" />

@@ -90,3 +90,17 @@ export function textureImage(product) {
 export function primaryImage(product) {
   return PACKSHOTS[product?.slug] ?? product?.images?.[0];
 }
+
+/**
+ * The close-up version of the main photo for shop tiles: the product cropped
+ * tight and centred in a 4:5 frame (made by scripts/crop-card-images.py).
+ * Falls back to the main photo where no close-up exists, e.g. lifestyle shots.
+ *
+ * @param {{ slug?: string, images?: string[] }} product
+ * @returns {string|undefined}
+ */
+export function cardImage(product) {
+  const name = primaryImage(product);
+  const closeUp = name && `${name}-card`;
+  return closeUp && imageMeta[closeUp] ? closeUp : name;
+}

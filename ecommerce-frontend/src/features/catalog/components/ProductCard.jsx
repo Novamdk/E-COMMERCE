@@ -4,20 +4,21 @@ import { Rating } from '@/components/ui/Rating';
 import { cn } from '@/lib/cn';
 import { productPath } from '@/lib/constants';
 import { discountPercent, formatCurrency } from '@/lib/formatCurrency';
-import { primaryImage, textureImage } from '@/lib/productImage';
+import { cardImage as getCardImage, primaryImage, textureImage } from '@/lib/productImage';
 import { useCart } from '@/features/cart';
 import { useT } from '@/features/i18n';
 import { WishlistToggle } from '@/features/wishlist';
 import { setActiveTexture, useIsTextureActive } from '../activeTexture';
 
 /**
- * Every packshot sits inset on the same warm stone ground. Multiply blending
- * turns each photo's own white backdrop into that stone, which is what makes
- * a mixed set of supplier images read as one consistent family.
+ * Every packshot sits on the same warm stone ground. Multiply blending turns
+ * each photo's own white backdrop into that stone, which is what makes a mixed
+ * set of supplier images read as one consistent family. The close-up crops
+ * already carry their own small margin, so the frame adds only a little.
  */
-const PACKSHOT = 'p-[11%] mix-blend-multiply';
+const PACKSHOT = 'p-[3%] mix-blend-multiply';
 
-const GRID_SIZES = '(min-width: 1280px) 25vw, (min-width: 768px) 33vw, 50vw';
+const GRID_SIZES = '(min-width: 1024px) 25vw, 50vw';
 
 // A compact pill beside the price, as on Olaplex's grid, at every width.
 const PILL =
@@ -44,10 +45,11 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
   const hasVariants = product.variants.sizes.length > 0 || product.variants.colors.length > 0;
   const isOutOfStock = product.stock <= 0;
   const href = productPath(product.slug);
-  const cardImage = primaryImage(product);
+  const cardImage = getCardImage(product);
+  const mainImage = primaryImage(product);
   // The texture shot if there is one, else a second, genuinely different photo.
   const hoverImage =
-    textureImage(product) ?? product.images.find((name) => name !== cardImage) ?? null;
+    textureImage(product) ?? product.images.find((name) => name !== mainImage) ?? null;
   const isTextureShown = useIsTextureActive(product.id) && Boolean(hoverImage);
   const showTexture = () => setActiveTexture(product.id);
   const pointerHandlers = hoverImage
@@ -125,7 +127,7 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
           name={cardImage}
           alt=""
           sizes={GRID_SIZES}
-          ratio="aspect-square"
+          ratio="aspect-[4/5]"
           fit="contain"
           priority={isPriority}
           isTransparent

@@ -7,11 +7,11 @@ import { ProductCardSkeleton } from './ProductCardSkeleton';
 
 const COLUMNS = {
   3: 'grid-cols-2 md:grid-cols-3',
-  4: 'grid-cols-2 md:grid-cols-3 xl:grid-cols-4',
+  4: 'grid-cols-2 lg:grid-cols-4',
 };
 
 /** How many tiles load eagerly — roughly the first visible row. */
-const PRIORITY_COUNT = 3;
+const PRIORITY_COUNT = 4;
 
 /** Tiles fade up in sequence. Re-runs on filter changes, which reads as responsive. */
 const GRID_MOTION = {
