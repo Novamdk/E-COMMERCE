@@ -38,7 +38,7 @@ function ReviewCard({ title, onEdit, children }) {
  * @param {() => void} props.onPlaceOrder
  * @param {(step: string) => void} props.onEditStep
  * @param {import('react').ReactNode} [props.paySlot] real checkout: the payment buttons,
- *   shown instead of the demo card summary and Place order button
+ *   shown instead of the demo card summary, item list and Place order button
  */
 export function ReviewStep({
   form,
@@ -99,32 +99,37 @@ export function ReviewStep({
         )}
       </div>
 
-      <section className={CARD}>
-        <h3 className="mb-3 text-sm font-semibold">
-          {totals.itemCount} {totals.itemCount === 1 ? 'item' : 'items'}
-        </h3>
-        <ul className="divide-border divide-y">
-          {lines.map((line) => (
-            <li key={line.id} className="flex items-center gap-3 py-3">
-              <Image
-                name={primaryImage(line.product)}
-                alt=""
-                sizes="3.5rem"
-                ratio="aspect-square"
-                className="rounded-field w-14 shrink-0"
-              />
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium">{line.product.title}</p>
-                <p className="text-content-subtle text-xs">
-                  Qty {line.qty}
-                  {[line.size, line.color].filter(Boolean).map((v) => ` · ${v}`)}
+      {/* With PayPal the order summary already lists the items. */}
+      {!paySlot && (
+        <section className={CARD}>
+          <h3 className="mb-3 text-sm font-semibold">
+            {totals.itemCount} {totals.itemCount === 1 ? 'item' : 'items'}
+          </h3>
+          <ul className="divide-border divide-y">
+            {lines.map((line) => (
+              <li key={line.id} className="flex items-center gap-3 py-3">
+                <Image
+                  name={primaryImage(line.product)}
+                  alt=""
+                  sizes="3.5rem"
+                  ratio="aspect-square"
+                  className="rounded-field w-14 shrink-0"
+                />
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-medium">{line.product.title}</p>
+                  <p className="text-content-subtle text-xs">
+                    Qty {line.qty}
+                    {[line.size, line.color].filter(Boolean).map((v) => ` · ${v}`)}
+                  </p>
+                </div>
+                <p className="text-sm font-medium tabular-nums">
+                  {formatCurrency(lineTotal(line))}
                 </p>
-              </div>
-              <p className="text-sm font-medium tabular-nums">{formatCurrency(lineTotal(line))}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {paySlot ? (
         <section className={CARD} aria-labelledby="pay-heading">

@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { ErrorPanel } from '@/components/ui/ErrorPanel';
-import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
+import { usePageMeta } from '@/hooks/usePageMeta';
 import { orderPath, ROUTES } from '@/lib/constants';
 import { isPayPalEnabled } from '@/lib/backend';
 import { identify, trackStartedCheckout } from '@/lib/klaviyo';
@@ -21,16 +21,11 @@ import {
   OrderTotalsAside,
   PayPalButtons,
   PaymentStep,
+  preloadPayPalSdk,
   ReviewStep,
   ShippingStep,
   useCheckoutForm,
 } from '@/features/checkout';
-
-const STEP_TITLES = {
-  shipping: 'Where should we send it?',
-  payment: isPayPalEnabled ? 'Check everything over and pay' : 'How would you like to pay?',
-  review: 'Check everything over',
-};
 
 /**
  * Owns the checkout form for all three steps and renders the step named in the
@@ -52,6 +47,14 @@ export default function CheckoutLayout() {
   const [hasPlacedOrder, setHasPlacedOrder] = useState(false);
   const hasTrackedCheckout = useRef(false);
   const hasSentBeginCheckout = useRef(false);
+
+  usePageMeta({ title: 'Checkout' });
+
+  // Start fetching PayPal's script while the shopper types their address, so
+  // the pay buttons are ready the moment they reach the pay step.
+  useEffect(() => {
+    if (isPayPalEnabled) preloadPayPalSdk();
+  }, []);
 
   // Ad platforms count a checkout as soon as the shopper opens it, once per
   // visit, after the bag's total is known.
@@ -166,17 +169,9 @@ export default function CheckoutLayout() {
   }
 
   return (
-    <PageShell>
-      <PageHeader
-        title={STEP_TITLES[step]}
-        breadcrumbs={[
-          { label: 'Home', to: ROUTES.HOME },
-          { label: 'Cart', to: ROUTES.CART },
-          { label: 'Checkout' },
-        ]}
-      />
-
-      <div className="mt-8">
+    <PageShell className="py-6 sm:py-10">
+      <header className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4">
+        <h1 className="font-display text-2xl sm:text-3xl">Checkout</h1>
         <CheckoutStepper
           steps={CHECKOUT_STEPS}
           currentStep={step}
@@ -186,10 +181,21 @@ export default function CheckoutLayout() {
             (target === 'review' && !isPayPalEnabled && form.isReviewReady)
           }
         />
-      </div>
+      </header>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_22rem] lg:gap-14">
-        <div className="min-w-0">
+      {/* The summary comes first so it sits on top on a phone; on a wide
+          screen it moves to the right-hand column. */}
+      <div className="mt-6 grid gap-6 lg:grid-cols-[1fr_22rem] lg:items-start lg:gap-12">
+        <OrderTotalsAside
+          key={step === 'shipping' ? 'closed' : 'open'}
+          lines={lines}
+          totals={totals}
+          isLoading={loading}
+          isOpenOnPhone={step !== 'shipping'}
+          className="lg:order-2"
+        />
+
+        <div className="min-w-0 lg:order-1">
           {error ? (
             <ErrorPanel title="Your cart could not load" error={error} />
           ) : (
@@ -235,8 +241,6 @@ export default function CheckoutLayout() {
             </>
           )}
         </div>
-
-        <OrderTotalsAside lines={lines} totals={totals} isLoading={loading} />
       </div>
     </PageShell>
   );

@@ -1,33 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Spinner } from '@/components/ui/Spinner';
-import { PAYPAL_CLIENT_ID } from '@/lib/backend';
-
-let sdkPromise = null;
-
-/** Loads PayPal's JS SDK once per page. */
-function loadPayPalSdk() {
-  if (window.paypal?.Buttons) return Promise.resolve(window.paypal);
-  if (!sdkPromise) {
-    sdkPromise = new Promise((resolve, reject) => {
-      const params = new URLSearchParams({
-        'client-id': PAYPAL_CLIENT_ID,
-        currency: 'USD',
-        intent: 'capture',
-        components: 'buttons',
-      });
-      const script = document.createElement('script');
-      script.src = `https://www.paypal.com/sdk/js?${params}`;
-      script.async = true;
-      script.onload = () => (window.paypal?.Buttons ? resolve(window.paypal) : reject(new Error()));
-      script.onerror = () => {
-        sdkPromise = null;
-        reject(new Error('PayPal did not load'));
-      };
-      document.head.appendChild(script);
-    });
-  }
-  return sdkPromise;
-}
+import { loadPayPalSdk } from '../paypalSdk';
 
 /**
  * PayPal's own buttons (PayPal, and debit or credit card through PayPal).
