@@ -57,7 +57,6 @@ export function ProductGrid({
       variants={GRID_MOTION}
       initial="initial"
       animate="animate"
-      data-part="product-row"
       className={cn(className, 'list-none')}
     >
       {products.map((product, index) => (

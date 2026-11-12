@@ -59,7 +59,6 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
   return (
     <article
       {...pointerHandlers}
-      data-part="product-card"
       className={cn(
         'group bg-surface-sunken relative isolate flex h-full flex-col overflow-hidden [-webkit-touch-callout:none]',
         isFlush ? 'p-4 sm:p-6' : 'rounded-card p-4 sm:p-5',
@@ -137,16 +136,10 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
       </Link>
 
       <div className="mt-5 flex flex-1 flex-col gap-1.5">
-        <p
-          data-part="product-eyebrow"
-          className="text-content-muted line-clamp-1 text-[0.6875rem] tracking-[0.08em] uppercase"
-        >
+        <p className="text-content-muted line-clamp-1 text-[0.6875rem] tracking-[0.08em] uppercase">
           {product.subtitle}
         </p>
-        <h3
-          data-part="product-name"
-          className="text-[0.8125rem] leading-snug font-semibold tracking-[0.08em] uppercase"
-        >
+        <h3 className="text-[0.8125rem] leading-snug font-semibold tracking-[0.08em] uppercase">
           {/* Stretched link: the whole tile is clickable, with one accessible name. */}
           <Link to={href} className="after:absolute after:inset-0 after:content-['']">
             {product.title}
