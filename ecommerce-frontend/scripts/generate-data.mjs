@@ -371,7 +371,7 @@ const content = {
   brand: {
     name: 'SK Envision',
     tagline: 'Natural hair & body care',
-    email: 'Skenvisiontimes@gmail.com',
+    email: 'support@skenvisiontime.com',
   },
   hero: {
     eyebrow: 'Natural ingredients only',

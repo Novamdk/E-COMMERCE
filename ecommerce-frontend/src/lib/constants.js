@@ -124,7 +124,7 @@ export const CONTACT = {
   ADDRESS_LINES: ['16027 Brookhurst St, Suite I-618', 'Fountain Valley, CA 92708'],
   PHONE: '949-434-1415',
   PHONE_HREF: 'tel:+19494341415',
-  EMAIL: 'Skenvisiontimes@gmail.com',
+  EMAIL: 'support@skenvisiontime.com',
 };
 
 /** Official social profiles. `id` picks the icon in the footer. */
