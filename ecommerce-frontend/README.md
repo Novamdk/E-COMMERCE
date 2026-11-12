@@ -372,12 +372,12 @@ describes them.
 With none of these set, the site keeps the original demo sign-in and demo checkout, so this
 code can be merged before the accounts exist. Variables are listed in `.env.example`.
 
-| Variable                                                                      | Turns on                                      |
-| ----------------------------------------------------------------------------- | --------------------------------------------- |
-| `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`                                 | real sign up and sign in                      |
-| `VITE_PAYPAL_CLIENT_ID` (plus the two above)                                  | real checkout and order history               |
-| `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`                                   | the `/api` functions' database access         |
-| `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `PAYPAL_ENV`, `PAYPAL_WEBHOOK_ID` | payments                                      |
+| Variable                                                                      | Turns on                                            |
+| ----------------------------------------------------------------------------- | --------------------------------------------------- |
+| `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`                                 | real sign up and sign in                            |
+| `VITE_PAYPAL_CLIENT_ID` (plus the two above)                                  | real checkout and order history                     |
+| `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`                                   | the `/api` functions' database access               |
+| `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `PAYPAL_ENV`, `PAYPAL_WEBHOOK_ID` | payments                                            |
 | `SITE_URL`, `ADMIN_EMAILS`, `ADMIN_API_TOKEN`                                 | order links in emails; who can open /admin; scripts |
 
 One-time setup:
