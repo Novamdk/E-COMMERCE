@@ -2,64 +2,64 @@
   {
     "id": "49",
     "slug": "color-shampoo-hair",
-    "name": "Color Shampoo Hair",
-    "description": "Deposit rich, salon-grade colour in the shower.",
+    "name": "Hair Color",
+    "description": "Refresh your hair colour in the shower.",
     "count": 7
   },
   {
     "id": "37",
     "slug": "dark-spot",
-    "name": "Dark Spot",
+    "name": "Dark Spot Care",
     "description": "Brightening formulas that fade pigmentation and even tone.",
     "count": 4
   },
   {
     "id": "48",
     "slug": "eye-cream-anti-aging-organic",
-    "name": "Eye Cream Anti Aging Organic",
+    "name": "Eye Care",
     "description": "Targeted care for fine lines and tired eyes.",
     "count": 4
   },
   {
     "id": "52",
-    "slug": "eye-lashes-growth-serum",
-    "name": "Eye Lashes Growth Serum",
-    "description": "Lash and brow serums for fuller, longer growth.",
+    "slug": "lash-brow-serum",
+    "name": "Lash & Brow Serum",
+    "description": "Lash and brow serums for fuller, longer-looking lashes.",
     "count": 1
   },
   {
     "id": "29",
     "slug": "face-lifting-collagen-cream",
-    "name": "Face Lifting Collagen Cream",
+    "name": "Collagen Creams",
     "description": "Collagen creams that firm, lift and smooth.",
     "count": 4
   },
   {
     "id": "22",
     "slug": "foot-peel-mask",
-    "name": "Foot Peel Mask",
+    "name": "Foot Care",
     "description": "Exfoliating peels for cracked heels and callused skin.",
     "count": 1
   },
   {
     "id": "21",
     "slug": "hair-mask",
-    "name": "Hair Mask",
+    "name": "Hair Masks",
     "description": "Deep protein treatments for dry, over-processed hair.",
     "count": 7
   },
   {
     "id": "19",
     "slug": "hair-serum",
-    "name": "Hair Serum",
-    "description": "Scalp-first serums that rebuild density from the root.",
+    "name": "Hair Serums",
+    "description": "Lightweight scalp serums for fuller-looking hair.",
     "count": 7
   },
   {
     "id": "58",
     "slug": "packages",
-    "name": "Packages",
-    "description": "Bundled routines at a lower price than buying separately.",
+    "name": "Bundles",
+    "description": "Complete routines, bundled in one order.",
     "count": 2
   }
 ]

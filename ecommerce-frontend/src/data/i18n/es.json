@@ -29,7 +29,7 @@
       {
         "quote": "Me encanta. Forma parte de mi rutina cada vez que me peino. Tengo el pelo grueso y encrespado, que absorbe todo, pero con muy poco basta: el primer frasco me duró cinco meses.",
         "name": "Cliente verificado",
-        "meta": "Sérum orgánico para el crecimiento del cabello"
+        "meta": "Sérum orgánico para cuero cabelludo y cabello"
       },
       {
         "quote": "Mascarilla de aceite de argán marroquí para cabello seco y dañado: nutritiva, hidratante e imprescindible. Mi pelo es otro después de dos usos.",
@@ -53,7 +53,7 @@
       },
       {
         "q": "¿Cuándo se ven los resultados?",
-        "a": "Depende del producto. El sérum de pestañas está formulado para un crecimiento visible en unas cuatro semanas; las mascarillas y acondicionadores suelen notarse tras dos o tres lavados."
+        "a": "Depende del producto y de ti. Las mascarillas y acondicionadores suelen notarse tras dos o tres lavados; los sérums y cremas están pensados para usarse a diario durante varias semanas."
       },
       {
         "q": "¿Cuál es vuestra política de devoluciones?",
@@ -85,8 +85,8 @@
   },
   "categories": {
     "color-shampoo-hair": {
-      "name": "Champús de color",
-      "description": "Color intenso de salón, directamente en la ducha."
+      "name": "Coloración",
+      "description": "Renueva tu color en la ducha."
     },
     "dark-spot": {
       "name": "Antimanchas",
@@ -96,9 +96,9 @@
       "name": "Contorno de ojos antiedad orgánico",
       "description": "Cuidado específico para líneas finas y ojos cansados."
     },
-    "eye-lashes-growth-serum": {
-      "name": "Sérum de crecimiento de pestañas",
-      "description": "Sérums para pestañas y cejas más densas y largas."
+    "lash-brow-serum": {
+      "name": "Sérum de pestañas y cejas",
+      "description": "Sérums para pestañas y cejas de aspecto más largo y poblado."
     },
     "face-lifting-collagen-cream": {
       "name": "Cremas reafirmantes de colágeno",
@@ -114,11 +114,11 @@
     },
     "hair-serum": {
       "name": "Sérums capilares",
-      "description": "Sérums que actúan desde el cuero cabelludo para recuperar densidad."
+      "description": "Sérums ligeros para el cuero cabelludo y un cabello de aspecto más denso."
     },
     "packages": {
       "name": "Packs",
-      "description": "Rutinas completas a mejor precio que por separado."
+      "description": "Rutinas completas en un solo pedido."
     }
   },
   "products": {
@@ -139,28 +139,28 @@
       "subtitle": "Para todo tipo de cabello"
     },
     "2547": {
-      "title": "Sérum de crecimiento de pestañas con colágeno",
-      "subtitle": "Pestañas y cejas en 4 semanas"
+      "title": "Sérum de pestañas y cejas con colágeno",
+      "subtitle": "Pestañas y cejas de aspecto más poblado"
     },
     "2394": {
-      "title": "Tratamiento lifting de ojos Retinal ReSculpt",
-      "subtitle": "Vitamina A encapsulada"
+      "title": "Crema renovadora para ojos SK Envision",
+      "subtitle": "Crema ligera de uso diario"
     },
     "1958": {
       "title": "Crema de colágeno antimanchas",
-      "subtitle": "Unifica el tono y atenúa las manchas"
+      "subtitle": "Para un tono más uniforme"
     },
     "1773": {
       "title": "Champú de color Magic Hair Dye",
-      "subtitle": "Color de salón en casa"
+      "subtitle": "Color renovado en casa"
     },
     "1550": {
       "title": "Crema antiarrugas de colágeno",
       "subtitle": "Reafirma y alisa"
     },
     "29": {
-      "title": "Sérum orgánico para el crecimiento del cabello",
-      "subtitle": "Densidad de raíz a puntas"
+      "title": "Sérum orgánico para cuero cabelludo y cabello",
+      "subtitle": "Sérum nutritivo para el cuero cabelludo"
     },
     "28": {
       "title": "Mascarilla capilar reparadora con proteínas",

@@ -14,6 +14,7 @@ import { useT } from '@/features/i18n';
  */
 export function Testimonials({ testimonials }) {
   const { t } = useT();
+  if (testimonials.length === 0) return null;
   return (
     <section aria-labelledby="testimonials-heading" className="bg-surface-sunken">
       <Container width="wide" className="py-20 lg:py-24">

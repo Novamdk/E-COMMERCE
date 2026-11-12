@@ -28,7 +28,7 @@ export const POSTS = [
           },
           {
             heading: 'For the one who loves a lash',
-            body: 'The Collagen Eyelash Growth Serum is a small gift with a visible pay-off: one stroke along the lash line each night, and fuller-looking lashes and brows in about four weeks.',
+            body: 'The Collagen Lash & Brow Serum is a small gift with a visible pay-off: one stroke along the lash line each night, and lashes and brows that look fuller and longer.',
           },
           {
             heading: 'For great hair days, every day',
@@ -51,7 +51,7 @@ export const POSTS = [
           },
           {
             heading: 'Pour les amoureuses des cils',
-            body: 'Le Sérum de croissance des cils au collagène est un petit cadeau aux résultats visibles : un trait chaque soir, et des cils et sourcils plus fournis en environ quatre semaines.',
+            body: 'Le Sérum cils et sourcils au collagène est un petit cadeau aux résultats visibles : un trait chaque soir, et des cils et sourcils visiblement plus fournis et plus longs.',
           },
           {
             heading: 'Pour de beaux cheveux, chaque jour',
@@ -74,7 +74,7 @@ export const POSTS = [
           },
           {
             heading: 'Para quien ama sus pestañas',
-            body: 'El Sérum de crecimiento de pestañas con colágeno es un regalo pequeño con resultados visibles: un trazo cada noche y pestañas y cejas más pobladas en unas cuatro semanas.',
+            body: 'El Sérum de pestañas y cejas con colágeno es un regalo pequeño con resultados visibles: un trazo cada noche y pestañas y cejas de aspecto más poblado y largo.',
           },
           {
             heading: 'Para un pelo increíble cada día',
@@ -97,7 +97,7 @@ export const POSTS = [
           },
           {
             heading: 'Per chi ama le ciglia',
-            body: 'Il Siero crescita ciglia al collagene è un piccolo regalo dai risultati visibili: una passata ogni sera e ciglia e sopracciglia più folte in circa quattro settimane.',
+            body: 'Il Siero ciglia e sopracciglia al collagene è un piccolo regalo dai risultati visibili: una passata ogni sera e ciglia e sopracciglia dall’aspetto più folto e lungo.',
           },
           {
             heading: 'Per capelli splendidi ogni giorno',
@@ -120,7 +120,7 @@ export const POSTS = [
           },
           {
             heading: 'Cho người yêu hàng mi',
-            body: 'Serum dưỡng mi collagen là món quà nhỏ với hiệu quả thấy rõ: mỗi tối một đường dọc chân mi, mi và lông mày trông dày hơn sau khoảng bốn tuần.',
+            body: 'Serum dưỡng mi và lông mày collagen là món quà nhỏ với hiệu quả thấy rõ: mỗi tối một đường dọc chân mi, mi và lông mày trông dày và dài hơn.',
           },
           {
             heading: 'Cho mái tóc đẹp mỗi ngày',
@@ -160,7 +160,7 @@ export const POSTS = [
           },
           {
             heading: 'Bonus: care for the roots',
-            body: 'If density is your concern, finish with a few drops of the Organic Hair Regrowth Serum on a clean scalp, massaged in with your fingertips.',
+            body: 'For a nourished scalp and fuller-looking hair, finish with a few drops of the Organic Scalp & Hair Serum on a clean scalp, massaged in with your fingertips. It conditions; it is not a treatment for hair loss.',
           },
         ],
       },
@@ -183,7 +183,7 @@ export const POSTS = [
           },
           {
             heading: 'Bonus : soigner les racines',
-            body: 'Pour plus de densité, terminez par quelques gouttes de Sérum de repousse bio massées sur le cuir chevelu propre.',
+            body: 'Pour un cuir chevelu nourri et des cheveux visiblement plus denses, terminez par quelques gouttes de Sérum bio cuir chevelu et cheveux massées sur le cuir chevelu propre. C’est un soin, pas un traitement contre la chute des cheveux.',
           },
         ],
       },
@@ -206,7 +206,7 @@ export const POSTS = [
           },
           {
             heading: 'Extra: cuida las raíces',
-            body: 'Si buscas más densidad, termina con unas gotas del Sérum orgánico de crecimiento sobre el cuero cabelludo limpio.',
+            body: 'Para un cuero cabelludo nutrido y un cabello de aspecto más denso, termina con unas gotas del Sérum orgánico para cuero cabelludo y cabello sobre el cuero cabelludo limpio. Es un cuidado, no un tratamiento para la caída del cabello.',
           },
         ],
       },
@@ -229,7 +229,7 @@ export const POSTS = [
           },
           {
             heading: 'Extra: cura delle radici',
-            body: 'Per più densità, concludi con qualche goccia di Siero ricrescita bio massaggiato sul cuoio capelluto pulito.',
+            body: 'Per un cuoio capelluto nutrito e capelli dall’aspetto più folto, concludi con qualche goccia di Siero biologico per cuoio capelluto e capelli massaggiato sul cuoio capelluto pulito. È un trattamento cosmetico, non una cura per la caduta dei capelli.',
           },
         ],
       },
@@ -252,7 +252,7 @@ export const POSTS = [
           },
           {
             heading: 'Thêm: chăm sóc chân tóc',
-            body: 'Nếu bạn muốn tóc dày hơn, kết thúc bằng vài giọt Serum mọc tóc hữu cơ trên da đầu sạch và massage bằng đầu ngón tay.',
+            body: 'Để da đầu được nuôi dưỡng và tóc trông dày hơn, kết thúc bằng vài giọt Serum hữu cơ dưỡng da đầu và tóc trên da đầu sạch và massage bằng đầu ngón tay. Đây là sản phẩm dưỡng, không phải thuốc trị rụng tóc.',
           },
         ],
       },

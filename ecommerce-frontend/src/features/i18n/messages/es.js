@@ -66,11 +66,11 @@ export const es = {
     removeGift: 'Quitar el regalo {title}',
   },
   footer: {
-    joinHeading: 'Únete a la lista y consigue un 10 % en tu primer pedido.',
+    joinHeading: 'Únete a la lista y consigue un 25 % en tu primer pedido.',
     emailLabel: 'Correo electrónico para la newsletter',
     emailPlaceholder: 'tu@ejemplo.com',
     signUp: 'Suscribirme',
-    thanks: '¡Gracias! Tu código del 10 % está en camino.',
+    thanks: '¡Gracias! Tu código del 25 % está en camino.',
     finePrint: 'Novedades de vez en cuando. Date de baja cuando quieras.',
     social: 'SK Envision en redes sociales',
     socialLink: 'SK Envision en {network} (se abre en una pestaña nueva)',
@@ -79,6 +79,12 @@ export const es = {
     help: 'Ayuda',
     contact: 'Contáctanos',
     orders: 'Historial de pedidos',
+    shipping: 'Envíos',
+    returns: 'Devoluciones',
+    privacy: 'Política de privacidad',
+    terms: 'Términos del servicio',
+    accessibility: 'Accesibilidad',
+    privacyChoices: 'Tus opciones de privacidad',
     bag: 'Tu cesta',
     company: 'SK Envision',
     story: 'Nuestra historia',
@@ -92,7 +98,6 @@ export const es = {
     bestseller: 'Más vendido',
     save: 'Ahorra un {percent} %',
     soldOut: 'Agotado',
-    onlyLeft: 'Solo quedan {count}',
     chooseOptions: 'Elegir opciones',
     addToBag: 'Añadir a la cesta',
     addToCartLabel: 'Añadir {title} a la cesta',
@@ -118,6 +123,13 @@ export const es = {
     previousImage: 'Imagen anterior',
     nextImage: 'Imagen siguiente',
     related: 'También te puede gustar',
+    reviewsTitle: 'Reseñas',
+    reviewsCount: '{count} reseñas',
+    reviewsSource:
+      'Reseñas trasladadas de nuestro sitio web anterior, con las palabras originales de cada cliente.',
+    reviewVerified: 'Comprador verificado',
+    reviewsMore: 'Ver más reseñas',
+    reviewsRated: 'Valoración de {rating} sobre 5',
     loadError: 'No se pudo cargar este producto',
     notFound: 'Ese producto no existe',
     notFoundBody:
@@ -167,7 +179,6 @@ export const es = {
     looks: {
       eyebrow: 'En acción',
       title: 'Compra el look',
-      soon: 'Vídeo próximamente',
       shop: 'Compra el look',
     },
     reviews: {
@@ -243,7 +254,7 @@ export const es = {
     goalRepair: 'Reparar cabello seco y dañado',
     goalFuller: 'Cabello más denso',
     goalShine: 'Cabello suave y brillante',
-    goalColour: 'Cubrir canas y avivar el color',
+    goalColour: 'Avivar mi color',
     goalLashes: 'Pestañas y cejas más largas',
     learn: 'Descubre',
     aboutUs: 'Nosotros',
@@ -267,6 +278,7 @@ export const es = {
     breadcrumb: 'Ruta de navegación',
     home: 'Inicio',
     count: '{count} productos',
+    countOne: '1 producto',
     error: 'No se pudo cargar esta colección',
     loading: 'Cargando productos',
     sortLabel: 'Ordenar',
@@ -413,7 +425,7 @@ export const es = {
     collection:
       'Compra {name} de SK Envision: cuidado natural del pelo y la piel con aceite de argán, colágeno y extractos botánicos. Envío gratis en EE. UU. desde 75 $.',
     shopTitle: 'Todos los productos',
-    shop: 'Todos los productos SK Envision: champú y acondicionador de aceite de argán, mascarillas, sérum de crecimiento, cremas antimanchas y de colágeno, sérum de pestañas y sets de regalo.',
+    shop: 'Todos los productos SK Envision: champú y acondicionador de aceite de argán, mascarillas, sérum para el cuero cabelludo, cremas antimanchas y de colágeno, sérum de pestañas y sets de regalo.',
     about:
       'SK Envision crea cuidado natural premium para el pelo y la piel, con ingredientes de origen natural, sin crueldad animal y sin químicos agresivos.',
     stores:

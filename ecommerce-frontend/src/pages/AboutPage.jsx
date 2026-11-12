@@ -7,6 +7,7 @@ import { Container } from '@/components/layout/Container';
 import { PageShell } from '@/components/layout/PageShell';
 import { useAsync } from '@/hooks/useAsync';
 import { usePageMeta } from '@/hooks/usePageMeta';
+import { RETURN_WINDOW_DAYS } from '@/data/policies';
 import { quizPath, ROUTES } from '@/lib/constants';
 import { getProducts, getSiteContent } from '@/services/productService';
 import { useT } from '@/features/i18n';
@@ -109,7 +110,7 @@ export default function AboutPage() {
       label: t('aboutPage.stats.reviews'),
     },
     { value: '100', suffix: '%', label: t('aboutPage.stats.crueltyFree') },
-    { value: '30', suffix: '', label: t('aboutPage.stats.returns') },
+    { value: String(RETURN_WINDOW_DAYS), suffix: '', label: t('aboutPage.stats.returns') },
   ].filter(Boolean);
 
   return (

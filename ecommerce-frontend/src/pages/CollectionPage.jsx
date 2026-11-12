@@ -78,7 +78,9 @@ export default function CollectionPage() {
             <h1 className="font-display text-display sm:text-display-lg">{t(collection.title)}</h1>
             {!loading && (
               <p className="text-content-muted mt-2 text-sm">
-                {t('collection.count', { count: products.length })}
+                {products.length === 1
+                  ? t('collection.countOne')
+                  : t('collection.count', { count: products.length })}
               </p>
             )}
           </div>

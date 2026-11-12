@@ -4,12 +4,7 @@ import { FiCheck, FiChevronDown, FiMapPin, FiTruck } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
 import { QuantityStepper } from '@/components/ui/QuantityStepper';
 import { Rating } from '@/components/ui/Rating';
-import {
-  FREE_SHIPPING_THRESHOLD,
-  LOW_STOCK_THRESHOLD,
-  ROUTES,
-  SHOW_STORE_FINDER,
-} from '@/lib/constants';
+import { FREE_SHIPPING_THRESHOLD, ROUTES, SHOW_STORE_FINDER } from '@/lib/constants';
 import { discountPercent, formatCurrency } from '@/lib/formatCurrency';
 import { useCart } from '@/features/cart';
 import { useT } from '@/features/i18n';
@@ -39,7 +34,6 @@ export function ProductPurchasePanel({ product }) {
 
   const saving = discountPercent(product.price, product.compareAtPrice);
   const isOutOfStock = product.stock <= 0;
-  const isLowStock = !isOutOfStock && product.stock <= LOW_STOCK_THRESHOLD;
   const description = product.description.split('\n\n').filter(Boolean);
 
   const handleAddToCart = () => {
@@ -63,7 +57,9 @@ export function ProductPurchasePanel({ product }) {
           </h1>
           <WishlistToggle product={product} size="md" hasSurface={false} />
         </div>
-        <Rating value={product.rating} reviewCount={product.reviewCount} size="md" />
+        {product.reviewCount > 0 && (
+          <Rating value={product.rating} reviewCount={product.reviewCount} size="md" />
+        )}
       </div>
 
       <p className="flex items-baseline gap-2">
@@ -141,11 +137,6 @@ export function ProductPurchasePanel({ product }) {
                 {t('stores.find')}
               </Link>
             </span>
-          </p>
-        )}
-        {isLowStock && (
-          <p aria-live="polite" className="text-holiday-600 font-semibold">
-            {t('product.onlyLeft', { count: product.stock })}
           </p>
         )}
       </div>

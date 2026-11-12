@@ -6,6 +6,7 @@ import { PROMO_CODES, QUIZ_PROMO_CODE } from '@/lib/constants';
 import { email as validateEmail } from '@/lib/validators';
 import { useCart } from '@/features/cart';
 import { useT } from '@/features/i18n';
+import { subscribeEmail } from '@/services/subscribeService';
 
 const PROMO = PROMO_CODES[QUIZ_PROMO_CODE];
 
@@ -14,8 +15,8 @@ const PROMO = PROMO_CODES[QUIZ_PROMO_CODE];
  * and first name optional) to unlock 15% off plus free shipping, which is
  * applied to the bag straight away. Skipping goes to the same results.
  *
- * Nothing is sent anywhere yet: there is no email service connected, so the
- * details stay in the browser until one is wired up.
+ * The email (and first name, if given) goes to the Klaviyo email list; the
+ * phone number is not sent anywhere until an SMS sender is set up.
  *
  * @param {object} props
  * @param {(didUnlock: boolean) => void} props.onDone
@@ -36,6 +37,11 @@ export function QuizUnlock({ onDone }) {
       return;
     }
     applyPromo(PROMO.code);
+    subscribeEmail({
+      email: values.email.trim(),
+      firstName: values.firstName.trim() || undefined,
+      source: 'Quiz',
+    });
     onDone(true);
   };
 

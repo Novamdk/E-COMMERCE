@@ -3,9 +3,356 @@
   "framework": "vite",
   "buildCommand": "pnpm run build",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/shop/hair-regrowth-serum",
+      "destination": "/shop/scalp-hair-serum",
+      "permanent": true
+    },
+    {
+      "source": "/shop/lash-growth-serum",
+      "destination": "/shop/lash-brow-serum",
+      "permanent": true
+    },
+    {
+      "source": "/product/dark-spot-beauty-package-our-best-seller",
+      "destination": "/shop/dark-spot-beauty-package",
+      "permanent": true
+    },
+    {
+      "source": "/product/dark-spot-beauty-package-our-best-seller/",
+      "destination": "/shop/dark-spot-beauty-package",
+      "permanent": true
+    },
+    {
+      "source": "/product/hair-care-package-deal",
+      "destination": "/shop/hair-care-package",
+      "permanent": true
+    },
+    {
+      "source": "/product/hair-care-package-deal/",
+      "destination": "/shop/hair-care-package",
+      "permanent": true
+    },
+    {
+      "source": "/product/shampoo-conditioner-for-silky-smooth-for-all-hair-types-haircare-with-natural-argan-conditioner-oil-shampoo",
+      "destination": "/shop/argan-shampoo-conditioner",
+      "permanent": true
+    },
+    {
+      "source": "/product/shampoo-conditioner-for-silky-smooth-for-all-hair-types-haircare-with-natural-argan-conditioner-oil-shampoo/",
+      "destination": "/shop/argan-shampoo-conditioner",
+      "permanent": true
+    },
+    {
+      "source": "/product/shampoo-for-silky-smooth-for-all-hair-types-haircare-with-natural-argan-oil-shampoo",
+      "destination": "/shop/argan-shampoo",
+      "permanent": true
+    },
+    {
+      "source": "/product/shampoo-for-silky-smooth-for-all-hair-types-haircare-with-natural-argan-oil-shampoo/",
+      "destination": "/shop/argan-shampoo",
+      "permanent": true
+    },
+    {
+      "source": "/product/eye-lashes-serum-collagen",
+      "destination": "/shop/lash-brow-serum",
+      "permanent": true
+    },
+    {
+      "source": "/product/eye-lashes-serum-collagen/",
+      "destination": "/shop/lash-brow-serum",
+      "permanent": true
+    },
+    {
+      "source": "/product/murad-retinal-resculpt-eye-lift-treatment-encapsulated-vitamin-a-anti-aging-eye-cream-lifts-and-improves-sagging",
+      "destination": "/shop/retinal-eye-lift",
+      "permanent": true
+    },
+    {
+      "source": "/product/murad-retinal-resculpt-eye-lift-treatment-encapsulated-vitamin-a-anti-aging-eye-cream-lifts-and-improves-sagging/",
+      "destination": "/shop/retinal-eye-lift",
+      "permanent": true
+    },
+    {
+      "source": "/product/dark-spot-collagen-cream",
+      "destination": "/shop/dark-spot-collagen-cream",
+      "permanent": true
+    },
+    {
+      "source": "/product/dark-spot-collagen-cream/",
+      "destination": "/shop/dark-spot-collagen-cream",
+      "permanent": true
+    },
+    {
+      "source": "/product/magic-hair-dye-colors-shampoo",
+      "destination": "/shop/color-dye-shampoo",
+      "permanent": true
+    },
+    {
+      "source": "/product/magic-hair-dye-colors-shampoo/",
+      "destination": "/shop/color-dye-shampoo",
+      "permanent": true
+    },
+    {
+      "source": "/product/collagen-cream-anti-aging-wrinkle",
+      "destination": "/shop/collagen-anti-aging-cream",
+      "permanent": true
+    },
+    {
+      "source": "/product/collagen-cream-anti-aging-wrinkle/",
+      "destination": "/shop/collagen-anti-aging-cream",
+      "permanent": true
+    },
+    {
+      "source": "/product/hair-serum-regrowth-of-hair-extracted-from-organic-natural-ingrediants",
+      "destination": "/shop/scalp-hair-serum",
+      "permanent": true
+    },
+    {
+      "source": "/product/hair-serum-regrowth-of-hair-extracted-from-organic-natural-ingrediants/",
+      "destination": "/shop/scalp-hair-serum",
+      "permanent": true
+    },
+    {
+      "source": "/product/hair-mask-for-dry-damaged-hair-and-growth-for-all-hair-and-protein-hair-treatment",
+      "destination": "/shop/repair-hair-mask",
+      "permanent": true
+    },
+    {
+      "source": "/product/hair-mask-for-dry-damaged-hair-and-growth-for-all-hair-and-protein-hair-treatment/",
+      "destination": "/shop/repair-hair-mask",
+      "permanent": true
+    },
+    {
+      "source": "/product/foot-peel-mask-for-dry-cracked-feet-with-moisturizing-gel",
+      "destination": "/shop/foot-peel-mask",
+      "permanent": true
+    },
+    {
+      "source": "/product/foot-peel-mask-for-dry-cracked-feet-with-moisturizing-gel/",
+      "destination": "/shop/foot-peel-mask",
+      "permanent": true
+    },
+    {
+      "source": "/product/conditioner-for-silky-smooth-for-all-hair-types-haircare-with-natural-argan-conditioner",
+      "destination": "/shop/argan-conditioner",
+      "permanent": true
+    },
+    {
+      "source": "/product/conditioner-for-silky-smooth-for-all-hair-types-haircare-with-natural-argan-conditioner/",
+      "destination": "/shop/argan-conditioner",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/packages",
+      "destination": "/collections/holiday-sets",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/packages/",
+      "destination": "/collections/holiday-sets",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/shampoo-conditioner",
+      "destination": "/collections/shampoo-conditioner",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/shampoo-conditioner/",
+      "destination": "/collections/shampoo-conditioner",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/color-shampoo-hair",
+      "destination": "/shop?category=color-shampoo-hair",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/color-shampoo-hair/",
+      "destination": "/shop?category=color-shampoo-hair",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/dark-spot",
+      "destination": "/shop?category=dark-spot",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/dark-spot/",
+      "destination": "/shop?category=dark-spot",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/eye-cream-anti-aging-organic",
+      "destination": "/shop?category=eye-cream-anti-aging-organic",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/eye-cream-anti-aging-organic/",
+      "destination": "/shop?category=eye-cream-anti-aging-organic",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/eye-lashes-growth-serum",
+      "destination": "/shop?category=lash-brow-serum",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/eye-lashes-growth-serum/",
+      "destination": "/shop?category=lash-brow-serum",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/face-lifting-collagen-cream",
+      "destination": "/shop?category=face-lifting-collagen-cream",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/face-lifting-collagen-cream/",
+      "destination": "/shop?category=face-lifting-collagen-cream",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/foot-peel-mask",
+      "destination": "/shop?category=foot-peel-mask",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/foot-peel-mask/",
+      "destination": "/shop?category=foot-peel-mask",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/hair-mask",
+      "destination": "/shop?category=hair-mask",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/hair-mask/",
+      "destination": "/shop?category=hair-mask",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/hair-serum",
+      "destination": "/shop?category=hair-serum",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/hair-serum/",
+      "destination": "/shop?category=hair-serum",
+      "permanent": true
+    },
+    {
+      "source": "/shipping-policy",
+      "destination": "/shipping",
+      "permanent": true
+    },
+    {
+      "source": "/shipping-policy/",
+      "destination": "/shipping",
+      "permanent": true
+    },
+    {
+      "source": "/refund-policy",
+      "destination": "/returns",
+      "permanent": true
+    },
+    {
+      "source": "/refund-policy/",
+      "destination": "/returns",
+      "permanent": true
+    },
+    {
+      "source": "/refund_returns",
+      "destination": "/returns",
+      "permanent": true
+    },
+    {
+      "source": "/refund_returns/",
+      "destination": "/returns",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/terms-and-conditions/",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/payment-policy",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/payment-policy/",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/about-us",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/about-us/",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/my-account",
+      "destination": "/orders",
+      "permanent": true
+    },
+    {
+      "source": "/my-account/",
+      "destination": "/orders",
+      "permanent": true
+    },
+    {
+      "source": "/affiliate",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/affiliate/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/product/(.*)",
+      "destination": "/shop",
+      "permanent": true
+    },
+    {
+      "source": "/product-category/(.*)",
+      "destination": "/shop",
+      "permanent": true
+    },
+    {
+      "source": "/my-account/(.*)",
+      "destination": "/orders",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
-      "source": "/((?!assets/|img/|og/).*)",
+      "source": "/((?!api/|assets/|img/|og/).*)",
       "destination": "/spa.html"
     }
   ],

@@ -1,8 +1,13 @@
 import { Link } from 'react-router-dom';
 import { FiCheck } from 'react-icons/fi';
+import { isPayPalEnabled } from '@/lib/backend';
 import { cn } from '@/lib/cn';
 
-const LABELS = { shipping: 'Shipping', payment: 'Payment', review: 'Review' };
+const LABELS = {
+  shipping: 'Shipping',
+  payment: isPayPalEnabled ? 'Review & pay' : 'Payment',
+  review: 'Review',
+};
 
 /**
  * Step indicator. Completed steps are links so going back is one click;

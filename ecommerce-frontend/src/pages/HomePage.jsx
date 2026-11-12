@@ -115,7 +115,8 @@ export default function HomePage() {
       <ShopTheLook products={products.data ?? []} />
       <ShopByCategory />
       <JournalSection />
-      <Testimonials testimonials={site.testimonials} />
+      {/* Sample quotes stay off the live site until real reviews are added. */}
+      <Testimonials testimonials={site.testimonials.filter((item) => !item.isPlaceholder)} />
       {SHOW_STORE_FINDER && <StoresBand />}
       <BenefitsStrip benefits={site.benefits} />
     </>

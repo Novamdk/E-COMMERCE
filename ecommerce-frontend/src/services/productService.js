@@ -100,6 +100,17 @@ export function getProducts(language) {
 }
 
 /**
+ * The English catalog entry for one product, read synchronously. For
+ * analytics and email events, which should always carry the same product names
+ * whatever language the shopper browses in.
+ * @param {string} id
+ * @returns {object|undefined}
+ */
+export function getBaseProduct(id) {
+  return productsData.find((product) => product.id === String(id));
+}
+
+/**
  * @param {string} slug
  * @param {string} [language]
  * @returns {Promise<object>}

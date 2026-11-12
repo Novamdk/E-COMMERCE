@@ -5,7 +5,7 @@ import {
   SHIPPING_FLAT_RATE,
   SHIPPING_METHODS,
   TAX_RATE,
-} from './constants';
+} from './constants.js';
 
 /**
  * All order money math. Pure, integer-cents only, no React — so it is

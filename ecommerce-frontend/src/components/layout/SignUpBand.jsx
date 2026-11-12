@@ -2,11 +2,12 @@ import { useState } from 'react';
 import { FiCheck, FiChevronRight } from 'react-icons/fi';
 import { email as validateEmail, phone as validatePhone } from '@/lib/validators';
 import { useT } from '@/features/i18n';
+import { subscribeEmail } from '@/services/subscribeService';
 
 /**
  * One pill field with its submit button inside it, as on Olaplex's footer.
- * Validates locally and thanks the shopper; nothing is sent anywhere until an
- * email/SMS service is connected.
+ * Validates locally and thanks the shopper, then hands the value to onValid.
+ * Email goes to Klaviyo; texts are not connected yet (no SMS sender).
  *
  * @param {object} props
  * @param {string} props.id
@@ -16,14 +17,20 @@ import { useT } from '@/features/i18n';
  * @param {(value: string) => string|null} props.validate
  * @param {string} props.errorText
  * @param {string} props.thanks
+ * @param {(value: string) => void} [props.onValid] called with the value once it passes validation
  */
-function PillForm({ id, type, label, cta, validate, errorText, thanks }) {
+function PillForm({ id, type, label, cta, validate, errorText, thanks, onValid }) {
   const [value, setValue] = useState('');
   const [status, setStatus] = useState('idle');
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setStatus(validate(value) ? 'error' : 'done');
+    if (validate(value)) {
+      setStatus('error');
+      return;
+    }
+    setStatus('done');
+    onValid?.(value.trim());
   };
 
   if (status === 'done') {
@@ -77,7 +84,8 @@ function PillForm({ id, type, label, cta, validate, errorText, thanks }) {
 /**
  * "Sign up for SK Envision updates": consent copy and separate email and
  * text sign-ups. The footer below carries the monogram.
- * Placeholder until a mailing and SMS service is connected.
+ * Email signups go to the Klaviyo email list; the text signup is still a
+ * placeholder until an SMS sender is set up.
  */
 export function SignUpBand() {
   const { t } = useT();
@@ -100,6 +108,7 @@ export function SignUpBand() {
             validate={validateEmail}
             errorText={t('quiz.unlock.emailError')}
             thanks={t('signup.thanksEmail')}
+            onValid={(email) => subscribeEmail({ email, source: 'Footer' })}
           />
           <PillForm
             id="signup-phone"

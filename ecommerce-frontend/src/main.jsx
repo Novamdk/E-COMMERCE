@@ -1,6 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { App } from '@/app/App';
+import { loadKlaviyo } from '@/lib/klaviyo';
+import { loadAdTags } from '@/lib/adTags';
 import { beginHydration } from '@/lib/ssr';
 import '@/styles/index.css';
 
@@ -30,6 +32,15 @@ window.addEventListener('load', () => {
     }
   }, 10000);
 });
+
+// The private admin area is not shopping, so no tracking loads there.
+if (!window.location.pathname.startsWith('/admin')) {
+  // Klaviyo onsite tracking; does nothing unless VITE_KLAVIYO_PUBLIC_KEY is set.
+  loadKlaviyo();
+  // Meta, TikTok and Google tags; each loads only when its ID is set, and none
+  // for shoppers who opted out or whose browser sends Global Privacy Control.
+  loadAdTags();
+}
 
 const container = document.getElementById('root');
 const app = (

@@ -15,6 +15,9 @@ export const ROUTES = {
   CHECKOUT_REVIEW: '/checkout/review',
   ORDERS: '/orders',
   ORDER: '/orders/:orderId',
+  ADMIN: '/admin',
+  ADMIN_ORDERS: '/admin/orders',
+  ADMIN_CUSTOMERS: '/admin/customers',
   SIGN_IN: '/sign-in',
   SIGN_UP: '/sign-up',
   ABOUT: '/about',
@@ -25,6 +28,11 @@ export const ROUTES = {
   JOURNAL: '/journal',
   JOURNAL_POST: '/journal/:slug',
   STORES: '/stores',
+  SHIPPING: '/shipping',
+  RETURNS: '/returns',
+  PRIVACY: '/privacy',
+  TERMS: '/terms',
+  ACCESSIBILITY: '/accessibility',
   NOT_FOUND: '*',
 };
 
@@ -40,6 +48,7 @@ export const SHOW_STORE_FINDER = false;
 export const productPath = (slug) => `/shop/${slug}`;
 /** @param {string} orderId @returns {string} */
 export const orderPath = (orderId) => `/orders/${orderId}`;
+export const adminOrderPath = (number) => `/admin/orders/${number}`;
 /** @param {string} slug a key of COLLECTIONS @returns {string} */
 export const collectionPath = (slug) => `/collections/${slug}`;
 /** @param {'hair'|'gift'} quizId @returns {string} */
@@ -115,7 +124,7 @@ export const CONTACT = {
   ADDRESS_LINES: ['16027 Brookhurst St, Suite I-618', 'Fountain Valley, CA 92708'],
   PHONE: '949-434-1415',
   PHONE_HREF: 'tel:+19494341415',
-  EMAIL: 'Skenvisiontimes@gmail.com',
+  EMAIL: 'support@skenvisiontime.com',
 };
 
 /** Official social profiles. `id` picks the icon in the footer. */
@@ -170,18 +179,22 @@ export const PAGE_SIZE = 9;
 export const PRICE_BOUNDS = { min: 0, max: 15000 };
 export const RELATED_PRODUCT_COUNT = 4;
 
+/**
+ * Star ratings, the rating filter and "Top rated" sorting. Counts and stars
+ * come only from the reviews in src/data/reviews.json.
+ */
+export const SHOW_RATINGS = true;
+
 export const SORT_OPTIONS = [
   { value: 'featured', label: 'Featured' },
   { value: 'price-asc', label: 'Price: low to high' },
   { value: 'price-desc', label: 'Price: high to low' },
   { value: 'rating-desc', label: 'Top rated' },
   { value: 'name-asc', label: 'Name: A–Z' },
-];
+].filter((option) => SHOW_RATINGS || option.value !== 'rating-desc');
 export const DEFAULT_SORT = 'featured';
 
 export const RATING_FILTERS = [4, 3, 2, 1];
-
-export const LOW_STOCK_THRESHOLD = 8;
 
 /* ---------------------------- query keys ---------------------------- */
 export const QUERY_KEYS = {
@@ -214,6 +227,7 @@ export const STORAGE_KEYS = {
   CHECKOUT: 'skenvision.checkout.v1',
   SPIN_WHEEL: 'skenvision.spinWheel.v1',
   LANGUAGE: 'skenvision.language.v1',
+  AD_OPT_OUT: 'skenvision.adOptOut.v1',
 };
 
 /* ------------------------------ misc ------------------------------- */

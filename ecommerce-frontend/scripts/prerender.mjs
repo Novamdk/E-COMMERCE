@@ -18,7 +18,8 @@
  * Vercel serves real files before the SPA rewrite, so /shop/argan-shampoo
  * gets dist/shop/argan-shampoo/index.html.
  *
- * The site origin comes from SITE_URL, else Vercel's production domain.
+ * Canonical URLs, the sitemap and structured data use SITE_URL, else
+ * https://skenvisiontime.com. Preview builds (VERCEL_ENV=preview) are noindex.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -45,6 +46,7 @@ import {
 } from '../src/lib/seo.js';
 import { en } from '../src/features/i18n/messages/en.js';
 import { POSTS } from '../src/features/journal/posts.js';
+import { POLICIES, POLICY_UPDATED, RETURN_WINDOW_DAYS, sectionId } from '../src/data/policies.js';
 
 const { render: renderApp } = await import('../dist-ssr/entry-server.js');
 
@@ -57,12 +59,13 @@ const content = read('src/data/content.json');
 const details = read('src/data/product-details.json').en;
 const images = read('src/data/images.json');
 
-const ORIGIN = (
-  process.env.SITE_URL ||
-  (process.env.VERCEL_PROJECT_PRODUCTION_URL &&
-    `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) ||
-  'https://e-commerce-sk.vercel.app'
-).replace(/\/$/, '');
+// Canonical URLs, the sitemap and structured data always name the live
+// domain, so a Vercel preview never competes with the real store in search.
+const ORIGIN = (process.env.SITE_URL || 'https://skenvisiontime.com').replace(/\/$/, '');
+
+// Preview and development deployments must stay out of search results.
+// (Vercel also sends an X-Robots-Tag: noindex header on them.)
+const IS_PREVIEW = Boolean(process.env.VERCEL_ENV) && process.env.VERCEL_ENV !== 'production';
 
 const template = fs.readFileSync(path.join(DIST, 'index.html'), 'utf8');
 
@@ -109,7 +112,7 @@ const productList = (items) =>
       (p) =>
         `<li><a href="/shop/${p.slug}">${esc(p.title)}</a> — ${esc(p.subtitle)}. ${money(p.price)}${
           p.compareAtPrice ? ` (${money(p.compareAtPrice)} value)` : ''
-        }, rated ${p.rating}/5 from ${p.reviewCount} reviews.</li>`,
+        }${p.reviewCount > 0 ? `, rated ${p.rating}/5 from ${p.reviewCount} reviews` : ''}.</li>`,
     )
     .join('')}</ul>`;
 
@@ -119,7 +122,7 @@ const nav = `<nav><a href="/">Home</a> · <a href="/shop">Shop all</a> · <a hre
   .map((slug) => `<a href="/collections/${slug}">${esc(t(COLLECTIONS[slug].title))}</a>`)
   .join(
     ' · ',
-  )} · <a href="/quiz/hair">Hair quiz</a> · <a href="/quiz/gift">Gift finder</a> · <a href="/journal">Blog</a> · <a href="/about">About</a>${SHOW_STORE_FINDER ? ' · <a href="/stores">Find a store</a>' : ''} · <a href="/contact">Contact</a></nav>`;
+  )} · <a href="/quiz/hair">Hair quiz</a> · <a href="/quiz/gift">Gift finder</a> · <a href="/journal">Blog</a> · <a href="/about">About</a>${SHOW_STORE_FINDER ? ' · <a href="/stores">Find a store</a>' : ''} · <a href="/contact">Contact</a> · ${POLICIES.map((policy) => `<a href="${policy.path}">${esc(policy.title)}</a>`).join(' · ')}</nav>`;
 
 /* ------------------------------- pages ------------------------------- */
 
@@ -179,7 +182,11 @@ for (const product of products) {
     body: `<h1>${esc(product.title)}</h1>
 <p>${esc(product.subtitle)}. Price ${money(product.price)}${
       product.compareAtPrice ? ` (${money(product.compareAtPrice)} value)` : ''
-    }. Rated ${product.rating} out of 5 from ${product.reviewCount} reviews. ${
+    }.${
+      product.reviewCount > 0
+        ? ` Rated ${product.rating} out of 5 from ${product.reviewCount} reviews.`
+        : ''
+    } ${
       product.stock > 0 ? 'In stock.' : 'Out of stock.'
     } Free US shipping on orders over ${money(FREE_SHIPPING_THRESHOLD)}.</p>
 ${d.benefits.length ? `<h2>Key benefits</h2><ul>${d.benefits.map((b) => `<li>${esc(b)}</li>`).join('')}</ul>` : ''}
@@ -271,6 +278,35 @@ pages.push({
   )}.</p>`,
 });
 
+for (const policy of POLICIES) {
+  pages.push({
+    path: policy.path,
+    title: policy.title,
+    description: policy.description,
+    priority: 0.3,
+    body: `<article><h1>${esc(policy.title)}</h1><p>Last updated ${esc(POLICY_UPDATED)}.</p><p>${esc(
+      policy.intro,
+    )}</p>${
+      policy.summary?.length
+        ? `<h2>At a glance</h2><ul>${policy.summary.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`
+        : ''
+    }${policy.sections
+      .map(
+        (section) =>
+          `<h2 id="${sectionId(section)}">${esc(section.heading)}</h2>${section.blocks
+            .map((block) =>
+              typeof block === 'string'
+                ? `<p>${esc(block)}</p>`
+                : block.subheading
+                  ? `<h3>${esc(block.subheading)}</h3>`
+                  : `<ul>${block.list.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>`,
+            )
+            .join('')}`,
+      )
+      .join('')}</article>`,
+  });
+}
+
 if (SHOW_STORE_FINDER)
   pages.push({
     path: '/stores',
@@ -290,7 +326,9 @@ function render(page, app) {
   const head = `<!-- seo:start -->
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}" />
-    <link rel="canonical" href="${esc(url)}" />
+    <link rel="canonical" href="${esc(url)}" />${
+      IS_PREVIEW ? '\n    <meta name="robots" content="noindex, nofollow" />' : ''
+    }
     <meta property="og:site_name" content="${BRAND}" />
     <meta property="og:title" content="${esc(title)}" />
     <meta property="og:description" content="${esc(description)}" />
@@ -366,9 +404,15 @@ ${pages
 
 fs.writeFileSync(
   path.join(DIST, 'robots.txt'),
-  `# Search engines and AI assistants are welcome to read the storefront.
+  IS_PREVIEW
+    ? `# Preview build: not for search engines.
+User-agent: *
+Disallow: /
+`
+    : `# Search engines and AI assistants are welcome to read the storefront.
 User-agent: *
 Allow: /
+Disallow: /admin
 Disallow: /cart
 Disallow: /checkout
 Disallow: /orders
@@ -387,7 +431,7 @@ fs.writeFileSync(
 
 > ${DEFAULT_DESCRIPTION}
 
-${BRAND} is a natural hair and skin care brand based at ${CONTACT.ADDRESS_LINES.join(', ')}. Formulas use naturally derived ingredients such as argan oil, collagen, proteins and botanical extracts, and are cruelty-free. Prices are in US dollars. Orders over ${money(FREE_SHIPPING_THRESHOLD)} ship free in the US; unopened products can be returned within 30 days.
+${BRAND} is a natural hair and skin care brand based at ${CONTACT.ADDRESS_LINES.join(', ')}. Formulas use naturally derived ingredients such as argan oil, collagen, proteins and botanical extracts, and are cruelty-free. Prices are in US dollars. Orders over ${money(FREE_SHIPPING_THRESHOLD)} ship free in the US; unopened products can be returned within ${RETURN_WINDOW_DAYS} days of delivery.
 
 Contact: ${CONTACT.PHONE} · ${CONTACT.EMAIL}
 
@@ -397,7 +441,7 @@ ${[...products]
   .sort(byFeatured)
   .map((p) => {
     const d = details[p.id];
-    return `- [${p.title}](${ORIGIN}/shop/${p.slug}): ${p.subtitle}. ${money(p.price)}, rated ${p.rating}/5 (${p.reviewCount} reviews).${
+    return `- [${p.title}](${ORIGIN}/shop/${p.slug}): ${p.subtitle}. ${money(p.price)}${p.reviewCount > 0 ? `, rated ${p.rating}/5 (${p.reviewCount} reviews)` : ''}.${
       d?.benefits?.length ? ` ${d.benefits.join('; ')}.` : ''
     }`;
   })
@@ -414,6 +458,10 @@ ${Object.keys(COLLECTIONS)
 
 - [Hair quiz](${ORIGIN}/quiz/hair): four questions about hair type, texture, concern and styling, then a recommended routine.
 - [Gift finder](${ORIGIN}/quiz/gift): who the gift is for, what they love and a budget, then gift picks.
+
+## Store policies
+
+${POLICIES.map((policy) => `- [${policy.title}](${ORIGIN}${policy.path}): ${policy.description}`).join('\n')}
 
 ## Journal
 

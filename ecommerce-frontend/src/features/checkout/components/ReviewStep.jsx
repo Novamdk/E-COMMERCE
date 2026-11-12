@@ -37,6 +37,8 @@ function ReviewCard({ title, onEdit, children }) {
  * @param {string|null} props.submitError
  * @param {() => void} props.onPlaceOrder
  * @param {(step: string) => void} props.onEditStep
+ * @param {import('react').ReactNode} [props.paySlot] real checkout: the payment buttons,
+ *   shown instead of the demo card summary, item list and Place order button
  */
 export function ReviewStep({
   form,
@@ -46,6 +48,7 @@ export function ReviewStep({
   submitError,
   onPlaceOrder,
   onEditStep,
+  paySlot = null,
 }) {
   const { values } = form;
   const method = SHIPPING_METHODS.find((m) => m.id === form.shippingMethodId);
@@ -63,7 +66,7 @@ export function ReviewStep({
         </p>
       )}
 
-      <div className="grid gap-4 sm:grid-cols-2">
+      <div className={paySlot ? 'grid gap-4' : 'grid gap-4 sm:grid-cols-2'}>
         <ReviewCard title="Deliver to" onEdit={() => onEditStep('shipping')}>
           <address className="text-content-muted text-sm leading-relaxed not-italic">
             <span className="text-content block font-medium">
@@ -84,57 +87,83 @@ export function ReviewStep({
           </p>
         </ReviewCard>
 
-        <ReviewCard title="Paying with" onEdit={() => onEditStep('payment')}>
-          <p className="text-content-muted text-sm leading-relaxed">
-            <span className="text-content block font-medium">{values.cardholder}</span>
-            Card ending {last4}
-            <br />
-            Expires {values.cardExpiry}
-          </p>
-        </ReviewCard>
+        {!paySlot && (
+          <ReviewCard title="Paying with" onEdit={() => onEditStep('payment')}>
+            <p className="text-content-muted text-sm leading-relaxed">
+              <span className="text-content block font-medium">{values.cardholder}</span>
+              Card ending {last4}
+              <br />
+              Expires {values.cardExpiry}
+            </p>
+          </ReviewCard>
+        )}
       </div>
 
-      <section className={CARD}>
-        <h3 className="mb-3 text-sm font-semibold">
-          {totals.itemCount} {totals.itemCount === 1 ? 'item' : 'items'}
-        </h3>
-        <ul className="divide-border divide-y">
-          {lines.map((line) => (
-            <li key={line.id} className="flex items-center gap-3 py-3">
-              <Image
-                name={primaryImage(line.product)}
-                alt=""
-                sizes="3.5rem"
-                ratio="aspect-square"
-                className="rounded-field w-14 shrink-0"
-              />
-              <div className="min-w-0 flex-1">
-                <p className="truncate text-sm font-medium">{line.product.title}</p>
-                <p className="text-content-subtle text-xs">
-                  Qty {line.qty}
-                  {[line.size, line.color].filter(Boolean).map((v) => ` · ${v}`)}
+      {/* With PayPal the order summary already lists the items. */}
+      {!paySlot && (
+        <section className={CARD}>
+          <h3 className="mb-3 text-sm font-semibold">
+            {totals.itemCount} {totals.itemCount === 1 ? 'item' : 'items'}
+          </h3>
+          <ul className="divide-border divide-y">
+            {lines.map((line) => (
+              <li key={line.id} className="flex items-center gap-3 py-3">
+                <Image
+                  name={primaryImage(line.product)}
+                  alt=""
+                  sizes="3.5rem"
+                  ratio="aspect-square"
+                  className="rounded-field w-14 shrink-0"
+                />
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-sm font-medium">{line.product.title}</p>
+                  <p className="text-content-subtle text-xs">
+                    Qty {line.qty}
+                    {[line.size, line.color].filter(Boolean).map((v) => ` · ${v}`)}
+                  </p>
+                </div>
+                <p className="text-sm font-medium tabular-nums">
+                  {formatCurrency(lineTotal(line))}
                 </p>
-              </div>
-              <p className="text-sm font-medium tabular-nums">{formatCurrency(lineTotal(line))}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
-      <div className="flex flex-col gap-2 sm:flex-row-reverse">
-        <Button
-          size="lg"
-          className="sm:flex-1"
-          isLoading={isPlacing}
-          disabled={lines.length === 0}
-          onClick={onPlaceOrder}
-        >
-          Place order · {formatCurrency(totals.total)}
-        </Button>
-        <Button variant="ghost" size="lg" onClick={() => onEditStep('payment')}>
-          Back to payment
-        </Button>
-      </div>
+      {paySlot ? (
+        <section className={CARD} aria-labelledby="pay-heading">
+          <div className="mb-4 flex items-baseline justify-between gap-3">
+            <h3 id="pay-heading" className="text-sm font-semibold">
+              Pay securely
+            </h3>
+            <p className="text-sm font-medium tabular-nums">{formatCurrency(totals.total)}</p>
+          </div>
+          {paySlot}
+          <button
+            type="button"
+            onClick={() => onEditStep('shipping')}
+            className="text-content-muted hover:text-content mt-3 text-xs transition-colors"
+          >
+            Back to shipping
+          </button>
+        </section>
+      ) : (
+        <div className="flex flex-col gap-2 sm:flex-row-reverse">
+          <Button
+            size="lg"
+            className="sm:flex-1"
+            isLoading={isPlacing}
+            disabled={lines.length === 0}
+            onClick={onPlaceOrder}
+          >
+            Place order · {formatCurrency(totals.total)}
+          </Button>
+          <Button variant="ghost" size="lg" onClick={() => onEditStep('payment')}>
+            Back to payment
+          </Button>
+        </div>
+      )}
     </div>
   );
 }

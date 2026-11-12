@@ -6,6 +6,7 @@ import { Skeleton } from '@/components/ui/Skeleton';
 import { Image } from '@/components/ui/Image';
 import { PageHeader } from '@/components/layout/PageHeader';
 import { PageShell } from '@/components/layout/PageShell';
+import { isPayPalEnabled } from '@/lib/backend';
 import { ROUTES } from '@/lib/constants';
 import { primaryImage } from '@/lib/productImage';
 import { CartLineItem, CartSummary, PromoForm, useCart, useCartLines } from '@/features/cart';
@@ -102,9 +103,11 @@ export default function CartPage() {
                   Proceed to checkout
                 </Button>
 
-                <p className="text-content-subtle text-center text-xs">
-                  Demo storefront — no payment is taken.
-                </p>
+                {!isPayPalEnabled && (
+                  <p className="text-content-subtle text-center text-xs">
+                    Demo storefront — no payment is taken.
+                  </p>
+                )}
               </div>
             </aside>
           </div>

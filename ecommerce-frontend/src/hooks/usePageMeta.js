@@ -28,12 +28,18 @@ const setMeta = (key, name, content) => headTag('meta', key, name).setAttribute(
  * @param {'website'|'product'|'article'} [meta.type]
  * @param {object|object[]} [meta.jsonLd] schema.org data
  */
+/** The live store's address: canonical URLs always point here, never at a preview. */
+const CANONICAL_ORIGIN = (import.meta.env.VITE_SITE_URL || 'https://skenvisiontime.com').replace(
+  /\/$/,
+  '',
+);
+
 export function usePageMeta({ title, description, path, image, type = 'website', jsonLd }) {
   const ldText = jsonLd ? JSON.stringify(jsonLd) : '';
 
   useEffect(() => {
     const origin = window.location.origin;
-    const url = `${origin}${path ?? window.location.pathname}`;
+    const url = `${CANONICAL_ORIGIN}${path ?? window.location.pathname}`;
     const fullTitle = pageTitle(title);
     const text = snippet(description || DEFAULT_DESCRIPTION);
     const imageUrl = `${origin}${image || DEFAULT_IMAGE}`;

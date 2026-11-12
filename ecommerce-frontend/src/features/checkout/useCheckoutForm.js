@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useLocalStorage } from '@/hooks/useLocalStorage';
+import { isPayPalEnabled } from '@/lib/backend';
 import { SHIPPING_METHODS, STORAGE_KEYS } from '@/lib/constants';
 import {
   cardCvc,
@@ -12,7 +13,14 @@ import {
   validateAll,
 } from '@/lib/validators';
 
-export const CHECKOUT_STEPS = ['shipping', 'payment', 'review'];
+/**
+ * With PayPal, the shopper reviews the order and pays on one step (PayPal or
+ * card through PayPal's buttons), so there is no card form and no separate
+ * review step. The demo keeps its three steps.
+ */
+export const CHECKOUT_STEPS = isPayPalEnabled
+  ? ['shipping', 'payment']
+  : ['shipping', 'payment', 'review'];
 
 const SHIPPING_SCHEMA = {
   firstName: required('First name'),
@@ -25,12 +33,14 @@ const SHIPPING_SCHEMA = {
   postalCode,
 };
 
-const PAYMENT_SCHEMA = {
-  cardholder: required('Name on card'),
-  cardNumber,
-  cardExpiry,
-  cardCvc,
-};
+const PAYMENT_SCHEMA = isPayPalEnabled
+  ? {}
+  : {
+      cardholder: required('Name on card'),
+      cardNumber,
+      cardExpiry,
+      cardCvc,
+    };
 
 const STEP_FIELDS = {
   shipping: Object.keys(SHIPPING_SCHEMA),

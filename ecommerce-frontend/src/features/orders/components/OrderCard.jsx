@@ -49,7 +49,7 @@ export function OrderCard({ order }) {
       <div className="flex flex-wrap items-center gap-3 px-5 py-4">
         {order.lines.slice(0, 5).map((line) => (
           <Link
-            key={`${line.productId}-${line.size ?? ''}-${line.color ?? ''}`}
+            key={`${line.productId}-${line.size ?? ''}-${line.color ?? ''}-${line.isGift ? 'gift' : ''}`}
             to={productPath(line.slug)}
             aria-label={line.title}
             className="shrink-0"

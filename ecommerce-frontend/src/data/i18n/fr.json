@@ -29,7 +29,7 @@
       {
         "quote": "J’adore ce produit. Il fait partie de ma routine à chaque coiffage. J’ai les cheveux épais et frisés qui absorbent tout, mais il en faut très peu : le premier flacon m’a duré cinq mois.",
         "name": "Client vérifié",
-        "meta": "Sérum bio pour la repousse des cheveux"
+        "meta": "Sérum bio cuir chevelu et cheveux"
       },
       {
         "quote": "Masque à l’huile d’argan du Maroc pour cheveux secs et abîmés : nourrissant, hydratant, indispensable. Mes cheveux sont complètement différents après deux utilisations.",
@@ -53,7 +53,7 @@
       },
       {
         "q": "Au bout de combien de temps voit-on des résultats ?",
-        "a": "Cela dépend du produit. Le sérum pour cils est formulé pour une pousse visible en quatre semaines environ ; les masques et après-shampooings font généralement la différence après deux ou trois lavages."
+        "a": "Cela dépend du produit et de vous. Les masques et après-shampooings font généralement une différence perceptible après deux ou trois lavages ; les sérums et crèmes s’utilisent chaque jour pendant plusieurs semaines."
       },
       {
         "q": "Quelle est votre politique de retour ?",
@@ -85,8 +85,8 @@
   },
   "categories": {
     "color-shampoo-hair": {
-      "name": "Shampooings colorants",
-      "description": "Une couleur riche, digne d’un salon, directement sous la douche."
+      "name": "Coloration",
+      "description": "Ravivez votre couleur sous la douche."
     },
     "dark-spot": {
       "name": "Anti-taches",
@@ -96,9 +96,9 @@
       "name": "Contour des yeux anti-âge bio",
       "description": "Un soin ciblé pour les ridules et les yeux fatigués."
     },
-    "eye-lashes-growth-serum": {
-      "name": "Sérum de pousse des cils",
-      "description": "Des sérums pour des cils et sourcils plus fournis et plus longs."
+    "lash-brow-serum": {
+      "name": "Sérum cils et sourcils",
+      "description": "Des sérums pour des cils et sourcils visiblement plus longs et fournis."
     },
     "face-lifting-collagen-cream": {
       "name": "Crèmes liftantes au collagène",
@@ -114,11 +114,11 @@
     },
     "hair-serum": {
       "name": "Sérums capillaires",
-      "description": "Des sérums qui agissent dès le cuir chevelu pour redonner de la densité."
+      "description": "Des sérums légers pour le cuir chevelu, pour des cheveux visiblement plus denses."
     },
     "packages": {
       "name": "Coffrets",
-      "description": "Des routines complètes à un meilleur prix qu’à l’unité."
+      "description": "Des routines complètes, réunies en une seule commande."
     }
   },
   "products": {
@@ -139,28 +139,28 @@
       "subtitle": "Tous types de cheveux"
     },
     "2547": {
-      "title": "Sérum de pousse des cils au collagène",
-      "subtitle": "Cils et sourcils en 4 semaines"
+      "title": "Sérum cils et sourcils au collagène",
+      "subtitle": "Cils et sourcils visiblement plus fournis"
     },
     "2394": {
-      "title": "Soin liftant yeux Retinal ReSculpt",
-      "subtitle": "Vitamine A encapsulée"
+      "title": "Crème yeux rénovatrice SK Envision",
+      "subtitle": "Crème légère au quotidien"
     },
     "1958": {
       "title": "Crème au collagène anti-taches",
-      "subtitle": "Unifie le teint, atténue les taches"
+      "subtitle": "Pour un teint plus uniforme"
     },
     "1773": {
       "title": "Shampooing colorant Magic Hair Dye",
-      "subtitle": "La couleur du salon à la maison"
+      "subtitle": "Couleur ravivée à la maison"
     },
     "1550": {
       "title": "Crème anti-rides au collagène",
       "subtitle": "Raffermit et lisse"
     },
     "29": {
-      "title": "Sérum bio pour la repousse des cheveux",
-      "subtitle": "Densité des racines aux pointes"
+      "title": "Sérum bio cuir chevelu et cheveux",
+      "subtitle": "Sérum nourrissant pour le cuir chevelu"
     },
     "28": {
       "title": "Masque capillaire réparateur aux protéines",

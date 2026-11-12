@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams, useSearchParams } from 'react-router-dom';
 import { FiCheckCircle, FiPackage } from 'react-icons/fi';
 import { Button } from '@/components/ui/Button';
 import { EmptyState } from '@/components/ui/EmptyState';
@@ -8,6 +8,7 @@ import { Image } from '@/components/ui/Image';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { PageShell } from '@/components/layout/PageShell';
 import { useAsync } from '@/hooks/useAsync';
+import { isPayPalEnabled } from '@/lib/backend';
 import { productPath, ROUTES, SHIPPING_METHODS } from '@/lib/constants';
 import { formatCurrency } from '@/lib/formatCurrency';
 import { getOrderById } from '@/services/orderService';
@@ -30,9 +31,12 @@ function SummaryRow({ label, value }) {
 export default function OrderConfirmationPage() {
   const { orderId } = useParams();
   const location = useLocation();
+  const [searchParams] = useSearchParams();
   const isJustPlaced = Boolean(location.state?.isJustPlaced);
+  // Guests open their order from the link in the confirmation email (?t=…).
+  const viewToken = searchParams.get('t');
 
-  const fetchOrder = useCallback(() => getOrderById(orderId), [orderId]);
+  const fetchOrder = useCallback(() => getOrderById(orderId, viewToken), [orderId, viewToken]);
   const { data: order, loading, error, refetch } = useAsync(fetchOrder);
 
   if (loading) {
@@ -52,7 +56,11 @@ export default function OrderConfirmationPage() {
         <EmptyState
           icon={FiPackage}
           title="We could not find that order"
-          body="Order references are stored in this browser. If you cleared your site data, the record is gone."
+          body={
+            isPayPalEnabled
+              ? 'Open the order from the link in your confirmation email, or sign in to the account you ordered with.'
+              : 'Order references are stored in this browser. If you cleared your site data, the record is gone.'
+          }
           action={<Button to={ROUTES.ORDERS}>View your orders</Button>}
         />
       </PageShell>
@@ -86,11 +94,13 @@ export default function OrderConfirmationPage() {
         <span className="text-content font-medium tabular-nums">{order.id}</span>.
       </p>
 
-      <p className="rounded-field bg-surface-sunken text-content-muted mt-4 px-3.5 py-3 text-xs leading-relaxed">
-        This is a demo storefront — no email was actually sent, no payment was taken, and nothing
-        will ship. The order is recorded in your browser so the history page has something real to
-        show.
-      </p>
+      {!isPayPalEnabled && (
+        <p className="rounded-field bg-surface-sunken text-content-muted mt-4 px-3.5 py-3 text-xs leading-relaxed">
+          This is a demo storefront — no email was actually sent, no payment was taken, and nothing
+          will ship. The order is recorded in your browser so the history page has something real to
+          show.
+        </p>
+      )}
 
       <section
         aria-labelledby="order-items-heading"
@@ -103,7 +113,7 @@ export default function OrderConfirmationPage() {
         <ul className="divide-border mt-4 divide-y">
           {order.lines.map((line) => (
             <li
-              key={`${line.productId}-${line.size ?? ''}-${line.color ?? ''}`}
+              key={`${line.productId}-${line.size ?? ''}-${line.color ?? ''}-${line.isGift ? 'gift' : ''}`}
               className="flex items-center gap-3 py-3.5"
             >
               <Image
@@ -126,7 +136,7 @@ export default function OrderConfirmationPage() {
                 </p>
               </div>
               <p className="text-sm font-medium tabular-nums">
-                {formatCurrency(line.unitPrice * line.qty)}
+                {line.isGift ? 'Free gift' : formatCurrency(line.unitPrice * line.qty)}
               </p>
             </li>
           ))}
@@ -171,9 +181,15 @@ export default function OrderConfirmationPage() {
           <p className="text-content-muted mt-2 text-sm leading-relaxed">
             Placed {DATE_FORMAT.format(new Date(order.placedAt))}
             <br />
-            Card ending {order.payment.last4}
+            {order.payment.last4 ? `Card ending ${order.payment.last4}` : 'Paid with PayPal'}
             <br />
             {method?.detail}
+            {order.tracking && (
+              <>
+                <br />
+                Shipped with {order.tracking.carrier}, tracking {order.tracking.number}
+              </>
+            )}
           </p>
         </div>
       </div>

@@ -67,32 +67,60 @@ const OVERRIDES = {
     slug: 'hair-care-package',
     title: 'Hair Care Package Deal',
     subtitle: 'Complete 3-step routine',
+    // The source copy offered a 15% subscription discount that does not
+    // exist, and "limited-time" urgency. Rewritten Nov 2026.
+    description:
+      'Our complete hair care routine in one order: argan oil shampoo, argan oil conditioner and the protein repair hair mask. Together they cleanse, condition and treat dry or damaged hair, leaving it soft, smooth and easier to manage.\n\nHow to use: wash with the shampoo, then work the conditioner through mid-lengths to ends and rinse. Once a week, use the hair mask in place of the conditioner.',
+    excerpt: 'Shampoo, conditioner and hair mask for a complete at-home routine.',
   },
   2628: {
     slug: 'argan-shampoo-conditioner',
     title: 'Argan Oil Shampoo & Conditioner Duo',
     subtitle: 'For silky smooth hair',
   },
-  2621: { slug: 'argan-shampoo', title: 'Argan Oil Shampoo', subtitle: 'All hair types' },
+  2621: {
+    slug: 'argan-shampoo',
+    title: 'Argan Oil Shampoo',
+    subtitle: 'All hair types',
+    // The source copy described the shampoo as a shampoo and conditioner duo.
+    description:
+      'A gentle everyday shampoo enriched with natural argan oil. It lifts away dirt, oil and product buildup from hair and scalp, and leaves strands soft, smooth and shiny.\n\nUse it on its own, or follow with the Argan Oil Conditioner (sold separately) to detangle and add moisture. Made for straight, wavy, curly and coily hair.\n\nHow to use: massage into wet hair and scalp until it lathers, then rinse well. Use whenever you wash your hair.',
+  },
   2547: {
-    slug: 'lash-growth-serum',
-    title: 'Collagen Eyelash Growth Serum',
-    subtitle: 'Lashes & brows in 4 weeks',
+    slug: 'lash-brow-serum',
+    // Image files keep their original names.
+    asset: 'lash-growth-serum',
+    title: 'Collagen Lash & Brow Serum',
+    subtitle: 'Fuller-looking lashes & brows',
+    // Cosmetic wording only: no new-growth or "in 4 weeks" promises.
+    description:
+      'A nourishing serum for lashes and brows. Used every night, it conditions them so they look longer, fuller and stronger, and helps reduce the look of thin, brittle lashes.\n\nHow to use: each night, sweep one stroke along the upper lash line of clean, dry eyes, like a liquid liner, and apply to brows the same way. Avoid contact with the eyes, and stop using it if irritation occurs.',
   },
   2394: {
     slug: 'retinal-eye-lift',
-    title: 'Retinal ReSculpt Eye Lift Treatment',
-    subtitle: 'Encapsulated vitamin A',
+    // SK Envision's own product: renamed and rewritten (Nov 2026), so the
+    // source copy, which used another brand's product name, is not used.
+    title: 'SK Envision Eye Renewal Cream',
+    subtitle: 'Lightweight daily eye cream',
+    description:
+      'A lightweight eye cream made for the delicate skin around your eyes. It absorbs quickly, layers well under makeup, and helps the eye area look smoother, brighter and more rested with daily use.\n\nHow to use: pat a small amount around the eye area, morning or night. Patch-test first and avoid direct contact with eyes.',
   },
   1958: {
     slug: 'dark-spot-collagen-cream',
     title: 'Dark Spot Collagen Cream',
-    subtitle: 'Evens tone & fades spots',
+    subtitle: 'For a more even-looking tone',
+    // Cosmetic wording only: no "collagen production" or "deep penetration".
+    description:
+      'A brightening daily cream for uneven skin tone. With regular use it helps fade the look of dark spots and discoloration, for a more even, radiant-looking complexion.\n\nCollagen moisturizes and helps skin look plumper, smoother and firmer. It absorbs quickly with no greasy finish.\n\nHow to use: apply to clean, dry skin morning and night, focusing on areas of uneven tone. Always follow with sunscreen in the morning. If you have sensitive skin, patch-test first.',
   },
   1773: {
     slug: 'color-dye-shampoo',
     title: 'Magic Hair Dye Color Shampoo',
-    subtitle: 'Salon colour at home',
+    subtitle: 'Colour refresh at home',
+    // No daily-use, all-hair-types or unlimited-colour claims, and the
+    // allergy test up front. Swap in the label's exact wording when known.
+    description:
+      'Refresh your hair colour at home. Magic Hair Dye Color Shampoo colours while you wash, with conditioning ingredients that leave hair soft and shiny.\n\nChoose your shade and follow the instructions that come with your bottle. Results depend on your starting colour, how much grey you have and any previous colouring or treatments, and lighter shades may show little change on dark hair.\n\nBefore every use, do the allergy (patch) test in the product instructions, even if you have used hair dye before. Wear gloves, keep it away from your eyes, eyebrows and eyelashes, and do not use it on an irritated or broken scalp.',
   },
   1550: {
     slug: 'collagen-anti-aging-cream',
@@ -100,22 +128,38 @@ const OVERRIDES = {
     subtitle: 'Firms & smooths',
   },
   29: {
-    slug: 'hair-regrowth-serum',
-    title: 'Organic Hair Regrowth Serum',
-    subtitle: 'Root-to-tip density',
+    slug: 'scalp-hair-serum',
+    asset: 'hair-regrowth-serum',
+    title: 'Organic Scalp & Hair Serum',
+    subtitle: 'Nourishing scalp serum',
+    // Cosmetic wording only: no follicle or new-growth claims.
+    description:
+      'A lightweight scalp serum made with organic and natural ingredients. Massaged into the scalp, it moisturizes and conditions, so hair looks fuller, thicker and healthier from root to tip.\n\nFree from harsh chemicals and never greasy, it leaves hair soft with a natural shine and helps reduce the look of dryness and breakage.\n\nHow to use: apply a few drops to a clean, dry scalp and massage in with your fingertips. Do not rinse. Use daily.',
   },
   28: {
     slug: 'repair-hair-mask',
     title: 'Protein Repair Hair Mask',
     subtitle: 'Dry & damaged hair',
+    // Repair and conditioning only: no follicle or new-growth claims.
+    description:
+      'A rich protein treatment for dry, damaged hair. It deeply moisturizes, smooths the look of split ends, helps reduce breakage and leaves hair soft, shiny and easier to manage.\n\nMade with nourishing proteins and conditioning ingredients, it turns your weekly wash into a simple at-home treatment.\n\nHow to use: after shampooing, apply generously to damp hair from mid-lengths to ends. Leave on for 5 to 10 minutes, then rinse. Use once or twice a week.',
   },
   27: { slug: 'foot-peel-mask', title: 'Foot Peel Mask', subtitle: 'With moisturizing gel' },
   26: {
     slug: 'argan-conditioner',
     title: 'Argan Oil Conditioner',
     subtitle: 'Detangles & hydrates',
+    edits: [
+      [
+        'Each use strengthens your hair from the inside out, restoring its natural elasticity and shine.',
+        'Each use leaves hair feeling stronger, with more bounce and shine.',
+      ],
+    ],
   },
 };
+
+/** Shade names as shoppers should read them (the source has typos). */
+const COLOR_NAMES = { 'Chest Nut Brown': 'Chestnut Brown', Blond: 'Blonde' };
 
 /** Size axes that exist on the real products (bottle sizes shown on packaging). */
 const SIZES = {
@@ -123,7 +167,7 @@ const SIZES = {
   'argan-conditioner': ['8 oz', '17 oz'],
   'argan-shampoo-conditioner': ['8 oz duo', '17 oz duo'],
   'repair-hair-mask': ['8 oz', '16 oz'],
-  'hair-regrowth-serum': ['2 oz', '4 oz'],
+  'scalp-hair-serum': ['2 oz', '4 oz'],
 };
 
 /** Deterministic pseudo-random in [0,1) from an integer seed, so builds are stable. */
@@ -148,7 +192,7 @@ for (const p of rawProducts) {
   for (const img of p.images) {
     const url = img.src.split('?')[0];
     if (imageIndex.has(url)) continue;
-    const name = `${o.slug}-${i}`;
+    const name = `${o.asset ?? o.slug}-${i}`;
     imageIndex.set(url, name);
     manifest.push({ name, url, kind: 'product' });
     i += 1;
@@ -226,17 +270,31 @@ const LOCAL_ART = Object.entries({
 }).map(([name, kind]) => ({ name, file: `scripts/source-images/${name}.jpg`, kind }));
 for (const e of LOCAL_ART) manifest.push(e);
 
+/** Category slugs as shoppers see them in links (the source slug made a growth claim). */
+const CATEGORY_SLUGS = { 'eye-lashes-growth-serum': 'lash-brow-serum' };
+const catSlug = (slug) => CATEGORY_SLUGS[slug] ?? slug;
+
 /* ---------------- products.json ---------------- */
+/** Average stars and count from src/data/reviews.json; none means 0 and 0. */
+const REVIEWS = JSON.parse(fs.readFileSync(path.join(DATA, 'reviews.json'), 'utf8'));
+function reviewStats(id) {
+  const list = REVIEWS[id] ?? [];
+  if (!list.length) return { rating: 0, reviewCount: 0 };
+  const average = list.reduce((sum, review) => sum + review.rating, 0) / list.length;
+  return { rating: Math.round(average * 10) / 10, reviewCount: list.length };
+}
+
 const products = rawProducts
   .filter((p) => OVERRIDES[p.id])
   .map((p) => {
     const o = OVERRIDES[p.id];
-    const body = paragraphs(p.description);
-    const short = clean(p.short_description) || body[0]?.slice(0, 160) || '';
+    let body = o.description ? o.description.split('\n\n') : paragraphs(p.description);
+    for (const [from, to] of o.edits ?? []) body = body.map((para) => para.replace(from, to));
+    const short =
+      o.excerpt ?? ((!o.description && clean(p.short_description)) || body[0]?.slice(0, 160) || '');
     const colorAttr = (p.attributes || []).find((a) => /colou?r/i.test(a.name));
     const price = Number(p.prices.price);
     const regular = Number(p.prices.regular_price);
-    const rating = Number(p.average_rating) || 0;
 
     // Source stock is only a boolean; spread a deterministic count so the UI
     // exercises in-stock / low-stock / out-of-stock states. Demo data.
@@ -251,15 +309,18 @@ const products = rawProducts
       excerpt: short,
       price,
       compareAtPrice: regular > price ? regular : null,
-      category: p.categories[0]?.slug ?? 'uncategorized',
-      categories: p.categories.map((c) => c.slug),
+      category: catSlug(p.categories[0]?.slug ?? 'uncategorized'),
+      categories: p.categories.map((c) => catSlug(c.slug)),
       images: p.images.map((img) => imageIndex.get(img.src.split('?')[0])).filter(Boolean),
-      rating: rating || Number((3.9 + seeded(p.id + 7) * 1.1).toFixed(1)),
-      reviewCount: p.review_count,
+      // Stars and counts come only from the reviews moved over from the old
+      // site (src/data/reviews.json), never from the old site's totals.
+      ...reviewStats(String(p.id)),
       stock,
       variants: {
         sizes: SIZES[o.slug] ?? [],
-        colors: colorAttr ? colorAttr.terms.map((t) => clean(t.name)) : [],
+        colors: colorAttr
+          ? colorAttr.terms.map((t) => COLOR_NAMES[clean(t.name)] ?? clean(t.name))
+          : [],
       },
       tags: (p.tags || []).map((t) => t.slug),
       isBestSeller: [5091, 4824, 2547].includes(p.id),
@@ -267,28 +328,41 @@ const products = rawProducts
   });
 
 /* ---------------- categories.json ---------------- */
+/** Shopper-facing names; the source names are SEO slugs ("Color Shampoo Hair"). */
+const CATEGORY_NAMES = {
+  'hair-serum': 'Hair Serums',
+  'hair-mask': 'Hair Masks',
+  'shampoo-conditioner': 'Shampoo & Conditioner',
+  'color-shampoo-hair': 'Hair Color',
+  'foot-peel-mask': 'Foot Care',
+  'dark-spot': 'Dark Spot Care',
+  'face-lifting-collagen-cream': 'Collagen Creams',
+  'eye-cream-anti-aging-organic': 'Eye Care',
+  'lash-brow-serum': 'Lash & Brow Serum',
+  packages: 'Bundles',
+};
 const CATEGORY_COPY = {
-  'hair-serum': 'Scalp-first serums that rebuild density from the root.',
+  'hair-serum': 'Lightweight scalp serums for fuller-looking hair.',
   'hair-mask': 'Deep protein treatments for dry, over-processed hair.',
   'shampoo-conditioner': 'Argan-oil cleansing and conditioning for every hair type.',
-  'color-shampoo-hair': 'Deposit rich, salon-grade colour in the shower.',
+  'color-shampoo-hair': 'Refresh your hair colour in the shower.',
   'foot-peel-mask': 'Exfoliating peels for cracked heels and callused skin.',
   'dark-spot': 'Brightening formulas that fade pigmentation and even tone.',
   'face-lifting-collagen-cream': 'Collagen creams that firm, lift and smooth.',
   'eye-cream-anti-aging-organic': 'Targeted care for fine lines and tired eyes.',
-  'eye-lashes-growth-serum': 'Lash and brow serums for fuller, longer growth.',
-  packages: 'Bundled routines at a lower price than buying separately.',
+  'lash-brow-serum': 'Lash and brow serums for fuller, longer-looking lashes.',
+  packages: 'Complete routines, bundled in one order.',
 };
 const categories = rawCats
   .filter((c) => c.count > 0)
   .map((c) => ({
     id: String(c.id),
-    slug: c.slug,
-    name: clean(c.name).replace(/\b\w+/g, (w) =>
-      w.length > 2 ? w[0] + w.slice(1).toLowerCase() : w,
-    ),
-    description: CATEGORY_COPY[c.slug] ?? '',
-    count: products.filter((p) => p.categories.includes(c.slug)).length,
+    slug: catSlug(c.slug),
+    name:
+      CATEGORY_NAMES[catSlug(c.slug)] ??
+      clean(c.name).replace(/\b\w+/g, (w) => (w.length > 2 ? w[0] + w.slice(1).toLowerCase() : w)),
+    description: CATEGORY_COPY[catSlug(c.slug)] ?? '',
+    count: products.filter((p) => p.categories.includes(catSlug(c.slug))).length,
   }))
   .filter((c) => c.count > 0);
 
@@ -297,7 +371,7 @@ const content = {
   brand: {
     name: 'SK Envision',
     tagline: 'Natural hair & body care',
-    email: 'Skenvisiontime@yahoo.com',
+    email: 'support@skenvisiontime.com',
   },
   hero: {
     eyebrow: 'Natural ingredients only',
@@ -333,7 +407,7 @@ const content = {
       quote:
         'I love this stuff. It is part of my routine every time I style my hair. I have thick, frizzy hair that soaks up product, but a little goes a long way — the first bottle lasted me five months.',
       name: 'Verified customer',
-      meta: 'Organic Hair Regrowth Serum',
+      meta: 'Organic Scalp & Hair Serum',
       rating: 5,
       // Placeholder until real reviews are supplied; the UI tags these.
       isPlaceholder: true,
@@ -370,7 +444,7 @@ const content = {
     },
     {
       q: 'How long until I see results?',
-      a: 'It depends on the product. The eyelash serum is formulated for visible growth in about four weeks; hair masks and conditioners usually show a difference after two or three washes.',
+      a: 'It depends on the product and on you. Hair masks and conditioners usually make a difference you can feel after two or three washes; serums and creams are made for daily use over several weeks.',
     },
     {
       q: 'What is your return policy?',
