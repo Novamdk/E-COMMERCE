@@ -10,23 +10,23 @@ const SLICE = 360 / SPIN_WHEEL.SEGMENTS.length;
 const TICKS = 48;
 
 /**
- * A soft, feminine palette drawn from the brand's holiday colours: blush,
- * wine, nude, mauve, rose and peach, with gold
- * reserved for the winning slice. Muted tones keep it premium rather than
- * fairground. These are artwork colours for this one illustration, not UI
- * tokens.
+ * SK palette from the style guide: camellia greens, cream and champagne, with
+ * the gold gradient kept for the winning slice. Light and dark slices
+ * alternate so every prize label has strong contrast. Literal colours on
+ * purpose: the pop-up sits outside any page theme, and this is artwork.
  */
-const DARK_INK = 'var(--color-brand-900)';
-const LIGHT_INK = 'oklch(0.98 0.01 20)';
+const DARK_INK = '#1f2420';
+const LIGHT_INK = '#fbfaf7';
+const RIM_BASE = '#1f2a24';
 const SEGMENT_COLOURS = [
-  { fill: 'oklch(0.9 0.04 15)', ink: DARK_INK }, // blush
-  { fill: 'oklch(0.42 0.12 12)', ink: LIGHT_INK }, // wine
-  { fill: 'oklch(0.84 0.045 55)', ink: DARK_INK }, // nude
-  { fill: 'oklch(0.6 0.07 350)', ink: LIGHT_INK }, // mauve
+  { fill: '#f2ede5', ink: DARK_INK }, // silk cream
+  { fill: '#26392f', ink: LIGHT_INK }, // camellia green
+  { fill: '#e6d3ae', ink: DARK_INK }, // champagne
+  { fill: '#4a6f58', ink: LIGHT_INK }, // sage
   { fill: 'url(#spin-wheel-gold)', ink: DARK_INK }, // gold, the winning slice
-  { fill: 'oklch(0.68 0.1 18)', ink: LIGHT_INK }, // rose
-  { fill: 'oklch(0.95 0.02 40)', ink: DARK_INK }, // shell
-  { fill: 'oklch(0.74 0.08 40)', ink: DARK_INK }, // dusty peach
+  { fill: '#355543', ink: LIGHT_INK }, // forest
+  { fill: '#fbfaf7', ink: DARK_INK }, // pearl
+  { fill: '#1e2e26', ink: LIGHT_INK }, // deep camellia
 ];
 
 /** @param {number} angleDeg clockwise from 12 o'clock */
@@ -118,10 +118,10 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
         <path
           d="M14 34 L2 10 A12 12 0 1 1 26 10 Z"
           fill="url(#spin-wheel-pointer)"
-          stroke="var(--color-brand-900)"
+          stroke={RIM_BASE}
           strokeWidth="1"
         />
-        <circle cx="14" cy="11" r="3" fill="var(--color-brand-900)" />
+        <circle cx="14" cy="11" r="3" fill={RIM_BASE} />
       </svg>
 
       {/* Three stacked layers: a static gold rim, the turning disc, a static
@@ -135,7 +135,7 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
               <stop offset="1" stopColor="oklch(0.58 0.11 70)" />
             </linearGradient>
           </defs>
-          <circle cx={CENTER} cy={CENTER} r={CENTER - 1} fill="oklch(0.34 0.09 12)" />
+          <circle cx={CENTER} cy={CENTER} r={CENTER - 1} fill={RIM_BASE} />
           <circle
             cx={CENTER}
             cy={CENTER}
@@ -155,7 +155,7 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
                 y1={y1}
                 x2={x2}
                 y2={y2}
-                stroke="var(--color-gold-400)"
+                stroke="#c9a774"
                 strokeOpacity={index % 6 === 0 ? 0.9 : 0.35}
                 strokeWidth="1"
               />
@@ -182,7 +182,8 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
                   <path
                     d={slicePath(start, start + SLICE)}
                     fill={colour.fill}
-                    stroke="oklch(1 0 0 / 0.7)"
+                    stroke="#c9a774"
+                    strokeOpacity="0.6"
                     strokeWidth="1"
                   />
                   <text
@@ -207,11 +208,11 @@ export function SpinWheel({ isSpinning, onSpinEnd }) {
 
         <svg viewBox={`0 0 ${SIZE} ${SIZE}`} className="absolute inset-0 block size-full">
           <circle cx={CENTER} cy={CENTER} r="25" fill="url(#spin-wheel-rim)" />
-          <circle cx={CENTER} cy={CENTER} r="23" fill="var(--color-brand-900)" />
+          <circle cx={CENTER} cy={CENTER} r="23" fill={RIM_BASE} />
           <text
             x={CENTER}
             y={CENTER}
-            fill="var(--color-gold-300)"
+            fill="#dcc39a"
             fontSize="12"
             fontWeight="600"
             textAnchor="middle"
