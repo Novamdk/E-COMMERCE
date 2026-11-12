@@ -412,6 +412,7 @@ Disallow: /
     : `# Search engines and AI assistants are welcome to read the storefront.
 User-agent: *
 Allow: /
+Disallow: /admin
 Disallow: /cart
 Disallow: /checkout
 Disallow: /orders

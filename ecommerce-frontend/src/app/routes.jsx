@@ -1,6 +1,7 @@
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 import { RootLayout } from '@/components/layout/RootLayout';
+import { AdminLayout } from '@/features/admin';
 import { ProtectedRoute } from '@/features/auth';
 import { ROUTES, SHOW_STORE_FINDER } from '@/lib/constants';
 import { RouteError } from './RouteError';
@@ -30,6 +31,9 @@ const JournalPage = lazy(() => import('@/pages/JournalPage'));
 const JournalPostPage = lazy(() => import('@/pages/JournalPostPage'));
 const PolicyPage = lazy(() => import('@/pages/PolicyPage'));
 const NotFoundPage = lazy(() => import('@/pages/NotFoundPage'));
+const AdminOrdersPage = lazy(() => import('@/pages/admin/AdminOrdersPage'));
+const AdminOrderPage = lazy(() => import('@/pages/admin/AdminOrderPage'));
+const AdminCustomersPage = lazy(() => import('@/pages/admin/AdminCustomersPage'));
 
 /**
  * Shared by the browser router (router.jsx) and build-time rendering
@@ -85,6 +89,25 @@ export const routes = [
       },
 
       { path: '*', element: <NotFoundPage /> },
+    ],
+  },
+
+  // Private admin area for packing and shipping orders. Signing in is checked
+  // here; who is an admin is checked by every /api/admin call (ADMIN_EMAILS).
+  {
+    path: ROUTES.ADMIN,
+    element: <ProtectedRoute />,
+    errorElement: <RouteError />,
+    children: [
+      {
+        element: <AdminLayout />,
+        children: [
+          { index: true, element: <Navigate to="orders" replace /> },
+          { path: 'orders', element: <AdminOrdersPage /> },
+          { path: 'orders/:number', element: <AdminOrderPage /> },
+          { path: 'customers', element: <AdminCustomersPage /> },
+        ],
+      },
     ],
   },
 ];

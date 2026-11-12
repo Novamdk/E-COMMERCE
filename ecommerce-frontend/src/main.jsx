@@ -33,11 +33,14 @@ window.addEventListener('load', () => {
   }, 10000);
 });
 
-// Klaviyo onsite tracking; does nothing unless VITE_KLAVIYO_PUBLIC_KEY is set.
-loadKlaviyo();
-// Meta, TikTok and Google tags; each loads only when its ID is set, and none
-// for shoppers who opted out or whose browser sends Global Privacy Control.
-loadAdTags();
+// The private admin area is not shopping, so no tracking loads there.
+if (!window.location.pathname.startsWith('/admin')) {
+  // Klaviyo onsite tracking; does nothing unless VITE_KLAVIYO_PUBLIC_KEY is set.
+  loadKlaviyo();
+  // Meta, TikTok and Google tags; each loads only when its ID is set, and none
+  // for shoppers who opted out or whose browser sends Global Privacy Control.
+  loadAdTags();
+}
 
 const container = document.getElementById('root');
 const app = (

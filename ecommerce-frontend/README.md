@@ -378,7 +378,7 @@ code can be merged before the accounts exist. Variables are listed in `.env.exam
 | `VITE_PAYPAL_CLIENT_ID` (plus the two above)                                  | real checkout and order history               |
 | `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`                                   | the `/api` functions' database access         |
 | `PAYPAL_CLIENT_ID`, `PAYPAL_CLIENT_SECRET`, `PAYPAL_ENV`, `PAYPAL_WEBHOOK_ID` | payments                                      |
-| `SITE_URL`, `ADMIN_API_TOKEN`                                                 | order links in emails; marking orders shipped |
+| `SITE_URL`, `ADMIN_EMAILS`, `ADMIN_API_TOKEN`                                 | order links in emails; who can open /admin; scripts |
 
 One-time setup:
 
@@ -401,7 +401,14 @@ pending order and opens a PayPal order for that exact total. After the shopper a
 lowers stock and sends the Klaviyo events. The webhook does the same if the browser closes
 first, and records each PayPal event so a repeat delivery does nothing.
 
-Marking an order shipped (until there is an admin screen):
+**Admin area (`/admin`).** Orders to ship, shipped and unfinished, one order with its
+address, items and a printable packing slip, a "Mark shipped" form for carrier and tracking
+(sends Klaviyo Fulfilled Order with a tracking link), and a customer list built from paid
+orders and accounts. To let someone in: they sign up on the store with their own email,
+confirm it, and that email goes in `ADMIN_EMAILS` (comma separated) in Vercel. Every
+`/api/admin` call checks the list; the pages are not indexed and load no tracking.
+
+Scripts can still mark an order shipped with `ADMIN_API_TOKEN`:
 
 ```bash
 curl -X POST https://<site>/api/admin/fulfill \

@@ -15,6 +15,9 @@ export const ROUTES = {
   CHECKOUT_REVIEW: '/checkout/review',
   ORDERS: '/orders',
   ORDER: '/orders/:orderId',
+  ADMIN: '/admin',
+  ADMIN_ORDERS: '/admin/orders',
+  ADMIN_CUSTOMERS: '/admin/customers',
   SIGN_IN: '/sign-in',
   SIGN_UP: '/sign-up',
   ABOUT: '/about',
@@ -45,6 +48,7 @@ export const SHOW_STORE_FINDER = false;
 export const productPath = (slug) => `/shop/${slug}`;
 /** @param {string} orderId @returns {string} */
 export const orderPath = (orderId) => `/orders/${orderId}`;
+export const adminOrderPath = (number) => `/admin/orders/${number}`;
 /** @param {string} slug a key of COLLECTIONS @returns {string} */
 export const collectionPath = (slug) => `/collections/${slug}`;
 /** @param {'hair'|'gift'} quizId @returns {string} */
