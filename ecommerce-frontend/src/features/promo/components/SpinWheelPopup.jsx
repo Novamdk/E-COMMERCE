@@ -149,12 +149,21 @@ export function SpinWheelPopup() {
               <p className="text-content-muted mt-2 text-sm">
                 {t('welcome.spinBody', { percent: PROMO.value })}
               </p>
-              <div className="mt-6 w-full">
+              {/* Tapping the wheel itself spins it too, same as the button below.
+                  Disabled once spinning, so it still spins only once. */}
+              <button
+                type="button"
+                onClick={() => setStep('spinning')}
+                disabled={step !== 'spin'}
+                aria-label={t('welcome.spin')}
+                tabIndex={-1}
+                className="mt-6 block w-full cursor-pointer rounded-full [-webkit-tap-highlight-color:transparent] disabled:cursor-default"
+              >
                 <SpinWheel
                   isSpinning={step === 'spinning' || step === 'landed'}
                   onSpinEnd={() => setStep('landed')}
                 />
-              </div>
+              </button>
               <Button
                 size="lg"
                 isFullWidth
