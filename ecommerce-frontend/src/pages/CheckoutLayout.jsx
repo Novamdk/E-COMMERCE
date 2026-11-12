@@ -44,7 +44,11 @@ export default function CheckoutLayout() {
 
   const [isPlacing, setIsPlacing] = useState(false);
   const [submitError, setSubmitError] = useState(null);
-  const [hasPlacedOrder, setHasPlacedOrder] = useState(false);
+  // Set once an order goes through. The render below then sends the shopper to
+  // the order's thank-you page before any other check runs: emptying the cart
+  // and clearing the form would otherwise trip the "empty cart" and "missing
+  // address" guards and bounce them to the cart instead.
+  const [placedOrderId, setPlacedOrderId] = useState(null);
   const hasTrackedCheckout = useRef(false);
   const hasSentBeginCheckout = useRef(false);
 
@@ -107,10 +111,9 @@ export default function CheckoutLayout() {
     try {
       const order = await completePayPalCheckout(paypalOrderId);
       adPurchase(order);
-      setHasPlacedOrder(true);
+      setPlacedOrderId(order.id);
       clearCart();
       form.resetAfterOrder();
-      navigate(orderPath(order.id), { replace: true, state: { isJustPlaced: true } });
     } catch (err) {
       setSubmitError(
         err.message ?? 'We could not confirm your payment. You have not been charged.',
@@ -143,15 +146,18 @@ export default function CheckoutLayout() {
         promoCode: totals.promo?.code ?? null,
       });
 
-      setHasPlacedOrder(true);
+      setPlacedOrderId(order.id);
       clearCart();
       form.resetAfterOrder();
-      navigate(orderPath(order.id), { replace: true, state: { isJustPlaced: true } });
     } catch (err) {
       setSubmitError(err.message ?? 'We could not place your order. Please try again.');
       setIsPlacing(false);
     }
   };
+
+  if (placedOrderId) {
+    return <Navigate to={orderPath(placedOrderId)} replace state={{ isJustPlaced: true }} />;
+  }
 
   if (!isKnownStep) return <Navigate to={ROUTES.CHECKOUT_SHIPPING} replace />;
 
@@ -163,8 +169,8 @@ export default function CheckoutLayout() {
     return <Navigate to={ROUTES.CHECKOUT_PAYMENT} replace />;
   }
 
-  // An empty cart has nothing to check out — unless we just emptied it ourselves.
-  if (!loading && !error && lines.length === 0 && !hasPlacedOrder) {
+  // An empty cart has nothing to check out.
+  if (!loading && !error && lines.length === 0) {
     return <Navigate to={ROUTES.CART} replace />;
   }
 
