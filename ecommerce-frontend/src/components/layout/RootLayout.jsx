@@ -28,7 +28,9 @@ export function RootLayout() {
   }, [pathname, search]);
 
   return (
-    <div className="flex min-h-dvh flex-col">
+    // The SK look (style guide draft) shows on the home page only for review.
+    // Remove data-look here and the [data-look='sk'] block in index.css to drop it.
+    <div className="flex min-h-dvh flex-col" data-look={pathname === '/' ? 'sk' : undefined}>
       <AnnouncementBar />
       <Header />
 

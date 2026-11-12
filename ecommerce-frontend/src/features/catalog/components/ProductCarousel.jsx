@@ -53,6 +53,7 @@ export function ProductCarousel({ products, isLoading = false, label }) {
       <ul
         ref={trackRef}
         onScroll={measure}
+        data-part="product-row"
         className="flex snap-x snap-mandatory [scrollbar-width:none] gap-1 overflow-x-auto [&::-webkit-scrollbar]:hidden"
       >
         {isLoading
