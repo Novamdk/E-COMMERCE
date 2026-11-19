@@ -410,6 +410,8 @@ export const vi = {
     title: 'Đăng ký nhận tin từ SK Envision',
     consent:
       'Khi gửi biểu mẫu này, bạn đồng ý nhận email tiếp thị và tin nhắn tự động định kỳ từ SK Envision theo email và số điện thoại đã cung cấp. Việc đồng ý không phải là điều kiện mua hàng. Có thể phát sinh phí tin nhắn và dữ liệu. Hủy đăng ký bất cứ lúc nào hoặc trả lời STOP để ngừng nhận tin nhắn.',
+    consentEmailOnly:
+      'Khi đăng ký, bạn đồng ý nhận email tiếp thị từ SK Envision theo email đã cung cấp. Việc đồng ý không phải là điều kiện mua hàng. Hủy đăng ký bất cứ lúc nào.',
     email: 'Địa chỉ email',
     emailCta: 'Nhận email',
     phone: 'Số điện thoại di động',

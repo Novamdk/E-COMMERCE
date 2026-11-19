@@ -44,6 +44,14 @@ export const ROUTES = {
  */
 export const SHOW_STORE_FINDER = false;
 
+/**
+ * The footer's text-message signup. Off until an SMS sender is set up in
+ * Klaviyo (planned for about January), so the form never promises texts the
+ * store cannot send. Set to true to bring back the phone box and the texts
+ * wording in the consent line.
+ */
+export const SHOW_SMS_SIGNUP = false;
+
 /** @param {string} slug @returns {string} */
 export const productPath = (slug) => `/shop/${slug}`;
 /** @param {string} orderId @returns {string} */

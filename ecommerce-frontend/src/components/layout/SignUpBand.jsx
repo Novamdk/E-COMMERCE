@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { FiCheck, FiChevronRight } from 'react-icons/fi';
 import { email as validateEmail, phone as validatePhone } from '@/lib/validators';
 import { useT } from '@/features/i18n';
+import { SHOW_SMS_SIGNUP } from '@/lib/constants';
 import { subscribeEmail } from '@/services/subscribeService';
 
 /**
@@ -97,9 +98,9 @@ export function SignUpBand() {
           {t('signup.title')}
         </h2>
         <p className="text-content-inverse/70 mt-3 text-xs leading-relaxed">
-          {t('signup.consent')}
+          {t(SHOW_SMS_SIGNUP ? 'signup.consent' : 'signup.consentEmailOnly')}
         </p>
-        <div className="mt-6 grid gap-3 sm:grid-cols-2">
+        <div className={`mt-6 grid gap-3 ${SHOW_SMS_SIGNUP ? 'sm:grid-cols-2' : 'sm:max-w-md'}`}>
           <PillForm
             id="signup-email"
             type="email"
@@ -110,15 +111,17 @@ export function SignUpBand() {
             thanks={t('signup.thanksEmail')}
             onValid={(email) => subscribeEmail({ email, source: 'Footer' })}
           />
-          <PillForm
-            id="signup-phone"
-            type="tel"
-            label={t('signup.phone')}
-            cta={t('signup.phoneCta')}
-            validate={validatePhone}
-            errorText={t('signup.phoneError')}
-            thanks={t('signup.thanksPhone')}
-          />
+          {SHOW_SMS_SIGNUP && (
+            <PillForm
+              id="signup-phone"
+              type="tel"
+              label={t('signup.phone')}
+              cta={t('signup.phoneCta')}
+              validate={validatePhone}
+              errorText={t('signup.phoneError')}
+              thanks={t('signup.thanksPhone')}
+            />
+          )}
         </div>
       </div>
     </section>

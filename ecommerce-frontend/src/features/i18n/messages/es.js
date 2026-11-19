@@ -413,6 +413,8 @@ export const es = {
     title: 'Suscríbete a las novedades de SK Envision',
     consent:
       'Al enviar este formulario, aceptas recibir correos de marketing y mensajes de texto automáticos recurrentes de SK Envision en el correo y número indicados. El consentimiento no es condición de compra. Pueden aplicarse tarifas de mensajes y datos. Date de baja cuando quieras o responde STOP a los mensajes.',
+    consentEmailOnly:
+      'Al suscribirte, aceptas recibir correos de marketing de SK Envision en el correo indicado. El consentimiento no es condición de compra. Date de baja cuando quieras.',
     email: 'Correo electrónico',
     emailCta: 'Recibir correos',
     phone: 'Número de móvil',

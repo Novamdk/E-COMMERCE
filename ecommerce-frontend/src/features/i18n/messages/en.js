@@ -413,6 +413,8 @@ export const en = {
     title: 'Sign up for SK Envision updates',
     consent:
       'By submitting this form, you agree to receive marketing emails and recurring automated texts from SK Envision at the email and number provided. Consent is not a condition of purchase. Message and data rates may apply. Unsubscribe at any time, or reply STOP to stop texts.',
+    consentEmailOnly:
+      'By signing up, you agree to receive marketing emails from SK Envision at the email provided. Consent is not a condition of purchase. Unsubscribe at any time.',
     email: 'Email address',
     emailCta: 'Sign up for emails',
     phone: 'Mobile number',
