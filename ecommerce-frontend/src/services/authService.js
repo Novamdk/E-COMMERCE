@@ -69,7 +69,7 @@ async function demoSignIn({ email, password }) {
   const account = readAccounts().find((candidate) => candidate.email === normalised);
 
   if (!account || account.password !== password) {
-    throw new ServiceError('That email and password combination is not recognised.', 401);
+    throw new ServiceError('That email and password combination is not recognized.', 401);
   }
 
   return request({ id: account.id, name: account.name, email: account.email });
@@ -88,7 +88,7 @@ const toUser = (user) => ({
 function authError(error) {
   const message = error?.message ?? '';
   if (/invalid login credentials/i.test(message)) {
-    return new ServiceError('That email and password combination is not recognised.', 401);
+    return new ServiceError('That email and password combination is not recognized.', 401);
   }
   if (/already registered|already exists/i.test(message)) {
     return new ServiceError('An account with that email already exists.', 409);

@@ -71,7 +71,7 @@ export function CartProvider({ children }) {
    */
   const applyPromo = useCallback((code) => {
     const promo = resolvePromo(code);
-    if (!promo) return { ok: false, message: 'That code is not recognised.' };
+    if (!promo) return { ok: false, message: 'That code is not recognized.' };
     dispatch({ type: 'APPLY_PROMO', payload: { code: promo.code } });
     return { ok: true, message: `${promo.label} applied.` };
   }, []);

@@ -1,4 +1,5 @@
 import { Image } from '@/components/ui/Image';
+import { isAuthBackendEnabled } from '@/lib/backend';
 import { Container } from './Container';
 
 /**
@@ -20,10 +21,13 @@ export function AuthShell({ title, description, footer, children }) {
 
           <div className="mt-8">{children}</div>
 
-          <p className="rounded-field bg-surface-sunken text-content-muted mt-6 px-3.5 py-3 text-xs leading-relaxed">
-            This is a mock sign-in. Accounts are stored in your browser&apos;s localStorage in plain
-            text and never leave this device — do not reuse a real password.
-          </p>
+          {/* Only the demo build (no Supabase keys) stores accounts in the browser. */}
+          {!isAuthBackendEnabled && (
+            <p className="rounded-field bg-surface-sunken text-content-muted mt-6 px-3.5 py-3 text-xs leading-relaxed">
+              This is a mock sign-in. Accounts are stored in your browser&apos;s localStorage in
+              plain text and never leave this device — do not reuse a real password.
+            </p>
+          )}
 
           {footer && <div className="text-content-muted mt-6 text-sm">{footer}</div>}
         </div>
