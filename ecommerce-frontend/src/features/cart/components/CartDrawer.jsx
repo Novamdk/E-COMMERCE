@@ -63,7 +63,7 @@ function DrawerLine({ product, price, qty, onQty, onRemove, removeLabel, onNavig
 
       <div className="flex min-w-0 flex-1 flex-col justify-center gap-3">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-[0.8125rem] leading-snug font-medium tracking-[0.1em] uppercase">
+          <h3 className="text-[0.8125rem] leading-snug font-medium">
             <Link to={productPath(product.slug)} onClick={onNavigate} className="hover:underline">
               {product.title}
             </Link>
@@ -221,7 +221,7 @@ export function CartDrawer() {
       title={t('cart.title')}
       titleId={TITLE_ID}
       heading={
-        <p className="text-sm font-medium tracking-[0.14em] uppercase">
+        <p className="text-sm font-medium">
           {t('cart.title')}
           {itemCount > 0 && <span className="text-content-muted"> ({itemCount})</span>}
         </p>

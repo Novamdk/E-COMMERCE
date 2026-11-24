@@ -51,12 +51,12 @@ export default function JournalPostPage() {
       <Container width="narrow" className="pt-10 lg:pt-14">
         <Link
           to={ROUTES.JOURNAL}
-          className="inline-flex items-center gap-1 text-[0.6875rem] font-semibold tracking-[0.14em] uppercase hover:underline hover:underline-offset-4"
+          className="inline-flex items-center gap-1 text-[0.8125rem] font-semibold hover:underline hover:underline-offset-4"
         >
           <FiChevronLeft aria-hidden="true" className="size-4" />
           {t('journal.title')}
         </Link>
-        <p className="text-content-subtle mt-8 text-[0.6875rem] font-semibold tracking-[0.14em] uppercase">
+        <p className="text-content-subtle mt-8 text-[0.8125rem] font-semibold">
           <time dateTime={post.date}>{date}</time> ·{' '}
           {t('journal.readTime', { minutes: post.readMinutes })}
         </p>

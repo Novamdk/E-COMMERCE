@@ -54,13 +54,13 @@ export function HolidayPair({ maxSavings }) {
             className="from-surface-inverse/80 absolute inset-0 bg-gradient-to-t via-transparent via-50% to-transparent"
           />
           <span className="text-content-inverse absolute inset-x-0 bottom-0 p-6 sm:p-10">
-            <span className="bg-gold-sheen text-brand-900 inline-block rounded-full px-3 py-1 text-[0.625rem] font-bold tracking-[0.16em] uppercase">
+            <span className="bg-gold-sheen text-brand-900 inline-block rounded-full px-3 py-1 text-xs font-bold">
               {tile.eyebrow}
             </span>
             <span className="font-display mt-4 block max-w-md text-3xl leading-tight sm:text-5xl">
               {tile.title}
             </span>
-            <span className="mt-5 inline-block text-[0.6875rem] font-semibold tracking-[0.16em] uppercase underline underline-offset-[6px]">
+            <span className="mt-5 inline-block text-[0.8125rem] font-semibold underline underline-offset-[6px]">
               {tile.cta}
             </span>
           </span>

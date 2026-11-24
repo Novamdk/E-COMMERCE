@@ -97,7 +97,7 @@ export default function GiftGuidePage() {
               <li key={chapter.id}>
                 <a
                   href={`#${chapter.id}`}
-                  className="border-content hover:bg-content hover:text-content-inverse inline-block rounded-full border px-4 py-2 text-[0.6875rem] font-semibold tracking-[0.12em] uppercase transition-colors"
+                  className="border-content hover:bg-content hover:text-content-inverse inline-block rounded-full border px-4 py-2 text-[0.8125rem] font-semibold transition-colors"
                 >
                   {chapter.title}
                 </a>

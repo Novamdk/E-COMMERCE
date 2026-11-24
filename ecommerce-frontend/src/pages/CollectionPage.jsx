@@ -153,7 +153,7 @@ function PromoTile() {
           {t('home.hero.heading')}
         </span>
         <span className="mt-3 max-w-sm text-sm opacity-90">{t('home.hero.body')}</span>
-        <span className="text-holiday-700 mt-6 self-start rounded-full bg-white px-5 py-2.5 text-[0.6875rem] font-semibold tracking-[0.14em] uppercase">
+        <span className="text-holiday-700 mt-6 self-start rounded-full bg-white px-5 py-2.5 text-[0.8125rem] font-semibold">
           {t('home.hero.cta')}
         </span>
       </Link>

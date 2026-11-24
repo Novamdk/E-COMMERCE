@@ -165,7 +165,7 @@ export function SpinWheelPopup() {
                 <p className="text-gold-600 text-[0.6875rem] font-semibold tracking-[0.2em] uppercase">
                   {t('welcome.eyebrow')}
                 </p>
-                <h2 id={TITLE_ID} className="font-display mt-2 text-3xl tracking-tight uppercase">
+                <h2 id={TITLE_ID} className="font-display mt-2 text-3xl tracking-tight">
                   {t('welcome.spinTitle')}
                 </h2>
                 <p className="text-content-muted mt-2 text-sm">
@@ -205,7 +205,7 @@ export function SpinWheelPopup() {
               <form onSubmit={handleClaim} noValidate className="mt-6 w-full max-w-sm">
                 <h2
                   id={TITLE_ID}
-                  className="font-display text-4xl leading-none tracking-tight uppercase sm:text-5xl"
+                  className="font-display text-4xl leading-none tracking-tight sm:text-5xl"
                 >
                   {t('welcome.offerLine1', { percent: PROMO.value })}
                   <span className="block">{t('welcome.offerLine2')}</span>
@@ -246,7 +246,7 @@ export function SpinWheelPopup() {
 
             {step === 'claimed' && (
               <div className="mt-6 w-full max-w-sm space-y-5">
-                <h2 id={TITLE_ID} className="font-display text-3xl tracking-tight uppercase">
+                <h2 id={TITLE_ID} className="font-display text-3xl tracking-tight">
                   {t('welcome.claimedTitle')}
                 </h2>
                 <p className="bg-success-50 text-success-600 rounded-field flex items-center justify-center gap-2 px-4 py-3 text-sm">

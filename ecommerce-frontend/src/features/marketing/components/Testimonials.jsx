@@ -36,7 +36,7 @@ export function Testimonials({ testimonials }) {
                 </blockquote>
 
                 <figcaption className="mt-6 space-y-1">
-                  <p className="text-[0.6875rem] font-semibold tracking-[0.16em] uppercase">
+                  <p className="text-[0.8125rem] font-semibold">
                     {testimonial.name}
                   </p>
                   <p className="text-content-muted text-xs">{testimonial.meta}</p>

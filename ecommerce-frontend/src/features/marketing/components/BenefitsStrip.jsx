@@ -20,7 +20,7 @@ export function BenefitsStrip({ benefits }) {
             return (
               <li key={benefit.title} className="flex flex-col items-center text-center">
                 <Icon aria-hidden="true" className="size-5 stroke-[1.5]" />
-                <h3 className="mt-4 text-[0.6875rem] font-semibold tracking-[0.16em] uppercase">
+                <h3 className="mt-4 text-[0.8125rem] font-semibold">
                   {benefit.title}
                 </h3>
                 <p className="text-content-muted mt-2 max-w-[15rem] text-sm leading-relaxed">

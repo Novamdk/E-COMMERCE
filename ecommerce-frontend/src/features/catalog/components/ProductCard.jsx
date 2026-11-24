@@ -20,9 +20,11 @@ const PACKSHOT = 'p-[3%] mix-blend-multiply';
 
 const GRID_SIZES = '(min-width: 1024px) 25vw, 50vw';
 
-// A compact pill beside the price, as on Olaplex's grid, at every width.
+// A solid pill beside the price, at every width.
 const PILL =
-  'relative z-10 inline-flex h-8 shrink-0 items-center justify-center rounded-full border border-content px-3.5 sm:h-9 sm:px-4 text-[0.625rem] sm:text-[0.6875rem] font-semibold tracking-[0.12em] uppercase transition-colors hover:bg-content hover:text-content-inverse disabled:pointer-events-none disabled:opacity-40';
+  'relative z-10 inline-flex h-10 shrink-0 items-center justify-center rounded-full bg-brand-700 px-4 text-[0.8125rem] font-semibold text-content-inverse shadow-raised ' +
+  'transition-[background-color,box-shadow,transform] duration-200 ease-out-soft hover:-translate-y-0.5 hover:bg-brand-800 hover:shadow-lifted active:translate-y-0 active:scale-[0.98] ' +
+  'focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-gold-500 disabled:pointer-events-none disabled:opacity-40 sm:px-5';
 
 /**
  * Catalog tile: packshot on stone, and when the pointer or a finger reaches
@@ -136,10 +138,10 @@ export function ProductCard({ product, isPriority = false, isFlush = false }) {
       </Link>
 
       <div className="mt-5 flex flex-1 flex-col gap-1.5">
-        <p className="text-content-muted line-clamp-1 text-[0.6875rem] tracking-[0.08em] uppercase">
+        <p className="text-content-muted line-clamp-1 text-[0.8125rem]">
           {product.subtitle}
         </p>
-        <h3 className="text-[0.8125rem] leading-snug font-semibold tracking-[0.08em] uppercase">
+        <h3 className="text-[0.9375rem] leading-snug font-semibold">
           {/* Stretched link: the whole tile is clickable, with one accessible name. */}
           <Link to={href} className="after:absolute after:inset-0 after:content-['']">
             {product.title}

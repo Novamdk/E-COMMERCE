@@ -27,7 +27,7 @@ export class ErrorBoundary extends Component {
     return (
       <div className="bg-surface grid min-h-dvh place-items-center px-4">
         <div className="w-full max-w-md space-y-5 text-center">
-          <p className="text-content-subtle text-xs font-semibold tracking-[0.08em] uppercase">
+          <p className="text-content-subtle text-xs font-semibold">
             Something broke
           </p>
           <h1 className="font-display text-display-sm">This page hit an unexpected error</h1>

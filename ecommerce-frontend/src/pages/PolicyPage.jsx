@@ -89,7 +89,7 @@ export default function PolicyPage({ slug }) {
           aria-labelledby="policy-summary"
           className="rounded-panel border-border bg-surface-raised mt-8 border p-6"
         >
-          <h2 id="policy-summary" className="text-sm font-semibold tracking-[0.12em] uppercase">
+          <h2 id="policy-summary" className="text-sm font-semibold">
             At a glance
           </h2>
           <ul className="mt-4 space-y-2.5">

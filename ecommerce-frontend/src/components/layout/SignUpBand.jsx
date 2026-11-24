@@ -65,7 +65,7 @@ function PillForm({ id, type, label, cta, validate, errorText, thanks, onValid }
         />
         <button
           type="submit"
-          className="hover:bg-content-inverse hover:text-content flex h-9 shrink-0 items-center gap-1 rounded-full px-3 text-[0.625rem] font-bold tracking-[0.12em] uppercase transition-colors"
+          className="hover:bg-content-inverse hover:text-content flex h-9 shrink-0 items-center gap-1 rounded-full px-3 text-xs font-bold transition-colors"
         >
           {cta}
           <FiChevronRight aria-hidden="true" className="size-3.5" />

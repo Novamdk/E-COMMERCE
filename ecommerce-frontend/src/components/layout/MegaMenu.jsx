@@ -16,7 +16,7 @@ const PANEL_MOTION = {
 };
 
 export const NAV_TRIGGER =
-  'inline-flex items-center gap-1 py-2 text-[0.6875rem] font-semibold tracking-[0.14em] whitespace-nowrap uppercase transition-colors';
+  'inline-flex items-center gap-1 py-2 text-[0.8125rem] font-semibold whitespace-nowrap transition-colors';
 
 /**
  * Header menu that opens on hover (and on click or Enter for keyboard and
@@ -108,7 +108,7 @@ export function MegaMenu({ label, columns, feature, isWide = false }) {
               {columns.map((column) => (
                 <div key={column.heading}>
                   {isWide && (
-                    <p className="text-content-subtle mb-4 text-[0.6875rem] font-semibold tracking-[0.14em] uppercase">
+                    <p className="text-content-subtle mb-4 text-[0.8125rem] font-semibold">
                       {column.heading}
                     </p>
                   )}
@@ -126,7 +126,7 @@ export function MegaMenu({ label, columns, feature, isWide = false }) {
                         >
                           {link.label}
                           {link.badge && (
-                            <span className="bg-holiday-600 text-content-inverse rounded-full px-2 py-0.5 text-[0.625rem] font-semibold tracking-[0.06em] uppercase">
+                            <span className="bg-holiday-600 text-content-inverse rounded-full px-2 py-0.5 text-xs font-semibold">
                               {link.badge}
                             </span>
                           )}
@@ -156,7 +156,7 @@ export function MegaMenu({ label, columns, feature, isWide = false }) {
                   />
                   <span className="text-content-inverse absolute inset-x-0 bottom-0 p-5">
                     <span className="font-display block text-2xl">{feature.title}</span>
-                    <span className="mt-1 block text-[0.6875rem] font-semibold tracking-[0.14em] uppercase underline underline-offset-4">
+                    <span className="mt-1 block text-[0.8125rem] font-semibold underline underline-offset-4">
                       {feature.cta}
                     </span>
                   </span>

@@ -13,7 +13,7 @@ const toCents = (dollars) => {
 };
 
 const SECTION = 'border-t border-border py-6 first:border-t-0 first:pt-0';
-const LEGEND = 'mb-3 text-xs font-semibold tracking-[0.08em] text-content uppercase';
+const LEGEND = 'mb-3 text-xs font-semibold text-content';
 
 /**
  * Category, price-range and rating filters. Writes straight to the URL via the

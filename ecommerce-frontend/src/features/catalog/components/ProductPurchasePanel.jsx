@@ -52,7 +52,7 @@ export function ProductPurchasePanel({ product }) {
 
       <div className="space-y-2">
         <div className="flex items-start justify-between gap-4">
-          <h1 className="text-xl font-semibold tracking-[0.06em] uppercase sm:text-2xl">
+          <h1 className="text-xl font-semibold sm:text-2xl">
             {product.title}
           </h1>
           <WishlistToggle product={product} size="md" hasSurface={false} />
@@ -70,7 +70,7 @@ export function ProductPurchasePanel({ product }) {
           </span>
         )}
         {saving > 0 && (
-          <span className="bg-holiday-600 text-content-inverse ml-1 rounded-full px-2.5 py-0.5 text-[0.625rem] font-semibold tracking-[0.08em] uppercase">
+          <span className="bg-holiday-600 text-content-inverse ml-1 rounded-full px-2.5 py-0.5 text-xs font-semibold">
             {t('product.savings', { percent: saving })}
           </span>
         )}
@@ -145,7 +145,7 @@ export function ProductPurchasePanel({ product }) {
         <section aria-labelledby="benefits-heading" className="pt-2">
           <h2
             id="benefits-heading"
-            className="text-[0.6875rem] font-bold tracking-[0.14em] uppercase"
+            className="text-[0.8125rem] font-bold"
           >
             {t('product.keyBenefits')}
           </h2>
@@ -194,7 +194,7 @@ export function ProductPurchasePanel({ product }) {
 function Fold({ title, isOpen = false, children }) {
   return (
     <details open={isOpen} className="group border-border border-b">
-      <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-[0.6875rem] font-bold tracking-[0.14em] uppercase [&::-webkit-details-marker]:hidden">
+      <summary className="flex cursor-pointer list-none items-center justify-between py-4 text-[0.8125rem] font-bold [&::-webkit-details-marker]:hidden">
         {title}
         <FiChevronDown
           aria-hidden="true"

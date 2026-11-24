@@ -34,7 +34,7 @@ export function StoreList({ stores, selectedId, onSelect, className }) {
         <section key={group.id} aria-labelledby={`region-${group.id}`}>
           <h2
             id={`region-${group.id}`}
-            className="border-content flex items-baseline justify-between border-b pb-3 text-[0.6875rem] font-semibold tracking-[0.18em] uppercase"
+            className="border-content flex items-baseline justify-between border-b pb-3 text-[0.8125rem] font-semibold"
           >
             {t(group.label)}
             <span className="text-content-muted font-normal tracking-normal normal-case">
@@ -71,7 +71,7 @@ export function StoreList({ stores, selectedId, onSelect, className }) {
                   >
                     <span className="flex items-start justify-between gap-3">
                       <span className="text-base font-medium">{store.name}</span>
-                      <span className="text-gold-700 shrink-0 pt-1 text-[0.625rem] font-semibold tracking-[0.14em] uppercase">
+                      <span className="text-gold-700 shrink-0 pt-1 text-xs font-semibold">
                         {t(`stores.types.${store.type}`)}
                       </span>
                     </span>
@@ -81,7 +81,7 @@ export function StoreList({ stores, selectedId, onSelect, className }) {
                       {store.city}, {store.state} {store.zip}
                     </span>
                   </button>
-                  <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.6875rem] font-semibold tracking-[0.12em] uppercase">
+                  <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-2 text-[0.8125rem] font-semibold">
                     <a
                       href={directionsUrl(store)}
                       target="_blank"

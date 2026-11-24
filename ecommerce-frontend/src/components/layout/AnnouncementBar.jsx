@@ -35,7 +35,7 @@ export function AnnouncementBar() {
             messages.map((message) => (
               <span
                 key={`${copy}-${message}`}
-                className="flex items-center text-[0.6875rem] font-medium tracking-[0.14em] whitespace-nowrap uppercase"
+                className="flex items-center text-[0.8125rem] font-medium whitespace-nowrap"
               >
                 <span className="px-8">{message}</span>
                 <span className="text-gold-400">✦</span>

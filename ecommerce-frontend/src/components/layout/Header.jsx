@@ -20,7 +20,7 @@ import { MegaMenu, NAV_TRIGGER } from './MegaMenu';
 import { MobileNav } from './MobileNav';
 
 const ICON_LINK =
-  'text-content hover:bg-ink-100 relative grid size-10 place-items-center rounded-full transition-colors';
+  'text-content hover:bg-ink-100 relative grid size-11 place-items-center rounded-full transition-colors';
 
 /**
  * The Shop menu, by product type, by hair goal, and what is trending. Labels

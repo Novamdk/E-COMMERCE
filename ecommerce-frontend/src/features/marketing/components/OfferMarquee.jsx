@@ -40,7 +40,7 @@ export function OfferMarquee({ messages }) {
             messages.map((message) => (
               <span
                 key={`${copy}-${message}`}
-                className="px-7 text-xs font-semibold tracking-[0.14em] whitespace-nowrap uppercase sm:text-sm"
+                className="px-7 text-xs font-semibold whitespace-nowrap sm:text-sm"
               >
                 {message}
               </span>

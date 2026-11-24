@@ -23,7 +23,7 @@ export function PostCard({ post }) {
           ratio="aspect-[4/3]"
           imgClassName="transition-transform duration-1000 ease-out-soft group-hover:scale-[1.03]"
         />
-        <p className="text-content-subtle mt-5 text-[0.6875rem] font-semibold tracking-[0.14em] uppercase">
+        <p className="text-content-subtle mt-5 text-[0.8125rem] font-semibold">
           <time dateTime={post.date}>{date}</time> ·{' '}
           {t('journal.readTime', { minutes: post.readMinutes })}
         </p>
@@ -31,7 +31,7 @@ export function PostCard({ post }) {
           {post.title}
         </h3>
         <p className="text-content-muted mt-2 max-w-lg text-sm leading-relaxed">{post.excerpt}</p>
-        <span className="mt-4 inline-block text-[0.6875rem] font-semibold tracking-[0.16em] uppercase underline underline-offset-[6px]">
+        <span className="mt-4 inline-block text-[0.8125rem] font-semibold underline underline-offset-[6px]">
           {t('journal.readMore')}
         </span>
       </Link>

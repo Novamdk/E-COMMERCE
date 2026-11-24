@@ -45,7 +45,7 @@ const SOCIAL_ICONS = {
 };
 
 const COLUMN_HEADING =
-  'mb-5 text-[0.6875rem] font-semibold tracking-[0.16em] text-content-inverse uppercase';
+  'mb-5 text-[0.8125rem] font-semibold text-content-inverse';
 const COLUMN_LINK = 'text-sm text-content-inverse/65 transition-colors hover:text-content-inverse';
 
 export function Footer() {

@@ -11,7 +11,7 @@ import { BrandMark } from './BrandMark';
 
 const TITLE_ID = 'mobile-nav-title';
 const ROW =
-  'border-holiday-600/35 flex w-full items-center justify-between border-b px-6 py-5 text-left text-[1.0625rem] font-medium tracking-[0.1em] uppercase';
+  'border-holiday-600/35 flex w-full items-center justify-between border-b px-6 py-5 text-left text-[1.0625rem] font-medium';
 const SUB_LINK = 'block py-2.5 text-base text-content-muted transition-colors hover:text-content';
 const SMALL_LINK =
   'flex items-center gap-2 text-sm text-content-muted transition-colors hover:text-content';
@@ -131,7 +131,7 @@ export function MobileNav({ isOpen, onClose, items }) {
         >
           <span className="flex flex-1 flex-col justify-center gap-2 p-5">
             <span className="font-display text-xl">{t('mobileNav.promoTitle')}</span>
-            <span className="text-gold-300 flex items-center gap-1.5 text-xs font-semibold tracking-[0.14em] uppercase">
+            <span className="text-gold-300 flex items-center gap-1.5 text-xs font-semibold">
               {t('mobileNav.promoCta')}
               <FiArrowRight aria-hidden="true" className="size-3.5" />
             </span>

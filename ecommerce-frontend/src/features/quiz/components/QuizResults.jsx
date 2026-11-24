@@ -85,7 +85,7 @@ export function QuizResults({ quiz, answers, products, hasUnlocked, onUnlock, on
           <button
             type="button"
             onClick={onRestart}
-            className="text-[0.6875rem] font-semibold tracking-[0.14em] uppercase underline underline-offset-4"
+            className="text-[0.8125rem] font-semibold underline underline-offset-4"
           >
             {t('quiz.retake')}
           </button>

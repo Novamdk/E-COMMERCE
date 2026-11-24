@@ -23,7 +23,7 @@ export function StoresBand() {
         </p>
         <Link
           to={ROUTES.STORES}
-          className="shrink-0 text-[0.6875rem] font-semibold tracking-[0.16em] uppercase underline underline-offset-[6px] transition-opacity hover:opacity-60"
+          className="shrink-0 text-[0.8125rem] font-semibold underline underline-offset-[6px] transition-opacity hover:opacity-60"
         >
           {t('stores.find')}
         </Link>

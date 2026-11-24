@@ -173,7 +173,7 @@ export default function AboutPage() {
                 key={stat.label}
                 className="border-gold-500/40 flex flex-col-reverse border-l pl-5 lg:pl-8"
               >
-                <dt className="text-content-inverse/70 mt-3 text-xs tracking-[0.14em] uppercase">
+                <dt className="text-content-inverse/70 mt-3 text-xs">
                   {stat.label}
                 </dt>
                 <dd className="font-display text-4xl sm:text-5xl lg:text-6xl">
@@ -213,7 +213,7 @@ export default function AboutPage() {
                   sizes="(min-width: 1024px) 20rem, 50vw"
                   ratio="aspect-square"
                 />
-                <h3 className="mt-5 text-sm font-semibold tracking-[0.14em] uppercase">
+                <h3 className="mt-5 text-sm font-semibold">
                   {t(`aboutPage.ingredients.${ingredient.id}.name`)}
                 </h3>
                 <p className="text-content-muted mt-2 text-sm leading-relaxed">

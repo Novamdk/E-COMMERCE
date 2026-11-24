@@ -35,7 +35,7 @@ export function QuizTeaser() {
         </h2>
         <p className="text-content-muted mt-3 text-sm sm:text-base">{t('quiz.teaser.body')}</p>
 
-        <p className="mt-10 text-[0.6875rem] font-bold tracking-[0.14em] uppercase">
+        <p className="mt-10 text-[0.8125rem] font-bold">
           {t('quiz.teaser.step')}
         </p>
         <p className="mt-1 text-sm font-semibold">{t(HAIR_TYPES.question)}</p>

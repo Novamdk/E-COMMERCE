@@ -85,11 +85,11 @@ export function ShopTheLook({ products }) {
                   aria-hidden="true"
                   className="from-surface-inverse/50 absolute inset-0 bg-gradient-to-t to-transparent to-40%"
                 />
-                <span className="bg-surface-raised text-content group-hover:bg-content group-hover:text-content-inverse absolute bottom-3 left-3 rounded-full px-3 py-1.5 text-[0.625rem] font-semibold tracking-[0.12em] uppercase transition-colors">
+                <span className="bg-surface-raised text-content group-hover:bg-content group-hover:text-content-inverse absolute bottom-3 left-3 rounded-full px-3 py-1.5 text-xs font-semibold transition-colors">
                   {t('home.looks.shop')}
                 </span>
               </span>
-              <span className="mt-3 block text-[0.6875rem] font-semibold tracking-[0.14em] uppercase group-hover:underline group-hover:underline-offset-4">
+              <span className="mt-3 block text-[0.8125rem] font-semibold group-hover:underline group-hover:underline-offset-4">
                 {product.title}
               </span>
               <span className="text-content-muted mt-1 block text-sm">

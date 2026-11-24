@@ -239,7 +239,7 @@ export function StoreMap({ stores, selectedId, onSelect, view, onViewChange, cla
               href={directionsUrl(selected.store)}
               target="_blank"
               rel="noreferrer"
-              className="mt-3 inline-flex items-center gap-1.5 text-[0.6875rem] font-semibold tracking-[0.12em] uppercase underline underline-offset-4"
+              className="mt-3 inline-flex items-center gap-1.5 text-[0.8125rem] font-semibold underline underline-offset-4"
             >
               <FiNavigation aria-hidden="true" className="size-3.5" />
               {t('stores.directions')}

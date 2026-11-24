@@ -32,7 +32,7 @@ export function SectionHeader({ id, title, eyebrow, link, isInverse = false, cla
       {link && (
         <Link
           to={link.to}
-          className="mt-4 inline-block text-[0.6875rem] font-semibold tracking-[0.16em] uppercase underline underline-offset-[6px] transition-opacity hover:opacity-60"
+          className="mt-4 inline-block text-[0.8125rem] font-semibold underline underline-offset-[6px] transition-opacity hover:opacity-60"
         >
           {link.label}
         </Link>

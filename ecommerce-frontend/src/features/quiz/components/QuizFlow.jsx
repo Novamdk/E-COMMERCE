@@ -161,7 +161,7 @@ export function QuizFlow({ quiz, products, initialAnswers = {} }) {
 
                 {step.tip && (
                   <div className="mt-10 max-w-sm">
-                    <p className="text-[0.6875rem] font-bold tracking-[0.14em] uppercase">
+                    <p className="text-[0.8125rem] font-bold">
                       {t('quiz.proTip')}
                     </p>
                     <p className="mt-2 text-sm font-semibold">{t(step.tip.title)}</p>
@@ -179,7 +179,7 @@ export function QuizFlow({ quiz, products, initialAnswers = {} }) {
           <button
             type="button"
             onClick={() => setStepIndex((index) => index - 1)}
-            className="mt-10 inline-flex items-center gap-1 self-start text-[0.6875rem] font-semibold tracking-[0.14em] uppercase underline-offset-4 hover:underline"
+            className="mt-10 inline-flex items-center gap-1 self-start text-[0.8125rem] font-semibold underline-offset-4 hover:underline"
           >
             <FiChevronLeft aria-hidden="true" className="size-4" />
             {t('quiz.back')}

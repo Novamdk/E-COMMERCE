@@ -25,7 +25,7 @@ export function ShopByCategory() {
         </h2>
         <Link
           to={ROUTES.SHOP}
-          className="border-content hover:bg-content hover:text-content-inverse rounded-full border px-4 py-2 text-[0.6875rem] font-semibold tracking-[0.14em] uppercase transition-colors"
+          className="border-content hover:bg-content hover:text-content-inverse rounded-full border px-4 py-2 text-[0.8125rem] font-semibold transition-colors"
         >
           {t('home.categories.all')}
         </Link>
@@ -42,7 +42,7 @@ export function ShopByCategory() {
                 ratio="aspect-[4/5]"
                 imgClassName="transition-transform duration-1000 ease-out-soft group-hover:scale-[1.04]"
               />
-              <span className="bg-surface-raised text-content group-hover:bg-content group-hover:text-content-inverse absolute bottom-4 left-4 rounded-full px-4 py-2 text-[0.6875rem] font-semibold tracking-[0.14em] uppercase shadow-sm transition-colors sm:bottom-6 sm:left-6">
+              <span className="bg-surface-raised text-content group-hover:bg-content group-hover:text-content-inverse absolute bottom-4 left-4 rounded-full px-4 py-2 text-[0.8125rem] font-semibold shadow-sm transition-colors sm:bottom-6 sm:left-6">
                 {t(tile.label)}
               </span>
             </Link>

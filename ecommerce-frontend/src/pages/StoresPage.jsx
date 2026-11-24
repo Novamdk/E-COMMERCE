@@ -137,7 +137,7 @@ export default function StoresPage() {
               aria-pressed={panel === item}
               onClick={() => setPanel(item)}
               className={cn(
-                'h-11 text-[0.6875rem] font-semibold tracking-[0.16em] uppercase transition-colors',
+                'h-11 text-[0.8125rem] font-semibold transition-colors',
                 panel === item ? 'bg-content text-content-inverse' : 'bg-white',
               )}
             >
